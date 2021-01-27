@@ -72,6 +72,8 @@ public class CarrotRifle extends ModWeapons {
 
             ItemStack ammoStack = ((PlayerEntity) player).inventory.getStackInSlot(((PlayerEntity) player).inventory.getSlotFor(new ItemStack(Items.CARROT)));
 
+            //using this to test commit
+
             // use an ammo
             if(!((PlayerEntity) player).isCreative()){
                 ammoStack.shrink(1);
