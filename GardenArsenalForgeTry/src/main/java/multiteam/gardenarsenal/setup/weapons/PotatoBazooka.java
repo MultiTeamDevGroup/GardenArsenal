@@ -83,7 +83,7 @@ public class PotatoBazooka extends ModWeapons {
                         }
                     }
 
-                    // use an arrow
+                    // use an ammo
                     if(!playerentity.isCreative()){
                         ammoStack.shrink(1);
                         if (ammoStack.isEmpty()) {

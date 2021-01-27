@@ -1,5 +1,6 @@
 package multiteam.gardenarsenal.setup;
 
+import multiteam.gardenarsenal.GardenArsenalMod;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -23,7 +24,7 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<T> register(String name_, Supplier<T> block_){
         RegistryObject<T> ret = registerNoItem(name_, block_);
-        Registration.ITEMS.register(name_, () -> new BlockItem(ret.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+        Registration.ITEMS.register(name_, () -> new BlockItem(ret.get(), new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
         return ret;
     }
 }
