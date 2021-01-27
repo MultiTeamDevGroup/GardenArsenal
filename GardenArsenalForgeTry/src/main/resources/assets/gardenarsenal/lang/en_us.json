@@ -1,0 +1,19 @@
+{
+  "itemGroup.garden_arsenal_weapons_tab": "Garden Arsenal - Weapons",
+  "itemGroup.garden_arsenal_misc_tab": "Garden Arsenal - Misc",
+
+  "GARDEN ARSENAL ITEMS": "ITEMS",
+  "item.gardenarsenal.iron_rod": "Iron Rod",
+  "item.gardenarsenal.cocoa_beans_shell": "Cocoa Beans Shell",
+
+  "GARDEN ARSENAL WEAPONS": "WEAPONS",
+  "item.gardenarsenal.carrot_rifle": "Carrot Rifle",
+  "tooltip.gardenarsenal.carrot_rifle_desc": "§6Rapidly fires carrots",
+  "tooltip.gardenarsenal.carrot_rifle_skintype": "§2Default Skin",
+  "item.gardenarsenal.potato_bazooka": "Potato Bazooka",
+  "tooltip.gardenarsenal.potato_bazooka_desc": "§eFires explosive potatoes",
+  "tooltip.gardenarsenal.potato_bazooka_skintype": "§2Default Skin",
+
+  "GARDEN ARSENAL BLOCKS": "BLOCKS",
+  "block.gardenarsenal.machine_block": "Machine Block"
+}
