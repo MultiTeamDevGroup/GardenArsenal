@@ -1,14 +1,14 @@
 package multiteam.gardenarsenal.setup.weapons;
 
+import multiteam.gardenarsenal.setup.ModItems;
 import multiteam.gardenarsenal.setup.ModWeapons;
-import multiteam.gardenarsenal.setup.entitys.projectiles.ProjectileExplosivePotato;
+import multiteam.gardenarsenal.setup.entitys.projectiles.ProjectileShotgunShell;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.stats.Stats;
@@ -16,15 +16,14 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class PotatoBazooka extends ModWeapons {
-    public PotatoBazooka(Properties builder) {
+public class CocoaShotgun extends ModWeapons {
+    public CocoaShotgun(Properties builder) {
         super(builder);
     }
 
@@ -38,15 +37,14 @@ public class PotatoBazooka extends ModWeapons {
     @Override
     public Predicate<ItemStack> getInventoryAmmoPredicate() {
         return (ammoStack) -> {
-            return ammoStack.getItem() == Items.POTATO;
+            return ammoStack.getItem() == ModItems.COCOA_BEANS_SHELL.get();
         };
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.potato_bazooka_desc"));
-        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.potato_bazooka_skintype"));
+        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.cocoa_bean_shotgun_desc"));
     }
 
     @Override
@@ -66,11 +64,16 @@ public class PotatoBazooka extends ModWeapons {
                 if (!((double)velocity < 0.1D)) {
                     if (!worldIn.isRemote) {
 
-                        ProjectileExplosivePotato weaponProjectile = new ProjectileExplosivePotato(worldIn, playerentity);
-                        weaponProjectile.setItem(new ItemStack(Items.POTATO));
-                        weaponProjectile.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, 2.0F, 1.0F);
-                        worldIn.addEntity(weaponProjectile);
-                        worldIn.playSound((PlayerEntity)null, playerentity.getPosX(), playerentity.getPosY(), playerentity.getPosZ(), SoundEvents.ENTITY_FIREWORK_ROCKET_LAUNCH, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                        for (int x = -1; x < 2; x++){
+                            for (int y = -1; y < 2; y++){
+                                ProjectileShotgunShell weaponProjectile = new ProjectileShotgunShell(worldIn, playerentity);
+                                weaponProjectile.setItem(new ItemStack(Items.COCOA_BEANS));
+                                weaponProjectile.func_234612_a_(playerentity, playerentity.rotationPitch+x*3, playerentity.rotationYaw+y*2, 0.0F, 2.0F, 1.0F);
+                                worldIn.addEntity(weaponProjectile);
+                            }
+                        }
+
+                        worldIn.playSound((PlayerEntity)null, playerentity.getPosX(), playerentity.getPosY(), playerentity.getPosZ(), SoundEvents.ENTITY_FIREWORK_ROCKET_LARGE_BLAST_FAR, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
                         // reduce bow durability
                         bowStack.damageItem(1, playerentity, (p_220009_1_) -> {

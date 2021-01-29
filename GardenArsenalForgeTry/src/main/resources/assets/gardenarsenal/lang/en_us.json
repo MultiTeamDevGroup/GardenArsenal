@@ -26,8 +26,10 @@
   "tooltip.gardenarsenal.carrot_rifle_desc": "§6Rapidly fires carrots",
   "tooltip.gardenarsenal.carrot_rifle_skintype": "§2Default Skin",
   "item.gardenarsenal.potato_bazooka": "Potato Bazooka",
-  "tooltip.gardenarsenal.potato_bazooka_desc": "§eFires explosive potatoes",
+  "tooltip.gardenarsenal.potato_bazooka_desc": "§eFires §lexplosive §r§epotatoes",
   "tooltip.gardenarsenal.potato_bazooka_skintype": "§2Default Skin",
+  "item.gardenarsenal.cocoa_bean_shotgun": "Cocoa Bean Shotgun",
+  "tooltip.gardenarsenal.cocoa_bean_shotgun_desc": "§9Fires several bullets at once",
 
   "GARDEN ARSENAL BLOCKS": "BLOCKS",
   "block.gardenarsenal.machine_block": "Machine Block"
