@@ -46,7 +46,6 @@ public class PotatoBazooka extends ModWeapons {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
         tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.potato_bazooka_desc"));
-        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.potato_bazooka_skintype"));
     }
 
     @Override

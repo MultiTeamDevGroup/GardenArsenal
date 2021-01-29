@@ -1,10 +1,7 @@
 package multiteam.gardenarsenal.setup;
 
 import multiteam.gardenarsenal.GardenArsenalMod;
-import multiteam.gardenarsenal.setup.weapons.CarrotRifle;
-import multiteam.gardenarsenal.setup.weapons.CocoaShotgun;
-import multiteam.gardenarsenal.setup.weapons.PotatoBazooka;
-import multiteam.gardenarsenal.setup.weapons.SeedPistol;
+import multiteam.gardenarsenal.setup.weapons.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -20,6 +17,7 @@ public class ModItems {
     public static final RegistryObject<Item> POTATO_BAZOOKA = Registration.ITEMS.register("potato_bazooka", () -> new PotatoBazooka(new Item.Properties().maxDamage(500).group(GardenArsenalMod.GARDEN_ARSENAL_WEAPONS_TAB)));
     public static final RegistryObject<Item> COCOA_BEAN_SHOTGUN = Registration.ITEMS.register("cocoa_bean_shotgun", () -> new CocoaShotgun(new Item.Properties().maxDamage(500).group(GardenArsenalMod.GARDEN_ARSENAL_WEAPONS_TAB)));
     public static final RegistryObject<Item> SEED_PISTOL = Registration.ITEMS.register("seed_pistol", () -> new SeedPistol(new Item.Properties().maxDamage(500).group(GardenArsenalMod.GARDEN_ARSENAL_WEAPONS_TAB)));
+    public static final RegistryObject<Item> SUGAR_CANE_SNIPER = Registration.ITEMS.register("sugar_cane_sniper", () -> new SugarcaneSniper(new Item.Properties().maxDamage(500).group(GardenArsenalMod.GARDEN_ARSENAL_WEAPONS_TAB)));
 
 
     //SkinCards

@@ -20,6 +20,7 @@ import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 
@@ -87,15 +88,17 @@ public class CarrotRifle extends ModWeapons {
             worldIn.playSound((PlayerEntity)null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_ANCIENT_DEBRIS_HIT, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
             timeR = 0;
 
-            // use an ammo
+            // use an ammo and damage the item
             if(!((PlayerEntity) player).isCreative()){
                 ItemStack ammoStack = ((PlayerEntity) player).inventory.getStackInSlot(((PlayerEntity) player).inventory.getSlotFor(new ItemStack(Items.CARROT)));
                 ammoStack.shrink(1);
                 if (ammoStack.isEmpty()) {
                     ((PlayerEntity) player).inventory.deleteStack(ammoStack);
                 }
-            }
-            
+                //Damage the item, but im dumb.
+                // this.damageItem(1, player, player);
+              }
+
         }
         timeR++;
     }
