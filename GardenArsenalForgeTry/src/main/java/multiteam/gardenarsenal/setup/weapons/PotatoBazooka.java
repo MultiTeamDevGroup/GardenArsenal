@@ -1,6 +1,7 @@
 package multiteam.gardenarsenal.setup.weapons;
 
 import multiteam.gardenarsenal.setup.ModWeapons;
+import multiteam.gardenarsenal.setup.entitys.projectiles.ProjectileExplosivePotato;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -26,8 +27,6 @@ public class PotatoBazooka extends ModWeapons {
     public PotatoBazooka(Properties builder) {
         super(builder);
     }
-
-
 
     @Override
     protected double getArrowDamage(ItemStack bowStack, AbstractArrowEntity arrowEntity) {
@@ -67,10 +66,10 @@ public class PotatoBazooka extends ModWeapons {
                 if (!((double)velocity < 0.1D)) {
                     if (!worldIn.isRemote) {
 
-                        SnowballEntity snowballentity = new SnowballEntity(worldIn, playerentity);
-                        snowballentity.setItem(new ItemStack(Items.POTATO));
-                        snowballentity.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, 2.0F, 1.0F);
-                        worldIn.addEntity(snowballentity);
+                        ProjectileExplosivePotato weaponProjectile = new ProjectileExplosivePotato(worldIn, playerentity);
+                        weaponProjectile.setItem(new ItemStack(Items.POTATO));
+                        weaponProjectile.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, 2.0F, 1.0F);
+                        worldIn.addEntity(weaponProjectile);
                         worldIn.playSound((PlayerEntity)null, playerentity.getPosX(), playerentity.getPosY(), playerentity.getPosZ(), SoundEvents.ENTITY_FIREWORK_ROCKET_LAUNCH, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
                         // reduce bow durability
@@ -78,8 +77,8 @@ public class PotatoBazooka extends ModWeapons {
                             p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
                         });
 
-                        if(snowballentity.isOnGround()){
-                            worldIn.createExplosion(null, snowballentity.getPosX() + 0.5D, snowballentity.getPosY() + 0.5D, snowballentity.getPosZ() + 0.5D, 1, Explosion.Mode.DESTROY);
+                        if(weaponProjectile.isOnGround()){
+                            worldIn.createExplosion(null, weaponProjectile.getPosX() + 0.5D, weaponProjectile.getPosY() + 0.5D, weaponProjectile.getPosZ() + 0.5D, 1, Explosion.Mode.DESTROY);
                         }
                     }
 

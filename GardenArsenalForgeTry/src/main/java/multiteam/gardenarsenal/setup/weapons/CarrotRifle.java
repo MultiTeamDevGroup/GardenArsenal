@@ -1,7 +1,6 @@
 package multiteam.gardenarsenal.setup.weapons;
 
 import multiteam.gardenarsenal.setup.ModWeapons;
-import multiteam.gardenarsenal.setup.entitys.TorchArrowEntity;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -9,17 +8,15 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
-import net.minecraft.item.ArrowItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.Explosion;
+import net.minecraft.util.text.*;
 import net.minecraft.world.World;
-import sun.security.mscapi.CPublicKey;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -44,7 +41,6 @@ public class CarrotRifle extends ModWeapons {
     public Predicate<ItemStack> getInventoryAmmoPredicate() {
         return (ammoStack) -> {
             return ammoStack.getItem() == Items.CARROT;
-
         };
     }
 
@@ -52,9 +48,22 @@ public class CarrotRifle extends ModWeapons {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
         tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.carrot_rifle_desc"));
-        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.carrot_rifle_skintype"));
+
+        CompoundNBT nbtTagCompound = stack.getTag();
+
+        if (nbtTagCompound == null){
+            nbtTagCompound = new CompoundNBT();
+            stack.setTag(nbtTagCompound);
+        }
+
+        nbtTagCompound.putString("skinType", "Default");
+
+        // idk why this doesnt work
+        // tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).setStyle(new Style().setColor(TextFormatting.DARK_GREEN)));
     }
+
     int timeR = 0;
+
     @Override
     public void onUsingTick(ItemStack stack, LivingEntity player, int count) {
         if (!(player instanceof PlayerEntity)) {
@@ -71,8 +80,6 @@ public class CarrotRifle extends ModWeapons {
             timeR = 0;
 
             ItemStack ammoStack = ((PlayerEntity) player).inventory.getStackInSlot(((PlayerEntity) player).inventory.getSlotFor(new ItemStack(Items.CARROT)));
-
-            //using this to test commit
 
             // use an ammo
             if(!((PlayerEntity) player).isCreative()){

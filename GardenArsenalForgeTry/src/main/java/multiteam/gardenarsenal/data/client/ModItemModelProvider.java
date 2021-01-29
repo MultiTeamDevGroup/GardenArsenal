@@ -20,6 +20,23 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         builder(itemGenerated, "iron_rod");
         builder(itemGenerated, "cocoa_beans_shell");
+
+        //skin cards
+        builder(itemGenerated, "skin_card_camo_desert");
+        builder(itemGenerated, "skin_card_camo_end");
+        builder(itemGenerated, "skin_card_camo_forest");
+        builder(itemGenerated, "skin_card_camo_frost");
+        builder(itemGenerated, "skin_card_camo_nether");
+        builder(itemGenerated, "skin_card_metalic_gold");
+        builder(itemGenerated, "skin_card_metalic_iron");
+        builder(itemGenerated, "skin_card_metalic_netherite");
+        builder(itemGenerated, "skin_card_seasonal_christmas");
+        builder(itemGenerated, "skin_card_seasonal_halloween");
+        builder(itemGenerated, "skin_card_special_aquatic");
+        builder(itemGenerated, "skin_card_special_neon");
+        builder(itemGenerated, "skin_card_teams_mcabnormals");
+        builder(itemGenerated, "skin_card_teams_multiteam");
+        builder(itemGenerated, "skin_card_teams_vampirestudios");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
