@@ -2,13 +2,13 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "new assets:gun/Base Gun Textures/gunmetal_light",
-		"2": "new assets:gun/Base Gun Textures/empty",
-		"3": "new assets:gun/Base Gun Textures/gunmetal_base",
-		"4": "new assets:gun/Base Gun Textures/gunmetal_color_material",
-		"5": "new assets:gun/Base Gun Textures/gunmetal_dark",
-		"6": "new assets:decals/skin_stickers",
-		"particle": "new assets:decals/skin_stickers"
+		"1": "gardenarsenal:gun/gunmetal_light",
+		"2": "gardenarsenal:gun/empty",
+		"3": "gardenarsenal:gun/gunmetal_base",
+		"4": "gardenarsenal:gun/gunmetal_color_material",
+		"5": "gardenarsenal:gun/gunmetal_dark",
+		"6": "gardenarsenal:decals/skin_stickers",
+		"particle": "gardenarsenal:gun/empty"
 	},
 	"elements": [
 		{
@@ -375,8 +375,8 @@
 			"scale": [1.15, 1.15, 1.15]
 		},
 		"fixed": {
-			"rotation": [0, -90, 0],
-			"translation": [-0.5, 0, -1.5]
+			"rotation": [-25.5, 90, 0],
+			"translation": [-2.25, 0, -5]
 		}
 	},
 	"groups": [

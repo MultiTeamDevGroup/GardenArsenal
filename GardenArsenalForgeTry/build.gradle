@@ -102,6 +102,8 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-1.16.4:7.6.0.62:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:7.6.0.62")
+
+    implementation fg.deobf("curse.maven:TestDummy-225738:3083395")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
@@ -146,5 +148,8 @@ repositories {
     maven {
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
+    }
+    maven {
+        url "https://www.cursemaven.com"
     }
 }

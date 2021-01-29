@@ -1,7 +1,6 @@
 package multiteam.gardenarsenal.setup.entitys.projectiles;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.monster.BlazeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
@@ -21,7 +20,7 @@ public class WeaponProjectile extends SnowballEntity {
     protected void onEntityHit(EntityRayTraceResult p_213868_1_) {
         super.onEntityHit(p_213868_1_);
         Entity entity = p_213868_1_.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
+        int i = BuletDamage;
         entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), (float)i);
     }
 

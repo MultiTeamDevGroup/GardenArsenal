@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"3": "new assets:gun/Base Gun Textures/gunmetal_base",
-		"4": "new assets:gun/Base Gun Textures/gunmetal_color_material",
-		"5": "new assets:gun/Base Gun Textures/gunmetal_dark"
+		"3": "gardenarsenal:gun/gunmetal_base",
+		"4": "gardenarsenal:gun/gunmetal_color_material",
+		"5": "gardenarsenal:gun/gunmetal_dark"
 	},
 	"elements": [
 		{
@@ -209,8 +209,7 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [55.5, 0, 0],
-			"translation": [0.65, 2.5, 0.5],
+			"translation": [0.65, 0.75, 1.25],
 			"scale": [0.9, 0.9, 0.9]
 		},
 		"thirdperson_lefthand": {
@@ -237,8 +236,8 @@
 			"translation": [0.5, 8, 5.75]
 		},
 		"fixed": {
-			"rotation": [0, -90, 0],
-			"translation": [-5, 0, -3]
+			"rotation": [0, 90, 0],
+			"translation": [5, 0, -3]
 		}
 	}
 }

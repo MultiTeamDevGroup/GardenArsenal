@@ -67,6 +67,7 @@ public class CocoaShotgun extends ModWeapons {
                         for (int x = -1; x < 2; x++){
                             for (int y = -1; y < 2; y++){
                                 ProjectileShotgunShell weaponProjectile = new ProjectileShotgunShell(worldIn, playerentity);
+                                weaponProjectile.BuletDamage = 6;
                                 weaponProjectile.setItem(new ItemStack(Items.COCOA_BEANS));
                                 weaponProjectile.func_234612_a_(playerentity, playerentity.rotationPitch+x*3, playerentity.rotationYaw+y*2, 0.0F, 2.0F, 1.0F);
                                 worldIn.addEntity(weaponProjectile);

@@ -32,7 +32,7 @@ public class ProjectileExplosivePotato extends WeaponProjectile{
     protected void onEntityHit(EntityRayTraceResult p_213868_1_) {
         super.onEntityHit(p_213868_1_);
         Entity entity = p_213868_1_.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
+        int i = BuletDamage;
         entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), (float)i);
         this.world.createExplosion(null, entity.getPosX() + 1D, entity.getPosY() + 1D, entity.getPosZ() + 1D, 3, Explosion.Mode.BREAK);
     }

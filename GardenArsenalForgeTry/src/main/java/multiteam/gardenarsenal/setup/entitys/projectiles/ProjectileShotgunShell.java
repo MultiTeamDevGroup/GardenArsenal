@@ -18,7 +18,6 @@ public class ProjectileShotgunShell extends WeaponProjectile{
     protected void onImpact(RayTraceResult result) {
         super.onImpact(result);
         if (!this.world.isRemote) {
-
             this.world.setEntityState(this, (byte)3);
             this.remove();
         }
@@ -29,7 +28,7 @@ public class ProjectileShotgunShell extends WeaponProjectile{
     protected void onEntityHit(EntityRayTraceResult p_213868_1_) {
         super.onEntityHit(p_213868_1_);
         Entity entity = p_213868_1_.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
+        int i = BuletDamage;
         entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), (float)i);
 
     }

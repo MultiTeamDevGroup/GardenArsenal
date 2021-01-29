@@ -29,7 +29,9 @@
   "tooltip.gardenarsenal.potato_bazooka_desc": "§eFires §lexplosive §r§epotatoes",
   "tooltip.gardenarsenal.potato_bazooka_skintype": "§2Default Skin",
   "item.gardenarsenal.cocoa_bean_shotgun": "Cocoa Bean Shotgun",
-  "tooltip.gardenarsenal.cocoa_bean_shotgun_desc": "§9Fires several bullets at once",
+  "tooltip.gardenarsenal.cocoa_bean_shotgun_desc": "§9Fires several beans at once",
+  "item.gardenarsenal.seed_pistol": "Wheat-Seed Pistol",
+  "tooltip.gardenarsenal.seed_pistol_desc": "§2Shoots seeds",
 
   "GARDEN ARSENAL BLOCKS": "BLOCKS",
   "block.gardenarsenal.machine_block": "Machine Block"
