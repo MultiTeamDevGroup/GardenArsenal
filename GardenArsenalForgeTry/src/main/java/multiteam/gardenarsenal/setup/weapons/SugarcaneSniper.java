@@ -16,6 +16,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -63,10 +64,12 @@ public class SugarcaneSniper extends ModWeapons {
                 if (!((double)velocity < 0.1D)) {
                     if (!worldIn.isRemote) {
 
+
+
                         ProjectileShotgunShell weaponProjectile = new ProjectileShotgunShell(worldIn, playerentity);
                         weaponProjectile.BuletDamage = 10;
                         weaponProjectile.setItem(new ItemStack(Items.SUGAR_CANE));
-                        weaponProjectile.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, 8.0F, 0.1F);  // pontatlanásg, velocity, idk
+                        weaponProjectile.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, 8.0F, 1.0F);  // pontatlanásg, velocity, idk
                         worldIn.addEntity(weaponProjectile);
 
                         worldIn.playSound((PlayerEntity)null, playerentity.getPosX(), playerentity.getPosY(), playerentity.getPosZ(), SoundEvents.ENTITY_FIREWORK_ROCKET_BLAST_FAR, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));

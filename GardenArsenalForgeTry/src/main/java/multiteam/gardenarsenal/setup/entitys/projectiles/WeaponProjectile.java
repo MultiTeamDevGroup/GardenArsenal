@@ -1,7 +1,6 @@
 package multiteam.gardenarsenal.setup.entitys.projectiles;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.BlazeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.util.DamageSource;

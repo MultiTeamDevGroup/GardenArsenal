@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "8 1.16 vanilla:item/potato",
-		"particle": "8 1.16 vanilla:item/potato"
+		"1": "minecraft:item/potato",
+		"particle": "minecraft:item/potato"
 	},
 	"elements": [
 		{

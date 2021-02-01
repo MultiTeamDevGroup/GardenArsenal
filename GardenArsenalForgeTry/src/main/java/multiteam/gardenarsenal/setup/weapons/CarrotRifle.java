@@ -1,5 +1,6 @@
 package multiteam.gardenarsenal.setup.weapons;
 
+import multiteam.gardenarsenal.setup.ModItems;
 import multiteam.gardenarsenal.setup.ModWeapons;
 import multiteam.gardenarsenal.setup.entitys.projectiles.WeaponProjectile;
 import net.minecraft.client.util.ITooltipFlag;
@@ -82,7 +83,7 @@ public class CarrotRifle extends ModWeapons {
 
             WeaponProjectile weaponProjectile = new WeaponProjectile(worldIn, (PlayerEntity) player);
             weaponProjectile.BuletDamage = 4;
-            weaponProjectile.setItem(new ItemStack(Items.CARROT));
+            weaponProjectile.setItem(new ItemStack(ModItems.PROJECTILE_CARROT.get()));
             weaponProjectile.func_234612_a_(player, player.rotationPitch, player.rotationYaw, 0.0F, 2.0F, 1.0F);
             worldIn.addEntity(weaponProjectile);
             worldIn.playSound((PlayerEntity)null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_ANCIENT_DEBRIS_HIT, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));

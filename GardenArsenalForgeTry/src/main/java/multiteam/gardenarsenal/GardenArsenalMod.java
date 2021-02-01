@@ -27,7 +27,7 @@ public class GardenArsenalMod {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public static final ModItemGroup GARDEN_ARSENAL_WEAPONS_TAB = new ModItemGroup("garden_arsenal_weapons_tab", () -> new ItemStack(ModItems.CARROT_RIFLE.get()));
-    public static final ModItemGroup GARDEN_ARSENAL_MISC_TAB = new ModItemGroup("garden_arsenal_misc_tab", () -> new ItemStack(ModBlocks.MACHINE_BLOCK.get()));
+    public static final ModItemGroup GARDEN_ARSENAL_MISC_TAB = new ModItemGroup("garden_arsenal_misc_tab", () -> new ItemStack(ModItems.PROJECTILE_CARROT.get()));
 
     public GardenArsenalMod() {
 

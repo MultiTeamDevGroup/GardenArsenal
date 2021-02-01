@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "8 1.16 vanilla:item/beetroot",
-		"particle": "8 1.16 vanilla:item/beetroot"
+		"0": "minecraft:item/beetroot",
+		"particle": "minecraft:item/beetroot"
 	},
 	"elements": [
 		{
