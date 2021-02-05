@@ -1,13 +1,13 @@
 package multiteam.gardenarsenal.setup;
 
 import multiteam.gardenarsenal.GardenArsenalMod;
+import multiteam.gardenarsenal.setup.blocks.TrapCake;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 
 import java.util.function.Supplier;
@@ -15,6 +15,8 @@ import java.util.function.Supplier;
 public class ModBlocks {
 
     public static final RegistryObject<Block> MACHINE_BLOCK = register("machine_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(6, 6).harvestLevel(2).sound(SoundType.NETHERITE)));
+    public static final RegistryObject<Block> TRAP_CAKE = register("trap_cake", () -> new TrapCake(AbstractBlock.Properties.create(Material.CAKE).sound(SoundType.CLOTH).hardnessAndResistance(0.5F)));
+
 
     static void register() {}
 
