@@ -12,10 +12,13 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
@@ -46,7 +49,18 @@ public class PotatoBazooka extends ModWeapons {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.potato_bazooka_desc"));
+        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.potato_bazooka_desc").copyRaw().mergeStyle(TextFormatting.YELLOW));
+
+        CompoundNBT nbtTagCompound = stack.getTag();
+
+        if (nbtTagCompound == null){
+            nbtTagCompound = new CompoundNBT();
+            stack.setTag(nbtTagCompound);
+        }
+
+        nbtTagCompound.putString("skinType", "Default");
+
+        tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
     }
 
     @Override

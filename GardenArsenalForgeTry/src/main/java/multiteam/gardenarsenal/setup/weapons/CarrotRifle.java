@@ -16,12 +16,10 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.*;
 import net.minecraft.world.World;
-import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 
@@ -49,7 +47,8 @@ public class CarrotRifle extends ModWeapons {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.carrot_rifle_desc"));
+
+        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.carrot_rifle_desc").copyRaw().mergeStyle(TextFormatting.GOLD));
 
         CompoundNBT nbtTagCompound = stack.getTag();
 
@@ -60,8 +59,7 @@ public class CarrotRifle extends ModWeapons {
 
         nbtTagCompound.putString("skinType", "Default");
 
-        // idk why this doesnt work
-        // tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).setStyle(new Style().setColor(TextFormatting.DARK_GREEN)));
+        tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
     }
 
     int timeR = 0;

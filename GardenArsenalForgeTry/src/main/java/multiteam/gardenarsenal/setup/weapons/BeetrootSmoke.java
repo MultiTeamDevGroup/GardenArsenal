@@ -10,11 +10,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.util.text.*;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -31,6 +31,24 @@ public class BeetrootSmoke extends ModWeapons {
         int powerLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, bowStack);
 
         return (double)powerLevel * 0.5D + 0.5D;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.beetroot_smoke_desc").copyRaw().mergeStyle(TextFormatting.DARK_RED));
+
+        CompoundNBT nbtTagCompound = stack.getTag();
+
+        if (nbtTagCompound == null){
+            nbtTagCompound = new CompoundNBT();
+            stack.setTag(nbtTagCompound);
+        }
+
+        nbtTagCompound.putString("skinType", "Default");
+
+          tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
+        //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
     }
 
     @Override
@@ -58,7 +76,7 @@ public class BeetrootSmoke extends ModWeapons {
                     if (!worldIn.isRemote) {
 
                         ProjectileBeetrootSmoke weaponProjectile = new ProjectileBeetrootSmoke(worldIn, playerentity);
-                        weaponProjectile.BuletDamage = 2;
+                        weaponProjectile.BuletDamage = 0;
                         weaponProjectile.setItem(new ItemStack(ModItems.BEETROOT_SMOKE.get()));
                         weaponProjectile.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, 2.0F, 1.0F);
                         worldIn.addEntity(weaponProjectile);

@@ -10,10 +10,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
@@ -44,7 +47,18 @@ public class SugarcaneSniper extends ModWeapons {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.sugar_cane_sniper_desc"));
+        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.sugar_cane_sniper_desc").copyRaw().mergeStyle(TextFormatting.GREEN));
+
+        CompoundNBT nbtTagCompound = stack.getTag();
+
+        if (nbtTagCompound == null){
+            nbtTagCompound = new CompoundNBT();
+            stack.setTag(nbtTagCompound);
+        }
+
+        nbtTagCompound.putString("skinType", "Default");
+
+        tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
     }
 
     @Override

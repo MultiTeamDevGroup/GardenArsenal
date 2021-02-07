@@ -1,17 +1,26 @@
 package multiteam.gardenarsenal.setup.entitys.projectiles;
 
-import net.minecraft.block.Block;
+import multiteam.gardenarsenal.setup.entitys.misc.BeetrootLingeringSmoke;
+import multiteam.gardenarsenal.setup.weapons.BeetrootSmoke;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particles.BasicParticleType;
 import net.minecraft.particles.BlockParticleData;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
+
+import java.util.Random;
 
 public class ProjectileBeetrootSmoke extends WeaponProjectile{
 
@@ -19,45 +28,22 @@ public class ProjectileBeetrootSmoke extends WeaponProjectile{
         super(p_i50159_1_, p_i50159_2_);
     }
 
-    public int despTimer = 0;
-    boolean isImpactedOnce = false;
 
     @Override
     protected void onImpact(RayTraceResult result) {
-        if (!this.world.isRemote) {
-            isImpactedOnce = true;
-        }
-        for (int x = 0; x < 3; x++){
-            for (int y = 0; y < 3; y++){
-                for (int z = 0; z < 3; z++){
-                    this.world.addParticle(new BlockParticleData(ParticleTypes.BLOCK, Blocks.DIRT.getDefaultState()), this.getPosX(), this.getPosY(), this.getPosZ(), x, y, z);
-                    //this above does not spawn particles, and i have no idea why. sad moment.
-                }
-            }
-        }
-
         super.onImpact(result);
-    }
-
-    @Override
-    public void onAddedToWorld() {
-        super.onAddedToWorld();
-    }
-
-
-    @Override
-    public void tick() {
-        this.world.addParticle(new BlockParticleData(ParticleTypes.BLOCK, Blocks.DIRT.getDefaultState()), this.getPosX(), this.getPosY(), this.getPosZ(), 1, 1, 1);
-        if(isImpactedOnce){
-            despTimer++;
-        }
-
-        if (despTimer >= 3600){
+        if (!this.world.isRemote) {
+            spawnSmokeParticles((World)world, this.getPosition(), false, true);
+            AreaEffectCloudEntity smokeCloud = new AreaEffectCloudEntity(EntityType.AREA_EFFECT_CLOUD,world);
+            smokeCloud.setPosition(this.getPosX(), this.getPosY(), this.getPosZ());
+            smokeCloud.setRadius(5.0F);
+            smokeCloud.setParticleData(ParticleTypes.CAMPFIRE_COSY_SMOKE);
+            smokeCloud.setPotion(new Potion(new EffectInstance(Effects.BLINDNESS, 1200)));
+            world.addEntity(smokeCloud);
             this.world.setEntityState(this, (byte)3);
             this.remove();
         }
 
-        super.tick();
     }
 
     @Override
@@ -66,7 +52,17 @@ public class ProjectileBeetrootSmoke extends WeaponProjectile{
         Entity entity = p_213868_1_.getEntity();
         int i = BuletDamage;
         entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), (float)i);
-        isImpactedOnce = true;
+        spawnSmokeParticles((World)world, this.getPosition(), false, true);
+    }
+
+    public static void spawnSmokeParticles(World worldIn, BlockPos pos, boolean isSignalFire, boolean spawnExtraSmoke) {
+        Random random = worldIn.getRandom();
+        BasicParticleType basicparticletype = isSignalFire ? ParticleTypes.CAMPFIRE_SIGNAL_SMOKE : ParticleTypes.CAMPFIRE_COSY_SMOKE;
+        worldIn.addOptionalParticle(basicparticletype, true, (double)pos.getX() + 0.5D + random.nextDouble() / 3.0D * (double)(random.nextBoolean() ? 1 : -1), (double)pos.getY() + random.nextDouble() + random.nextDouble(), (double)pos.getZ() + 0.5D + random.nextDouble() / 3.0D * (double)(random.nextBoolean() ? 1 : -1), 0.0D, 0.07D, 0.0D);
+        if (spawnExtraSmoke) {
+            worldIn.addParticle(ParticleTypes.SMOKE, (double)pos.getX() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), (double)pos.getY() + 0.4D, (double)pos.getZ() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), 0.0D, 0.005D, 0.0D);
+        }
+
     }
 
 }

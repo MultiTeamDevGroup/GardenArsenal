@@ -5,13 +5,14 @@ import multiteam.gardenarsenal.setup.weapons.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 
+
 public class ModItems {
     //Crafting Items
     public static final RegistryObject<Item> IRON_ROD = Registration.ITEMS.register("iron_rod", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
 
     //Ammo Items
     public static final RegistryObject<Item> COCOA_BEANS_SHELL = Registration.ITEMS.register("cocoa_beans_shell", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
-    public static final RegistryObject<Item> POTATO_GRANADE = Registration.ITEMS.register("potato_granade", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_WEAPONS_TAB)));
+    public static final RegistryObject<Item> POTATO_GRANADE = Registration.ITEMS.register("potato_granade", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
     public static final RegistryObject<Item> BEETROOT_SMOKE = Registration.ITEMS.register("beetroot_smoke", () -> new BeetrootSmoke(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_WEAPONS_TAB)));
     public static final RegistryObject<Item> PROJECTILE_CARROT = Registration.ITEMS.register("projectile_carrot", () -> new Item(new Item.Properties()));
 
