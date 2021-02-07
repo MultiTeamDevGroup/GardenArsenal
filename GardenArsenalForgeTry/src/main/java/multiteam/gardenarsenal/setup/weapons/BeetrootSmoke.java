@@ -47,8 +47,8 @@ public class BeetrootSmoke extends ModWeapons {
 
         nbtTagCompound.putString("skinType", "Default");
 
-          tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
-        //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
+        tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
+      //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType"    )).copyRaw().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
     }
 
     @Override
