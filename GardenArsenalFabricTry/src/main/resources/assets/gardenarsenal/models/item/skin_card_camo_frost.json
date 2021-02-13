@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gardenarsenal:item/skin_card_camo_frost"
+  }
+}

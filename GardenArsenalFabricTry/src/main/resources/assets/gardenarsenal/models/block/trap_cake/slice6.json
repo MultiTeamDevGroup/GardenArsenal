@@ -1,0 +1,22 @@
+{
+    "textures": {
+        "particle": "gardenarsenal:block/trap_cake/side",
+        "bottom": "gardenarsenal:block/trap_cake/bottom",
+        "top": "gardenarsenal:block/trap_cake/top",
+        "side": "gardenarsenal:block/trap_cake/side",
+        "inside": "gardenarsenal:block/trap_cake/inner"
+    },
+    "elements": [
+        {   "from": [ 13, 0, 1 ],
+            "to": [ 15, 8, 15 ],
+            "faces": {
+                "down":  { "texture": "#bottom", "cullface": "down" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side" },
+                "south": { "texture": "#side" },
+                "west":  { "texture": "#inside" },
+                "east":  { "texture": "#side" }
+            }
+        }
+    ]
+}
