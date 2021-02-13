@@ -1,6 +1,8 @@
 {
   "itemGroup.garden_arsenal_weapons_tab": "Garden Arsenal - Fegyverek",
   "itemGroup.garden_arsenal_misc_tab": "Garden Arsenal - Egyéb",
+  "itemGroup.gardenarsenal.weapons": "Garden Arsenal - Fegyverek",
+  "itemGroup.gardenarsenal.misc": "Garden Arsenal - Egyéb",
 
   "GARDEN ARSENAL ITEMS": "ITEMS",
   "item.gardenarsenal.iron_rod": "Vas Rúd",

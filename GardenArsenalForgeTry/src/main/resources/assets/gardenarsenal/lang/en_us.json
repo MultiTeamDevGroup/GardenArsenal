@@ -1,6 +1,8 @@
 {
   "itemGroup.garden_arsenal_weapons_tab": "Garden Arsenal - Weapons",
   "itemGroup.garden_arsenal_misc_tab": "Garden Arsenal - Misc",
+  "itemGroup.gardenarsenal.weapons": "Garden Arsenal - Weapons",
+  "itemGroup.gardenarsenal.misc": "Garden Arsenal - Misc",
 
   "GARDEN ARSENAL ITEMS": "ITEMS",
   "item.gardenarsenal.iron_rod": "Iron Rod",
@@ -33,7 +35,7 @@
   "item.gardenarsenal.sugar_cane_sniper": "Sugar Cane Sniper",
   "tooltip.gardenarsenal.sugar_cane_sniper_desc": "Slow and steady wins the race. High precision sugar canes.",
   "item.gardenarsenal.projectile_carrot": "§6Garden Arsenal Carrot",
-  "item.gardenarsenal.potato_granade": "Potato Granade",
+  "item.gardenarsenal.potato_granade": "Potato Grenade",
   "item.gardenarsenal.beetroot_smoke": "Beetroot Smoke",
   "tooltip.gardenarsenal.beetroot_smoke_desc": "Makes a cloud of blindness on impact",
 

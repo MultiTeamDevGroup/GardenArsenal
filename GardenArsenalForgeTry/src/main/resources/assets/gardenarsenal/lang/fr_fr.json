@@ -1,6 +1,8 @@
 {
   "itemGroup.garden_arsenal_weapons_tab": "Garden Arsenal - Armes",
   "itemGroup.garden_arsenal_misc_tab": "Garden Arsenal - Autres",
+  "itemGroup.gardenarsenal.weapons": "Garden Arsenal - Armes",
+  "itemGroup.gardenarsenal.misc": "Garden Arsenal - Autres",
 
   "GARDEN ARSENAL ITEMS": "OBJECTS",
   "item.gardenarsenal.iron_rod": "Bar en fer",
