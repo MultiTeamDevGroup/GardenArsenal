@@ -15,6 +15,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.*;
+import net.minecraft.util.text.Style;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -48,7 +49,10 @@ public class BeetrootSmoke extends ModWeapons {
         nbtTagCompound.putString("skinType", "Default");
 
         tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
-      //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType"    )).copyRaw().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
+
+        //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().setStyle(new Style().setColor(2909434)));
+
+        //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType"    )).copyRaw().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
     }
 
     @Override
@@ -64,6 +68,8 @@ public class BeetrootSmoke extends ModWeapons {
             PlayerEntity playerentity = (PlayerEntity)entityLiving;
             boolean hasInfinity = playerentity.abilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, bowStack) > 0;
             ItemStack ammoStack = playerentity.findAmmo(bowStack);
+
+            playerentity.getCooldownTracker().setCooldown(this, 20);
 
             int timeDrawn = this.getUseDuration(bowStack) - timeLeft;
             timeDrawn = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(bowStack, worldIn, playerentity, timeDrawn, !ammoStack.isEmpty() || hasInfinity);

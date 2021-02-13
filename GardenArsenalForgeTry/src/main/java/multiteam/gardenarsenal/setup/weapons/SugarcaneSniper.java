@@ -68,6 +68,8 @@ public class SugarcaneSniper extends ModWeapons {
             boolean hasInfinity = playerentity.abilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, bowStack) > 0;
             ItemStack ammoStack = playerentity.findAmmo(bowStack);
 
+            playerentity.getCooldownTracker().setCooldown(this, 70);
+
             int timeDrawn = this.getUseDuration(bowStack) - timeLeft;
             timeDrawn = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(bowStack, worldIn, playerentity, timeDrawn, !ammoStack.isEmpty() || hasInfinity);
             if (timeDrawn < 0) return;

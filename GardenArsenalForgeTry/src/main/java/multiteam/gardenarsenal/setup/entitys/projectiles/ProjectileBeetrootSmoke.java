@@ -28,7 +28,6 @@ public class ProjectileBeetrootSmoke extends WeaponProjectile{
     protected void onImpact(RayTraceResult result) {
         super.onImpact(result);
         if (!this.world.isRemote) {
-            spawnSmokeParticles((World)world, this.getPosition(), false, true);
             AreaEffectCloudEntity smokeCloud = new AreaEffectCloudEntity(EntityType.AREA_EFFECT_CLOUD,world);
             smokeCloud.setPosition(this.getPosX(), this.getPosY(), this.getPosZ());
             smokeCloud.setRadius(5.0F);
@@ -47,17 +46,6 @@ public class ProjectileBeetrootSmoke extends WeaponProjectile{
         Entity entity = p_213868_1_.getEntity();
         int i = BuletDamage;
         entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), (float)i);
-        spawnSmokeParticles((World)world, this.getPosition(), false, true);
-    }
-
-    public static void spawnSmokeParticles(World worldIn, BlockPos pos, boolean isSignalFire, boolean spawnExtraSmoke) {
-        Random random = worldIn.getRandom();
-        BasicParticleType basicparticletype = isSignalFire ? ParticleTypes.CAMPFIRE_SIGNAL_SMOKE : ParticleTypes.CAMPFIRE_COSY_SMOKE;
-        worldIn.addOptionalParticle(basicparticletype, true, (double)pos.getX() + 0.5D + random.nextDouble() / 3.0D * (double)(random.nextBoolean() ? 1 : -1), (double)pos.getY() + random.nextDouble() + random.nextDouble(), (double)pos.getZ() + 0.5D + random.nextDouble() / 3.0D * (double)(random.nextBoolean() ? 1 : -1), 0.0D, 0.07D, 0.0D);
-        if (spawnExtraSmoke) {
-            worldIn.addParticle(ParticleTypes.SMOKE, (double)pos.getX() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), (double)pos.getY() + 0.4D, (double)pos.getZ() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), 0.0D, 0.005D, 0.0D);
-        }
-
     }
 
 }
