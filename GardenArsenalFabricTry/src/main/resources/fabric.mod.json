@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "gardenarsenal",
   "version": "${version}",
-
   "name": "Garden Arsenal",
   "description": "Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.",
   "authors": [
