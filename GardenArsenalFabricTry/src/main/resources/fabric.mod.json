@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "gardenarsenal",
+  "version": "${version}",
+  "name": "Garden Arsenal",
+  "description": "Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.",
+  "authors": [
+    "Laz The Artist",
+    "Cat Core"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/gardenarsenal/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "multiteam.gardenarsenal.GardenArsenal"
+    ]
+  },
+  "mixins": [
+    "gardenarsenal.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
