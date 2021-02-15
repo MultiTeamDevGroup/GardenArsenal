@@ -19,7 +19,7 @@ To be apart of our community, join the discord server!
 https://discord.gg/JTwmz8S
 '''
 credits = "A mod made by MultiTeam"
-logoFile="gardenarsenal.png"
+logoFile="gardenarsenal_icon.png"
 
 [[dependencies.gardenarsenal]]
 modId = "forge"

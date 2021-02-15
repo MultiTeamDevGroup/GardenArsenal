@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "#PT",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stone_button"
+    },
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "gardenarsenal:potato_granade",
+    "count": 1
+  }
+}
