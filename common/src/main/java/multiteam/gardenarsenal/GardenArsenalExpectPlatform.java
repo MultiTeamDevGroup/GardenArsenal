@@ -5,7 +5,7 @@ import me.shedaniel.architectury.platform.Platform;
 
 import java.io.File;
 
-public class ExampleExpectPlatform {
+public class GardenArsenalExpectPlatform {
     /**
      * We can use {@link Platform#getConfigFolder()} but this is just an example of {@link ExpectPlatform}.
      * <p>

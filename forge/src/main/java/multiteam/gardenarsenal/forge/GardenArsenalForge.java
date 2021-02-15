@@ -6,8 +6,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(GardenArsenal.MOD_ID)
-public class ExampleModForge {
-    public ExampleModForge() {
+public class GardenArsenalForge {
+    public GardenArsenalForge() {
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(GardenArsenal.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         GardenArsenal.init();

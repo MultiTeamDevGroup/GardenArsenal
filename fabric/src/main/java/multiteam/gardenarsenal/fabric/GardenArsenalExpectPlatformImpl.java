@@ -1,13 +1,13 @@
 package multiteam.gardenarsenal.fabric;
 
-import multiteam.gardenarsenal.ExampleExpectPlatform;
+import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
 
-public class ExampleExpectPlatformImpl {
+public class GardenArsenalExpectPlatformImpl {
     /**
-     * This is our actual method to {@link ExampleExpectPlatform#getConfigDirectory()}.
+     * This is our actual method to {@link GardenArsenalExpectPlatform#getConfigDirectory()}.
      */
     public static File getConfigDirectory() {
         return FabricLoader.getInstance().getConfigDir().toFile();
