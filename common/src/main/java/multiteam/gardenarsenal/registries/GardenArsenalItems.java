@@ -4,6 +4,7 @@ import me.shedaniel.architectury.registry.CreativeTabs;
 import me.shedaniel.architectury.registry.DeferredRegister;
 import me.shedaniel.architectury.registry.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
+import multiteam.gardenarsenal.items.*;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -39,20 +40,20 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> POTATO_GRENADE = ITEMS.register("potato_grenade", () ->
             new Item(new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> BEETROOT_SMOKE = ITEMS.register("beetroot_smoke", () ->
-            new Item(new Item.Properties().tab(WEAPONS)));
+            new BeetrootSmoke(new Item.Properties().tab(WEAPONS)));
     public static final RegistrySupplier<Item> PROJECTILE_CARROT = ITEMS.register("projectile_carrot", () ->
             new Item(new Item.Properties()));
 
     public static final RegistrySupplier<Item> CARROT_RIFLE = ITEMS.register("carrot_rifle", () ->
-            new Item(new Item.Properties().tab(WEAPONS)));
+            new CarrotRifle(new Item.Properties().tab(WEAPONS)));
     public static final RegistrySupplier<Item> POTATO_BAZOOKA = ITEMS.register("potato_bazooka", () ->
-            new Item(new Item.Properties().tab(WEAPONS)));
+            new PotatoBazooka(new Item.Properties().tab(WEAPONS)));
     public static final RegistrySupplier<Item> COCOA_BEAN_SHOTGUN = ITEMS.register("cocoa_bean_shotgun", () ->
-            new Item(new Item.Properties().tab(WEAPONS)));
+            new CocoaShotgun(new Item.Properties().tab(WEAPONS)));
     public static final RegistrySupplier<Item> SEED_PISTOL = ITEMS.register("seed_pistol", () ->
-            new Item(new Item.Properties().tab(WEAPONS)));
+            new SeedPistol(new Item.Properties().tab(WEAPONS)));
     public static final RegistrySupplier<Item> SUGAR_CANE_SNIPER = ITEMS.register("sugar_cane_sniper", () ->
-            new Item(new Item.Properties().tab(WEAPONS)));
+            new SugarcaneSniper(new Item.Properties().tab(WEAPONS)));
 
     public static final RegistrySupplier<Item> SKIN_DESERT = ITEMS.register("skin_card_camo_desert", () ->
             new Item(new Item.Properties().tab(MISC)));
