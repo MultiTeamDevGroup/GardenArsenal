@@ -60,7 +60,7 @@ public class CarrotRifle extends ModWeapons {
         nbtTagCompound.putString("skinType", "Default");
 
         tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
-        
+
     }
 
     int timeR = 0;
