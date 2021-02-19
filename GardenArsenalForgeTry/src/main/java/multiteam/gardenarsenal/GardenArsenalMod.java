@@ -3,7 +3,13 @@ package multiteam.gardenarsenal;
 import multiteam.gardenarsenal.setup.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.IItemPropertyGetter;
+import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,6 +24,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.annotation.Nullable;
 import java.util.stream.Collectors;
 
 @Mod(GardenArsenalMod.MOD_ID)
@@ -47,6 +54,26 @@ public class GardenArsenalMod {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+
+        ItemModelsProperties.registerProperty(ModItems.CARROT_RIFLE.get(), new ResourceLocation(MOD_ID, "skin"), new IItemPropertyGetter() {
+
+            @Override
+            public float call(ItemStack stack, @Nullable ClientWorld world, @Nullable LivingEntity entity)
+            {
+                if (stack.getTag() == null)
+                    return 0;
+                String skin = stack.getTag().getString("skinType");
+                switch (skin)
+                {
+                    case "Default":
+                    default:
+                        return 0;
+                    case "desert_camo":
+                        return 1;
+                        // continue
+                }
+            }
+        });
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -73,6 +100,13 @@ public class GardenArsenalMod {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             LOGGER.info("Garden Arsenal is keeping the old fashion Registry block, since idk when im gonna need it.");
+        }
+
+        @SubscribeEvent
+        public static void onRecipeRegistry(RegistryEvent.Register<IRecipeSerializer<?>> event)
+        {
+            SkinSmithingRecipe.SERIALIZER.setRegistryName(new ResourceLocation(MOD_ID, "skin_smithing"));
+            event.getRegistry().register(SkinSmithingRecipe.SERIALIZER);
         }
     }
 

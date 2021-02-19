@@ -17,6 +17,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.*;
 import net.minecraft.world.World;
 import net.minecraft.util.text.TextFormatting;
+import org.lwjgl.system.CallbackI;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -55,9 +56,8 @@ public class CarrotRifle extends ModWeapons {
         if (nbtTagCompound == null){
             nbtTagCompound = new CompoundNBT();
             stack.setTag(nbtTagCompound);
+            nbtTagCompound.putString("skinType", "Default");
         }
-
-        nbtTagCompound.putString("skinType", "Default");
 
         tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
 
