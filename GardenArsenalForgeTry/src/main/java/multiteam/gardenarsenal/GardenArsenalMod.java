@@ -55,53 +55,11 @@ public class GardenArsenalMod {
     private void doClientStuff(final FMLClientSetupEvent event) {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 
-        ItemModelsProperties.registerProperty(ModItems.CARROT_RIFLE.get(), new ResourceLocation(MOD_ID, "skin"), new IItemPropertyGetter() {
-
-            @Override
-            public float call(ItemStack stack, @Nullable ClientWorld world, @Nullable LivingEntity entity)
-            {
-                if (stack.getTag() == null)
-                    return 0;
-                String skin = stack.getTag().getString("skinType");
-                switch (skin)
-                {
-                    case "Default":
-                    default:
-                        return 0;
-                    case "camo_desert":
-                        return 1;
-                    case "camo_end":
-                        return 2;
-                    case "camo_forest":
-                        return 3;
-                    case "camo_frost":
-                        return 4;
-                    case "camo_nether":
-                        return 5;
-                    case "metallic_gold":
-                        return 6;
-                    case "metallic_iron":
-                        return 7;
-                    case "metallic_netherite":
-                        return 8;
-                    case "seasonal_christmas":
-                        return 9;
-                    case "seasonal_halloween":
-                        return 10;
-                    case "special_aquatic":
-                        return 11;
-                    case "special_neon":
-                        return 12;
-                    case "teams_mcabnormals":
-                        return 13;
-                    case "teams_multiteam":
-                        return 14;
-                    case "teams_vampirestudios":
-                        return 15;
-                        // continue
-                }
-            }
-        });
+        ItemModelsProperties.registerProperty(ModItems.CARROT_RIFLE.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.COCOA_BEAN_SHOTGUN.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.POTATO_BAZOOKA.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.SEED_PISTOL.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.SUGAR_CANE_SNIPER.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
