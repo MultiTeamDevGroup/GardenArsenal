@@ -19,7 +19,7 @@ modId="gardenarsenal" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
-version="0.3.0" #mandatory
+version="0.3.1" #mandatory
  # A display name for the mod
 displayName="Garden Arsenal" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
@@ -31,14 +31,13 @@ logoFile="gardenarsenal.png" #optional
 # A text field displayed in the mod UI
 credits="A mod made by MultiTeam" #optional
 # A text field displayed in the mod UI
-authors="LazTheArtist" #optional
+authors="LazTheArtist, CatCore, Boblovespi" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.
 
 Everything from v0.1.0 and v0.2.0 is here, on a new minecraft version!
-Well, except skins. Skin cards are available, although you cant get them in survival.
-Skins and other stuff related to that, will be available in the next update, the v0.3.1; Stay tuned until then!
+Fresh and new all hand-written code, combined with all the new and remade assets!
 
 To be apart of our community, join the discord server!
 https://discord.gg/JTwmz8S

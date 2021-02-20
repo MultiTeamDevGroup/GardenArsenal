@@ -2,10 +2,10 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "gardenarsenal:gun/gunmetal_base",
+		"1": "gardenarsenal:gun/gunmetal_base_netherite",
 		"2": "gardenarsenal:gun/gunmetal_dark",
-		"3": "gardenarsenal:gun/gunmetal_light",
-		"4": "gardenarsenal:gun/gunmetal_color_material_metallic_iron",
+		"3": "gardenarsenal:gun/gunmetal_light_netherite",
+		"4": "gardenarsenal:gun/gunmetal_color_material_metallic_netherite",
 		"5": "gardenarsenal:gun/skin_stickers",
 		"particle": "gardenarsenal:gun/skin_stickers"
 	},
@@ -500,8 +500,8 @@
 			"to": [9.1, 11.5, 3],
 			"rotation": {"angle": 0, "axis": "y", "origin": [13, 16.5, 8]},
 			"faces": {
-				"east": {"uv": [1, 0, 2, 1], "texture": "#5"},
-				"west": {"uv": [1, 0, 2, 1], "texture": "#5"}
+				"east": {"uv": [2, 0, 3, 1], "texture": "#5"},
+				"west": {"uv": [2, 0, 3, 1], "texture": "#5"}
 			}
 		}
 	],

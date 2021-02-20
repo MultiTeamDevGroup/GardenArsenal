@@ -1,0 +1,13 @@
+{
+  "type": "gardenarsenal:skin_smithing",
+  "base": {
+    "item": "gardenarsenal:carrot_rifle"
+  },
+  "addition": {
+    "item": "gardenarsenal:skin_card_teams_multiteam"
+  },
+  "result": {
+    "item": "gardenarsenal:carrot_rifle"
+  },
+  "skin" : "teams_multiteam"
+}
