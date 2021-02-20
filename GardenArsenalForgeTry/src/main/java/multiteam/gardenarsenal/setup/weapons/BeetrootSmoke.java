@@ -38,22 +38,7 @@ public class BeetrootSmoke extends ModWeapons {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
         tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.beetroot_smoke_desc").copyRaw().mergeStyle(TextFormatting.DARK_RED));
-
-        CompoundNBT nbtTagCompound = stack.getTag();
-
-        if (nbtTagCompound == null){
-            nbtTagCompound = new CompoundNBT();
-            stack.setTag(nbtTagCompound);
-        }
-
-        nbtTagCompound.putString("skinType", "Default");
-
-        tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
-
-        //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().setStyle(new Style().setColor(2909434)));
-
-        //tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType"    )).copyRaw().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
-    }
+}
 
     @Override
     public Predicate<ItemStack> getInventoryAmmoPredicate() {
