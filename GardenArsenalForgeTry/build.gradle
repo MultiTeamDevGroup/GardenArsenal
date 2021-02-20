@@ -96,10 +96,6 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:7.6.0.62")
 
     implementation fg.deobf("curse.maven:TestDummy-225738:3083395")
-
-    implementation fg.deobf("curse.maven:iChunUtil-229060:3062089")
-
-    implementation fg.deobf("curse.maven:Tabula-229092:3062126")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
