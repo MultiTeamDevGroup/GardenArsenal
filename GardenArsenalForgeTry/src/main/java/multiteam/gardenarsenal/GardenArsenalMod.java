@@ -68,7 +68,7 @@ public class GardenArsenalMod {
                     case "Default":
                     default:
                         return 0;
-                    case "desert_camo":
+                    case "camo_desert":
                         return 1;
                         // continue
                 }
