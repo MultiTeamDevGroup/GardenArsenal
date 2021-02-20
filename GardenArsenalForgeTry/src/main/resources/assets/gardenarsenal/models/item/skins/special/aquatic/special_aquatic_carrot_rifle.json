@@ -2,13 +2,11 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "gardenarsenal:gun/gunmetal_base",
+		"1": "gardenarsenal:gun/gunmetal_base_special_prismarine",
 		"2": "gardenarsenal:gun/gunmetal_dark",
 		"3": "gardenarsenal:gun/gunmetal_light",
-		"4": "gardenarsenal:gun/gunmetal_color_material",
-		"5": "gardenarsenal:gun/empty",
-		"6": "gardenarsenal:gun/skin_stickers",
-		"particle": "gardenarsenal:gun/empty"
+		"4": "gardenarsenal:gun/gunmetal_color_material_special_aquatic",
+		"6": "gardenarsenal:gun/skin_stickers"
 	},
 	"elements": [
 		{
@@ -185,8 +183,8 @@
 			"to": [8.02, 6, 2],
 			"rotation": {"angle": 0, "axis": "y", "origin": [14, 12, 8]},
 			"faces": {
-				"east": {"uv": [14.125, 0.375, 15.125, 1.375], "texture": "#6"},
-				"west": {"uv": [14.125, 0.375, 15.125, 1.375], "texture": "#6"}
+				"east": {"uv": [5, 0, 6, 1], "texture": "#6"},
+				"west": {"uv": [5, 0, 6, 1], "texture": "#6"}
 			}
 		}
 	],

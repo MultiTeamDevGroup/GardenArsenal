@@ -27,9 +27,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "skin_card_camo_forest");
         builder(itemGenerated, "skin_card_camo_frost");
         builder(itemGenerated, "skin_card_camo_nether");
-        builder(itemGenerated, "skin_card_metalic_gold");
-        builder(itemGenerated, "skin_card_metalic_iron");
-        builder(itemGenerated, "skin_card_metalic_netherite");
+        builder(itemGenerated, "skin_card_metallic_gold");
+        builder(itemGenerated, "skin_card_metallic_iron");
+        builder(itemGenerated, "skin_card_metallic_netherite");
         builder(itemGenerated, "skin_card_seasonal_christmas");
         builder(itemGenerated, "skin_card_seasonal_halloween");
         builder(itemGenerated, "skin_card_special_aquatic");
