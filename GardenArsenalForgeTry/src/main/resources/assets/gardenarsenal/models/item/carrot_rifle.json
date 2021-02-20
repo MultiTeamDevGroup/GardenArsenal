@@ -1,20 +1,23 @@
 {
   "parent": "gardenarsenal:item/carrot_rifle_base",
-  "textures": {
-    "1": "gardenarsenal:gun/gunmetal_base",
-    "2": "gardenarsenal:gun/gunmetal_dark",
-    "3": "gardenarsenal:gun/gunmetal_light",
-    "4": "gardenarsenal:gun/gunmetal_color_material",
-    "5": "gardenarsenal:gun/empty",
-    "6": "gardenarsenal:decals/skin_stickers",
-    "particle": "gardenarsenal:gun/empty"
-  },
   "overrides": [
     {
       "predicate": {
         "gardenarsenal:skin": 1
       },
       "model": "gardenarsenal:item/camo_desert_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 2
+      },
+      "model": "gardenarsenal:item/camo_end_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 3
+      },
+      "model": "gardenarsenal:item/camo_forest_carrot_rifle"
     }
   ]
 }
