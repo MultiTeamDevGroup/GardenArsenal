@@ -77,19 +77,19 @@
       "predicate": {
         "gardenarsenal:skin": 13
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_cocoa_bean_shotgun"
+      "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_cocoa_bean_shotgun"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 14
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_cocoa_bean_shotgun"
+      "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_cocoa_bean_shotgun"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 15
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_cocoa_bean_shotgun"
+      "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_cocoa_bean_shotgun"
     }
   ]
 }

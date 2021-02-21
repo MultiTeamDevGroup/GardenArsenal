@@ -77,19 +77,19 @@
       "predicate": {
         "gardenarsenal:skin": 13
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_potato_bazooka"
+      "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_potato_bazooka"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 14
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_potato_bazooka"
+      "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_potato_bazooka"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 15
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_potato_bazooka"
+      "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_potato_bazooka"
     }
   ]
 }

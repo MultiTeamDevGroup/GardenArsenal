@@ -77,19 +77,19 @@
       "predicate": {
         "gardenarsenal:skin": 13
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_seed_pistol"
+      "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_seed_pistol"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 14
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_seed_pistol"
+      "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_seed_pistol"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 15
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_seed_pistol"
+      "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_seed_pistol"
     }
   ]
 }
