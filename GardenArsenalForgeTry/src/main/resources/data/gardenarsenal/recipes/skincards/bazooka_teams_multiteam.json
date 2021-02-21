@@ -1,0 +1,13 @@
+{
+  "type": "gardenarsenal:skin_smithing",
+  "base": {
+    "item": "gardenarsenal:potato_bazooka"
+  },
+  "addition": {
+    "item": "gardenarsenal:skin_card_teams_multiteam"
+  },
+  "result": {
+    "item": "gardenarsenal:potato_bazooka"
+  },
+  "skin" : "teams_multiteam"
+}

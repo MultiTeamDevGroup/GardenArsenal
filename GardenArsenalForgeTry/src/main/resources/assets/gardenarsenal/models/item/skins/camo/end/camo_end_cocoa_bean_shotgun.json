@@ -3,7 +3,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"3": "gardenarsenal:gun/gunmetal_base",
-		"4": "gardenarsenal:gun/gunmetal_color_material_camo_desert",
+		"4": "gardenarsenal:gun/gunmetal_color_material_camo_end",
 		"5": "gardenarsenal:gun/gunmetal_dark",
 		"6": "gardenarsenal:gun/decoration_camo_end",
 		"particle": "gardenarsenal:gun/decoration_camo_end"

@@ -56,11 +56,11 @@ public class PotatoBazooka extends ModWeapons {
         if (nbtTagCompound == null){
             nbtTagCompound = new CompoundNBT();
             stack.setTag(nbtTagCompound);
+            nbtTagCompound.putString("skinType", "Default");
         }
 
-        nbtTagCompound.putString("skinType", "Default");
 
-        tooltip.add(new StringTextComponent(nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
+        tooltip.add(new TranslationTextComponent("tooltip.gardenarsenal.skin."+ nbtTagCompound.getString("skinType")).copyRaw().mergeStyle(TextFormatting.DARK_GREEN));
     }
 
     @Override

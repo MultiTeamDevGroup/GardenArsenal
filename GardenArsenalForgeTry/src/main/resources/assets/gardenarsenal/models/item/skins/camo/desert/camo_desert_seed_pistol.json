@@ -2,12 +2,12 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "new assets:gun/Base Gun Textures/gunmetal_light",
-		"3": "new assets:gun/Base Gun Textures/gunmetal_base",
-		"4": "new assets:gun/Skinned Gun Textures/gunmetal_color_material_camo_desert",
-		"5": "new assets:gun/Base Gun Textures/gunmetal_dark",
-		"6": "new assets:gun/Skinned Gun Textures/decoration_camo_desert",
-		"particle": "new assets:gun/Skinned Gun Textures/decoration_camo_desert"
+		"1": "gardenarsenal:gun/gunmetal_light",
+		"3": "gardenarsenal:gun/gunmetal_base",
+		"4": "gardenarsenal:gun/gunmetal_color_material_camo_desert",
+		"5": "gardenarsenal:gun/gunmetal_dark",
+		"6": "gardenarsenal:gun/decoration_camo_desert",
+		"particle": "gardenarsenal:gun/decoration_camo_desert"
 	},
 	"elements": [
 		{

@@ -72,6 +72,24 @@
         "gardenarsenal:skin": 12
       },
       "model": "gardenarsenal:item/skins/special/neon/special_neon_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 13
+      },
+      "model": "gardenarsenal:item/skins/special/neon/special_neon_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 14
+      },
+      "model": "gardenarsenal:item/skins/special/neon/special_neon_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 15
+      },
+      "model": "gardenarsenal:item/skins/special/neon/special_neon_carrot_rifle"
     }
   ]
 }
