@@ -1,5 +1,5 @@
 {
-  "parent": "gardenarsenal:item/sugarcane_sniper_base",
+  "parent": "gardenarsenal:item/sugar_cane_sniper_base",
   "overrides": [
     {
       "predicate": {
