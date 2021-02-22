@@ -1,24 +1,19 @@
-package multiteam.gardenarsenal.setup.entitys.villager;
+package multiteam.gardenarsenal.setup;
 
 import com.google.common.collect.ImmutableSet;
-import multiteam.gardenarsenal.GardenArsenalMod;
-import multiteam.gardenarsenal.setup.ModBlocks;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.village.PointOfInterestType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.ObjectHolder;
 
-@Mod.EventBusSubscriber(modid = GardenArsenalMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder(GardenArsenalMod.MOD_ID)
 public class VillagerProfessions {
 
-    public static final VillagerProfession GARSENAL_SOLDIER_COMMANDER = null;
+    private static final ImmutableSet<Item> COMMANDER_ITEMS = ImmutableSet.of(Items.BONE, Items.APPLE);
+    public static final RegistryObject<VillagerProfession> GARDEN_SOLDIER_COMMANDER = Registration.VILLAGER_PROFESSIONS.register("garden_soldier_commander", () -> new VillagerProfession("garden_soldier_commander", new PointOfInterestType("garden_soldier_commander_poi", ImmutableSet.of(ModBlocks.GARDEN_SOLDIER_COMMANDER_POI.get().getDefaultState()), 5, 40), COMMANDER_ITEMS, ImmutableSet.of(ModBlocks.GARDEN_SOLDIER_COMMANDER_POI.get()), SoundEvents.ENTITY_VILLAGER_WORK_WEAPONSMITH));
+
+
     /**
     public static final DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(ForgeRegistries.PROFESSIONS, GardenArsenalMod.MOD_ID);
 
@@ -34,13 +29,5 @@ public class VillagerProfessions {
      nah, still nothing ;-;
      **/
 
-    @SubscribeEvent
-    public static void registerVillagerProfessions(RegistryEvent.Register<VillagerProfession> event)
-    {
-        IForgeRegistry<VillagerProfession> registry = event.getRegistry();
-
-        registry.register(VillagerUtil.villagerProfession("garden_soldier_commander", PointOfInterests.GARSENAL_SOLDIER_COMMANDER, ImmutableSet.of(), ImmutableSet.of(ModBlocks.GARDEN_SOLDIER_COMMANDER_POI.get()), null).setRegistryName(GardenArsenalMod.MOD_ID, "garden_soldier_commander"));
-    }
-
-
+    static void register() {}
 }
