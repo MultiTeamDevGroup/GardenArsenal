@@ -1,17 +1,17 @@
 package multiteam.gardenarsenal;
 
 import multiteam.gardenarsenal.setup.*;
+import multiteam.gardenarsenal.setup.entitys.villager.PointOfInterests;
+import multiteam.gardenarsenal.setup.entitys.villager.VillagerUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +24,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.annotation.Nullable;
 import java.util.stream.Collectors;
 
 @Mod(GardenArsenalMod.MOD_ID)
@@ -45,11 +44,15 @@ public class GardenArsenalMod {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
+        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+        VillagerUtil.fixPOITypeBlockStates(PointOfInterests.GARSENAL_SOLDIER_COMMANDER);
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
