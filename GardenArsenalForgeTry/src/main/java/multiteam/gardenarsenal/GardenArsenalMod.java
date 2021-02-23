@@ -45,6 +45,7 @@ public class GardenArsenalMod {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
         IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {

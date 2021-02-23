@@ -2,6 +2,7 @@ package multiteam.gardenarsenal.setup.entitys.villager;
 
 import multiteam.gardenarsenal.GardenArsenalMod;
 import multiteam.gardenarsenal.setup.ModItems;
+import multiteam.gardenarsenal.setup.VillagerProfessions;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.item.MerchantOffer;
@@ -19,9 +20,9 @@ public class TradeRegistration {
 
     @SubscribeEvent
     public static void registerTrades(VillagerTradesEvent event){
-        //if (event.getType() == )
-        //{
-            //event.getTrades().get(1).add(new RandomTradeBuilder(64, 25, 0.05F).setPrice(ModItems.SKIN_CARD0.get(), 1,3).build());
+        if (event.getType() == VillagerProfessions.GARDEN_SOLDIER_COMMANDER.get())
+        {
+            event.getTrades().get(1).add(new RandomTradeBuilder(64, 25, 0.05F).setPrice(ModItems.SKIN_CARD0.get(), 1,3).build());
 
             /**
             event.getTrades().get(1).add((new RandomTradeBuilder(64, 25, 0.05F).setPrice(Items.COAL, 1,1).setPrice2(Items.STONE, 8,8).setForSale(Items.COAL_ORE, 1, 2).build()));
@@ -40,6 +41,6 @@ public class TradeRegistration {
             event.getTrades().get(5).add((new RandomTradeBuilder(64, 25, 0.2F).setPrice(Items.NETHERITE_INGOT, 1,1).setPrice2(Items.NETHERRACK, 8,8).setForSale(Items.ANCIENT_DEBRIS, 1, 1).build()));
             event.getTrades().get(5).add((new RandomTradeBuilder(64, 50, 0.05F).setPrice(Items.WITHER_SKELETON_SKULL, 3,6).setPrice2(Items.SOUL_SAND, 4,4).setForSale(Items.NETHER_STAR, 1, 1).build()));
             **/
-        //}
+        }
     }
 }
