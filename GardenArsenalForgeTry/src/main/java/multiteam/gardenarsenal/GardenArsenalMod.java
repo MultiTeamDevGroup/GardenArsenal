@@ -1,8 +1,6 @@
 package multiteam.gardenarsenal;
 
 import multiteam.gardenarsenal.setup.*;
-import multiteam.gardenarsenal.setup.entitys.villager.PointOfInterests;
-import multiteam.gardenarsenal.setup.entitys.villager.VillagerUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemModelsProperties;
@@ -52,8 +50,6 @@ public class GardenArsenalMod {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
-        VillagerUtil.fixPOITypeBlockStates(PointOfInterests.GARSENAL_SOLDIER_COMMANDER);
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -64,6 +60,7 @@ public class GardenArsenalMod {
         ItemModelsProperties.registerProperty(ModItems.POTATO_BAZOOKA.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
         ItemModelsProperties.registerProperty(ModItems.SEED_PISTOL.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
         ItemModelsProperties.registerProperty(ModItems.SUGAR_CANE_SNIPER.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
