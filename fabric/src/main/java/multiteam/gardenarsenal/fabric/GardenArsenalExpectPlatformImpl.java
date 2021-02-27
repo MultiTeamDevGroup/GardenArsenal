@@ -42,9 +42,9 @@ public class GardenArsenalExpectPlatformImpl {
             PoiType type = constructor.newInstance(string, set, i, i);
 
             for (Method method : PoiType.class.getDeclaredMethods()) {
-                if (method.getParameterCount() == 1 && method.getParameterTypes()[0] == PoiType.class) {
-                    method.setAccessible(true);
-                    method.invoke(type, type);
+                method.setAccessible(true);
+                if (method.getParameterCount() > 0 && method.getParameterTypes()[0] == PoiType.class && method.getReturnType() == PoiType.class) {
+                    type = (PoiType) method.invoke(type, type);
                     break;
                 }
             }
