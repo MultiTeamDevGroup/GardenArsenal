@@ -57,7 +57,6 @@ public abstract class WeaponItem extends BowItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
-        System.out.println("releaseUsing");
         if (user instanceof Player) {
             Player playerEntity = (Player)user;
             boolean bl = playerEntity.abilities.instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;

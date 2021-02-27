@@ -50,15 +50,15 @@ public class GardenArsenalItems {
             new Item(new Item.Properties()));
 
     public static final RegistrySupplier<Item> CARROT_RIFLE = ITEMS.register("carrot_rifle", () ->
-            new CarrotRifle(new Item.Properties().tab(WEAPONS)));
+            new CarrotRifle(new Item.Properties().tab(WEAPONS).stacksTo(1)));
     public static final RegistrySupplier<Item> POTATO_BAZOOKA = ITEMS.register("potato_bazooka", () ->
-            new PotatoBazooka(new Item.Properties().tab(WEAPONS)));
+            new PotatoBazooka(new Item.Properties().tab(WEAPONS).stacksTo(1)));
     public static final RegistrySupplier<Item> COCOA_BEAN_SHOTGUN = ITEMS.register("cocoa_bean_shotgun", () ->
-            new CocoaShotgun(new Item.Properties().tab(WEAPONS)));
+            new CocoaShotgun(new Item.Properties().tab(WEAPONS).stacksTo(1)));
     public static final RegistrySupplier<Item> SEED_PISTOL = ITEMS.register("seed_pistol", () ->
-            new SeedPistol(new Item.Properties().tab(WEAPONS)));
+            new SeedPistol(new Item.Properties().tab(WEAPONS).stacksTo(1)));
     public static final RegistrySupplier<Item> SUGAR_CANE_SNIPER = ITEMS.register("sugar_cane_sniper", () ->
-            new SugarcaneSniper(new Item.Properties().tab(WEAPONS)));
+            new SugarcaneSniper(new Item.Properties().tab(WEAPONS).stacksTo(1)));
 
     public static List<RegistrySupplier<Item>> SKIN_CARDS = new ArrayList<>();
 
