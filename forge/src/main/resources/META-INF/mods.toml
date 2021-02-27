@@ -7,13 +7,12 @@ license = "All rights reserved"
 modId = "gardenarsenal"
 version = "${version}"
 displayName = "Garden Arsenal"
-authors = ["LazTheArtist", "CatCore"]
+authors = "LazTheArtist, CatCore, Boblovespi"
 description = '''
 Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.
 
 Everything from v0.1.0 and v0.2.0 is here, on a new minecraft version!
-Well, except skins. Skin cards are available, although you cant get them in survival.
-Skins and other stuff related to that, will be available in the next update, the v0.3.1; Stay tuned until then!
+Fresh and new all hand-written code, combined with all the new and remade assets!
 
 To be apart of our community, join the discord server!
 https://discord.gg/JTwmz8S
@@ -31,7 +30,7 @@ side = "BOTH"
 [[dependencies.gardenarsenal]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.16.2,1.17)"
+versionRange = "[1.16.4,1.17)"
 ordering = "NONE"
 side = "BOTH"
 

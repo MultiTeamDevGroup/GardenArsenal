@@ -3,10 +3,11 @@
   "id": "gardenarsenal",
   "version": "${version}",
   "name": "Garden Arsenal",
-  "description": "Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.\n\nEverything from v0.1.0 and v0.2.0 is here, on a new minecraft version!\nWell, except skins. Skin cards are available, although you cant get them in survival.\nSkins and other stuff related to that, will be available in the next update, the v0.3.1; Stay tuned until then!\n\nTo be apart of our community, join the discord server!\nhttps://discord.gg/JTwmz8S",
+  "description": "Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.\n\nEverything from v0.1.0 and v0.2.0 is here, on a new minecraft version!\nFresh and new all hand-written code, combined with all the new and remade assets!\n\nTo be apart of our community, join the discord server!\nhttps://discord.gg/JTwmz8S",
   "authors": [
     "LazTheArtist",
-    "CatCore"
+    "CatCore",
+    "Boblovespi"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
