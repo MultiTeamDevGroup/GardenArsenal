@@ -19,6 +19,10 @@ public class GardenArsenalBlocks {
             () -> new Block(BlockProperties.of(Material.METAL).tool(ToolType.PICKAXE, 2).strength(6, 6).sound(SoundType.NETHERITE_BLOCK)));
     public static final RegistrySupplier<Block> TRAP_CAKE = BLOCKS.register("trap_cake",
             () -> new TrapCake(BlockProperties.of(Material.CAKE).sound(SoundType.WOOL).strength(0.5F)));
+    public static final RegistrySupplier<Block> GARDEN_SOLDIER_COMMANDER_POI = BLOCKS.register("garden_soldier_commander_poi",
+            () -> new Block(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(3,3).sound(SoundType.WOOD)));
+    public static final RegistrySupplier<Block> GARDEN_SOLDIER_POI = BLOCKS.register("garden_soldier_poi",
+            () -> new Block(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(3,3).sound(SoundType.WOOD)));
 
     public static void init() {
         BLOCKS.register();

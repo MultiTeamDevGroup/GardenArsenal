@@ -65,11 +65,11 @@ public class GardenArsenalItems {
             new Item(new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> SKIN_NETHER = ITEMS.register("skin_card_camo_nether", () ->
             new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_GOLD = ITEMS.register("skin_card_metalic_gold", () ->
+    public static final RegistrySupplier<Item> SKIN_GOLD = ITEMS.register("skin_card_metallic_gold", () ->
             new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_IRON = ITEMS.register("skin_card_metalic_iron", () ->
+    public static final RegistrySupplier<Item> SKIN_IRON = ITEMS.register("skin_card_metallic_iron", () ->
             new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_NETHERITE = ITEMS.register("skin_card_metalic_netherite", () ->
+    public static final RegistrySupplier<Item> SKIN_NETHERITE = ITEMS.register("skin_card_metallic_netherite", () ->
             new Item(new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> SKIN_CHRISTMAS = ITEMS.register("skin_card_seasonal_christmas", () ->
             new Item(new Item.Properties().tab(MISC)));
@@ -90,6 +90,10 @@ public class GardenArsenalItems {
             () -> new BlockItem(GardenArsenalBlocks.MACHINE_BLOCK.get(), new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> TRAP_CAKE = ITEMS.register("trap_cake",
             () -> new BlockItem(GardenArsenalBlocks.TRAP_CAKE.get(), new Item.Properties().tab(MISC)));
+    public static final RegistrySupplier<Item> GARDEN_SOLDIER_COMMANDER_POI = ITEMS.register("garden_soldier_commander_poi",
+            () -> new BlockItem(GardenArsenalBlocks.GARDEN_SOLDIER_COMMANDER_POI.get(), new Item.Properties().tab(MISC)));
+    public static final RegistrySupplier<Item> GARDEN_SOLDIER_POI = ITEMS.register("garden_soldier_poi",
+            () -> new BlockItem(GardenArsenalBlocks.GARDEN_SOLDIER_POI.get(), new Item.Properties().tab(MISC)));
 
     public static void init() {
         ITEMS.register();
