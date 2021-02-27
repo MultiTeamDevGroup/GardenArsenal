@@ -17,7 +17,7 @@ import net.minecraft.world.IBlockReader;
 import javax.annotation.Nonnull;
 
 public class WarTacticTable extends Block {
-    private static VoxelShape SHAPE = makeCuboidShape(0d, 0d, 0d, 16d, 9d, 16d);
+    private static VoxelShape SHAPE = makeCuboidShape(0d, 0d, 0d, 16d, 10d, 16d);
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
     public WarTacticTable(Properties properties) {
