@@ -41,5 +41,29 @@
 
   "GARDEN ARSENAL BLOCKS": "BLOCKS",
   "block.gardenarsenal.machine_block": "Mechanikus Blokk",
-  "block.gardenarsenal.trap_cake": "Csapda Torta"
+  "block.gardenarsenal.trap_cake": "Csapda Torta",
+  "block.gardenarsenal.ammo_crate": "Muníciós Láda",
+  "block.gardenarsenal.war_tactic_table": "Háború-Taktikai Asztal",
+
+  "GARDEN ARSENAL SKIN NAMES": "SKIN NAMES",
+  "tooltip.gardenarsenal.skin.": "Alap kinézet",
+  "tooltip.gardenarsenal.skin.camo_desert": "Sivatag - Állca",
+  "tooltip.gardenarsenal.skin.camo_end": "Vég - Állca",
+  "tooltip.gardenarsenal.skin.camo_forest": "Erdő - Állca",
+  "tooltip.gardenarsenal.skin.camo_frost": "Fagyos - Állca",
+  "tooltip.gardenarsenal.skin.camo_nether": "Pokol - Állca",
+  "tooltip.gardenarsenal.skin.metallic_gold": "Arany - Fémes - Aurum",
+  "tooltip.gardenarsenal.skin.metallic_iron": "Vas - Fémes",
+  "tooltip.gardenarsenal.skin.metallic_netherite": "Netherite - Fémes",
+  "tooltip.gardenarsenal.skin.seasonal_christmas": "Karácsony - Időszakos",
+  "tooltip.gardenarsenal.skin.seasonal_halloween": "Halloween - Időszakos",
+  "tooltip.gardenarsenal.skin.special_aquatic": "Akvatikus - Speciális",
+  "tooltip.gardenarsenal.skin.special_neon": "Neon - Speciális",
+  "tooltip.gardenarsenal.skin.teams_mcabnormals": "MCAbnormals - Csapatok",
+  "tooltip.gardenarsenal.skin.teams_multiteam": "MultiTeam - Csapatok",
+  "tooltip.gardenarsenal.skin.teams_vampirestudios": "VampireStudios - Csapatok",
+
+  "GARDEN ARSENAL ENTITYS ": "ENTITY NAMES",
+  "entity.minecraft.villager.gardenarsenal.garden_soldier": "Kerti Katona",
+  "entity.minecraft.villager.gardenarsenal.garden_soldier_commander": "Vezér Kerti Katona"
 }

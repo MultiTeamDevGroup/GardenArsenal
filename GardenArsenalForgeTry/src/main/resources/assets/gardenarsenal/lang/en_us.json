@@ -42,8 +42,8 @@
   "GARDEN ARSENAL BLOCKS": "BLOCKS",
   "block.gardenarsenal.machine_block": "Machine Block",
   "block.gardenarsenal.trap_cake": "Trap Cake",
-  "block.gardenarsenal.garden_soldier_poi": "Garden Soldier's Table",
-  "block.gardenarsenal.garden_soldier_commander_poi": "Garden Soldier Commander's Table",
+  "block.gardenarsenal.ammo_crate": "Ammo Crate",
+  "block.gardenarsenal.war_tactic_table": "War Tactic Table",
 
   "GARDEN ARSENAL SKIN NAMES": "SKIN NAMES",
   "tooltip.gardenarsenal.skin.": "Default",
