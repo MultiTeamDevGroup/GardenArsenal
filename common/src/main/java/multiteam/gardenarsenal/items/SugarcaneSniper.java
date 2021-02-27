@@ -32,11 +32,10 @@ public class SugarcaneSniper extends WeaponItem {
         if (compoundTag == null) {
             compoundTag = new CompoundTag();
             itemStack.setTag(compoundTag);
+            compoundTag.putString("skinType", "Default");
         }
 
-        compoundTag.putString("skinType", "Default");
-
-        list.add(new TranslatableComponent(compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
+        list.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
     }
 
     @Override

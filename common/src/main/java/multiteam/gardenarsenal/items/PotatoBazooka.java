@@ -33,11 +33,10 @@ public class PotatoBazooka extends WeaponItem {
         if (compoundTag == null) {
             compoundTag = new CompoundTag();
             stack.setTag(compoundTag);
+            compoundTag.putString("skinType", "Default");
         }
 
-        compoundTag.putString("skinType", "Default");
-
-        tooltip.add(new TranslatableComponent(compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
+        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
     }
 
     @Override

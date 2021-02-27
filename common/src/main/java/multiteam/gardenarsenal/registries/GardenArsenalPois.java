@@ -14,12 +14,12 @@ public class GardenArsenalPois {
 
     public static RegistrySupplier<PoiType> SOLDIER_COMMANDER_POI = POIS.register("garden_soldier_commander",
             () -> GardenArsenalExpectPlatform.createPoi("garden_soldier_commander",
-                    ImmutableSet.copyOf(GardenArsenalBlocks.GARDEN_SOLDIER_COMMANDER_POI.get().getStateDefinition().getPossibleStates()),
+                    ImmutableSet.copyOf(GardenArsenalBlocks.WAR_TACTIC_TABLE.get().getStateDefinition().getPossibleStates()),
                     1, 1));
 
     public static RegistrySupplier<PoiType> SOLDIER_POI = POIS.register("garden_soldier",
             () -> GardenArsenalExpectPlatform.createPoi("garden_soldier",
-                    ImmutableSet.copyOf(GardenArsenalBlocks.GARDEN_SOLDIER_POI.get().getStateDefinition().getPossibleStates()),
+                    ImmutableSet.copyOf(GardenArsenalBlocks.AMMO_CRATE.get().getStateDefinition().getPossibleStates()),
                     1, 1));
 
     public static void init() {

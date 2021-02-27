@@ -10,9 +10,9 @@
   "item.gardenarsenal.skin_card_camo_forest": "Forest-Camouflage Skin Card",
   "item.gardenarsenal.skin_card_camo_frost": "Frosted-Camouflage Skin Card",
   "item.gardenarsenal.skin_card_camo_nether": "Nether-Camouflage Skin Card",
-  "item.gardenarsenal.skin_card_metalic_gold": "Gold Metallic Skin Card",
-  "item.gardenarsenal.skin_card_metalic_iron": "Iron Metallic Skin Card",
-  "item.gardenarsenal.skin_card_metalic_netherite": "Netherite Metallic Skin Card",
+  "item.gardenarsenal.skin_card_metallic_gold": "Gold Metallic Skin Card",
+  "item.gardenarsenal.skin_card_metallic_iron": "Iron Metallic Skin Card",
+  "item.gardenarsenal.skin_card_metallic_netherite": "Netherite Metallic Skin Card",
   "item.gardenarsenal.skin_card_seasonal_christmas": "Christmas Skin Card",
   "item.gardenarsenal.skin_card_seasonal_halloween": "Halloween Skin Card",
   "item.gardenarsenal.skin_card_special_aquatic": "Aquatic Skin Card",
@@ -39,5 +39,27 @@
 
   "GARDEN ARSENAL BLOCKS": "BLOCKS",
   "block.gardenarsenal.machine_block": "Machine Block",
-  "block.gardenarsenal.trap_cake": "Trap Cake"
+  "block.gardenarsenal.trap_cake": "Trap Cake",
+
+  "GARDEN ARSENAL SKIN NAMES": "SKIN NAMES",
+  "tooltip.gardenarsenal.skin.Default": "Default",
+  "tooltip.gardenarsenal.skin.camo_desert": "Desert - Camouflage",
+  "tooltip.gardenarsenal.skin.camo_end": "End - Camouflage",
+  "tooltip.gardenarsenal.skin.camo_forest": "Forest - Camouflage",
+  "tooltip.gardenarsenal.skin.camo_frost": "Frost - Camouflage",
+  "tooltip.gardenarsenal.skin.camo_nether": "Nether - Camouflage",
+  "tooltip.gardenarsenal.skin.metallic_gold": "Gold - Metallic - Aurum",
+  "tooltip.gardenarsenal.skin.metallic_iron": "Iron - Metallic",
+  "tooltip.gardenarsenal.skin.metallic_netherite": "Netherite - Metallic",
+  "tooltip.gardenarsenal.skin.seasonal_christmas": "Christmas - Seasonal",
+  "tooltip.gardenarsenal.skin.seasonal_halloween": "Halloween - Seasonal",
+  "tooltip.gardenarsenal.skin.special_aquatic": "Aquatic - Special",
+  "tooltip.gardenarsenal.skin.special_neon": "Neon - Special",
+  "tooltip.gardenarsenal.skin.teams_mcabnormals": "MCAbnormals - Teams",
+  "tooltip.gardenarsenal.skin.teams_multiteam": "MultiTeam - Teams",
+  "tooltip.gardenarsenal.skin.teams_vampirestudios": "VampireStudios - Teams",
+
+  "GARDEN ARSENAL ENTITYS ": "ENTITY NAMES",
+  "entity.minecraft.villager.gardenarsenal.garden_soldier": "Garden Soldier",
+  "entity.minecraft.villager.gardenarsenal.garden_soldier_commander": "Garden Soldier Commander"
 }

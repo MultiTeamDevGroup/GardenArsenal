@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "multiteam.gardenarsenal.fabric.GardenArsenalFabric"
+    ],
+    "client": [
+      "multiteam.gardenarsenal.fabric.GardenArsenalClientFabric"
     ]
   },
   "depends": {

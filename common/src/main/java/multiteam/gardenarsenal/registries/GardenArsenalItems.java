@@ -5,6 +5,7 @@ import me.shedaniel.architectury.registry.DeferredRegister;
 import me.shedaniel.architectury.registry.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.items.*;
+import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -12,6 +13,10 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public class GardenArsenalItems {
@@ -55,47 +60,25 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> SUGAR_CANE_SNIPER = ITEMS.register("sugar_cane_sniper", () ->
             new SugarcaneSniper(new Item.Properties().tab(WEAPONS)));
 
-    public static final RegistrySupplier<Item> SKIN_DESERT = ITEMS.register("skin_card_camo_desert", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_END = ITEMS.register("skin_card_camo_end", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_FOREST = ITEMS.register("skin_card_camo_forest", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_FROST = ITEMS.register("skin_card_camo_frost", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_NETHER = ITEMS.register("skin_card_camo_nether", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_GOLD = ITEMS.register("skin_card_metallic_gold", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_IRON = ITEMS.register("skin_card_metallic_iron", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_NETHERITE = ITEMS.register("skin_card_metallic_netherite", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_CHRISTMAS = ITEMS.register("skin_card_seasonal_christmas", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_HALLOWEEN = ITEMS.register("skin_card_seasonal_halloween", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_AQUATIC = ITEMS.register("skin_card_special_aquatic", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_NEON = ITEMS.register("skin_card_special_neon", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_MCABNORMALS = ITEMS.register("skin_card_teams_mcabnormals", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_MULTITEAM = ITEMS.register("skin_card_teams_multiteam", () ->
-            new Item(new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> SKIN_VAMPIRESTUDIOS = ITEMS.register("skin_card_teams_vampirestudios", () ->
-            new Item(new Item.Properties().tab(MISC)));
+    public static List<RegistrySupplier<Item>> SKIN_CARDS = new ArrayList<>();
 
     public static final RegistrySupplier<Item> MACHINE_BLOCK = ITEMS.register("machine_block",
             () -> new BlockItem(GardenArsenalBlocks.MACHINE_BLOCK.get(), new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> TRAP_CAKE = ITEMS.register("trap_cake",
             () -> new BlockItem(GardenArsenalBlocks.TRAP_CAKE.get(), new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> GARDEN_SOLDIER_COMMANDER_POI = ITEMS.register("garden_soldier_commander_poi",
-            () -> new BlockItem(GardenArsenalBlocks.GARDEN_SOLDIER_COMMANDER_POI.get(), new Item.Properties().tab(MISC)));
-    public static final RegistrySupplier<Item> GARDEN_SOLDIER_POI = ITEMS.register("garden_soldier_poi",
-            () -> new BlockItem(GardenArsenalBlocks.GARDEN_SOLDIER_POI.get(), new Item.Properties().tab(MISC)));
+    public static final RegistrySupplier<Item> WAR_TACTIC_TABLE = ITEMS.register("war_tactic_table",
+            () -> new BlockItem(GardenArsenalBlocks.WAR_TACTIC_TABLE.get(), new Item.Properties().tab(MISC)));
+    public static final RegistrySupplier<Item> AMMO_CRATE = ITEMS.register("ammo_crate",
+            () -> new BlockItem(GardenArsenalBlocks.AMMO_CRATE.get(), new Item.Properties().tab(MISC)));
 
     public static void init() {
+        for (Skins skin : Skins.values()) {
+            SKIN_CARDS.add(ITEMS.register("skin_card_" + skin.name().toLowerCase(Locale.ENGLISH), () -> new SkinCardItem(skin)));
+        }
+
+        List<RegistrySupplier<Item>> list = Collections.unmodifiableList(SKIN_CARDS);
+        SKIN_CARDS = list;
+
         ITEMS.register();
     }
 }

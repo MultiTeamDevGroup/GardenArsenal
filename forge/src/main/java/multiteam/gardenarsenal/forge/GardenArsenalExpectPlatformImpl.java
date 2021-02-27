@@ -1,11 +1,16 @@
 package multiteam.gardenarsenal.forge;
 
 import com.google.common.collect.ImmutableSet;
+import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.client.renderer.item.ItemPropertyFunction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -38,5 +43,13 @@ public class GardenArsenalExpectPlatformImpl {
         }
 
         return null;
+    }
+
+    public static void registerItemProperty(Item item, String name, ItemPropertyFunction itemPropertyFunction) {
+        ItemProperties.register(item, new ResourceLocation(GardenArsenal.MOD_ID, name), itemPropertyFunction);
+    }
+
+    public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
+        return new ForgeRecipeSerializer<>(recipeSerializer);
     }
 }

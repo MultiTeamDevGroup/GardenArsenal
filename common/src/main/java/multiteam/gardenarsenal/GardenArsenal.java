@@ -11,5 +11,6 @@ public class GardenArsenal {
         GardenArsenalPaintings.init();
         GardenArsenalPois.init();
         GardenArsenalProfessions.init();
+        GardenArsenalRecipeSerializers.init();
     }
 }

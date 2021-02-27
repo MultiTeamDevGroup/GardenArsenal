@@ -31,13 +31,13 @@ public class BeetrootSmoke extends WeaponItem {
         if (nbtTagCompound == null){
             nbtTagCompound = new CompoundTag();
             itemStack.setTag(nbtTagCompound);
-        }
 
-        nbtTagCompound.putString("skinType", "Default");
+            nbtTagCompound.putString("skinType", "Default");
+        }
 
 //        tooltip.add(new TextComponent(nbtTagCompound.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
 
-        tooltip.add(new TextComponent(nbtTagCompound.getString("skinType")).copy().setStyle(Style.EMPTY.withColor(TextColor.fromRgb(2909434))));
+        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + nbtTagCompound.getString("skinType")).copy().setStyle(Style.EMPTY.withColor(TextColor.fromRgb(2909434))));
 
         //tooltip.add(new TextComponent(nbtTagCompound.getString("skinType"    )).copy().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
     }

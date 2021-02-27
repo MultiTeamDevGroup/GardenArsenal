@@ -3,10 +3,13 @@ package multiteam.gardenarsenal;
 import com.google.common.collect.ImmutableSet;
 import me.shedaniel.architectury.annotations.ExpectPlatform;
 import me.shedaniel.architectury.platform.Platform;
+import net.minecraft.client.renderer.item.ItemPropertyFunction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -38,6 +41,16 @@ public class GardenArsenalExpectPlatform {
 
     @ExpectPlatform
     public static PoiType createPoi(String string, Set<BlockState> set, int i, int j) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static void registerItemProperty(Item item, String name, ItemPropertyFunction itemPropertyFunction) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
         throw new AssertionError();
     }
 }

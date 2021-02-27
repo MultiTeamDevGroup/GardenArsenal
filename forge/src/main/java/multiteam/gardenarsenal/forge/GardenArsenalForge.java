@@ -1,7 +1,10 @@
 package multiteam.gardenarsenal.forge;
 
+import me.shedaniel.architectury.platform.Platform;
 import me.shedaniel.architectury.platform.forge.EventBuses;
+import me.shedaniel.architectury.utils.Env;
 import multiteam.gardenarsenal.GardenArsenal;
+import multiteam.gardenarsenal.GardenArsenalClient;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -26,6 +29,9 @@ public class GardenArsenalForge {
         EventBuses.registerModEventBus(GardenArsenal.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         EventBuses.getModEventBus(GardenArsenal.MOD_ID).get().addGenericListener(Item.class, GardenArsenalForge::fixGrenadeId); // Registering the MissingMappings event for Item
         GardenArsenal.init();
+        if (Platform.getEnvironment() == Env.CLIENT) {
+            GardenArsenalClient.init();
+        }
     }
 
     // This is supposed to fix the id of the potato grenade...
