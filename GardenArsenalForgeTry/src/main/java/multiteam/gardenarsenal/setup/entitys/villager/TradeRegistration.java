@@ -4,8 +4,6 @@ import multiteam.gardenarsenal.GardenArsenalMod;
 import multiteam.gardenarsenal.setup.ModBlocks;
 import multiteam.gardenarsenal.setup.ModItems;
 import multiteam.gardenarsenal.setup.VillagerProfessions;
-import multiteam.gardenarsenal.setup.entitys.villager.RandomTradeBuilder;
-import net.minecraft.item.Items;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,6 +37,9 @@ public class TradeRegistration {
 
             //LEGENDARY SKIN CARDS
             event.getTrades().get(4).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(5).setForSale(ModItems.SKIN_CARD11.get(), 1, 1).build()));
+            event.getTrades().get(4).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(5).setForSale(ModItems.SKIN_CARD15.get(), 1, 1).build()));
+            event.getTrades().get(4).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(5).setForSale(ModItems.SKIN_CARD16.get(), 1, 1).build()));
+            event.getTrades().get(4).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(5).setForSale(ModItems.SKIN_CARD17.get(), 1, 1).build()));
 
             //MYTHICAL SKIN CARDS
             event.getTrades().get(5).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(6).setForSale(ModItems.SKIN_CARD12.get(), 1, 1).build()));
@@ -58,12 +59,12 @@ public class TradeRegistration {
             event.getTrades().get(1).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(10).setForSale(ModItems.BEETROOT_SMOKE.get(), 1, 1).build()));
 
             //AMMUNITION
-            event.getTrades().get(2).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(5).setForSale(ModItems.POTATO_GRANADE.get(), 1, 1).build()));
-            event.getTrades().get(2).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(10).setForSale(ModItems.COCOA_BEANS_SHELL.get(), 5, 5).build()));
+            event.getTrades().get(2).add((new RandomTradeBuilder(64, 10, 0.05F).setEmeraldPrice(5).setForSale(ModItems.POTATO_GRANADE.get(), 1, 1).build()));
+            event.getTrades().get(2).add((new RandomTradeBuilder(64, 10, 0.05F).setEmeraldPrice(10).setForSale(ModItems.COCOA_BEANS_SHELL.get(), 5, 5).build()));
 
             //MISC
             event.getTrades().get(3).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(10).setForSale(ModBlocks.TRAP_CAKE.get().asItem(), 1, 1).build()));
-            event.getTrades().get(3).add((new RandomTradeBuilder(16, 10, 0.05F).setEmeraldPrice(5).setForSale(ModBlocks.MACHINE_BLOCK.get().asItem(), 1, 1).build()));
+            event.getTrades().get(3).add((new RandomTradeBuilder(64, 10, 0.05F).setEmeraldPrice(5).setForSale(ModBlocks.MACHINE_BLOCK.get().asItem(), 1, 1).build()));
 
         }
     }

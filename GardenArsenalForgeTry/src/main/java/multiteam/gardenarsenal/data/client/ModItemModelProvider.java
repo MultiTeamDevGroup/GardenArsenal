@@ -37,6 +37,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "skin_card_teams_mcabnormals");
         builder(itemGenerated, "skin_card_teams_multiteam");
         builder(itemGenerated, "skin_card_teams_vampirestudios");
+        builder(itemGenerated, "skin_card_special_ectoplasm");
+        builder(itemGenerated, "skin_card_special_nerf");
+        builder(itemGenerated, "skin_card_special_rubik");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

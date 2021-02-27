@@ -90,6 +90,24 @@
         "gardenarsenal:skin": 15
       },
       "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 16
+      },
+      "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 17
+      },
+      "model": "gardenarsenal:item/skins/special/nerf/special_nerf_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 18
+      },
+      "model": "gardenarsenal:item/skins/special/rubik/special_rubik_carrot_rifle"
     }
   ]
 }

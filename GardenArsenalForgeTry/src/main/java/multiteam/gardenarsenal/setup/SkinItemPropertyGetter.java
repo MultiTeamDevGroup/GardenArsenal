@@ -50,6 +50,12 @@ public class SkinItemPropertyGetter implements IItemPropertyGetter
 				return 14;
 			case "teams_vampirestudios":
 				return 15;
+			case "special_ectoplasm":
+				return 16;
+			case "special_nerf":
+				return 17;
+			case "special_rubik":
+				return 18;
 			// continue
 		}
 	}
