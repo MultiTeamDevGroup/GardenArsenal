@@ -66,9 +66,8 @@ public class GardenArsenalExpectPlatformImpl {
         try {
             for (Method method : ItemProperties.class.getDeclaredMethods()) {
                 method.setAccessible(true);
-                if (method.getParameterCount() > 3 && method.getParameterTypes()[0] == Item.class && method.getParameterTypes()[1] == ResourceLocation.class
-                        && method.getParameterTypes()[2] == ItemPropertyFunction.class && method.getReturnType() == void.class) {
-
+                if (method.getParameterCount() == 3 && method.getParameterTypes()[0] == Item.class && method.getParameterTypes()[1] == ResourceLocation.class
+                        && method.getParameterTypes()[2] == ItemPropertyFunction.class && method.getReturnType() == void.class && !method.isSynthetic()) {
                         method.invoke(null, item, new ResourceLocation(GardenArsenal.MOD_ID, name), itemPropertyFunction);
                         break;
                 }
