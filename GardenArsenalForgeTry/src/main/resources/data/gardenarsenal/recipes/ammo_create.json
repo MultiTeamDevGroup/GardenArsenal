@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "C",
+        "S"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:potato"
+        },
+        "C": {
+            "item": "minecraft:carrot"
+        },
+        "S": {
+            "item": "minecraft:composter"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:ammo_crate",
+        "count": 1
+    }
+}

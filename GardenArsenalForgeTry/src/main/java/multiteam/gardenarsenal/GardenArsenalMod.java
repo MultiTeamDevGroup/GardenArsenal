@@ -3,6 +3,8 @@ package multiteam.gardenarsenal;
 import multiteam.gardenarsenal.setup.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -61,6 +63,8 @@ public class GardenArsenalMod {
         ItemModelsProperties.registerProperty(ModItems.SEED_PISTOL.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
         ItemModelsProperties.registerProperty(ModItems.SUGAR_CANE_SNIPER.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
 
+
+        RenderTypeLookup.setRenderLayer(ModBlocks.GARDEN_SOLDIER_POI.get(), RenderType.getCutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

@@ -1,7 +1,9 @@
 package multiteam.gardenarsenal.setup;
 
 import multiteam.gardenarsenal.GardenArsenalMod;
+import multiteam.gardenarsenal.setup.blocks.AmmoCrate;
 import multiteam.gardenarsenal.setup.blocks.TrapCake;
+import multiteam.gardenarsenal.setup.blocks.WarTacticTable;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -16,8 +18,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MACHINE_BLOCK = register("machine_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(6, 6).harvestLevel(2).sound(SoundType.NETHERITE)));
     public static final RegistryObject<Block> TRAP_CAKE = register("trap_cake", () -> new TrapCake(AbstractBlock.Properties.create(Material.CAKE).sound(SoundType.CLOTH).hardnessAndResistance(0.5F)));
-    public static final RegistryObject<Block> GARDEN_SOLDIER_COMMANDER_POI = register("garden_soldier_commander_poi", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(3, 3).harvestLevel(1).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> GARDEN_SOLDIER_POI = register("garden_soldier_poi", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(3, 3).harvestLevel(1).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> GARDEN_SOLDIER_COMMANDER_POI = register("war_tactic_table", () -> new WarTacticTable(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(3, 3).harvestLevel(1).sound(SoundType.WOOD).notSolid()));
+    public static final RegistryObject<Block> GARDEN_SOLDIER_POI = register("ammo_crate", () -> new AmmoCrate(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(3, 3).harvestLevel(1).sound(SoundType.WOOD).notSolid()));
 
     static void register() {}
 

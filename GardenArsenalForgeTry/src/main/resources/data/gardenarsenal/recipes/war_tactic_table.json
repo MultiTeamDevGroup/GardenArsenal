@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#C#",
+        "/ /"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:jungle_planks"
+        },
+        "C": {
+            "item": "minecraft:cartography_table"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:war_tactic_table",
+        "count": 1
+    }
+}
