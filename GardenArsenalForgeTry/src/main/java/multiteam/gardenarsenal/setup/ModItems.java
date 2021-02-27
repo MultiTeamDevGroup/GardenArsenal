@@ -37,6 +37,9 @@ public class ModItems {
     public static final RegistryObject<Item> SKIN_CARD9 = Registration.ITEMS.register("skin_card_seasonal_halloween", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
     public static final RegistryObject<Item> SKIN_CARD10 = Registration.ITEMS.register("skin_card_special_aquatic", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
     public static final RegistryObject<Item> SKIN_CARD11 = Registration.ITEMS.register("skin_card_special_neon", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
+    public static final RegistryObject<Item> SKIN_CARD15 = Registration.ITEMS.register("skin_card_special_ectoplasm", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
+    public static final RegistryObject<Item> SKIN_CARD16 = Registration.ITEMS.register("skin_card_special_nerf", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
+    public static final RegistryObject<Item> SKIN_CARD17 = Registration.ITEMS.register("skin_card_special_rubik", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
     public static final RegistryObject<Item> SKIN_CARD12 = Registration.ITEMS.register("skin_card_teams_mcabnormals", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
     public static final RegistryObject<Item> SKIN_CARD13 = Registration.ITEMS.register("skin_card_teams_multiteam", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
     public static final RegistryObject<Item> SKIN_CARD14 = Registration.ITEMS.register("skin_card_teams_vampirestudios", () -> new Item(new Item.Properties().group(GardenArsenalMod.GARDEN_ARSENAL_MISC_TAB)));
