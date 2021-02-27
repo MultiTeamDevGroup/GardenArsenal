@@ -1,0 +1,13 @@
+{
+  "type": "gardenarsenal:skin_smithing",
+  "base": {
+    "item": "gardenarsenal:seed_pistol"
+  },
+  "addition": {
+    "item": "gardenarsenal:skin_card_teams_vampirestudios"
+  },
+  "result": {
+    "item": "gardenarsenal:seed_pistol"
+  },
+  "skin" : "teams_vampirestudios"
+}

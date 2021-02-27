@@ -16,7 +16,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MACHINE_BLOCK = register("machine_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(6, 6).harvestLevel(2).sound(SoundType.NETHERITE)));
     public static final RegistryObject<Block> TRAP_CAKE = register("trap_cake", () -> new TrapCake(AbstractBlock.Properties.create(Material.CAKE).sound(SoundType.CLOTH).hardnessAndResistance(0.5F)));
-
+    public static final RegistryObject<Block> GARDEN_SOLDIER_COMMANDER_POI = register("garden_soldier_commander_poi", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(3, 3).harvestLevel(1).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> GARDEN_SOLDIER_POI = register("garden_soldier_poi", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(3, 3).harvestLevel(1).sound(SoundType.WOOD)));
 
     static void register() {}
 

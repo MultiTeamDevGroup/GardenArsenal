@@ -3,9 +3,13 @@ package multiteam.gardenarsenal;
 import multiteam.gardenarsenal.setup.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -38,15 +42,25 @@ public class GardenArsenalMod {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
+        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+
+        ItemModelsProperties.registerProperty(ModItems.CARROT_RIFLE.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.COCOA_BEAN_SHOTGUN.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.POTATO_BAZOOKA.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.SEED_PISTOL.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+        ItemModelsProperties.registerProperty(ModItems.SUGAR_CANE_SNIPER.get(), new ResourceLocation(MOD_ID, "skin"), new SkinItemPropertyGetter());
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -73,6 +87,13 @@ public class GardenArsenalMod {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             LOGGER.info("Garden Arsenal is keeping the old fashion Registry block, since idk when im gonna need it.");
+        }
+
+        @SubscribeEvent
+        public static void onRecipeRegistry(RegistryEvent.Register<IRecipeSerializer<?>> event)
+        {
+            SkinSmithingRecipe.SERIALIZER.setRegistryName(new ResourceLocation(MOD_ID, "skin_smithing"));
+            event.getRegistry().register(SkinSmithingRecipe.SERIALIZER);
         }
     }
 

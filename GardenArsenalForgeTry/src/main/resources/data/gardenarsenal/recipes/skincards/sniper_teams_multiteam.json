@@ -1,0 +1,13 @@
+{
+  "type": "gardenarsenal:skin_smithing",
+  "base": {
+    "item": "gardenarsenal:sugar_cane_sniper"
+  },
+  "addition": {
+    "item": "gardenarsenal:skin_card_teams_multiteam"
+  },
+  "result": {
+    "item": "gardenarsenal:sugar_cane_sniper"
+  },
+  "skin" : "teams_multiteam"
+}

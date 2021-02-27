@@ -9,6 +9,7 @@ import net.minecraft.item.ArrowItem;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.SoundCategory;
@@ -106,6 +107,21 @@ public class ModWeapons extends BowItem {
         return (ammoStack) -> {
             return ammoStack.getItem().isIn(ItemTags.ARROWS);
         };
+    }
+
+    @Override
+    public ItemStack getDefaultInstance()
+    {
+        ItemStack stack = new ItemStack(this);
+        CompoundNBT nbtTagCompound = stack.getTag();
+
+        if (nbtTagCompound == null){
+            nbtTagCompound = new CompoundNBT();
+            stack.setTag(nbtTagCompound);
+
+        }
+        nbtTagCompound.putString("skinType", "Default");
+        return stack;
     }
 
 }
