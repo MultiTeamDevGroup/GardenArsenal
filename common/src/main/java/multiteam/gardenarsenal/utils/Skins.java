@@ -14,6 +14,9 @@ public enum Skins {
     seasonal_halloween,
     special_aquatic,
     special_neon,
+    special_ectoplasm,
+    special_nerf,
+    special_rubik,
     teams_mcabnormals,
     teams_multiteam,
     teams_vampirestudios
