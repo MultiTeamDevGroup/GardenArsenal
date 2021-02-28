@@ -1,0 +1,6 @@
+{
+  "mixins": [
+    "VillagerMixin"
+  ],
+  "package": "multiteam.gardenarsenal.fabric.mixin"
+}

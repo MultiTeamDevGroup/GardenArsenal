@@ -3,6 +3,7 @@ package multiteam.gardenarsenal.forge;
 import com.google.common.collect.ImmutableSet;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
+import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.resources.ResourceLocation;
@@ -51,5 +52,9 @@ public class GardenArsenalExpectPlatformImpl {
 
     public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
         return new ForgeRecipeSerializer<>(recipeSerializer);
+    }
+
+    public static void registerTrades(GardenArsenalTrades.TradeListBuilder tradeListBuilder) {
+        GardenArsenalForge.tradeListBuilders.add(tradeListBuilder);
     }
 }

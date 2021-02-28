@@ -29,5 +29,8 @@
     "fabric": "*",
     "minecraft": ">=1.16.4",
     "architectury": ">=1.1.55"
-  }
+  },
+  "mixins": [
+    "mixin.gardenarsenal.json"
+  ]
 }
