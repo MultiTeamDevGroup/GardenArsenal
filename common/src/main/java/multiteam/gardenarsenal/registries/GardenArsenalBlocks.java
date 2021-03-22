@@ -5,7 +5,9 @@ import me.shedaniel.architectury.registry.DeferredRegister;
 import me.shedaniel.architectury.registry.RegistrySupplier;
 import me.shedaniel.architectury.registry.ToolType;
 import multiteam.gardenarsenal.GardenArsenal;
+import multiteam.gardenarsenal.blocks.AmmoCrate;
 import multiteam.gardenarsenal.blocks.TrapCake;
+import multiteam.gardenarsenal.blocks.WarTacticTable;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -20,9 +22,9 @@ public class GardenArsenalBlocks {
     public static final RegistrySupplier<Block> TRAP_CAKE = BLOCKS.register("trap_cake",
             () -> new TrapCake(BlockProperties.of(Material.CAKE).sound(SoundType.WOOL).strength(0.5F)));
     public static final RegistrySupplier<Block> WAR_TACTIC_TABLE = BLOCKS.register("war_tactic_table",
-            () -> new Block(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(2, 2).sound(SoundType.WOOD)));
+            () -> new WarTacticTable(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(2, 2).sound(SoundType.WOOD).noOcclusion()));
     public static final RegistrySupplier<Block> AMMO_CRATE = BLOCKS.register("ammo_crate",
-            () -> new Block(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(2, 2).sound(SoundType.WOOD)));
+            () -> new AmmoCrate(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(2, 2).sound(SoundType.WOOD).noOcclusion()));
 
     public static void init() {
         BLOCKS.register();

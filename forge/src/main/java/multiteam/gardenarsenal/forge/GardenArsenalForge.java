@@ -12,7 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,7 +36,7 @@ public class GardenArsenalForge {
         ID_FIXES.put("skin_card_metalic_netherite", "skin_card_metallic_netherite");
 
         EventBuses.onRegistered(GardenArsenal.MOD_ID, iEventBus -> {
-            iEventBus.addGenericListener(Item.class, GardenArsenalForge::fixGrenadeId); // Registering the MissingMappings event for Item
+            iEventBus.addGenericListener(Item.class, GardenArsenalForge::fixOldIds); // Registering the MissingMappings event for Item
         });
 
         // Submit our event bus to let architectury register our content on the right time
@@ -58,7 +57,7 @@ public class GardenArsenalForge {
     }
 
     // This is supposed to fix the renamed ids...
-    public static void fixGrenadeId(RegistryEvent.MissingMappings<Item> event) {
+    public static void fixOldIds(RegistryEvent.MissingMappings<Item> event) {
         for (Map.Entry<String, String> fixEntry : ID_FIXES.entrySet()) {
             ResourceLocation old = new ResourceLocation(GardenArsenal.MOD_ID, fixEntry.getKey());
             ResourceLocation newId = new ResourceLocation(GardenArsenal.MOD_ID, fixEntry.getValue());
