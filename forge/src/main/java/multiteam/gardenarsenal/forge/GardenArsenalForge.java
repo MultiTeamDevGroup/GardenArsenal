@@ -35,7 +35,7 @@ public class GardenArsenalForge {
         ID_FIXES.put("skin_card_metalic_gold", "skin_card_metallic_gold");
         ID_FIXES.put("skin_card_metalic_iron", "skin_card_metallic_iron");
         ID_FIXES.put("skin_card_metalic_netherite", "skin_card_metallic_netherite");
-        
+
         EventBuses.onRegistered(GardenArsenal.MOD_ID, iEventBus -> {
             iEventBus.addGenericListener(Item.class, GardenArsenalForge::fixGrenadeId); // Registering the MissingMappings event for Item
         });
@@ -57,7 +57,7 @@ public class GardenArsenalForge {
         }
     }
 
-    // This is supposed to fix the id of the potato grenade...
+    // This is supposed to fix the renamed ids...
     public static void fixGrenadeId(RegistryEvent.MissingMappings<Item> event) {
         for (Map.Entry<String, String> fixEntry : ID_FIXES.entrySet()) {
             ResourceLocation old = new ResourceLocation(GardenArsenal.MOD_ID, fixEntry.getKey());
