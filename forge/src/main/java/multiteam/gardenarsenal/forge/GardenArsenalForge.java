@@ -35,9 +35,13 @@ public class GardenArsenalForge {
         ID_FIXES.put("skin_card_metalic_gold", "skin_card_metallic_gold");
         ID_FIXES.put("skin_card_metalic_iron", "skin_card_metallic_iron");
         ID_FIXES.put("skin_card_metalic_netherite", "skin_card_metallic_netherite");
+        
+        EventBuses.onRegistered(GardenArsenal.MOD_ID, iEventBus -> {
+            iEventBus.addGenericListener(Item.class, GardenArsenalForge::fixGrenadeId); // Registering the MissingMappings event for Item
+        });
+
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(GardenArsenal.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
-        EventBuses.getModEventBus(GardenArsenal.MOD_ID).get().addGenericListener(Item.class, GardenArsenalForge::fixGrenadeId); // Registering the MissingMappings event for Item
 
         MinecraftForge.EVENT_BUS.addListener(new Consumer<VillagerTradesEvent>() {
             @Override
