@@ -6,6 +6,8 @@ import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
+import net.fabricmc.fabric.mixin.object.builder.PointOfInterestTypeAccessor;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
@@ -36,36 +38,18 @@ public class GardenArsenalExpectPlatformImpl {
     }
 
     public static VillagerProfession createProfession(String nameIn, PoiType pointOfInterestIn, ImmutableSet<Item> specificItemsIn, ImmutableSet<Block> relatedWorldBlocksIn, SoundEvent soundIn) {
-        try {
-            Constructor<VillagerProfession> constructor = VillagerProfession.class.getDeclaredConstructor(String.class, PoiType.class, ImmutableSet.class, ImmutableSet.class, SoundEvent.class);
-            constructor.setAccessible(true);
-            return constructor.newInstance(nameIn, pointOfInterestIn, specificItemsIn, relatedWorldBlocksIn, soundIn);
-        } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return VillagerProfessionBuilder.create()
+                .id(new ResourceLocation(GardenArsenal.MOD_ID, nameIn))
+                .workstation(pointOfInterestIn)
+                .harvestableItems(specificItemsIn)
+                .secondaryJobSites(relatedWorldBlocksIn)
+                .workSound(soundIn)
+                .build();
     }
 
     public static PoiType createPoi(String string, Set<BlockState> set, int i, int j) {
-        try {
-            Constructor<PoiType> constructor = PoiType.class.getDeclaredConstructor(String.class, Set.class, int.class, int.class);
-            constructor.setAccessible(true);
-            PoiType type = constructor.newInstance(string, set, i, i);
-
-            for (Method method : PoiType.class.getDeclaredMethods()) {
-                method.setAccessible(true);
-                if (method.getParameterCount() > 0 && method.getParameterTypes()[0] == PoiType.class && method.getReturnType() == PoiType.class) {
-                    type = (PoiType) method.invoke(type, type);
-                    break;
-                }
-            }
-
-            return type;
-        } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return PointOfInterestTypeAccessor.callSetup(PointOfInterestTypeAccessor
+                .callCreate(string, set, i, j));
     }
 
     public static void registerItemProperty(Item item, String name, ItemPropertyFunction itemPropertyFunction) {
