@@ -10,7 +10,7 @@ public class SkinCardItem extends Item {
     private Skins skin;
 
     public SkinCardItem(Skins skin) {
-        super(new Item.Properties().tab(MISC).stacksTo(1));
+        super(new Item.Properties().tab(MISC).stacksTo(64));
         this.skin = skin;
     }
 
