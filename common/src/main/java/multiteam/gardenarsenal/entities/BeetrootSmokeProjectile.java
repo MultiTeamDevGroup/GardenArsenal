@@ -19,7 +19,6 @@ public class BeetrootSmokeProjectile extends WeaponProjectile {
     @Override
     public void collision(HitResult hitResult) {
         if (!this.level.isClientSide) {
-            this.level.explode(null, this.getX() + 1D, this.getY() + 1D, this.getZ() + 1D, 3, Explosion.BlockInteraction.BREAK);
             this.level.broadcastEntityEvent(this, (byte) 3);
             this.remove();
 
