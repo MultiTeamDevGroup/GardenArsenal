@@ -18,8 +18,10 @@ public enum Skins {
     special_nerf(5,6),
     special_rubik(5,6),
     teams_mcabnormals(4,5),
-    teams_multiteam(4,5),
-    teams_vampirestudios(4,5);
+    teams_multiteam(4,5)
+//    ,
+//    teams_vampirestudios(4,5)
+    ;
 
     private int tradeLevel;
     private int price;
