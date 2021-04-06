@@ -14,11 +14,11 @@ public enum Skins {
     seasonal_halloween(2,3),
     special_aquatic(2,3),
     special_neon(4,5),
+    teams_mcabnormals(4,5),
+    teams_multiteam(4,5),
     special_ectoplasm(5,6),
     special_nerf(5,6),
-    special_rubik(5,6),
-    teams_mcabnormals(4,5),
-    teams_multiteam(4,5)
+    special_rubik(5,6)
 //    ,
 //    teams_vampirestudios(4,5)
     ;
