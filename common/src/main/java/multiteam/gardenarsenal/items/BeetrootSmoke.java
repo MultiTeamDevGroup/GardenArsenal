@@ -25,21 +25,6 @@ public class BeetrootSmoke extends WeaponItem {
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
         super.appendHoverText(itemStack, level, tooltip, tooltipFlag);
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.beetroot_smoke_desc").copy().withStyle(ChatFormatting.DARK_RED));
-
-        CompoundTag nbtTagCompound = itemStack.getTag();
-
-        if (nbtTagCompound == null){
-            nbtTagCompound = new CompoundTag();
-            itemStack.setTag(nbtTagCompound);
-
-            nbtTagCompound.putString("skinType", "Default");
-        }
-
-//        tooltip.add(new TextComponent(nbtTagCompound.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
-
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + nbtTagCompound.getString("skinType")).copy().setStyle(Style.EMPTY.withColor(TextColor.fromRgb(2909434))));
-
-        //tooltip.add(new TextComponent(nbtTagCompound.getString("skinType"    )).copy().modifyStyle(new TextFormatting("UNCOMMON", 'á', 25, 2066191)));
     }
 
     @Override
