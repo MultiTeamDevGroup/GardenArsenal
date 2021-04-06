@@ -1,0 +1,7 @@
+{
+  "package": "multiteam.gardenarsenal.mixins",
+  "mixins": [
+    "PoolsMixin",
+    "StructureTemplatePoolAccessor"
+  ]
+}
