@@ -5,14 +5,19 @@ import me.shedaniel.architectury.platform.forge.EventBuses;
 import me.shedaniel.architectury.utils.Env;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalClient;
+import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -34,8 +39,8 @@ public class GardenArsenalForge {
         ID_FIXES.put("skin_card_metalic_gold", "skin_card_metallic_gold");
         ID_FIXES.put("skin_card_metalic_iron", "skin_card_metallic_iron");
         ID_FIXES.put("skin_card_metalic_netherite", "skin_card_metallic_netherite");
-
         EventBuses.onRegistered(GardenArsenal.MOD_ID, iEventBus -> {
+            iEventBus.addListener(this::doClientStuff);
             iEventBus.addGenericListener(Item.class, GardenArsenalForge::fixOldIds); // Registering the MissingMappings event for Item
         });
 
@@ -50,10 +55,13 @@ public class GardenArsenalForge {
         });
 
         GardenArsenal.init();
-
-        if (Platform.getEnvironment() == Env.CLIENT) {
+        if (Platform.getEnv() == Dist.CLIENT) {
             GardenArsenalClient.init();
         }
+    }
+
+    private void doClientStuff(final FMLClientSetupEvent event) {
+        ItemBlockRenderTypes.setRenderLayer(GardenArsenalBlocks.AMMO_CRATE.get(), RenderType.cutout());
     }
 
     // This is supposed to fix the renamed ids...
