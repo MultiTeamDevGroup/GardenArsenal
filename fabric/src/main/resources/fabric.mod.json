@@ -31,6 +31,6 @@
     "architectury": ">=1.1.55"
   },
   "mixins": [
-    "mixin.gardenarsenal.json"
+    "mixin.gardenarsenal-fabric.json"
   ]
 }
