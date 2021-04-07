@@ -18,6 +18,9 @@
   "item.gardenarsenal.skin_card_seasonal_halloween": "Carte d’apparence Halloween",
   "item.gardenarsenal.skin_card_special_aquatic": "Carte d’apparence aquatique",
   "item.gardenarsenal.skin_card_special_neon": "Carte d’apparence néon",
+  "item.gardenarsenal.skin_card_special_ectoplasm": "Carte d’apparence ectoplasme",
+  "item.gardenarsenal.skin_card_special_nerf": "Carte d’apparence nerf",
+  "item.gardenarsenal.skin_card_special_rubik": "Carte d’apparence rubik",
   "item.gardenarsenal.skin_card_teams_mcabnormals": "Carte d’apparence logo de MCAbnormals",
   "item.gardenarsenal.skin_card_teams_multiteam": "Carte d’apparence logo de MultiTeam",
   "item.gardenarsenal.skin_card_teams_vampirestudios": "Carte d’apparence logo de VampireStudios",
@@ -40,5 +43,33 @@
 
   "GARDEN ARSENAL BLOCKS": "BLOCS",
   "block.gardenarsenal.machine_block": "Bloc de machine",
-  "block.gardenarsenal.trap_cake": "Gâteau piègé"
+  "block.gardenarsenal.trap_cake": "Gâteau piègé",
+  "block.gardenarsenal.war_tactic_table": "Table de stratégie militaire",
+  "block.gardenarsenal.ammo_crate": "Caisse de munitions",
+
+
+  "GARDEN ARSENAL SKIN NAMES": "NOMS D'APPARANCES",
+  "tooltip.gardenarsenal.skin.Default": "Par défault",
+  "tooltip.gardenarsenal.skin.camo_desert": "Camouflage - Désert",
+  "tooltip.gardenarsenal.skin.camo_end": "Camouflage - End",
+  "tooltip.gardenarsenal.skin.camo_forest": "Camouflage - Forêt",
+  "tooltip.gardenarsenal.skin.camo_frost": "Camouflage - Toundra",
+  "tooltip.gardenarsenal.skin.camo_nether": "Camouflage - Nether",
+  "tooltip.gardenarsenal.skin.metallic_gold": "Métallique - Or (Aurum)",
+  "tooltip.gardenarsenal.skin.metallic_iron": "Métallique - Fer",
+  "tooltip.gardenarsenal.skin.metallic_netherite": "Métallique - Netherite",
+  "tooltip.gardenarsenal.skin.seasonal_christmas": "Noël",
+  "tooltip.gardenarsenal.skin.seasonal_halloween": "Halloween",
+  "tooltip.gardenarsenal.skin.special_aquatic": "Spéciale - Aquatique",
+  "tooltip.gardenarsenal.skin.special_neon": "Spéciale - Néon",
+  "tooltip.gardenarsenal.skin.special_ectoplasm": "Spéciale - Ectoplasme",
+  "tooltip.gardenarsenal.skin.special_nerf": "Spéciale - Nerf",
+  "tooltip.gardenarsenal.skin.special_rubik": "Spéciale - Rubik",
+  "tooltip.gardenarsenal.skin.teams_mcabnormals": "Logo - MCAbnormals",
+  "tooltip.gardenarsenal.skin.teams_multiteam": "Logo - MultiTeam",
+  "tooltip.gardenarsenal.skin.teams_vampirestudios": "Logo - VampireStudios",
+
+  "GARDEN ARSENAL ENTITYS ": "NOMS DES ENTITÉS",
+  "entity.minecraft.villager.gardenarsenal.garden_soldier": "Soldat de jardin",
+  "entity.minecraft.villager.gardenarsenal.garden_soldier_commander": "Commandant des jardinières"
 }
