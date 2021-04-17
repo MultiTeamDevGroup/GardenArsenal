@@ -1,6 +1,7 @@
 package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
+import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -54,7 +55,7 @@ public class CocoaShotgun extends WeaponItem {
             for (int y = -1; y < 2; y++) {
                 WeaponProjectile projectile = new WeaponProjectile(world, playerEntity);
                 projectile.bulletDamage = 6;
-                projectile.setItem(new ItemStack(this.getAmmoItem()));
+                projectile.setItem(new ItemStack(this.getRenderedItem()));
                 projectile.shootFromRotation(playerEntity, playerEntity.xRot + (x*4), playerEntity.yRot + (y*4), 0.0F, 2.0F, 1.0F);
 
                 world.addFreshEntity(projectile);
@@ -64,6 +65,11 @@ public class CocoaShotgun extends WeaponItem {
 
     @Override
     public Item getAmmoItem() {
+        return GardenArsenalItems.COCOA_BEANS_SHELL.get();
+    }
+
+    @Override
+    public Item getRenderedItem() {
         return Items.COCOA_BEANS;
     }
 }

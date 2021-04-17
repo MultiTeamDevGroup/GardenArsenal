@@ -1,6 +1,7 @@
 package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
+import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -107,7 +108,7 @@ public class CarrotRifle extends WeaponItem {
     public void createProjectileEntities(Level world, Player playerEntity) {
         WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity);
         weaponProjectile.bulletDamage = 4;
-        weaponProjectile.setItem(new ItemStack(this.getAmmoItem()));
+        weaponProjectile.setItem(new ItemStack(this.getRenderedItem()));
         weaponProjectile.shootFromRotation(playerEntity, playerEntity.xRot, playerEntity.yRot, 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(weaponProjectile);
     }
@@ -115,5 +116,10 @@ public class CarrotRifle extends WeaponItem {
     @Override
     public Item getAmmoItem() {
         return Items.CARROT;
+    }
+
+    @Override
+    public Item getRenderedItem() {
+        return GardenArsenalItems.PROJECTILE_CARROT.get();
     }
 }
