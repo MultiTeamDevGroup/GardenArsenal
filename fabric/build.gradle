@@ -26,6 +26,9 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) {
         transitive = false
     }
+
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${rootProject.rei_version}"
+    modRuntime "me.shedaniel:RoughlyEnoughItems:${rootProject.rei_version}"
 }
 
 processResources {

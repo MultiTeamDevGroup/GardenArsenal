@@ -29,6 +29,9 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) {
         transitive = false
     }
+
+    modCompileOnly "mezz.jei:jei-1.16.5:${rootProject.jei_version}:api"
+    modRuntime "mezz.jei:jei-1.16.5:${rootProject.jei_version}"
 }
 
 processResources {
