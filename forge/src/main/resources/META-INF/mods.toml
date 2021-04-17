@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[35,)"
-#issueTrackerURL = ""
-license = "All rights reserved"
+issueTrackerURL = "https://github.com/Laz-The-Artist/GardenArsenal/issues"
+license = "GNU GENERAL PUBLIC LICENSE version 2"
 
 [[mods]]
 modId = "gardenarsenal"

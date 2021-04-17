@@ -29,6 +29,8 @@ dependencies {
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${rootProject.rei_version}"
     modRuntime "me.shedaniel:RoughlyEnoughItems:${rootProject.rei_version}"
+
+    modRuntime "com.terraformersmc:modmenu:${rootProject.modmenu_version}"
 }
 
 processResources {

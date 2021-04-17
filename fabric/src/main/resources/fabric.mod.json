@@ -3,17 +3,17 @@
   "id": "gardenarsenal",
   "version": "${version}",
   "name": "Garden Arsenal",
-  "description": "Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.\n\nEverything from v0.1.0 and v0.2.0 is here, on a new minecraft version!\nFresh and new all hand-written code, combined with all the new and remade assets!\n\nTo be apart of our community, join the discord server!\nhttps://discord.gg/JTwmz8S",
   "authors": [
     "LazTheArtist",
     "CatCore",
     "Boblovespi"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/mt-gardenarsenal-fabric",
+    "sources": "https://github.com/Laz-The-Artist/GardenArsenal",
+    "issues": "https://github.com/Laz-The-Artist/GardenArsenal/issues"
   },
-  "license": "All rights reserved",
+  "license": "GNU GENERAL PUBLIC LICENSE version 2",
   "icon": "gardenarsenal_icon.png",
   "environment": "*",
   "entrypoints": {
@@ -32,5 +32,17 @@
   },
   "mixins": [
     "mixin.gardenarsenal-fabric.json"
-  ]
+  ],
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/JTwmz8S"
+      }
+    },
+    "modupdater": {
+      "strategy": "curseforge",
+      "projectID": 468617,
+      "strict": false
+    }
+  }
 }

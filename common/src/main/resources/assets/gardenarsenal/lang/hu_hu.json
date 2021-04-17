@@ -70,5 +70,9 @@
 
   "GARDEN ARSENAL ENTITYS ": "ENTITY NAMES",
   "entity.minecraft.villager.gardenarsenal.garden_soldier": "Kerti Katona",
-  "entity.minecraft.villager.gardenarsenal.garden_soldier_commander": "Kerti Katona Parancsnok"
+  "entity.minecraft.villager.gardenarsenal.garden_soldier_commander": "Kerti Katona Parancsnok",
+
+  // To translate
+  "modmenu.descriptionTranslation.gardenarsenal": "Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.\n\nEverything from v0.1.0 and v0.2.0 is here, on a new minecraft version!\nFresh and new all hand-written code, combined with all the new and remade assets!\n\nTo be apart of our community, join the discord server!",
+  "modmenu.summaryTranslation.gardenarsenal": "Adds weapons shooting vegetables and edibles."
 }

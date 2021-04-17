@@ -45,6 +45,10 @@ allprojects {
             name = "REI maven"
             url = "https://maven.shedaniel.me/"
         }
+        maven {
+            name = "Modmenu maven"
+            url = "https://maven.terraformersmc.com/releases/"
+        }
     }
 
     tasks.withType(JavaCompile) {
