@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gardenarsenal:block/barricade_industrial",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gardenarsenal:block/barricade_industrial"
+    },
+    "facing=south": {
+      "model": "gardenarsenal:block/barricade_industrial",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gardenarsenal:block/barricade_industrial",
+      "y": 270
+    }
+  }
+}

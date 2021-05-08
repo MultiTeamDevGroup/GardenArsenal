@@ -46,6 +46,9 @@
   "block.gardenarsenal.trap_cake": "Trap Cake",
   "block.gardenarsenal.war_tactic_table": "War Tactic Table",
   "block.gardenarsenal.ammo_crate": "Ammo Crate",
+  "block.gardenarsenal.survivalist_barricade": "Survivalist Barricade",
+  "block.gardenarsenal.maker_barricade": "Makers Barricade",
+  "block.gardenarsenal.industrial_barricade": "Industrial Barricade",
 
   "GARDEN ARSENAL SKIN NAMES": "SKIN NAMES",
   "tooltip.gardenarsenal.skin.Default": "Default",
