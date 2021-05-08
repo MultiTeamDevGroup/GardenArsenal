@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#B#",
+        "BIB",
+        "#B#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:yellow_concrete"
+        },
+        "B": {
+            "item": "minecraft:black_concrete"
+        },
+        "I": {
+            "item": "gardenarsenal:machine_block"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:industrial_barrier_block",
+        "count": 1
+    }
+}

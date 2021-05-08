@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#MR",
+        "OCO",
+        "/ /"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:blue_dye"
+        },
+        "M": {
+            "item": "minecraft:map"
+        },
+        "R": {
+            "item": "minecraft:red_dye"
+        },
+        "O": {
+            "item": "minecraft:oak_planks"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "C": {
+            "item": "minecraft:cartography_table"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:war_tactic_table",
+        "count": 1
+    }
+}

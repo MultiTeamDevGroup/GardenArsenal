@@ -49,6 +49,10 @@
   "block.gardenarsenal.survivalist_barricade": "Survivalist Barricade",
   "block.gardenarsenal.maker_barricade": "Makers Barricade",
   "block.gardenarsenal.industrial_barricade": "Industrial Barricade",
+  "block.gardenarsenal.scrap_wood_pile": "Scrap Wood Pile",
+  "block.gardenarsenal.makers_concrete_powder": "Makers' Concrete Powder",
+  "block.gardenarsenal.reinforced_metal_block": "Reinforced Metal Block",
+  "block.gardenarsenal.industrial_barrier_block": "Industrial Barrier Block",
 
   "GARDEN ARSENAL SKIN NAMES": "SKIN NAMES",
   "tooltip.gardenarsenal.skin.Default": "Default",

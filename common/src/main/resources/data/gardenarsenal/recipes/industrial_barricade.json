@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "III",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "gardenarsenal:industrial_barrier_block"
+        },
+        "I": {
+            "item": "gardenarsenal:reinforced_metal_block"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:industrial_barricade",
+        "count": 1
+    }
+}

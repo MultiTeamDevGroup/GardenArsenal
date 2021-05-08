@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#I",
+        "# "
+    ],
+    "key": {
+        "#": {
+            "item": "gardenarsenal:scrap_wood_pile"
+        },
+        "I": {
+            "item": "minecraft:iron_nugget"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:survivalist_barricade",
+        "count": 1
+    }
+}

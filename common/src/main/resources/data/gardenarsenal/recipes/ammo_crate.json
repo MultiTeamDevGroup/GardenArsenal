@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "PBN",
+        " M "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:carrot"
+        },
+        "P": {
+            "item": "gardenarsenal:potato_grenade"
+        },
+        "B": {
+            "item": "minecraft:beetroot"
+        },
+        "N": {
+            "item": "gardenarsenal:cocoa_beans_shell"
+        },
+        "M": {
+            "item": "minecraft:barrel"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:ammo_crate",
+        "count": 1
+    }
+}
