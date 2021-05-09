@@ -12,7 +12,7 @@ public class SkinItemPropertyFunction implements ItemPropertyFunction {
         if (stack.getTag() == null)
             return 0;
         String skinName = stack.getTag().getString("skinType");
-        Skins Skin = Skins.valueOf(skinName);
+        Skins Skin = skinName.isEmpty() ? Skins.Default : Skins.valueOf(skinName);
         return Skin.ordinal() >= 15 ? Skin.ordinal() + 1 : Skin.ordinal();
     }
 }

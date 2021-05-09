@@ -27,13 +27,13 @@ public class SeedPistol extends WeaponItem {
         super.appendHoverText(stack, world, tooltip, context);
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.seed_pistol_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
 
-        CompoundTag compoundTag = stack.getTag();
+        CompoundTag compoundTag = stack.getOrCreateTag();
 
-        if (compoundTag == null) {
-            compoundTag = new CompoundTag();
-            stack.setTag(compoundTag);
+        if (!compoundTag.contains("skinType")) {
             compoundTag.putString("skinType", "Default");
         }
+
+        stack.setTag(compoundTag);
 
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
     }

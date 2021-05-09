@@ -33,14 +33,16 @@ public class GlimmeringRevolver extends WeaponItem {
         super.appendHoverText(stack, world, tooltip, context);
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.glimmering_revolver_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
 
-        CompoundTag compoundTag = stack.getTag();
+        CompoundTag compoundTag = stack.getOrCreateTag();
 
-        if (compoundTag == null) {
-            compoundTag = new CompoundTag();
-            stack.setTag(compoundTag);
+        if (!compoundTag.contains("skinType")) {
             compoundTag.putString("skinType", "Default");
+        }
+        if (!compoundTag.contains("shellLoad")) {
             compoundTag.putInt("shellLoad", 0);
         }
+
+        stack.setTag(compoundTag);
 
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
     }

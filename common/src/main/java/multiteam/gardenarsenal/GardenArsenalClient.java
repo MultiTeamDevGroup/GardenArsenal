@@ -16,5 +16,6 @@ public class GardenArsenalClient {
         GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.POTATO_BAZOOKA.get(), "skin", new SkinItemPropertyFunction());
         GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.SEED_PISTOL.get(), "skin", new SkinItemPropertyFunction());
         GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.SUGAR_CANE_SNIPER.get(), "skin", new SkinItemPropertyFunction());
+        GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.GLIMMERING_REVOLVER.get(), "skin", new SkinItemPropertyFunction());
     }
 }

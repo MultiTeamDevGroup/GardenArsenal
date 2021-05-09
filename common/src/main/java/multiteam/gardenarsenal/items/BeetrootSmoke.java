@@ -28,6 +28,11 @@ public class BeetrootSmoke extends WeaponItem {
     }
 
     @Override
+    protected boolean hasSkin() {
+        return false;
+    }
+
+    @Override
     protected int getCooldown() {
         return 20;
     }

@@ -94,6 +94,17 @@ public abstract class WeaponItem extends BowItem {
     }
 
     @Override
+    public ItemStack getDefaultInstance() {
+        ItemStack stack = super.getDefaultInstance();
+        if (this.hasSkin()) stack.getTag().putString("skinType", "Default");
+        return stack;
+    }
+
+    protected boolean hasSkin() {
+        return true;
+    }
+
+    @Override
     public UseAnim getUseAnimation(ItemStack itemStack) {
         return UseAnim.BOW;
     }

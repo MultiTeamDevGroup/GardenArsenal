@@ -28,13 +28,13 @@ public class PotatoBazooka extends WeaponItem {
         super.appendHoverText(stack, world, tooltip, context);
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.potato_bazooka_desc").copy().withStyle(ChatFormatting.BLUE));
 
-        CompoundTag compoundTag = stack.getTag();
+        CompoundTag compoundTag = stack.getOrCreateTag();
 
-        if (compoundTag == null) {
-            compoundTag = new CompoundTag();
-            stack.setTag(compoundTag);
+        if (!compoundTag.contains("skinType")) {
             compoundTag.putString("skinType", "Default");
         }
+
+        stack.setTag(compoundTag);
 
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
     }

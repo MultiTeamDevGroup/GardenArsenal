@@ -27,13 +27,13 @@ public class SugarcaneSniper extends WeaponItem {
         super.appendHoverText(itemStack, level, list, tooltipFlag);
         list.add(new TranslatableComponent("tooltip.gardenarsenal.sugar_cane_sniper_desc").copy().withStyle(ChatFormatting.GREEN));
 
-        CompoundTag compoundTag = itemStack.getTag();
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
 
-        if (compoundTag == null) {
-            compoundTag = new CompoundTag();
-            itemStack.setTag(compoundTag);
+        if (!compoundTag.contains("skinType")) {
             compoundTag.putString("skinType", "Default");
         }
+
+        itemStack.setTag(compoundTag);
 
         list.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
     }
