@@ -24,6 +24,7 @@
   "item.gardenarsenal.skin_card_teams_mcabnormals": "MCAbnormals Branded Skin Card",
   "item.gardenarsenal.skin_card_teams_multiteam": "MultiTeam Branded Skin Card",
   "item.gardenarsenal.skin_card_teams_vampirestudios": "VampireStudios Branded Skin Card",
+  "item.gardenarsenal.glimmering_melon_seeds": "Glimmering Melon Seeds",
 
   "GARDEN ARSENAL WEAPONS": "WEAPONS",
   "item.gardenarsenal.carrot_rifle": "Carrot Rifle",
@@ -40,6 +41,8 @@
   "item.gardenarsenal.potato_grenade": "Potato Grenade",
   "item.gardenarsenal.beetroot_smoke": "Beetroot Smoke",
   "tooltip.gardenarsenal.beetroot_smoke_desc": "Makes a cloud of blindness on impact",
+  "item.gardenarsenal.glimmering_revolver": "Glimmering Revolver",
+  "tooltip.gardenarsenal.glimmering_revolver_desc": "Revolvs around shiny seeds. Can fire up to 6 seeds, then needs reloading",
 
   "GARDEN ARSENAL BLOCKS": "BLOCKS",
   "block.gardenarsenal.machine_block": "Machine Block",

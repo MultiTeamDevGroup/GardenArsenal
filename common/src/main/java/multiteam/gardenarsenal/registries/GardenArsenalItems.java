@@ -36,7 +36,7 @@ public class GardenArsenalItems {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.ITEM_REGISTRY);
 
-
+    //Vanilla Garden Arsenal - as of v0.3.1
     public static final RegistrySupplier<Item> IRON_ROD = ITEMS.register("iron_rod", () -> new Item(new Item.Properties().tab(MISC)));
 
     public static final RegistrySupplier<Item> COCOA_BEANS_SHELL = ITEMS.register("cocoa_beans_shell", () -> new Item(new Item.Properties().tab(MISC)));
@@ -44,11 +44,11 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> BEETROOT_SMOKE = ITEMS.register("beetroot_smoke", () -> new BeetrootSmoke(new Item.Properties().tab(WEAPONS)));
     public static final RegistrySupplier<Item> PROJECTILE_CARROT = ITEMS.register("projectile_carrot", () -> new Item(new Item.Properties()));
 
-    public static final RegistrySupplier<Item> CARROT_RIFLE = ITEMS.register("carrot_rifle", () -> new CarrotRifle(new Item.Properties().tab(WEAPONS).stacksTo(1)));
-    public static final RegistrySupplier<Item> POTATO_BAZOOKA = ITEMS.register("potato_bazooka", () -> new PotatoBazooka(new Item.Properties().tab(WEAPONS).stacksTo(1)));
-    public static final RegistrySupplier<Item> COCOA_BEAN_SHOTGUN = ITEMS.register("cocoa_bean_shotgun", () -> new CocoaShotgun(new Item.Properties().tab(WEAPONS).stacksTo(1)));
-    public static final RegistrySupplier<Item> SEED_PISTOL = ITEMS.register("seed_pistol", () -> new SeedPistol(new Item.Properties().tab(WEAPONS).stacksTo(1)));
-    public static final RegistrySupplier<Item> SUGAR_CANE_SNIPER = ITEMS.register("sugar_cane_sniper", () -> new SugarcaneSniper(new Item.Properties().tab(WEAPONS).stacksTo(1)));
+    public static final RegistrySupplier<Item> CARROT_RIFLE = ITEMS.register("carrot_rifle", () -> new CarrotRifle(new Item.Properties().defaultDurability(500).tab(WEAPONS)));
+    public static final RegistrySupplier<Item> POTATO_BAZOOKA = ITEMS.register("potato_bazooka", () -> new PotatoBazooka(new Item.Properties().defaultDurability(500).tab(WEAPONS)));
+    public static final RegistrySupplier<Item> COCOA_BEAN_SHOTGUN = ITEMS.register("cocoa_bean_shotgun", () -> new CocoaShotgun(new Item.Properties().defaultDurability(500).tab(WEAPONS)));
+    public static final RegistrySupplier<Item> SEED_PISTOL = ITEMS.register("seed_pistol", () -> new SeedPistol(new Item.Properties().defaultDurability(500).tab(WEAPONS)));
+    public static final RegistrySupplier<Item> SUGAR_CANE_SNIPER = ITEMS.register("sugar_cane_sniper", () -> new SugarcaneSniper(new Item.Properties().defaultDurability(500).tab(WEAPONS)));
 
     public static List<RegistrySupplier<Item>> SKIN_CARDS = new ArrayList<>();
 
@@ -56,6 +56,12 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> TRAP_CAKE = ITEMS.register("trap_cake", () -> new BlockItem(GardenArsenalBlocks.TRAP_CAKE.get(), new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> WAR_TACTIC_TABLE = ITEMS.register("war_tactic_table", () -> new BlockItem(GardenArsenalBlocks.WAR_TACTIC_TABLE.get(), new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> AMMO_CRATE = ITEMS.register("ammo_crate", () -> new BlockItem(GardenArsenalBlocks.AMMO_CRATE.get(), new Item.Properties().tab(MISC)));
+
+
+    //Makers Shift Update - v0.4
+    public static final RegistrySupplier<Item> GLIMMERING_MELON_SEEDS = ITEMS.register("glimmering_melon_seeds", () -> new Item(new Item.Properties().tab(MISC)));
+    public static final RegistrySupplier<Item> GLIMMERING_REVOLVER = ITEMS.register("glimmering_revolver", () -> new GlimmeringRevolver(new Item.Properties().tab(WEAPONS).defaultDurability(500)));
+
 
     public static void init() {
         for (Skins skin : Skins.values()) {
