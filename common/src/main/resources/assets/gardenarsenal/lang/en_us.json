@@ -42,7 +42,7 @@
   "item.gardenarsenal.beetroot_smoke": "Beetroot Smoke",
   "tooltip.gardenarsenal.beetroot_smoke_desc": "Makes a cloud of blindness on impact",
   "item.gardenarsenal.glimmering_revolver": "Glimmering Revolver",
-  "tooltip.gardenarsenal.glimmering_revolver_desc": "Revolvs around shiny seeds. Can fire up to 6 seeds, then needs reloading",
+  "tooltip.gardenarsenal.glimmering_revolver_desc": "Revolvs around shiny seeds. Can fire up to 6 shots, then needs reloading",
 
   "GARDEN ARSENAL BLOCKS": "BLOCKS",
   "block.gardenarsenal.machine_block": "Machine Block",

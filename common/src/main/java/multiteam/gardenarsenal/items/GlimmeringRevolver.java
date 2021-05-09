@@ -31,7 +31,7 @@ public class GlimmeringRevolver extends WeaponItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         super.appendHoverText(stack, world, tooltip, context);
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.glimmering_revolver_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
+        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.glimmering_revolver_desc").copy().withStyle(ChatFormatting.GOLD));
 
         CompoundTag compoundTag = stack.getOrCreateTag();
 
