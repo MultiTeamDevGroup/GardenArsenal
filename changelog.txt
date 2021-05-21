@@ -11,6 +11,10 @@ v0.4.0
 -added Glimmering Revolver [6 rounds]
 -added glistering melon seeds
 
+-added common, uncommon, rare, epic, legendary, mythical skin card pack
+
 -added skin rarity colors to weapon descriptions
 -added skin rarity colors to weapon names
 -added skin rarity colors to skin card names
+
+-changed machine block's texture

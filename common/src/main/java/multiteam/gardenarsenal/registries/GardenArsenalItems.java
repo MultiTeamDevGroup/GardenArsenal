@@ -62,6 +62,13 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> GLIMMERING_MELON_SEEDS = ITEMS.register("glimmering_melon_seeds", () -> new Item(new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> GLIMMERING_REVOLVER = ITEMS.register("glimmering_revolver", () -> new GlimmeringRevolver(new Item.Properties().tab(WEAPONS).defaultDurability(500)));
 
+    public static final RegistrySupplier<Item> COMMON_SKINCARDPACK = ITEMS.register("common_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
+    public static final RegistrySupplier<Item> UNCOMMON_SKINCARDPACK = ITEMS.register("uncommon_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
+    public static final RegistrySupplier<Item> RARE_SKINCARDPACK = ITEMS.register("rare_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
+    public static final RegistrySupplier<Item> EPIC_SKINCARDPACK = ITEMS.register("epic_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
+    public static final RegistrySupplier<Item> LEGENDARY_SKINCARDPACK = ITEMS.register("legendary_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
+    public static final RegistrySupplier<Item> MYTHICAL_SKINCARDPACK = ITEMS.register("mythical_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
+
 
     public static void init() {
         for (Skins skin : Skins.values()) {

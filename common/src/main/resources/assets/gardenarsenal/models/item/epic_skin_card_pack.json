@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gardenarsenal:item/epic_skin_card_pack"
+  }
+}

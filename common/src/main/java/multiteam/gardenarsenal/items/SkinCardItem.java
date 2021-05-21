@@ -32,6 +32,6 @@ public class SkinCardItem extends Item {
     }
 
     public TextColor getRarityColor() {
-        return SkinDescriptionRarityUtil.getRarityColor(this.skin.toString());
+        return SkinDescriptionRarityUtil.getRarityColorBySkin(this.skin.toString());
     }
 }

@@ -144,7 +144,7 @@ public abstract class WeaponItem extends BowItem {
     public Component getName(ItemStack itemStack) {
         CompoundTag tag = itemStack.getTag();
         if(tag != null){
-            return new TranslatableComponent(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColor(tag.getString("skinType"))));
+            return new TranslatableComponent(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColorBySkin(tag.getString("skinType"))));
         }else{
             return new TranslatableComponent(this.getDescriptionId(itemStack));
         }

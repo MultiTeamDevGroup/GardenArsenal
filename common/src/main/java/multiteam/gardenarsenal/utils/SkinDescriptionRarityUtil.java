@@ -11,7 +11,7 @@ public class SkinDescriptionRarityUtil {
     public static int legendaryColor = 16559363;
     public static int mythicalColor = 16393225;
 
-    public static TextColor getRarityColor(String skin){
+    public static TextColor getRarityColorBySkin(String skin){
         int color = 0;
         switch (skin){
             case "Default":
@@ -54,13 +54,13 @@ public class SkinDescriptionRarityUtil {
                 color = legendaryColor;
                 break;
             case "special_ectoplasm":
-                color = legendaryColor;
+                color = epicColor;
                 break;
             case "special_nerf":
                 color = legendaryColor;
                 break;
             case "special_rubik":
-                color = legendaryColor;
+                color = epicColor;
                 break;
             case "teams_mcabnormals":
                 color = mythicalColor;
@@ -69,6 +69,31 @@ public class SkinDescriptionRarityUtil {
                 color = mythicalColor;
                 break;
             case "teams_vampirestudios":
+                color = mythicalColor;
+                break;
+        }
+        return TextColor.fromRgb(color);
+    }
+
+    public static TextColor getRarityColorByRarity(String skin){
+        int color = 0;
+        switch (skin){
+            case "common":
+                color = commonColor;
+                break;
+            case "uncommon":
+                color = uncommonColor;
+                break;
+            case "rare":
+                color = rareColor;
+                break;
+            case "epic":
+                color = epicColor;
+                break;
+            case "legendary":
+                color = legendaryColor;
+                break;
+            case "mythical":
                 color = mythicalColor;
                 break;
         }

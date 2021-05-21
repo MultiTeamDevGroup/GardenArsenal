@@ -37,7 +37,7 @@ public class SeedPistol extends WeaponItem {
 
         stack.setTag(compoundTag);
 
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColor(compoundTag.getString("skinType")))));
+        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColorBySkin(compoundTag.getString("skinType")))));
     }
 
     @Override
