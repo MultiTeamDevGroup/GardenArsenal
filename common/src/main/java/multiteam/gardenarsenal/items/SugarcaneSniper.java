@@ -1,9 +1,11 @@
 package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
+import multiteam.gardenarsenal.utils.SkinDescriptionRarityUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -35,7 +37,7 @@ public class SugarcaneSniper extends WeaponItem {
 
         itemStack.setTag(compoundTag);
 
-        list.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
+        list.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColor(compoundTag.getString("skinType")))));
     }
 
     @Override

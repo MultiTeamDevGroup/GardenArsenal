@@ -1,0 +1,16 @@
+v0.4.0
+
+-added "scrap wood pile" block
+-added "Makers' Concrete Powder" block
+-added "Reinforced Metal Block"
+-added "Industrial Barrier Block"
+
+-added "Survivalist Barricade"
+-added "Makers Barricade"
+-added "Industrial Barricade"
+-added Glimmering Revolver [6 rounds]
+-added glistering melon seeds
+
+-added skin rarity colors to weapon descriptions
+-added skin rarity colors to weapon names
+-added skin rarity colors to skin card names

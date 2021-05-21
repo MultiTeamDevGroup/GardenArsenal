@@ -2,9 +2,12 @@ package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
+import multiteam.gardenarsenal.utils.SkinDescriptionRarityUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -42,7 +45,7 @@ public class CarrotRifle extends WeaponItem {
             stack.setTag(compoundTag);
         }
 
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(ChatFormatting.DARK_GREEN));
+        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColor(compoundTag.getString("skinType")))));
     }
 
     @Override
