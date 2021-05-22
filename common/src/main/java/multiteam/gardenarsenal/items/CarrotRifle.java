@@ -48,39 +48,41 @@ public class CarrotRifle extends WeaponItem {
         tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColorBySkin(compoundTag.getString("skinType")))));
     }
 
+
     @Override
     public void onUseTick(Level world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (user instanceof Player) {
             Player playerEntity = (Player) user;
             boolean bl = playerEntity.abilities.instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
             ItemStack itemStack = this.getAmmoInInventory(playerEntity);
-            playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
-            if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
-                if (itemStack.isEmpty()) {
-                    itemStack = new ItemStack(this.getAmmoItem());
-                }
-
-                int i = this.getMaxUseTime(stack) - remainingUseTicks;
-                float f = getPullProgress(i);
-                if (!((double)f < 0.1D)) {
-                    boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
-                    if (!world.isClientSide) {
-                        this.createProjectileEntities(world, playerEntity);
-
-                        stack.hurtAndBreak(1, (LivingEntity)playerEntity, (p) -> {
-                            ((Player)p).broadcastBreakEvent(playerEntity.getUsedItemHand());
-                        });
+            if(!playerEntity.getCooldowns().isOnCooldown(this)){
+                if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
+                    if (itemStack.isEmpty()) {
+                        itemStack = new ItemStack(this.getAmmoItem());
                     }
 
-                    world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    if (!bl2 && !playerEntity.abilities.instabuild) {
-                        itemStack.shrink(1);
-                        if (itemStack.isEmpty()) {
-                            playerEntity.inventory.removeItem(itemStack);
+                    int i = this.getMaxUseTime(stack) - remainingUseTicks;
+                    float f = getPullProgress(i);
+                    if (!((double)f < 0.1D)) {
+                        boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
+                        if (!world.isClientSide) {
+                            this.createProjectileEntities(world, playerEntity);
+                            stack.hurtAndBreak(1, (LivingEntity)playerEntity, (p) -> {
+                                ((Player)p).broadcastBreakEvent(playerEntity.getUsedItemHand());
+                            });
                         }
-                    }
 
-                    playerEntity.awardStat(Stats.ITEM_USED.get(this));
+                        playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
+                        world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        if (!bl2 && !playerEntity.abilities.instabuild) {
+                            itemStack.shrink(1);
+                            if (itemStack.isEmpty()) {
+                                playerEntity.inventory.removeItem(itemStack);
+                            }
+                        }
+
+                        playerEntity.awardStat(Stats.ITEM_USED.get(this));
+                    }
                 }
             }
         }
@@ -93,7 +95,7 @@ public class CarrotRifle extends WeaponItem {
 
     @Override
     protected int getCooldown() {
-        return 0;
+        return 3;
     }
 
     @Override

@@ -18,3 +18,5 @@ v0.4.0
 -added skin rarity colors to skin card names
 
 -changed machine block's texture
+
+-fixed carrot rifle having 0 cooldown
