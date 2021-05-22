@@ -15,61 +15,58 @@ public class SkinDescriptionRarityUtil {
         int color = 0;
         switch (skin){
             case "Default":
-                color = commonColor;
+                color = commonColor; //0
                 break;
             case "camo_desert":
-                color = commonColor;
+                color = commonColor; //1
                 break;
             case "camo_end":
-                color = commonColor;
+                color = commonColor; //2
                 break;
             case "camo_forest":
-                color = commonColor;
+                color = commonColor; //3
                 break;
             case "camo_frost":
-                color = commonColor;
+                color = commonColor; //4
                 break;
             case "camo_nether":
-                color = commonColor;
+                color = commonColor; //5
                 break;
             case "metallic_gold":
-                color = rareColor;
+                color = uncommonColor; //6
                 break;
             case "metallic_iron":
-                color = uncommonColor;
+                color = uncommonColor; //7
                 break;
             case "metallic_netherite":
-                color = epicColor;
+                color = epicColor; //8
                 break;
             case "seasonal_christmas":
-                color = rareColor;
+                color = rareColor; //9
                 break;
             case "seasonal_halloween":
-                color = rareColor;
+                color = rareColor; //10
                 break;
             case "special_aquatic":
-                color = rareColor;
+                color = rareColor; //11
                 break;
             case "special_neon":
-                color = legendaryColor;
+                color = legendaryColor; //12
                 break;
             case "special_ectoplasm":
-                color = epicColor;
+                color = epicColor; //13
                 break;
             case "special_nerf":
-                color = legendaryColor;
+                color = legendaryColor; //14
                 break;
             case "special_rubik":
-                color = epicColor;
+                color = epicColor; //15
                 break;
             case "teams_mcabnormals":
-                color = mythicalColor;
+                color = mythicalColor; //16
                 break;
             case "teams_multiteam":
-                color = mythicalColor;
-                break;
-            case "teams_vampirestudios":
-                color = mythicalColor;
+                color = mythicalColor; //17
                 break;
         }
         return TextColor.fromRgb(color);
