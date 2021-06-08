@@ -18,7 +18,7 @@ public class ExplosiveProjectile extends WeaponProjectile {
         if (!this.level.isClientSide) {
             this.level.explode(null, this.getX() + 1D, this.getY() + 1D, this.getZ() + 1D, 3, Explosion.BlockInteraction.BREAK);
             this.level.broadcastEntityEvent(this, (byte) 3);
-            this.remove();
+            this.remove(RemovalReason.DISCARDED);
         }
     }
 

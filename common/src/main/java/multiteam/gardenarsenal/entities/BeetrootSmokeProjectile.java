@@ -20,7 +20,7 @@ public class BeetrootSmokeProjectile extends WeaponProjectile {
     public void collision(HitResult hitResult) {
         if (!this.level.isClientSide) {
             this.level.broadcastEntityEvent(this, (byte) 3);
-            this.remove();
+            this.remove(RemovalReason.DISCARDED);
 
             AreaEffectCloud smokeCloud = new AreaEffectCloud(EntityType.AREA_EFFECT_CLOUD, this.level);
             smokeCloud.setPos(this.getX(), this.getY(), this.getZ());
@@ -29,7 +29,7 @@ public class BeetrootSmokeProjectile extends WeaponProjectile {
             smokeCloud.setPotion(new Potion(new MobEffectInstance(MobEffects.BLINDNESS, 1200)));
             this.level.addFreshEntity(smokeCloud);
             this.level.broadcastEntityEvent(this, (byte)3);
-            this.remove();
+            this.remove(RemovalReason.DISCARDED);
         }
     }
 }

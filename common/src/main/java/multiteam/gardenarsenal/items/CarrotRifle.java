@@ -25,6 +25,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -53,7 +54,7 @@ public class CarrotRifle extends WeaponItem {
     public void onUseTick(Level world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (user instanceof Player) {
             Player playerEntity = (Player) user;
-            boolean bl = playerEntity.abilities.instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
+            boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
             ItemStack itemStack = this.getAmmoInInventory(playerEntity);
             if(!playerEntity.getCooldowns().isOnCooldown(this)){
                 if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
@@ -73,11 +74,11 @@ public class CarrotRifle extends WeaponItem {
                         }
 
                         playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
-                        world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                        if (!bl2 && !playerEntity.abilities.instabuild) {
+                        world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        if (!bl2 && !playerEntity.getAbilities().instabuild) {
                             itemStack.shrink(1);
                             if (itemStack.isEmpty()) {
-                                playerEntity.inventory.removeItem(itemStack);
+                                playerEntity.getInventory().removeItem(itemStack);
                             }
                         }
 
@@ -113,7 +114,7 @@ public class CarrotRifle extends WeaponItem {
         WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity);
         weaponProjectile.bulletDamage = 4;
         weaponProjectile.setItem(new ItemStack(this.getRenderedItem()));
-        weaponProjectile.shootFromRotation(playerEntity, playerEntity.xRot, playerEntity.yRot, 0.0F, 2.0F, 1.0F);
+        weaponProjectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(weaponProjectile);
     }
 

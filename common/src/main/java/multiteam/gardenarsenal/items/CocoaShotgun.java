@@ -57,7 +57,7 @@ public class CocoaShotgun extends WeaponItem {
                 WeaponProjectile projectile = new WeaponProjectile(world, playerEntity);
                 projectile.bulletDamage = 6;
                 projectile.setItem(new ItemStack(this.getRenderedItem()));
-                projectile.shootFromRotation(playerEntity, playerEntity.xRot + (x*4), playerEntity.yRot + (y*4), 0.0F, 2.0F, 1.0F);
+                projectile.shootFromRotation(playerEntity, playerEntity.getXRot() + (x*4), playerEntity.getYRot() + (y*4), 0.0F, 2.0F, 1.0F);
 
                 world.addFreshEntity(projectile);
             }

@@ -35,7 +35,7 @@ public class WeaponProjectile extends Snowball {
     public void collision(HitResult hitResult) {
         if (!this.level.isClientSide) {
             this.level.broadcastEntityEvent(this, (byte) 3);
-            this.remove();
+            this.remove(RemovalReason.DISCARDED);
         }
     }
 }

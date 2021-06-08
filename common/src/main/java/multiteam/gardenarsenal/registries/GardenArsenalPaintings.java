@@ -1,7 +1,7 @@
 package multiteam.gardenarsenal.registries;
 
-import me.shedaniel.architectury.registry.DeferredRegister;
-import me.shedaniel.architectury.registry.RegistrySupplier;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import net.minecraft.core.Registry;
 import net.minecraft.world.entity.decoration.Motive;

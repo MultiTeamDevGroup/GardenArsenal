@@ -1,8 +1,8 @@
 package multiteam.gardenarsenal.registries;
 
-import me.shedaniel.architectury.registry.CreativeTabs;
-import me.shedaniel.architectury.registry.DeferredRegister;
-import me.shedaniel.architectury.registry.RegistrySupplier;
+import dev.architectury.registry.CreativeTabRegistry;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.items.*;
 import multiteam.gardenarsenal.utils.Skins;
@@ -21,13 +21,13 @@ import java.util.function.Supplier;
 
 public class GardenArsenalItems {
 
-    public static final CreativeModeTab WEAPONS = CreativeTabs.create(new ResourceLocation(GardenArsenal.MOD_ID, "weapons"), new Supplier<ItemStack>() {
+    public static final CreativeModeTab WEAPONS = CreativeTabRegistry.create(new ResourceLocation(GardenArsenal.MOD_ID, "weapons"), new Supplier<ItemStack>() {
         @Override
         public ItemStack get() {
             return new ItemStack(CARROT_RIFLE.get());
         }
     });
-    public static final CreativeModeTab MISC = CreativeTabs.create(new ResourceLocation(GardenArsenal.MOD_ID, "misc"), new Supplier<ItemStack>() {
+    public static final CreativeModeTab MISC = CreativeTabRegistry.create(new ResourceLocation(GardenArsenal.MOD_ID, "misc"), new Supplier<ItemStack>() {
         @Override
         public ItemStack get() {
             return new ItemStack(PROJECTILE_CARROT.get());
@@ -75,8 +75,7 @@ public class GardenArsenalItems {
             SKIN_CARDS.add(ITEMS.register("skin_card_" + skin.name().toLowerCase(Locale.ENGLISH), () -> new SkinCardItem(skin)));
         }
 
-        List<RegistrySupplier<Item>> list = Collections.unmodifiableList(SKIN_CARDS);
-        SKIN_CARDS = list;
+        SKIN_CARDS = Collections.unmodifiableList(SKIN_CARDS);
 
         ITEMS.register();
     }

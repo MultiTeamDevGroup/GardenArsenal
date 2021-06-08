@@ -1,9 +1,9 @@
 package multiteam.gardenarsenal.registries;
 
-import me.shedaniel.architectury.registry.BlockProperties;
-import me.shedaniel.architectury.registry.DeferredRegister;
-import me.shedaniel.architectury.registry.RegistrySupplier;
-import me.shedaniel.architectury.registry.ToolType;
+import dev.architectury.registry.block.BlockProperties;
+import dev.architectury.registry.block.ToolType;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.blocks.AmmoCrate;
 import multiteam.gardenarsenal.blocks.BarricadeBlock;

@@ -1,6 +1,6 @@
 package multiteam.gardenarsenal.registries;
 
-import me.shedaniel.architectury.registry.RegistrySupplier;
+import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import multiteam.gardenarsenal.utils.Skins;

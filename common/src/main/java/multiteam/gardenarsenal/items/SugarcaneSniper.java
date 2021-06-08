@@ -55,7 +55,7 @@ public class SugarcaneSniper extends WeaponItem {
         WeaponProjectile projectile = new WeaponProjectile(world, playerEntity);
         projectile.bulletDamage = 10;
         projectile.setItem(new ItemStack(this.getRenderedItem()));
-        projectile.shootFromRotation(playerEntity, playerEntity.xRot, playerEntity.yRot, 0.0F, 8.0F, 1.0F);
+        projectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 8.0F, 1.0F);
         world.addFreshEntity(projectile);
     }
 

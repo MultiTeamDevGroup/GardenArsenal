@@ -1,7 +1,5 @@
 package multiteam.gardenarsenal.fabric;
 
-import me.shedaniel.architectury.platform.Platform;
-import me.shedaniel.architectury.utils.Env;
 import multiteam.gardenarsenal.GardenArsenalClient;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
 import net.fabricmc.api.ClientModInitializer;

@@ -56,7 +56,7 @@ public class PotatoBazooka extends WeaponItem {
         WeaponProjectile projectile = new ExplosiveProjectile(world, playerEntity);
         projectile.bulletDamage = 8;
         projectile.setItem(new ItemStack(this.getRenderedItem()));
-        projectile.shootFromRotation(playerEntity, playerEntity.xRot, playerEntity.yRot, 0.0F, 2.0F, 1.0F);
+        projectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(projectile);
     }
 

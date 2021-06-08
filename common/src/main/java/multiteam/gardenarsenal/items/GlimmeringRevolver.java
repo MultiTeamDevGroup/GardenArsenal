@@ -24,6 +24,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GlimmeringRevolver extends WeaponItem {
     public GlimmeringRevolver(Item.Properties settings) {
@@ -64,7 +65,7 @@ public class GlimmeringRevolver extends WeaponItem {
                         nbt.putInt("shellLoad", bulets);
                     }
                 }else if (bulets >= 1){
-                    boolean bl = playerEntity.abilities.instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
+                    boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
                     if(bulets == 1){
                         playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
                     }
@@ -87,12 +88,12 @@ public class GlimmeringRevolver extends WeaponItem {
                         --bulets;
                         nbt.putInt("shellLoad", bulets);
 
-                        world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-                        if (!bl2 && !playerEntity.abilities.instabuild) {
+                        if (!bl2 && !playerEntity.getAbilities().instabuild) {
                             ammoStack.shrink(1);
                             if (ammoStack.isEmpty()) {
-                                playerEntity.inventory.removeItem(ammoStack);
+                                playerEntity.getInventory().removeItem(ammoStack);
                             }
                         }
 
@@ -118,7 +119,7 @@ public class GlimmeringRevolver extends WeaponItem {
         WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity);
         weaponProjectile.bulletDamage = 2;
         weaponProjectile.setItem(new ItemStack(this.getRenderedItem()));
-        weaponProjectile.shootFromRotation(playerEntity, playerEntity.xRot, playerEntity.yRot, 0.0F, 2.0F, 1.0F);
+        weaponProjectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(weaponProjectile);
     }
 

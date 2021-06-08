@@ -1,6 +1,6 @@
 package multiteam.gardenarsenal;
 
-import me.shedaniel.architectury.event.events.client.ClientLifecycleEvent;
+import dev.architectury.event.events.client.ClientLifecycleEvent;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.SkinItemPropertyFunction;
 

@@ -55,7 +55,7 @@ public class SeedPistol extends WeaponItem {
         WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity);
         weaponProjectile.bulletDamage = 2;
         weaponProjectile.setItem(new ItemStack(this.getRenderedItem()));
-        weaponProjectile.shootFromRotation(playerEntity, playerEntity.xRot, playerEntity.yRot, 0.0F, 2.0F, 1.0F);
+        weaponProjectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(weaponProjectile);
     }
 

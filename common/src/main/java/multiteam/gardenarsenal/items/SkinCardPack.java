@@ -63,7 +63,7 @@ public class SkinCardPack extends Item {
             player.awardStat(Stats.ITEM_USED.get(this));
             handItem.shrink(1);
             if (handItem.isEmpty()) {
-                player.inventory.removeItem(handItem);
+                player.getInventory().removeItem(handItem);
             }
             return InteractionResultHolder.success(player.getItemInHand(interactionHand));
         }

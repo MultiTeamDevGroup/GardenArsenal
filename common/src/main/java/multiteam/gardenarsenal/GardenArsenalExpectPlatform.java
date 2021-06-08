@@ -1,8 +1,8 @@
 package multiteam.gardenarsenal;
 
 import com.google.common.collect.ImmutableSet;
-import me.shedaniel.architectury.annotations.ExpectPlatform;
-import me.shedaniel.architectury.platform.Platform;
+import dev.architectury.injectables.annotations.ExpectPlatform;
+import dev.architectury.platform.Platform;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.resources.ResourceLocation;

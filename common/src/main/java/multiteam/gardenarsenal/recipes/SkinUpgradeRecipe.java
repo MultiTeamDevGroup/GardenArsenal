@@ -1,7 +1,7 @@
 package multiteam.gardenarsenal.recipes;
 
 import com.google.gson.JsonObject;
-import me.shedaniel.architectury.registry.Registries;
+import dev.architectury.registry.registries.Registries;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
