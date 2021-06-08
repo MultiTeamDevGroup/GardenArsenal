@@ -9,7 +9,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 
 public class GardenArsenalRecipeSerializers {
 
-    private static DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.RECIPE_SERIALIZER_REGISTRY);
+    private static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.RECIPE_SERIALIZER_REGISTRY);
 
     public static RegistrySupplier<RecipeSerializer<?>> SKIN_UPGRADE = SERIALIZERS.register("skin_upgrade",
             SkinUpgradeRecipe::createSerializer);

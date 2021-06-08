@@ -63,8 +63,7 @@ public abstract class WeaponItem extends BowItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
-        if (user instanceof Player) {
-            Player playerEntity = (Player)user;
+        if (user instanceof Player playerEntity) {
             boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
             ItemStack itemStack = getAmmoInInventory(playerEntity);
             playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
@@ -80,12 +79,10 @@ public abstract class WeaponItem extends BowItem {
                     if (!world.isClientSide) {
                         this.createProjectileEntities(world, playerEntity);
 
-                        stack.hurtAndBreak(1, (LivingEntity)playerEntity, (p) -> {
-                            ((Player)p).broadcastBreakEvent(playerEntity.getUsedItemHand());
-                        });
+                        stack.hurtAndBreak(1, playerEntity, (p) -> p.broadcastBreakEvent(playerEntity.getUsedItemHand()));
                     }
 
-                    world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     if (!bl2 && !playerEntity.getAbilities().instabuild) {
                         itemStack.shrink(1);
                         if (itemStack.isEmpty()) {
@@ -102,7 +99,7 @@ public abstract class WeaponItem extends BowItem {
     @Override
     public ItemStack getDefaultInstance() {
         ItemStack stack = super.getDefaultInstance();
-        if (this.hasSkin()) stack.getTag().putString("skinType", "Default");
+        if (this.hasSkin()) stack.getOrCreateTag().putString("skinType", "Default");
         return stack;
     }
 

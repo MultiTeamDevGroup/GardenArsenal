@@ -31,45 +31,40 @@ public class BarricadeBlock extends Block {
 
     public BarricadeBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(FACING, Direction.NORTH)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
-        return (BlockState)this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{FACING});
+        builder.add(FACING);
     }
 
     @Override
     public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos pos, CollisionContext collisionContext) {
-        BlockState thisblock = blockGetter.getBlockState(pos);
-        if(thisblock.getBlock() == GardenArsenalBlocks.BARRICADE_SURVIVALIST.get()){
-            if(thisblock.getValue(FACING) == Direction.NORTH){
-                return SHAPE_SURVIVALIST_NORTH;
-            }else if(thisblock.getValue(FACING) == Direction.SOUTH){
-                return SHAPE_SURVIVALIST_SOUTH;
-            }else if(thisblock.getValue(FACING) == Direction.WEST){
-                return SHAPE_SURVIVALIST_WEST;
-            }else if(thisblock.getValue(FACING) == Direction.EAST){
-                return SHAPE_SURVIVALIST_EAST;
-            }
-        }else if(thisblock.getBlock() == GardenArsenalBlocks.BARRICADE_MAKER.get()){
-            if(thisblock.getValue(FACING) == Direction.NORTH || thisblock.getValue(FACING) == Direction.SOUTH){
-                return SHAPE_MAKER;
-            }else if(thisblock.getValue(FACING) == Direction.WEST || thisblock.getValue(FACING) == Direction.EAST){
-                return SHAPE_MAKER_SIDEWAYS;
-            }
-        }if(thisblock.getBlock() == GardenArsenalBlocks.BARRICADE_INDUSTRIAL.get()){
-            if(thisblock.getValue(FACING) == Direction.NORTH || thisblock.getValue(FACING) == Direction.SOUTH){
-                return SHAPE_INDUSTRIAL;
-            }else if(thisblock.getValue(FACING) == Direction.WEST || thisblock.getValue(FACING) == Direction.EAST){
-                return SHAPE_INDUSTRIAL_SIDEWAYS;
-            }
+        BlockState thisBlock = blockGetter.getBlockState(pos);
+        if (thisBlock.getBlock() == GardenArsenalBlocks.BARRICADE_SURVIVALIST.get()) {
+            return switch (thisBlock.getValue(FACING)) {
+                case EAST -> SHAPE_SURVIVALIST_EAST;
+                case DOWN, UP, NORTH -> SHAPE_SURVIVALIST_NORTH;
+                case SOUTH -> SHAPE_SURVIVALIST_SOUTH;
+                case WEST -> SHAPE_SURVIVALIST_WEST;
+            };
+        } else if (thisBlock.getBlock() == GardenArsenalBlocks.BARRICADE_MAKER.get()) {
+            return switch (thisBlock.getValue(FACING)) {
+                case NORTH, SOUTH, UP, DOWN -> SHAPE_MAKER;
+                case WEST, EAST -> SHAPE_MAKER_SIDEWAYS;
+            };
+        } if (thisBlock.getBlock() == GardenArsenalBlocks.BARRICADE_INDUSTRIAL.get()) {
+            return switch (thisBlock.getValue(FACING)) {
+                case NORTH, SOUTH, UP, DOWN -> SHAPE_INDUSTRIAL;
+                case WEST, EAST -> SHAPE_INDUSTRIAL_SIDEWAYS;
+            };
         }
         return SHAPE_INDUSTRIAL;
     }

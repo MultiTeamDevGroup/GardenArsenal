@@ -16,7 +16,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -52,11 +51,10 @@ public class GlimmeringRevolver extends WeaponItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
-        if (user instanceof Player) {
+        if (user instanceof Player playerEntity) {
             CompoundTag nbt = stack.getTag();
 
             if(nbt != null){
-                Player playerEntity = (Player)user;
                 ItemStack ammoStack = getAmmoInInventory(playerEntity);
                 int bulets = nbt.getInt("shellLoad");
                 if( bulets == 0){
@@ -80,15 +78,13 @@ public class GlimmeringRevolver extends WeaponItem {
                         if (!world.isClientSide) {
                             this.createProjectileEntities(world, playerEntity);
 
-                            stack.hurtAndBreak(1, (LivingEntity)playerEntity, (p) -> {
-                                ((Player)p).broadcastBreakEvent(playerEntity.getUsedItemHand());
-                            });
+                            stack.hurtAndBreak(1, playerEntity, (p) -> p.broadcastBreakEvent(playerEntity.getUsedItemHand()));
                         }
 
                         --bulets;
                         nbt.putInt("shellLoad", bulets);
 
-                        world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
                         if (!bl2 && !playerEntity.getAbilities().instabuild) {
                             ammoStack.shrink(1);

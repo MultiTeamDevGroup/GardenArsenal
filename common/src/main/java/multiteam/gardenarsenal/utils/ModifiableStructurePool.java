@@ -7,12 +7,8 @@ import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePo
 
 import java.util.List;
 
-public class ModifiableStructurePool {
-    private final StructureTemplatePool pool;
-
-    public ModifiableStructurePool(StructureTemplatePool pool) {
-        this.pool = pool;
-    }
+public record ModifiableStructurePool(
+        StructureTemplatePool pool) {
 
     public void addStructurePoolElement(StructurePoolElement element) {
         addStructurePoolElement(element, 1);
@@ -20,13 +16,13 @@ public class ModifiableStructurePool {
 
     public void addStructurePoolElement(StructurePoolElement element, int weight) {
         for (int i = 0; i < weight; i++) {
-            ((StructureTemplatePoolAccessor)pool).getTemplates().add(element);
+            ((StructureTemplatePoolAccessor) pool).getTemplates().add(element);
         }
-        ((StructureTemplatePoolAccessor)pool).getRawTemplates().add(Pair.of(element, weight));
+        ((StructureTemplatePoolAccessor) pool).getRawTemplates().add(Pair.of(element, weight));
     }
 
     public List<StructurePoolElement> getElements() {
-        return ((StructureTemplatePoolAccessor)pool).getTemplates();
+        return ((StructureTemplatePoolAccessor) pool).getTemplates();
     }
 
     public StructureTemplatePool getStructurePool() {

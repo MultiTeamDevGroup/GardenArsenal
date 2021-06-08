@@ -25,7 +25,7 @@ public class AmmoCrate extends Block {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         Direction direction = context.getHorizontalDirection();
         BlockPos blockpos = context.getClickedPos();
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+        return this.defaultBlockState().setValue(FACING, direction);
     }
 
     @Override

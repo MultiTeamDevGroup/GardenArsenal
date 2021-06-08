@@ -10,7 +10,7 @@ import net.minecraft.world.entity.ai.village.poi.PoiType;
 
 public class GardenArsenalPois {
 
-    private static DeferredRegister<PoiType> POIS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.POINT_OF_INTEREST_TYPE_REGISTRY);
+    private static final DeferredRegister<PoiType> POIS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.POINT_OF_INTEREST_TYPE_REGISTRY);
 
     public static RegistrySupplier<PoiType> SOLDIER_COMMANDER_POI = POIS.register("garden_soldier_commander",
             () -> GardenArsenalExpectPlatform.createPoi("garden_soldier_commander",

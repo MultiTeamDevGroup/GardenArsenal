@@ -15,7 +15,7 @@ import static multiteam.gardenarsenal.registries.GardenArsenalItems.MISC;
 
 public class SkinCardItem extends Item {
 
-    private Skins skin;
+    private final Skins skin;
 
     public SkinCardItem(Skins skin) {
         super(new Item.Properties().tab(MISC).stacksTo(64));

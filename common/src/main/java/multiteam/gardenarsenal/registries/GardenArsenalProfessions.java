@@ -11,7 +11,7 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 
 public class GardenArsenalProfessions {
 
-    private static DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.VILLAGER_PROFESSION_REGISTRY);
+    private static final DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.VILLAGER_PROFESSION_REGISTRY);
 
     public static RegistrySupplier<VillagerProfession> GARDEN_SOLDIER_COMMANDER = PROFESSIONS.register("garden_soldier_commander",
             () -> GardenArsenalExpectPlatform.createProfession("garden_soldier_commander", GardenArsenalPois.SOLDIER_COMMANDER_POI.get(),

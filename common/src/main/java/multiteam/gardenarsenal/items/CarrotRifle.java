@@ -7,7 +7,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -26,7 +25,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class CarrotRifle extends WeaponItem {
@@ -52,8 +50,7 @@ public class CarrotRifle extends WeaponItem {
 
     @Override
     public void onUseTick(Level world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
-        if (user instanceof Player) {
-            Player playerEntity = (Player) user;
+        if (user instanceof Player playerEntity) {
             boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
             ItemStack itemStack = this.getAmmoInInventory(playerEntity);
             if(!playerEntity.getCooldowns().isOnCooldown(this)){
@@ -68,13 +65,11 @@ public class CarrotRifle extends WeaponItem {
                         boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
                         if (!world.isClientSide) {
                             this.createProjectileEntities(world, playerEntity);
-                            stack.hurtAndBreak(1, (LivingEntity)playerEntity, (p) -> {
-                                ((Player)p).broadcastBreakEvent(playerEntity.getUsedItemHand());
-                            });
+                            stack.hurtAndBreak(1, playerEntity, (p) -> p.broadcastBreakEvent(playerEntity.getUsedItemHand()));
                         }
 
                         playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
-                        world.playSound((Player) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                         if (!bl2 && !playerEntity.getAbilities().instabuild) {
                             itemStack.shrink(1);
                             if (itemStack.isEmpty()) {

@@ -12,88 +12,40 @@ public class SkinDescriptionRarityUtil {
     public static int mythicalColor = 16393225;
 
     public static TextColor getRarityColorBySkin(String skin){
-        int color = 0;
-        switch (skin){
-            case "Default":
-                color = commonColor; //0
-                break;
-            case "camo_desert":
-                color = commonColor; //1
-                break;
-            case "camo_end":
-                color = commonColor; //2
-                break;
-            case "camo_forest":
-                color = commonColor; //3
-                break;
-            case "camo_frost":
-                color = commonColor; //4
-                break;
-            case "camo_nether":
-                color = commonColor; //5
-                break;
-            case "metallic_gold":
-                color = uncommonColor; //6
-                break;
-            case "metallic_iron":
-                color = uncommonColor; //7
-                break;
-            case "metallic_netherite":
-                color = epicColor; //8
-                break;
-            case "seasonal_christmas":
-                color = rareColor; //9
-                break;
-            case "seasonal_halloween":
-                color = rareColor; //10
-                break;
-            case "special_aquatic":
-                color = rareColor; //11
-                break;
-            case "special_neon":
-                color = legendaryColor; //12
-                break;
-            case "special_ectoplasm":
-                color = epicColor; //13
-                break;
-            case "special_nerf":
-                color = legendaryColor; //14
-                break;
-            case "special_rubik":
-                color = epicColor; //15
-                break;
-            case "teams_mcabnormals":
-                color = mythicalColor; //16
-                break;
-            case "teams_multiteam":
-                color = mythicalColor; //17
-                break;
-        }
+        int color = switch (skin) {
+            case "Default" -> commonColor; //0
+            case "camo_desert" -> commonColor; //1
+            case "camo_end" -> commonColor; //2
+            case "camo_forest" -> commonColor; //3
+            case "camo_frost" -> commonColor; //4
+            case "camo_nether" -> commonColor; //5
+            case "metallic_gold" -> uncommonColor; //6
+            case "metallic_iron" -> uncommonColor; //7
+            case "metallic_netherite" -> epicColor; //8
+            case "seasonal_christmas" -> rareColor; //9
+            case "seasonal_halloween" -> rareColor; //10
+            case "special_aquatic" -> rareColor; //11
+            case "special_neon" -> legendaryColor; //12
+            case "special_ectoplasm" -> epicColor; //13
+            case "special_nerf" -> legendaryColor; //14
+            case "special_rubik" -> epicColor; //15
+            case "teams_mcabnormals" -> mythicalColor; //16
+            case "teams_multiteam" -> mythicalColor;
+            default -> 0; //17
+        };
         return TextColor.fromRgb(color);
     }
 
     public static TextColor getRarityColorByRarity(String skin){
-        int color = 0;
-        switch (skin){
-            case "common":
-                color = commonColor;
-                break;
-            case "uncommon":
-                color = uncommonColor;
-                break;
-            case "rare":
-                color = rareColor;
-                break;
-            case "epic":
-                color = epicColor;
-                break;
-            case "legendary":
-                color = legendaryColor;
-                break;
-            case "mythical":
-                color = mythicalColor;
-                break;
-        }
+        int color = switch (skin) {
+            case "common" -> commonColor;
+            case "uncommon" -> uncommonColor;
+            case "rare" -> rareColor;
+            case "epic" -> epicColor;
+            case "legendary" -> legendaryColor;
+            case "mythical" -> mythicalColor;
+            default -> 0;
+        };
         return TextColor.fromRgb(color);
     }
 }

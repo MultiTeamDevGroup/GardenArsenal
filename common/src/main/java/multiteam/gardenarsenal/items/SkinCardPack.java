@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -30,43 +29,57 @@ public class SkinCardPack extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
-        if(!level.isClientSide()){
-            Item[] commonSkinCards = {Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_desert")),Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_end")),Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_forest")),Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_frost")),Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_nether"))};
-            Item[] uncommonSkinCards = {Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_metallic_gold")),Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_metallic_iron"))};
-            Item[] rareSkinCards = {Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_seasonal_christmas")),Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_seasonal_halloween")), Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_aquatic"))};
-            Item[] epicSkinCards = {Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_metallic_netherite")), Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_ectoplasm")), Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_rubik"))};
-            Item[] legendarySkinCards = {Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_neon")), Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_nerf"))};
-            Item[] mythicalSkinCards = {Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_teams_mcabnormals")), Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_teams_multiteam"))};
+        if (!level.isClientSide()) {
+            Item[] commonSkinCards = {
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_desert")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_end")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_forest")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_frost")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_camo_nether"))
+            };
+            Item[] uncommonSkinCards = {
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_metallic_gold")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_metallic_iron"))
+            };
+            Item[] rareSkinCards = {
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_seasonal_christmas")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_seasonal_halloween")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_aquatic"))
+            };
+            Item[] epicSkinCards = {
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_metallic_netherite")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_ectoplasm")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_rubik"))
+            };
+            Item[] legendarySkinCards = {
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_neon")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_special_nerf"))
+            };
+            Item[] mythicalSkinCards = {
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_teams_mcabnormals")),
+                    Registry.ITEM.get(ResourceLocation.tryParse("gardenarsenal:skin_card_teams_multiteam"))
+            };
 
-            switch (getRarityType()){
-                case "common":
-                    player.addItem(new ItemStack(commonSkinCards[ThreadLocalRandom.current().nextInt(0, commonSkinCards.length)]));
-                    break;
-                case "uncommon":
-                    player.addItem(new ItemStack(uncommonSkinCards[ThreadLocalRandom.current().nextInt(0, uncommonSkinCards.length)]));
-                    break;
-                case "rare":
-                    player.addItem(new ItemStack(rareSkinCards[ThreadLocalRandom.current().nextInt(0, rareSkinCards.length)]));
-                    break;
-                case "epic":
-                    player.addItem(new ItemStack(epicSkinCards[ThreadLocalRandom.current().nextInt(0, epicSkinCards.length)]));
-                    break;
-                case "legendary":
-                    player.addItem(new ItemStack(legendarySkinCards[ThreadLocalRandom.current().nextInt(0, legendarySkinCards.length)]));
-                    break;
-                case "mythical":
-                    player.addItem(new ItemStack(mythicalSkinCards[ThreadLocalRandom.current().nextInt(0, mythicalSkinCards.length)]));
-                    break;
+            switch (getRarityType()) {
+                case "common" -> player.addItem(new ItemStack(commonSkinCards[ThreadLocalRandom.current().nextInt(0, commonSkinCards.length)]));
+                case "uncommon" -> player.addItem(new ItemStack(uncommonSkinCards[ThreadLocalRandom.current().nextInt(0, uncommonSkinCards.length)]));
+                case "rare" -> player.addItem(new ItemStack(rareSkinCards[ThreadLocalRandom.current().nextInt(0, rareSkinCards.length)]));
+                case "epic" -> player.addItem(new ItemStack(epicSkinCards[ThreadLocalRandom.current().nextInt(0, epicSkinCards.length)]));
+                case "legendary" -> player.addItem(new ItemStack(legendarySkinCards[ThreadLocalRandom.current().nextInt(0, legendarySkinCards.length)]));
+                case "mythical" -> player.addItem(new ItemStack(mythicalSkinCards[ThreadLocalRandom.current().nextInt(0, mythicalSkinCards.length)]));
             }
 
             ItemStack handItem = player.getItemInHand(interactionHand);
             player.awardStat(Stats.ITEM_USED.get(this));
             handItem.shrink(1);
+
             if (handItem.isEmpty()) {
                 player.getInventory().removeItem(handItem);
             }
+
             return InteractionResultHolder.success(player.getItemInHand(interactionHand));
         }
+
         return InteractionResultHolder.success(player.getItemInHand(interactionHand));
     }
 
@@ -87,11 +100,13 @@ public class SkinCardPack extends Item {
     @Override
     public ItemStack getDefaultInstance() {
         ItemStack stack = super.getDefaultInstance();
-        CompoundTag tag = stack.getTag();
+        CompoundTag tag = stack.getOrCreateTag();
+
         if (!tag.contains("garden_rarity")) {
             tag.putString("garden_rarity", getRarityType());
             stack.setTag(tag);
         }
+
         return stack;
     }
 
@@ -103,7 +118,7 @@ public class SkinCardPack extends Item {
     public String getRarityType(){
         if (this.asItem() == GardenArsenalItems.COMMON_SKINCARDPACK.get().asItem()){
             return "common";
-        }else if (this.asItem() == GardenArsenalItems.UNCOMMON_SKINCARDPACK.get().asItem()){
+        } else if (this.asItem() == GardenArsenalItems.UNCOMMON_SKINCARDPACK.get().asItem()){
             return "uncommon";
         } if (this.asItem() == GardenArsenalItems.RARE_SKINCARDPACK.get().asItem()){
             return "rare";
@@ -113,7 +128,7 @@ public class SkinCardPack extends Item {
             return "legendary";
         } if (this.asItem() == GardenArsenalItems.MYTHICAL_SKINCARDPACK.get().asItem()){
             return "mythical";
-        }else{
+        } else {
             return "default"; //even tho this will never be a thing
         }
     }
