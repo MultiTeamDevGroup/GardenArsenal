@@ -36,6 +36,11 @@ public class SkinUpgradeRecipe extends UpgradeRecipe {
         return this.weapon == container.getItem(0).getItem() && container.getItem(1).getItem() instanceof SkinCardItem;
     }
 
+    @Override
+    public boolean isAdditionIngredient(ItemStack itemStack) {
+        return itemStack.getItem() instanceof SkinCardItem;
+    }
+
     public static RecipeSerializer<?> createSerializer() {
         return DYNAMIC_SERIALIZER = GardenArsenalExpectPlatform.createRecipeSerializer(new Serializer());
     }
