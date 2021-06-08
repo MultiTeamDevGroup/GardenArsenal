@@ -2,7 +2,7 @@ package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
-import multiteam.gardenarsenal.utils.SkinDescriptionRarityUtil;
+import multiteam.gardenarsenal.utils.SkinRarity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -47,7 +47,7 @@ public class CocoaShotgun extends WeaponItem {
             stack.setTag(compoundTag);
         }
 
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColorBySkin(compoundTag.getString("skinType")))));
+        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(this.getTextColor(compoundTag))));
     }
 
     @Override

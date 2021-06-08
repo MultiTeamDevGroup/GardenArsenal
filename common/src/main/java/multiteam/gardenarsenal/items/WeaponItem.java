@@ -1,9 +1,11 @@
 package multiteam.gardenarsenal.items;
 
-import multiteam.gardenarsenal.utils.SkinDescriptionRarityUtil;
+import multiteam.gardenarsenal.utils.SkinRarity;
+import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -141,10 +143,23 @@ public abstract class WeaponItem extends BowItem {
     @Override
     public Component getName(ItemStack itemStack) {
         CompoundTag tag = itemStack.getTag();
-        if(tag != null){
-            return new TranslatableComponent(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(SkinDescriptionRarityUtil.getRarityColorBySkin(tag.getString("skinType"))));
-        }else{
+        if (tag != null) {
+            return new TranslatableComponent(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(this.getTextColor(tag)));
+        } else {
             return new TranslatableComponent(this.getDescriptionId(itemStack));
         }
+    }
+
+    public TextColor getTextColor(CompoundTag tag) {
+        if (tag != null) {
+            try {
+                Skins skin = Skins.valueOf(tag.getString("skinType"));
+                return skin.getRarity().getTextColor();
+            } catch (IllegalArgumentException e) {
+                return TextColor.fromRgb(0);
+            }
+        }
+
+        return TextColor.fromRgb(0);
     }
 }

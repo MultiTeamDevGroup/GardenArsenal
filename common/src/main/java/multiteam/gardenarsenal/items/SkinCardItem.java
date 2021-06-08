@@ -1,15 +1,13 @@
 package multiteam.gardenarsenal.items;
 
-import multiteam.gardenarsenal.utils.SkinDescriptionRarityUtil;
+import multiteam.gardenarsenal.utils.SkinRarity;
 import multiteam.gardenarsenal.utils.Skins;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 
 import static multiteam.gardenarsenal.registries.GardenArsenalItems.MISC;
 
@@ -32,6 +30,6 @@ public class SkinCardItem extends Item {
     }
 
     public TextColor getRarityColor() {
-        return SkinDescriptionRarityUtil.getRarityColorBySkin(this.skin.toString());
+        return this.skin.getRarity().getTextColor();
     }
 }

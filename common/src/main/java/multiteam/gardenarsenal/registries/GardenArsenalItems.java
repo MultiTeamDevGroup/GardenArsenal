@@ -5,6 +5,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.items.*;
+import multiteam.gardenarsenal.utils.SkinRarity;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -62,13 +63,7 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> GLIMMERING_MELON_SEEDS = ITEMS.register("glimmering_melon_seeds", () -> new Item(new Item.Properties().tab(MISC)));
     public static final RegistrySupplier<Item> GLIMMERING_REVOLVER = ITEMS.register("glimmering_revolver", () -> new GlimmeringRevolver(new Item.Properties().tab(WEAPONS).defaultDurability(500)));
 
-    public static final RegistrySupplier<Item> COMMON_SKINCARDPACK = ITEMS.register("common_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
-    public static final RegistrySupplier<Item> UNCOMMON_SKINCARDPACK = ITEMS.register("uncommon_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
-    public static final RegistrySupplier<Item> RARE_SKINCARDPACK = ITEMS.register("rare_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
-    public static final RegistrySupplier<Item> EPIC_SKINCARDPACK = ITEMS.register("epic_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
-    public static final RegistrySupplier<Item> LEGENDARY_SKINCARDPACK = ITEMS.register("legendary_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
-    public static final RegistrySupplier<Item> MYTHICAL_SKINCARDPACK = ITEMS.register("mythical_skin_card_pack", () -> new SkinCardPack(new Item.Properties().tab(MISC).stacksTo(16)));
-
+    public static List<RegistrySupplier<Item>> SKIN_CARD_PACKS = new ArrayList<>();
 
     public static void init() {
         for (Skins skin : Skins.values()) {
@@ -76,6 +71,12 @@ public class GardenArsenalItems {
         }
 
         SKIN_CARDS = Collections.unmodifiableList(SKIN_CARDS);
+
+        for (SkinRarity rarity : SkinRarity.values()) {
+            SKIN_CARD_PACKS.add(ITEMS.register(rarity.name().toLowerCase(Locale.ENGLISH) + "_skin_card_pack", () -> new SkinCardPack(rarity, new Item.Properties().tab(MISC).stacksTo(16))));
+        }
+
+        SKIN_CARD_PACKS = Collections.unmodifiableList(SKIN_CARD_PACKS);
 
         ITEMS.register();
     }
