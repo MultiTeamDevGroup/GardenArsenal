@@ -15,7 +15,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     // Remove the next line if you don't want to depend on the API
-    modApi "me.shedaniel:architectury-fabric:${rootProject.architectury_version}"
+    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
 
     implementation(project(path: ":common")) {
         transitive = false
@@ -27,8 +27,8 @@ dependencies {
         transitive = false
     }
 
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${rootProject.rei_version}"
-    modRuntime "me.shedaniel:RoughlyEnoughItems:${rootProject.rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rootProject.rei_version}"
+    modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rootProject.rei_version}"
 
     modRuntime "com.terraformersmc:modmenu:${rootProject.modmenu_version}"
 }

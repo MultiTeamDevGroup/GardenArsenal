@@ -30,13 +30,13 @@ side = "BOTH"
 [[dependencies.gardenarsenal]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.16.4,1.17)"
+versionRange = "[1.17,1.18)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.gardenarsenal]]
 modId = "architectury"
 mandatory = true
-versionRange = "[1.1.55,)"
+versionRange = "[2.0.6,)"
 ordering = "AFTER"
 side = "BOTH"
