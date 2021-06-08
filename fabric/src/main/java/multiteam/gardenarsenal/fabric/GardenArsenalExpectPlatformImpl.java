@@ -9,8 +9,8 @@ import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.mixin.object.builder.PointOfInterestTypeAccessor;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -51,12 +51,12 @@ public class GardenArsenalExpectPlatformImpl {
                 .callCreate(string, set, i, j));
     }
 
-    public static void registerItemProperty(Item item, String name, ItemPropertyFunction itemPropertyFunction) {
+    public static void registerItemProperty(Item item, String name, ClampedItemPropertyFunction itemPropertyFunction) {
         try {
             for (Method method : ItemProperties.class.getDeclaredMethods()) {
                 method.setAccessible(true);
                 if (method.getParameterCount() == 3 && method.getParameterTypes()[0] == Item.class && method.getParameterTypes()[1] == ResourceLocation.class
-                        && method.getParameterTypes()[2] == ItemPropertyFunction.class && method.getReturnType() == void.class && !method.isSynthetic()) {
+                        && method.getParameterTypes()[2] == ClampedItemPropertyFunction.class && method.getReturnType() == void.class && !method.isSynthetic()) {
                         method.invoke(null, item, new ResourceLocation(GardenArsenal.MOD_ID, name), itemPropertyFunction);
                         break;
                 }

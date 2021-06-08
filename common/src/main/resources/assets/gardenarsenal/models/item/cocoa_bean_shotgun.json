@@ -3,109 +3,109 @@
   "overrides": [
     {
       "predicate": {
-        "gardenarsenal:skin": 1
+        "gardenarsenal:skin": 0.01
       },
       "model": "gardenarsenal:item/skins/camo/desert/camo_desert_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 2
+        "gardenarsenal:skin": 0.02
       },
       "model": "gardenarsenal:item/skins/camo/end/camo_end_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 3
+        "gardenarsenal:skin": 0.03
       },
       "model": "gardenarsenal:item/skins/camo/forest/camo_forest_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 4
+        "gardenarsenal:skin": 0.04
       },
       "model": "gardenarsenal:item/skins/camo/frost/camo_frost_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 5
+        "gardenarsenal:skin": 0.05
       },
       "model": "gardenarsenal:item/skins/camo/nether/camo_nether_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 6
+        "gardenarsenal:skin": 0.06
       },
       "model": "gardenarsenal:item/skins/metallic/gold/metallic_gold_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 7
+        "gardenarsenal:skin": 0.07
       },
       "model": "gardenarsenal:item/skins/metallic/iron/metallic_iron_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 8
+        "gardenarsenal:skin": 0.08
       },
       "model": "gardenarsenal:item/skins/metallic/netherite/metallic_netherite_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 9
+        "gardenarsenal:skin": 0.09
       },
       "model": "gardenarsenal:item/skins/seasonal/christmas/seasonal_christmas_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 10
+        "gardenarsenal:skin": 0.10
       },
       "model": "gardenarsenal:item/skins/seasonal/halloween/seasonal_halloween_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 11
+        "gardenarsenal:skin": 0.11
       },
       "model": "gardenarsenal:item/skins/special/aquatic/special_aquatic_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 12
+        "gardenarsenal:skin": 0.12
       },
       "model": "gardenarsenal:item/skins/special/neon/special_neon_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 13
+        "gardenarsenal:skin": 0.13
       },
       "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 14
+        "gardenarsenal:skin": 0.14
       },
       "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 15
+        "gardenarsenal:skin": 0.15
       },
       "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 16
+        "gardenarsenal:skin": 0.16
       },
       "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 17
+        "gardenarsenal:skin": 0.17
       },
       "model": "gardenarsenal:item/skins/special/nerf/special_nerf_cocoa_bean_shotgun"
     },
     {
       "predicate": {
-        "gardenarsenal:skin": 18
+        "gardenarsenal:skin": 0.18
       },
       "model": "gardenarsenal:item/skins/special/rubik/special_rubik_cocoa_bean_shotgun"
     }

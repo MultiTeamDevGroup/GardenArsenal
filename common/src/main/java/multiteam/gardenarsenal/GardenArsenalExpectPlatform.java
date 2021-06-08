@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
+import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -46,7 +47,7 @@ public class GardenArsenalExpectPlatform {
     }
 
     @ExpectPlatform
-    public static void registerItemProperty(Item item, String name, ItemPropertyFunction itemPropertyFunction) {
+    public static void registerItemProperty(Item item, String name, ClampedItemPropertyFunction itemPropertyFunction) {
         throw new AssertionError();
     }
 
