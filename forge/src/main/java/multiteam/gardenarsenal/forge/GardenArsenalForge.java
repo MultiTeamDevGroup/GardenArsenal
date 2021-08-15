@@ -1,8 +1,7 @@
 package multiteam.gardenarsenal.forge;
 
-import me.shedaniel.architectury.platform.Platform;
-import me.shedaniel.architectury.platform.forge.EventBuses;
-import me.shedaniel.architectury.utils.Env;
+import dev.architectury.platform.Platform;
+import dev.architectury.platform.forge.EventBuses;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalClient;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
