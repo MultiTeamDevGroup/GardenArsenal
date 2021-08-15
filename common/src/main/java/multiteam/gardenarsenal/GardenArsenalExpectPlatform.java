@@ -1,6 +1,7 @@
 package multiteam.gardenarsenal;
 
 import com.google.common.collect.ImmutableSet;
+import com.mojang.datafixers.util.Pair;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
@@ -14,8 +15,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 public class GardenArsenalExpectPlatform {
@@ -58,6 +62,26 @@ public class GardenArsenalExpectPlatform {
 
     @ExpectPlatform
     public static void registerTrades(GardenArsenalTrades.TradeListBuilder tradeListBuilder) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static List<StructurePoolElement> getPoolElements(StructureTemplatePool pool) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static void setPoolElements(StructureTemplatePool pool, List<StructurePoolElement> elements) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static List<Pair<StructurePoolElement, Integer>> getPoolElementCounts(StructureTemplatePool pool) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static void setPoolElementCounts(StructureTemplatePool pool, List<Pair<StructurePoolElement, Integer>> elementCounts) {
         throw new AssertionError();
     }
 }

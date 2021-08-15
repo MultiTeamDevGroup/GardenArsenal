@@ -1,8 +1,12 @@
 package multiteam.gardenarsenal.registries;
 
 import com.mojang.datafixers.util.Pair;
+import dev.architectury.event.events.common.LifecycleEvent;
+import multiteam.gardenarsenal.GardenArsenal;
+import multiteam.gardenarsenal.utils.JigsawUtils;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 
@@ -14,23 +18,14 @@ public class GardenArsenalStructures {
 
     public static final ResourceLocation PLAINS_HOUSES = new ResourceLocation("village/plains/houses");
 
-    public static List<Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer>> getPoolAdditions() {
-        List<Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer>> list = new ArrayList<>();
+    public static void init() {
+        LifecycleEvent.SERVER_BEFORE_START.register(GardenArsenalStructures::registerStructures);
+    }
 
-        list.add(Pair.of(
-                StructurePoolElement.legacy(
-                        "gardenarsenal:village/plains/houses/ga_commander_tent"
-                ),
-                2
-        ));
-
-        list.add(Pair.of(
-                StructurePoolElement.legacy(
-                        "gardenarsenal:village/plains/houses/ga_soldier_tent"
-                ),
-                2
-        ));
-
-        return list;
+    private static void registerStructures(MinecraftServer server) {
+        JigsawUtils.registerJigsaw(server, PLAINS_HOUSES,
+                new ResourceLocation(GardenArsenal.MOD_ID, "village/plains/houses/ga_commander_tent"), 6);
+        JigsawUtils.registerJigsaw(server, PLAINS_HOUSES,
+                new ResourceLocation(GardenArsenal.MOD_ID, "village/plains/houses/ga_soldier_tent"), 6);
     }
 }

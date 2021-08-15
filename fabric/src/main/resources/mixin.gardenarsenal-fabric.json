@@ -1,6 +1,7 @@
 {
   "mixins": [
-    "VillagerMixin"
+    "VillagerMixin",
+    "StructureTemplatePoolAccessor"
   ],
   "package": "multiteam.gardenarsenal.fabric.mixin"
 }
