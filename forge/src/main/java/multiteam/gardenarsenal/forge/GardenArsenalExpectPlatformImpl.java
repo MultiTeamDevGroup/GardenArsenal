@@ -40,15 +40,7 @@ public class GardenArsenalExpectPlatformImpl {
     }
 
     public static PoiType createPoi(String string, Set<BlockState> set, int i, int j) {
-        try {
-            Constructor<PoiType> constructor = PoiType.class.getDeclaredConstructor(String.class, Set.class, int.class, int.class);
-
-            return constructor.newInstance(string, set, i, i);
-        } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return new PoiType(string, set, i, j);
     }
 
     public static void registerItemProperty(Item item, String name, ClampedItemPropertyFunction itemPropertyFunction) {
