@@ -1,8 +1,10 @@
 package multiteam.gardenarsenal;
 
 import dev.architectury.event.events.client.ClientLifecycleEvent;
+import dev.architectury.registry.item.ItemPropertiesRegistry;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.SkinItemPropertyFunction;
+import net.minecraft.resources.ResourceLocation;
 
 public class GardenArsenalClient {
 
@@ -11,11 +13,11 @@ public class GardenArsenalClient {
     }
 
     private static void register() {
-        GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.CARROT_RIFLE.get(), "skin", new SkinItemPropertyFunction());
-        GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.COCOA_BEAN_SHOTGUN.get(), "skin", new SkinItemPropertyFunction());
-        GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.POTATO_BAZOOKA.get(), "skin", new SkinItemPropertyFunction());
-        GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.SEED_PISTOL.get(), "skin", new SkinItemPropertyFunction());
-        GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.SUGAR_CANE_SNIPER.get(), "skin", new SkinItemPropertyFunction());
-        GardenArsenalExpectPlatform.registerItemProperty(GardenArsenalItems.GLIMMERING_REVOLVER.get(), "skin", new SkinItemPropertyFunction());
+        ItemPropertiesRegistry.register(GardenArsenalItems.CARROT_RIFLE.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
+        ItemPropertiesRegistry.register(GardenArsenalItems.COCOA_BEAN_SHOTGUN.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
+        ItemPropertiesRegistry.register(GardenArsenalItems.POTATO_BAZOOKA.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
+        ItemPropertiesRegistry.register(GardenArsenalItems.SEED_PISTOL.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
+        ItemPropertiesRegistry.register(GardenArsenalItems.SUGAR_CANE_SNIPER.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
+        ItemPropertiesRegistry.register(GardenArsenalItems.GLIMMERING_REVOLVER.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
     }
 }

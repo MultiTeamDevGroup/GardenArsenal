@@ -43,10 +43,6 @@ public class GardenArsenalExpectPlatformImpl {
         return new PoiType(string, set, i, j);
     }
 
-    public static void registerItemProperty(Item item, String name, ClampedItemPropertyFunction itemPropertyFunction) {
-        ItemProperties.register(item, new ResourceLocation(GardenArsenal.MOD_ID, name), itemPropertyFunction);
-    }
-
     public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
         return new ForgeRecipeSerializer<>(recipeSerializer);
     }

@@ -55,21 +55,6 @@ public class GardenArsenalExpectPlatformImpl {
                 .callCreate(string, set, i, j));
     }
 
-    public static void registerItemProperty(Item item, String name, ClampedItemPropertyFunction itemPropertyFunction) {
-        try {
-            for (Method method : ItemProperties.class.getDeclaredMethods()) {
-                method.setAccessible(true);
-                if (method.getParameterCount() == 3 && method.getParameterTypes()[0] == Item.class && method.getParameterTypes()[1] == ResourceLocation.class
-                        && method.getParameterTypes()[2] == ClampedItemPropertyFunction.class && method.getReturnType() == void.class && !method.isSynthetic()) {
-                        method.invoke(null, item, new ResourceLocation(GardenArsenal.MOD_ID, name), itemPropertyFunction);
-                        break;
-                }
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
         return recipeSerializer;
     }
