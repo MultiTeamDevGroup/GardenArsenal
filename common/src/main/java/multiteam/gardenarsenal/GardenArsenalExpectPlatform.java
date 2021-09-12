@@ -48,11 +48,6 @@ public class GardenArsenalExpectPlatform {
         throw new AssertionError();
     }
 
-//    @ExpectPlatform
-//    public static void registerItemProperty(Item item, String name, ClampedItemPropertyFunction itemPropertyFunction) {
-//        throw new AssertionError();
-//    }
-
     @ExpectPlatform
     public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
         throw new AssertionError();
