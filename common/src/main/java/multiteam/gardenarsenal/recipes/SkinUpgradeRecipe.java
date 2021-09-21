@@ -33,12 +33,13 @@ public class SkinUpgradeRecipe extends UpgradeRecipe {
 
     @Override
     public boolean matches(Container container, Level level) {
-        return this.weapon == container.getItem(0).getItem() && container.getItem(1).getItem() instanceof SkinCardItem;
+        return this.weapon == container.getItem(0).getItem() && container.getItem(1).getItem() instanceof SkinCardItem skinCardItem
+                && skinCardItem.getSkin().canApplySkin(this.weapon);
     }
 
     @Override
     public boolean isAdditionIngredient(ItemStack itemStack) {
-        return itemStack.getItem() instanceof SkinCardItem;
+        return itemStack.getItem() instanceof SkinCardItem skinCardItem && skinCardItem.getSkin().canApplySkin(this.weapon);
     }
 
     public static RecipeSerializer<?> createSerializer() {

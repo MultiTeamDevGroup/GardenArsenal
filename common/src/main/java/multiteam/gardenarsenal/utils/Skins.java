@@ -24,17 +24,37 @@ public enum Skins {
     special_nerf(5,6, SkinRarity.legendary),
     special_rubik(5,6, SkinRarity.epic)
 //    ,
-//    teams_vampirestudios(4,5, SkinRarity.mythical)
+//    teams_vampirestudios(4,5, SkinRarity.mythical, GardenArsenalItems.COCOA_BEANS_SHELL, GardenArsenalItems.POTATO_GRENADE)
     ;
 
     private int tradeLevel;
     private int price;
     private SkinRarity rarity;
+    private RegistrySupplier<Item>[] weapons;
 
     Skins(int tradeLevel, int price, SkinRarity rarity) {
         this.tradeLevel = tradeLevel;
         this.price = price;
         this.rarity = rarity;
+        this.weapons = new RegistrySupplier[] {
+                GardenArsenalItems.CARROT_RIFLE,
+                GardenArsenalItems.POTATO_BAZOOKA,
+                GardenArsenalItems.COCOA_BEAN_SHOTGUN,
+                GardenArsenalItems.SEED_PISTOL,
+                GardenArsenalItems.SUGAR_CANE_SNIPER,
+                GardenArsenalItems.GLIMMERING_REVOLVER
+        };
+    }
+
+    Skins(int tradeLevel, int price, SkinRarity rarity, RegistrySupplier<Item>... weapons) {
+        this.tradeLevel = tradeLevel;
+        this.price = price;
+        this.rarity = rarity;
+        this.weapons = weapons;
+    }
+
+    public RegistrySupplier<Item>[] getWeapons() {
+        return weapons;
     }
 
     public int getPrice() {
@@ -51,5 +71,12 @@ public enum Skins {
 
     public RegistrySupplier<Item> getItem() {
         return GardenArsenalItems.SKIN_CARDS.get(this.ordinal());
+    }
+
+    public boolean canApplySkin(Item weapon) {
+        for (RegistrySupplier<Item> arm : this.weapons) {
+            if (arm.get() == weapon) return true;
+        }
+        return false;
     }
 }

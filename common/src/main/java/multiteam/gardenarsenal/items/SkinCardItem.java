@@ -1,6 +1,5 @@
 package multiteam.gardenarsenal.items;
 
-import multiteam.gardenarsenal.utils.SkinRarity;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
