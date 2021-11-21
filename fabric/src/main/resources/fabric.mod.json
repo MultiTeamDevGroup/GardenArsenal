@@ -25,10 +25,10 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.12",
     "fabric": "*",
     "minecraft": "1.17.x",
-    "architectury": ">=2.5.28"
+    "architectury": ">=2.6"
   },
   "mixins": [
     "mixin.gardenarsenal-fabric.json"
@@ -36,7 +36,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.discord": "https://discord.gg/JTwmz8S"
+        "modmenu.discord": "https://discord.gg/rudHdrJ"
       }
     },
     "modupdater": {

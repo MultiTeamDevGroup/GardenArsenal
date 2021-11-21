@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-if (JavaVersion.current().ordinal() + 1 < 16) {
+if (!JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_16)) {
     throw new IllegalStateException("Please run gradle with Java 16+!")
 }
 
