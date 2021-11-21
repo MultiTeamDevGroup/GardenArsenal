@@ -27,8 +27,8 @@ dependencies {
         transitive = false
     }
 
-//    modCompileOnly "mezz.jei:jei-1.16.5:${rootProject.jei_version}:api"
-//    modRuntime "mezz.jei:jei-1.16.5:${rootProject.jei_version}"
+    modCompileOnly "mezz.jei:jei-1.17.1:${rootProject.jei_version}:api"
+    modRuntimeOnly "mezz.jei:jei-1.17.1:${rootProject.jei_version}"
 }
 
 processResources {
