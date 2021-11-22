@@ -31,14 +31,16 @@ public class GardenArsenalBlocks {
     public static final RegistrySupplier<Block> WAR_TACTIC_TABLE = BLOCKS.register("war_tactic_table", () -> new WarTacticTable(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(2, 2).sound(SoundType.WOOD).noOcclusion()));
     public static final RegistrySupplier<Block> AMMO_CRATE = BLOCKS.register("ammo_crate", () -> new AmmoCrate(BlockProperties.of(Material.WOOD).tool(ToolType.AXE, 1).strength(2, 2).sound(SoundType.WOOD).noOcclusion()));
 
-    //Makers Shift Update - v0.4
-    public static final RegistrySupplier<Block> SCRAP_WOOD_PILE = registerWithItem("scrap_wood_pile", () -> new Block(BlockProperties.of(Material.WOOD).tool(ToolType.AXE).strength(1.0f, 2.0f).sound(SoundType.WOOD)), new Item.Properties().tab(GardenArsenalItems.MISC));
-    public static final RegistrySupplier<Block> MAKERS_CONCRETE_POWDER_BLOCK = registerWithItem("makers_concrete_powder", () -> new Block(BlockProperties.of(Material.STONE).tool(ToolType.SHOVEL).strength(0.5f,0.5f).sound(SoundType.SAND)), new Item.Properties().tab(GardenArsenalItems.MISC));
-    public static final RegistrySupplier<Block> REINFORCED_METAL_BLOCK = registerWithItem("reinforced_metal_block", () -> new Block(BlockProperties.of(Material.HEAVY_METAL).tool(ToolType.PICKAXE).strength(10.f, 200.0f).sound(SoundType.NETHERITE_BLOCK)), new Item.Properties().tab(GardenArsenalItems.MISC));
-    public static final RegistrySupplier<Block> INDUSTRIAL_BARRIER_BLOCK = registerWithItem("industrial_barrier_block", () -> new Block(BlockProperties.of(Material.HEAVY_METAL).tool(ToolType.PICKAXE).strength(10.0f, 100.0f).sound(SoundType.NETHERITE_BLOCK)), new Item.Properties().tab(GardenArsenalItems.MISC));
-    public static final RegistrySupplier<Block> BARRICADE_SURVIVALIST = registerWithItem("survivalist_barricade", () -> new BarricadeBlock(BlockProperties.of(Material.WOOD).tool(ToolType.AXE).strength(2.0f, 3.0f).sound(SoundType.BAMBOO)), new Item.Properties().tab(GardenArsenalItems.MISC));
-    public static final RegistrySupplier<Block> BARRICADE_MAKER = registerWithItem("maker_barricade", () -> new BarricadeBlock(BlockProperties.of(Material.STONE).tool(ToolType.PICKAXE).strength(15.0f, 100.0f).sound(SoundType.NETHER_BRICKS)), new Item.Properties().tab(GardenArsenalItems.MISC));
-    public static final RegistrySupplier<Block> BARRICADE_INDUSTRIAL = registerWithItem("industrial_barricade", () -> new BarricadeBlock(BlockProperties.of(Material.HEAVY_METAL).tool(ToolType.PICKAXE).strength(40.0f, 900.0f).sound(SoundType.ANVIL)), new Item.Properties().tab(GardenArsenalItems.MISC));
+    //0.4.0 - update to 1.17
+
+    //Makers Shift Update - v0.5
+    //public static final RegistrySupplier<Block> SCRAP_WOOD_PILE = registerWithItem("scrap_wood_pile", () -> new Block(BlockProperties.of(Material.WOOD).tool(ToolType.AXE).strength(1.0f, 2.0f).sound(SoundType.WOOD)), new Item.Properties().tab(GardenArsenalItems.MISC));
+    //public static final RegistrySupplier<Block> MAKERS_CONCRETE_POWDER_BLOCK = registerWithItem("makers_concrete_powder", () -> new Block(BlockProperties.of(Material.STONE).tool(ToolType.SHOVEL).strength(0.5f,0.5f).sound(SoundType.SAND)), new Item.Properties().tab(GardenArsenalItems.MISC));
+    //public static final RegistrySupplier<Block> REINFORCED_METAL_BLOCK = registerWithItem("reinforced_metal_block", () -> new Block(BlockProperties.of(Material.HEAVY_METAL).tool(ToolType.PICKAXE).strength(10.f, 200.0f).sound(SoundType.NETHERITE_BLOCK)), new Item.Properties().tab(GardenArsenalItems.MISC));
+    //public static final RegistrySupplier<Block> INDUSTRIAL_BARRIER_BLOCK = registerWithItem("industrial_barrier_block", () -> new Block(BlockProperties.of(Material.HEAVY_METAL).tool(ToolType.PICKAXE).strength(10.0f, 100.0f).sound(SoundType.NETHERITE_BLOCK)), new Item.Properties().tab(GardenArsenalItems.MISC));
+    //public static final RegistrySupplier<Block> BARRICADE_SURVIVALIST = registerWithItem("survivalist_barricade", () -> new BarricadeBlock(BlockProperties.of(Material.WOOD).tool(ToolType.AXE).strength(2.0f, 3.0f).sound(SoundType.BAMBOO)), new Item.Properties().tab(GardenArsenalItems.MISC));
+    //public static final RegistrySupplier<Block> BARRICADE_MAKER = registerWithItem("maker_barricade", () -> new BarricadeBlock(BlockProperties.of(Material.STONE).tool(ToolType.PICKAXE).strength(15.0f, 100.0f).sound(SoundType.NETHER_BRICKS)), new Item.Properties().tab(GardenArsenalItems.MISC));
+    //public static final RegistrySupplier<Block> BARRICADE_INDUSTRIAL = registerWithItem("industrial_barricade", () -> new BarricadeBlock(BlockProperties.of(Material.HEAVY_METAL).tool(ToolType.PICKAXE).strength(40.0f, 900.0f).sound(SoundType.ANVIL)), new Item.Properties().tab(GardenArsenalItems.MISC));
 
 
 

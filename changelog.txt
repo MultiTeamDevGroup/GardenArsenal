@@ -1,13 +1,5 @@
 v0.4.0
 
--added "scrap wood pile" block
--added "Makers' Concrete Powder" block
--added "Reinforced Metal Block"
--added "Industrial Barrier Block"
-
--added "Survivalist Barricade"
--added "Makers Barricade"
--added "Industrial Barricade"
 -added Glimmering Revolver [6 rounds]
 -added glistering melon seeds
 
@@ -17,9 +9,24 @@ v0.4.0
 -added skin rarity colors to weapon names
 -added skin rarity colors to skin card names
 
+- added jei support for applying the skins on the weapons
+
 -changed machine block's texture
 
 -fixed carrot rifle having 0 cooldown
 -fixed shift clicking in the smithing table when trying to apply skin to a weapon
 
 -port to 1.17
+
+
+
+v0.5.0 - makers shift (coming soon. mentioned changes are implemented BUT temporarly disabled)
+
+-added "scrap wood pile" block
+-added "Makers' Concrete Powder" block
+-added "Reinforced Metal Block"
+-added "Industrial Barrier Block"
+
+-added "Survivalist Barricade"
+-added "Makers Barricade"
+-added "Industrial Barricade"

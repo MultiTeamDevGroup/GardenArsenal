@@ -3,25 +3,72 @@ package multiteam.gardenarsenal.items;
 import multiteam.gardenarsenal.entities.WeaponProjectile;
 import multiteam.gardenarsenal.utils.SkinRarity;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class SugarcaneSniper extends WeaponItem {
+public class SugarcaneSniper extends WeaponItem{
     public SugarcaneSniper(Item.Properties settings) {
         super(settings);
+    }
+
+
+    @Override
+    public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
+        if (user instanceof Player playerEntity) {
+            boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
+            ItemStack itemStack = getAmmoInInventory(playerEntity);
+            playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
+            if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
+                if (itemStack.isEmpty()) {
+                    itemStack = new ItemStack(this.getAmmoItem());
+                }
+
+                int i = this.getMaxUseTime(stack) - remainingUseTicks;
+                float f = getPullProgress(i);
+                if (!((double)f < 0.1D)) {
+                    boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
+                    if (!world.isClientSide) {
+                        this.createProjectileEntities(world, playerEntity);
+
+                        stack.hurtAndBreak(1, playerEntity, (p) -> p.broadcastBreakEvent(playerEntity.getUsedItemHand()));
+                    }
+
+                    world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    if (!bl2 && !playerEntity.getAbilities().instabuild) {
+                        itemStack.shrink(1);
+                        if (itemStack.isEmpty()) {
+                            playerEntity.getInventory().removeItem(itemStack);
+                        }
+                    }
+
+                    if(world.isClientSide){
+                        //Minecraft.getInstance().player.isScoping() = false;
+                        //this.minecraft.player.isScoping()
+                    }
+
+                    playerEntity.awardStat(Stats.ITEM_USED.get(this));
+                }
+            }
+        }
     }
 
     @Override
@@ -63,4 +110,5 @@ public class SugarcaneSniper extends WeaponItem {
     public Item getAmmoItem() {
         return Items.SUGAR_CANE;
     }
+
 }

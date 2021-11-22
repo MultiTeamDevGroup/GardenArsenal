@@ -61,7 +61,7 @@ public class GardenArsenalForge {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(GardenArsenalBlocks.AMMO_CRATE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(GardenArsenalBlocks.BARRICADE_SURVIVALIST.get(), RenderType.cutout());
+       // ItemBlockRenderTypes.setRenderLayer(GardenArsenalBlocks.BARRICADE_SURVIVALIST.get(), RenderType.cutout());
     }
 
     // This is supposed to fix the renamed ids...

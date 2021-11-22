@@ -81,3 +81,9 @@ publishing {
         // Add repositories to publish to here.
     }
 }
+
+loom {
+    forge {
+        mixinConfig "gardenarsenal.mixins.json"
+    }
+}

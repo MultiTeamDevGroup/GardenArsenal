@@ -48,7 +48,7 @@ public class BarricadeBlock extends Block {
     @Override
     public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos pos, CollisionContext collisionContext) {
         BlockState thisBlock = blockGetter.getBlockState(pos);
-        if (thisBlock.getBlock() == GardenArsenalBlocks.BARRICADE_SURVIVALIST.get()) {
+        /**if (thisBlock.getBlock() == GardenArsenalBlocks.BARRICADE_SURVIVALIST.get()) {
             return switch (thisBlock.getValue(FACING)) {
                 case EAST -> SHAPE_SURVIVALIST_EAST;
                 case DOWN, UP, NORTH -> SHAPE_SURVIVALIST_NORTH;
@@ -65,7 +65,7 @@ public class BarricadeBlock extends Block {
                 case NORTH, SOUTH, UP, DOWN -> SHAPE_INDUSTRIAL;
                 case WEST, EAST -> SHAPE_INDUSTRIAL_SIDEWAYS;
             };
-        }
+        }**/
         return SHAPE_INDUSTRIAL;
     }
 
