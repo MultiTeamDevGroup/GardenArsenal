@@ -162,4 +162,9 @@ public abstract class WeaponItem extends BowItem {
 
         return TextColor.fromRgb(0);
     }
+
+    @Override
+    public int getEnchantmentValue() {
+        return 0;
+    }
 }
