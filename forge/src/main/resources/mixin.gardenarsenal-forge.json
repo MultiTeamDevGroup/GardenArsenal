@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "multiteam.gardenarsenal.forge.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "client": [
+    "ForgeIngameGuiMixin"
+  ],
+  "mixins": [
+  ],
+  "server": [
+  ],
+  "minVersion": "0.8"
+}

@@ -3,6 +3,7 @@ package multiteam.gardenarsenal.mixin;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import multiteam.gardenarsenal.GardenArsenal;
+import multiteam.gardenarsenal.accessor.GuiAccessor;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.Utils;
 import net.minecraft.client.CameraType;
@@ -11,6 +12,7 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,10 +23,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Gui.class)
-public abstract class GuiMixin extends GuiComponent {
-
-    private static final ResourceLocation SPYGLASS_OVERLAY_TEXTURE = new ResourceLocation("minecraft:textures/misc/spyglass_scope.png");
-    private static final ResourceLocation SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE = new ResourceLocation(GardenArsenal.MOD_ID +":textures/misc/sugarcane_sniper_scope.png");
+public abstract class GuiMixin extends GuiComponent implements GuiAccessor {
 
     @Shadow @Final private Minecraft minecraft;
 
@@ -34,21 +33,7 @@ public abstract class GuiMixin extends GuiComponent {
 
     @Shadow private int screenHeight;
 
-    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z"))
-    public boolean dontRenderSpyglassOverlay(CameraType instance) {
-        System.out.println(instance.isFirstPerson() && !Utils.isUsingSugarCaneSniper(this.minecraft.player));
-        return instance.isFirstPerson() && !Utils.isUsingSugarCaneSniper(this.minecraft.player);
-    }
-
-    @Inject(method = "render", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/Mth;lerp(FFF)F"))
-    public void addGAOverlayHook(PoseStack poseStack, float f, CallbackInfo ci) {
-        if (this.minecraft.options.getCameraType().isFirstPerson() && Utils.isUsingSugarCaneSniper(this.minecraft.player)) {
-            this.renderGAOverlay(this.scopeScale, SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
-        }
-    }
-
-    protected void renderGAOverlay(float g, ResourceLocation texture) {
-        System.out.println("Overlay!!!");
+    public void renderGAOverlay(float g, ResourceLocation texture) {
         RenderSystem.disableDepthTest();
         RenderSystem.depthMask(false);
         RenderSystem.defaultBlendFunc();
@@ -94,5 +79,17 @@ public abstract class GuiMixin extends GuiComponent {
         RenderSystem.depthMask(true);
         RenderSystem.enableDepthTest();
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+    }
+
+    public void renderGASniperOverlay() {
+        float deltaFrame = this.minecraft.getDeltaFrameTime();
+        this.scopeScale = Mth.lerp(0.5f * deltaFrame, this.scopeScale, 1.125f);
+        if (this.minecraft.options.getCameraType().isFirstPerson()) {
+            if (Utils.isUsingSugarCaneSniper(this.minecraft.player)) {
+                this.renderGAOverlay(this.scopeScale, Utils.SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
+            } else {
+                this.scopeScale = 0.5f;
+            }
+        }
     }
 }
