@@ -31,7 +31,8 @@
     "architectury": ">=2.6"
   },
   "mixins": [
-    "mixin.gardenarsenal-fabric.json"
+    "mixin.gardenarsenal-fabric.json",
+    "mixin.gardenarsenal.json"
   ],
   "custom": {
     "modmenu": {

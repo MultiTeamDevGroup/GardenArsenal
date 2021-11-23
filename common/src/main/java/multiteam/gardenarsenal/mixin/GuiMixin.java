@@ -3,52 +3,50 @@ package multiteam.gardenarsenal.mixin;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
+import multiteam.gardenarsenal.utils.Utils;
+import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Gui.class)
-public class MixinGui extends GuiComponent {
+public abstract class GuiMixin extends GuiComponent {
 
-    @Shadow protected int screenWidth;
-    @Shadow protected int screenHeight;
-    @Shadow @Final protected Minecraft minecraft;
-    @Shadow protected float scopeScale;
+    private static final ResourceLocation SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE = new ResourceLocation("minecraft:textures/misc/spyglass_scope.png");
 
-    @Inject(at = @At("HEAD"), method = "render", cancellable = true)
-    public void render(PoseStack arg, float g){
-        this.screenWidth = this.minecraft.getWindow().getGuiScaledWidth();
-        this.screenHeight = this.minecraft.getWindow().getGuiScaledHeight();
-        Font font = this.minecraft.font;
-        RenderSystem.enableBlend();
+    @Shadow @Final private Minecraft minecraft;
 
-        float f = this.minecraft.getDeltaFrameTime();
-        this.scopeScale = Mth.lerp(0.5F * f, this.scopeScale, 1.125F);
-        if (this.minecraft.options.getCameraType().isFirstPerson()) {
-            if (isUsingSugarCaneSniper(this.minecraft.player)) {
-                renderOverlay(this.scopeScale, MixinConstants.SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
-            }
+    @Shadow private float scopeScale;
+
+    @Shadow private int screenWidth;
+
+    @Shadow private int screenHeight;
+
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z"))
+    public boolean dontRenderSpyglassOverlay(CameraType instance) {
+        System.out.println(instance.isFirstPerson() && !Utils.isUsingSugarCaneSniper(this.minecraft.player));
+        return instance.isFirstPerson() && !Utils.isUsingSugarCaneSniper(this.minecraft.player);
+    }
+
+    @Inject(method = "render", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/Mth;lerp(FFF)F"))
+    public void addGAOverlayHook(PoseStack poseStack, float f, CallbackInfo ci) {
+        if (this.minecraft.options.getCameraType().isFirstPerson() && Utils.isUsingSugarCaneSniper(this.minecraft.player)) {
+            this.renderGAOverlay(this.scopeScale, SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
         }
     }
 
-    public boolean isUsingSugarCaneSniper(Player player) {
-        return player.isUsingItem() && player.getUseItem().is(GardenArsenalItems.SUGAR_CANE_SNIPER.get());
-    }
-
-    protected void renderOverlay(float g, ResourceLocation texture) {
+    protected void renderGAOverlay(float g, ResourceLocation texture) {
+        System.out.println("Overlay!!!");
         RenderSystem.disableDepthTest();
         RenderSystem.depthMask(false);
         RenderSystem.defaultBlendFunc();

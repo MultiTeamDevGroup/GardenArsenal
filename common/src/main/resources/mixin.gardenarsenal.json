@@ -2,11 +2,14 @@
   "required": true,
   "package": "multiteam.gardenarsenal.mixin",
   "compatibilityLevel": "JAVA_16",
-  "refmap": "gardenarsenal.refmap.json",
   "client": [
+    "AbstractClientPlayerMixin",
+    "ItemInHandRendererMixin",
+    "GuiMixin",
+    "MouseHandlerMixin",
+    "SignRendererMixin"
   ],
   "mixins": [
-    "MixinGui"
   ],
   "server": [
   ],

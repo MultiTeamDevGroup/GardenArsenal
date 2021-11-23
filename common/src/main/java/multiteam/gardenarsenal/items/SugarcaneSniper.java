@@ -30,6 +30,9 @@ public class SugarcaneSniper extends WeaponItem{
         super(settings);
     }
 
+    public UseAnim getUseAnimation(ItemStack itemStack) {
+        return UseAnim.SPYGLASS;
+    }
 
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {

@@ -11,6 +11,6 @@ public class GardenArsenalClientFabric implements ClientModInitializer {
     public void onInitializeClient() {
         GardenArsenalClient.init();
         BlockRenderLayerMap.INSTANCE.putBlock(GardenArsenalBlocks.AMMO_CRATE.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(GardenArsenalBlocks.BARRICADE_SURVIVALIST.get(), RenderType.cutout());
+//        BlockRenderLayerMap.INSTANCE.putBlock(GardenArsenalBlocks.BARRICADE_SURVIVALIST.get(), RenderType.cutout());
     }
 }

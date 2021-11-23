@@ -84,6 +84,6 @@ publishing {
 
 loom {
     forge {
-        mixinConfig "gardenarsenal.mixins.json"
+        mixinConfig "mixin.gardenarsenal.json"
     }
 }
