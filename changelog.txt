@@ -9,7 +9,9 @@ v0.4.0
 -added skin rarity colors to weapon names
 -added skin rarity colors to skin card names
 
-- added jei support for applying the skins on the weapons
+-added custom overlay for Sugar Cane Sniper
+
+-added jei support for applying the skins on the weapons
 
 -changed machine block's texture
 
