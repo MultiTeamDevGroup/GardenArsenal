@@ -2,6 +2,7 @@ package multiteam.gardenarsenal.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
+import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.Utils;
 import net.minecraft.client.CameraType;
@@ -22,7 +23,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Gui.class)
 public abstract class GuiMixin extends GuiComponent {
 
-    private static final ResourceLocation SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE = new ResourceLocation("minecraft:textures/misc/spyglass_scope.png");
+    private static final ResourceLocation SPYGLASS_OVERLAY_TEXTURE = new ResourceLocation("minecraft:textures/misc/spyglass_scope.png");
+    private static final ResourceLocation SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE = new ResourceLocation(GardenArsenal.MOD_ID +":textures/misc/sugarcane_sniper_scope.png");
 
     @Shadow @Final private Minecraft minecraft;
 
