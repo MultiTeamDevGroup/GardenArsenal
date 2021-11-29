@@ -47,7 +47,7 @@
       "predicate": {
         "gardenarsenal:skin": 0.08
       },
-      "model": "gardenarsenal:item/skins/metallic/iron/metallic_copper_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/metallic/copper/metallic_copper_glimmering_revolver"
     },
     {
       "predicate": {
@@ -114,6 +114,12 @@
         "gardenarsenal:skin": 0.19
       },
       "model": "gardenarsenal:item/skins/special/rubik/special_rubik_glimmering_revolver"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 0.20
+      },
+      "model": "gardenarsenal:item/skins/exclusive/revolver/exclusive_pistols_glimmering_revolver"
     }
   ]
 }

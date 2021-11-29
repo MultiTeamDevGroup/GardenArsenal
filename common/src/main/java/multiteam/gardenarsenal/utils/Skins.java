@@ -24,8 +24,8 @@ public enum Skins {
     teams_vampirestudios(4,5, SkinRarity.mythical, new RegistrySupplier[]{}), // Don't apply to any skin
     special_ectoplasm(5,6, SkinRarity.epic),
     special_nerf(5,6, SkinRarity.legendary),
-    special_rubik(5,6, SkinRarity.epic)
-
+    special_rubik(5,6, SkinRarity.epic),
+    exclusive_pistols(4,5, SkinRarity.mythical, GardenArsenalItems.GLIMMERING_REVOLVER)
     ;
 
     private int tradeLevel;
