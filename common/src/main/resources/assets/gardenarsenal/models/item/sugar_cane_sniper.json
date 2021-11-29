@@ -47,65 +47,71 @@
       "predicate": {
         "gardenarsenal:skin": 0.08
       },
-      "model": "gardenarsenal:item/skins/metallic/netherite/metallic_netherite_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/metallic/iron/metallic_copper_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.09
       },
-      "model": "gardenarsenal:item/skins/seasonal/christmas/seasonal_christmas_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/metallic/netherite/metallic_netherite_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.10
       },
-      "model": "gardenarsenal:item/skins/seasonal/halloween/seasonal_halloween_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/seasonal/christmas/seasonal_christmas_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.11
       },
-      "model": "gardenarsenal:item/skins/special/aquatic/special_aquatic_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/seasonal/halloween/seasonal_halloween_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.12
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/special/aquatic/special_aquatic_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.13
       },
-      "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/special/neon/special_neon_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.14
       },
-      "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.15
       },
-      "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.16
       },
-      "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.17
       },
-      "model": "gardenarsenal:item/skins/special/nerf/special_nerf_sugarcane_sniper"
+      "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_sugarcane_sniper"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.18
+      },
+      "model": "gardenarsenal:item/skins/special/nerf/special_nerf_sugarcane_sniper"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 0.19
       },
       "model": "gardenarsenal:item/skins/special/rubik/special_rubik_sugarcane_sniper"
     }

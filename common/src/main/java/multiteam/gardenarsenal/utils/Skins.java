@@ -13,6 +13,7 @@ public enum Skins {
     camo_nether(1,1, SkinRarity.common),
     metallic_gold(2,3, SkinRarity.uncommon),
     metallic_iron(1,2, SkinRarity.uncommon),
+    metallic_copper(1,2, SkinRarity.uncommon),
     metallic_netherite(3,4, SkinRarity.epic),
     seasonal_christmas(2,3, SkinRarity.rare),
     seasonal_halloween(2,3, SkinRarity.rare),
@@ -20,11 +21,11 @@ public enum Skins {
     special_neon(4,5, SkinRarity.legendary),
     teams_mcabnormals(4,5, SkinRarity.mythical),
     teams_multiteam(4,5, SkinRarity.mythical),
+    teams_vampirestudios(4,5, SkinRarity.mythical, new RegistrySupplier[]{}), // Don't apply to any skin
     special_ectoplasm(5,6, SkinRarity.epic),
     special_nerf(5,6, SkinRarity.legendary),
     special_rubik(5,6, SkinRarity.epic)
-//    ,
-//    teams_vampirestudios(4,5, SkinRarity.mythical, GardenArsenalItems.COCOA_BEANS_SHELL, GardenArsenalItems.POTATO_GRENADE)
+
     ;
 
     private int tradeLevel;

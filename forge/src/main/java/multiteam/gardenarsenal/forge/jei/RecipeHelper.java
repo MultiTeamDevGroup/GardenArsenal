@@ -43,6 +43,7 @@ public class RecipeHelper {
         List<ItemStack> list = new ArrayList<>();
 
         for (Skins skin : Skins.values()) {
+            if (!skin.canApplySkin(weapon)) continue;
             ItemStack stack = new ItemStack(weapon);
             stack.getOrCreateTag().putString("skinType", skin.name());
 

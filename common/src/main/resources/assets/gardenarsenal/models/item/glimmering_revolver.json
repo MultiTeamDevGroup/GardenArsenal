@@ -47,65 +47,71 @@
       "predicate": {
         "gardenarsenal:skin": 0.08
       },
-      "model": "gardenarsenal:item/skins/metallic/netherite/metallic_netherite_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/metallic/iron/metallic_copper_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.09
       },
-      "model": "gardenarsenal:item/skins/seasonal/christmas/seasonal_christmas_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/metallic/netherite/metallic_netherite_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.10
       },
-      "model": "gardenarsenal:item/skins/seasonal/halloween/seasonal_halloween_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/seasonal/christmas/seasonal_christmas_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.11
       },
-      "model": "gardenarsenal:item/skins/special/aquatic/special_aquatic_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/seasonal/halloween/seasonal_halloween_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.12
       },
-      "model": "gardenarsenal:item/skins/special/neon/special_neon_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/special/aquatic/special_aquatic_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.13
       },
-      "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/special/neon/special_neon_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.14
       },
-      "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.15
       },
-      "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.16
       },
-      "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/teams/vampirestudios/teams_vampirestudios_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.17
       },
-      "model": "gardenarsenal:item/skins/special/nerf/special_nerf_glimmering_revolver"
+      "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_glimmering_revolver"
     },
     {
       "predicate": {
         "gardenarsenal:skin": 0.18
+      },
+      "model": "gardenarsenal:item/skins/special/nerf/special_nerf_glimmering_revolver"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 0.19
       },
       "model": "gardenarsenal:item/skins/special/rubik/special_rubik_glimmering_revolver"
     }

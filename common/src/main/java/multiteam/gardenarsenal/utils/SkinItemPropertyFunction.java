@@ -15,6 +15,6 @@ public class SkinItemPropertyFunction implements ClampedItemPropertyFunction {
             return 0;
         String skinName = stack.getTag().getString("skinType");
         Skins Skin = skinName.isEmpty() ? Skins.Default : Skins.valueOf(skinName);
-        return Skin.ordinal() >= 15 ? (float) ((Skin.ordinal() + 1) / 100.0) : (float) (Skin.ordinal() / 100.0);
+        return (float) (Skin.ordinal() / 100.0);
     }
 }
