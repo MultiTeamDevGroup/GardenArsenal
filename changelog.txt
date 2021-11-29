@@ -3,6 +3,8 @@ v0.4.0
 -added Glimmering Revolver [6 rounds]
 -added glistering melon seeds
 
+-added new copper skin + one exclusive skin for the new weapon of this update
+
 -added common, uncommon, rare, epic, legendary, mythical skin card pack
 
 -added skin rarity colors to weapon descriptions
