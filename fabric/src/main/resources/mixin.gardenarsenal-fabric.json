@@ -3,5 +3,8 @@
     "VillagerMixin",
     "StructureTemplatePoolAccessor"
   ],
+  "client": [
+    "GuiMixin"
+  ],
   "package": "multiteam.gardenarsenal.fabric.mixin"
 }
