@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#BD",
+        "GL "
+    ],
+    "key": {
+        "#": {
+            "item": "gardenarsenal:machine_block"
+        },
+        "B": {
+            "item": "minecraft:barrel"
+        },
+        "D": {
+            "item": "minecraft:dispenser"
+        },
+        "G": {
+            "item": "minecraft:green_terracotta"
+        },
+        "L": {
+            "item": "minecraft:lever"
+        }
+    },
+    "result": {
+        "item": "gardenarsenal:glimmering_revolver",
+        "count": 1
+    }
+}
