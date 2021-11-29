@@ -27,8 +27,8 @@
   "depends": {
     "fabricloader": ">=0.12",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "architectury": ">=2.6"
+    "minecraft": "1.18.x",
+    "architectury": ">=3.0"
   },
   "mixins": [
     "mixin.gardenarsenal-fabric.json",
