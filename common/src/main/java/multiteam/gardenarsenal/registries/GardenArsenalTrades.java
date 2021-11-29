@@ -3,6 +3,7 @@ package multiteam.gardenarsenal.registries;
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
+import multiteam.gardenarsenal.utils.SkinRarity;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.world.entity.npc.VillagerProfession;
 
@@ -14,11 +15,11 @@ public class GardenArsenalTrades {
     public static void init() {
         TradeListBuilder commanderTrades = new TradeListBuilder(GardenArsenalProfessions.GARDEN_SOLDIER_COMMANDER);
 
-        for (int i = 0; i < Skins.values().length; i++) {
-            Skins skin = Skins.values()[i];
-            commanderTrades.add(skin.getTradeLevel(), 16, 10, 0.05F)
-                    .setEmeraldPrice(skin.getPrice())
-                    .setForSale(GardenArsenalItems.SKIN_CARDS.get(i), 1,1);
+        for (int i = 0; i < SkinRarity.values().length; i++) {
+            SkinRarity skinRarity = SkinRarity.values()[i];
+            commanderTrades.add(skinRarity.getTradeLevel(), 16, 10, 0.05F)
+                    .setEmeraldPrice(skinRarity.getPrice())
+                    .setForSale(skinRarity.getItem(), 1,1);
         }
 
         GardenArsenalExpectPlatform.registerTrades(commanderTrades);

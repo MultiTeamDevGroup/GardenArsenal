@@ -28,8 +28,10 @@ public enum Skins {
     exclusive_pistols(4,5, SkinRarity.mythical, GardenArsenalItems.GLIMMERING_REVOLVER)
     ;
 
+    // Not used anymore, moved to SkinRarity.
     private int tradeLevel;
     private int price;
+
     private SkinRarity rarity;
     private RegistrySupplier<Item>[] weapons;
 

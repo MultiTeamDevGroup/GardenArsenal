@@ -9,17 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum SkinRarity {
-    common(14540253),
-    uncommon(2066191),
-    rare(2909434),
-    epic(9849850),
-    legendary(16559363),
-    mythical(16393225);
+    common(14540253, 1, 1),
+    uncommon(2066191, 2, 3),
+    rare(2909434, 2, 3),
+    epic(9849850, 3, 4),
+    legendary(16559363, 4, 5),
+    mythical(16393225, 5, 6);
 
     private final int color;
+    private final int tradeLevel;
+    private final int price;
 
-    SkinRarity(int color) {
+    SkinRarity(int color, int tradeLevel, int price) {
         this.color = color;
+        this.tradeLevel = tradeLevel;
+        this.price = price;
     }
 
     public TextColor getTextColor() {
@@ -34,6 +38,14 @@ public enum SkinRarity {
         }
 
         return list;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getTradeLevel() {
+        return tradeLevel;
     }
 
     public RegistrySupplier<Item> getItem() {
