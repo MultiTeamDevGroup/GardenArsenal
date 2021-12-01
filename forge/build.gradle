@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.0.0"
+    id "com.github.johnrengelman.shadow" version "7.1.0"
 }
 
 architectury {
@@ -28,7 +28,9 @@ dependencies {
     }
 
     modCompileOnly "mezz.jei:jei-1.17.1:${rootProject.jei_version}:api"
-    modRuntimeOnly "mezz.jei:jei-1.17.1:${rootProject.jei_version}"
+//    modRuntimeOnly "mezz.jei:jei-1.17.1:${rootProject.jei_version}"
+    // compile with mixins for now
+    compileClasspath("dev.architectury:mixin-patched:0.8.4.+")
 }
 
 processResources {
