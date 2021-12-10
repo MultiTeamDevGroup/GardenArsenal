@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[37,)"
+loaderVersion = "[39,)"
 issueTrackerURL = "https://github.com/Laz-The-Artist/GardenArsenal/issues"
 license = "GNU GENERAL PUBLIC LICENSE version 2"
 
@@ -23,14 +23,14 @@ logoFile="gardenarsenal_icon.png"
 [[dependencies.gardenarsenal]]
 modId = "forge"
 mandatory = true
-versionRange = "[37,)"
+versionRange = "[39,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.gardenarsenal]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18,1.19)"
+versionRange = "[1.18.1,1.19)"
 ordering = "NONE"
 side = "BOTH"
 
