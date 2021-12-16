@@ -1,6 +1,6 @@
 v0.4.0
 
--port to 1.17
+-port to 1.17 and 1.18
 
 -added Glimmering Revolver [6 rounds]
 -added glistering melon seeds

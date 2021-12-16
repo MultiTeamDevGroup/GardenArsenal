@@ -1,10 +1,6 @@
 {
   "replace": false,
   "values": [
-    "gardenarsenal:machine_block",
-    "gardenarsenal:reinforced_metal_block",
-    "gardenarsenal:industrial_barrier_block",
-    "gardenarsenal:maker_barricade",
-    "gardenarsenal:industrial_barricade"
+    "gardenarsenal:machine_block"
   ]
 }

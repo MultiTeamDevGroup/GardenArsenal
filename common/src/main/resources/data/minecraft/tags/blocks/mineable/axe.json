@@ -2,8 +2,6 @@
   "replace": false,
   "values": [
     "gardenarsenal:war_tactic_table",
-    "gardenarsenal:ammo_crate",
-    "gardenarsenal:survivalist_barricade",
-    "gardenarsenal:scrap_wood_pile"
+    "gardenarsenal:ammo_crate"
   ]
 }
