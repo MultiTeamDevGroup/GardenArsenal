@@ -12,7 +12,7 @@ public class GardenArsenalClient {
         ClientLifecycleEvent.CLIENT_SETUP.register(instance -> register());
     }
 
-    private static void register() {
+    public static void register() {
         ItemPropertiesRegistry.register(GardenArsenalItems.CARROT_RIFLE.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
         ItemPropertiesRegistry.register(GardenArsenalItems.COCOA_BEAN_SHOTGUN.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
         ItemPropertiesRegistry.register(GardenArsenalItems.POTATO_BAZOOKA.get(), new ResourceLocation(GardenArsenal.MOD_ID,"skin"), new SkinItemPropertyFunction());
