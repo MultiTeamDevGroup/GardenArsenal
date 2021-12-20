@@ -33,6 +33,7 @@
   "item.gardenarsenal.epic_skin_card_pack": "Skin Card Pack",
   "item.gardenarsenal.legendary_skin_card_pack": "Skin Card Pack",
   "item.gardenarsenal.mythical_skin_card_pack": "Skin Card Pack",
+  "item.gardenarsenal.skin_card_special_goat": "Goat Skin Card",
 
   "GARDEN ARSENAL WEAPONS": "WEAPONS",
   "item.gardenarsenal.carrot_rifle": "Carrot Rifle",
@@ -87,6 +88,7 @@
   "tooltip.gardenarsenal.skin.teams_multiteam": "MultiTeam - Teams",
   "tooltip.gardenarsenal.skin.teams_vampirestudios": "VampireStudios - Teams",
   "tooltip.gardenarsenal.skin.exclusive_pistols": "Pistols - Exclusive",
+  "tooltip.gardenarsenal.skin.special_goat": "Goat - Special",
 
   "GARDEN ARSENAL RARITY NAMES": "RARITY NAMES",
   "rarity.gardenarsenal.common":"Common",

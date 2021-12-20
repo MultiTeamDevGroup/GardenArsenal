@@ -114,6 +114,12 @@
         "gardenarsenal:skin": 0.19
       },
       "model": "gardenarsenal:item/skins/special/rubik/special_rubik_carrot_rifle"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 0.21
+      },
+      "model": "gardenarsenal:item/skins/special/goat/special_goat_carrot_rifle"
     }
   ]
 }

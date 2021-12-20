@@ -25,7 +25,8 @@ public enum Skins {
     special_ectoplasm(5,6, SkinRarity.epic),
     special_nerf(5,6, SkinRarity.legendary),
     special_rubik(5,6, SkinRarity.epic),
-    exclusive_pistols(4,5, SkinRarity.mythical, GardenArsenalItems.GLIMMERING_REVOLVER)
+    exclusive_pistols(4,5, SkinRarity.mythical, GardenArsenalItems.GLIMMERING_REVOLVER),
+    special_goat(5,6, SkinRarity.epic)
     ;
 
     // Not used anymore, moved to SkinRarity.
