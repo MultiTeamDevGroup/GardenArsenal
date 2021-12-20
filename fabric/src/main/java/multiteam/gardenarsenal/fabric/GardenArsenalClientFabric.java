@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.RenderType;
 public class GardenArsenalClientFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        GardenArsenalClient.init();
+        GardenArsenalClient.register();
         BlockRenderLayerMap.INSTANCE.putBlock(GardenArsenalBlocks.AMMO_CRATE.get(), RenderType.cutout());
 //        BlockRenderLayerMap.INSTANCE.putBlock(GardenArsenalBlocks.BARRICADE_SURVIVALIST.get(), RenderType.cutout());
     }
