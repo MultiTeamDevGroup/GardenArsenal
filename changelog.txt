@@ -1,6 +1,6 @@
 v0.4.0
 
--port to 1.17 and 1.18
+-port to 1.17
 
 -added Glimmering Revolver [6 rounds]
 -added glistering melon seeds
@@ -22,7 +22,15 @@ v0.4.0
 -fixed carrot rifle having 0 cooldown
 -fixed shift clicking in the smithing table when trying to apply skin to a weapon
 
+v0.4.1 - 1.17
 
+-fix skins not always working on fabric version
+
+v0.4.2 - 1.18
+
+-port to 1.18
+
+-added new goat skin
 
 
 v0.5.0 - makers shift (coming soon. mentioned changes are implemented BUT temporarly disabled)
