@@ -22,9 +22,13 @@ v0.4.0
 -fixed carrot rifle having 0 cooldown
 -fixed shift clicking in the smithing table when trying to apply skin to a weapon
 
-v0.4.1 - 1.17
+v0.4.1
+
+-1.18 port
 
 -fix skins not always working on fabric version
+
+-added new goat skin
 
 
 v0.5.0 - makers shift (coming soon. mentioned changes are implemented BUT temporarly disabled)
