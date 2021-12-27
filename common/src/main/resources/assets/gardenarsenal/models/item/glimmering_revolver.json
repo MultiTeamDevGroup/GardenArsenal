@@ -120,6 +120,12 @@
         "gardenarsenal:skin": 0.20
       },
       "model": "gardenarsenal:item/skins/exclusive/revolver/exclusive_pistols_glimmering_revolver"
+    },
+    {
+      "predicate": {
+        "gardenarsenal:skin": 0.21
+      },
+      "model": "gardenarsenal:item/skins/special/goat/special_goat_glimmering_revolver"
     }
   ]
 }
