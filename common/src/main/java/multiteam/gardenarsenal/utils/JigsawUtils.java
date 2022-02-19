@@ -10,7 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +21,9 @@ public class JigsawUtils {
         Registry<StructureTemplatePool> pools = manager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
         StructureTemplatePool pool = pools.get(poolLocation);
 
-        Registry<StructureProcessorList> processorLists = manager.registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY);
-        Holder<StructureProcessorList> processorList =
-                .getHolder().orElse(ProcessorLists.EMPTY);
         List<StructurePoolElement> elements = GardenArsenalExpectPlatform.getPoolElements(pool);
 
-        StructurePoolElement element = StructurePoolElement.legacy(nbtLocation.toString(), processorList).apply(StructureTemplatePool.Projection.RIGID);
+        StructurePoolElement element = StructurePoolElement.legacy(nbtLocation.toString(), ProcessorLists.EMPTY).apply(StructureTemplatePool.Projection.RIGID);
         for (int i = 0; i < weight; i++) {
             elements.add(element);
         }
