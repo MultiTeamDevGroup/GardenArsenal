@@ -1,18 +1,10 @@
 package multiteam.gardenarsenal.registries;
 
-import com.mojang.datafixers.util.Pair;
 import dev.architectury.event.events.common.LifecycleEvent;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.utils.JigsawUtils;
-import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Function;
 
 public class GardenArsenalStructures {
 

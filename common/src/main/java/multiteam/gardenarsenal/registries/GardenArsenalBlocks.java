@@ -1,7 +1,6 @@
 package multiteam.gardenarsenal.registries;
 
 import dev.architectury.registry.block.BlockProperties;
-import dev.architectury.registry.block.ToolType;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;

@@ -13,6 +13,6 @@ if (!JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
 
 include("common")
 include("fabric")
-include("forge")
+//include("forge")
 
 rootProject.name = "Garden Arsenal"
