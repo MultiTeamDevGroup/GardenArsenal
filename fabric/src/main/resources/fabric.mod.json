@@ -27,7 +27,7 @@
   "depends": {
     "fabricloader": ">=0.12.11",
     "fabric": "*",
-    "minecraft": "1.18.x",
+    "minecraft": ">=1.18.1",
     "architectury": ">=3.1"
   },
   "mixins": [
