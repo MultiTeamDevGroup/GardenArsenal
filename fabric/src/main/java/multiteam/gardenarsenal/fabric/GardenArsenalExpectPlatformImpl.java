@@ -4,15 +4,12 @@ import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
-import multiteam.gardenarsenal.fabric.mixin.StructureTemplatePoolAccessor;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.mixin.object.builder.PointOfInterestTypeAccessor;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -26,8 +23,6 @@ import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -69,21 +64,5 @@ public class GardenArsenalExpectPlatformImpl {
             }
             TradeOfferHelper.registerVillagerOffers(profession, level, factory -> factory.addAll(list));
         }
-    }
-
-    public static List<StructurePoolElement> getPoolElements(StructureTemplatePool pool) {
-        return ((StructureTemplatePoolAccessor) pool).getTemplates();
-    }
-
-    public static List<Pair<StructurePoolElement, Integer>> getPoolElementCounts(StructureTemplatePool pool) {
-        return ((StructureTemplatePoolAccessor) pool).getRawTemplates();
-    }
-
-    public static void setPoolElements(StructureTemplatePool pool, List<StructurePoolElement> elements) {
-        ((StructureTemplatePoolAccessor) pool).setTemplates(elements);
-    }
-
-    public static void setPoolElementCounts(StructureTemplatePool pool, List<Pair<StructurePoolElement, Integer>> elementCounts) {
-        ((StructureTemplatePoolAccessor) pool).setRawTemplates(elementCounts);
     }
 }

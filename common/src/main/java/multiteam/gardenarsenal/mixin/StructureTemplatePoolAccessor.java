@@ -1,4 +1,4 @@
-package multiteam.gardenarsenal.fabric.mixin;
+package multiteam.gardenarsenal.mixin;
 
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;

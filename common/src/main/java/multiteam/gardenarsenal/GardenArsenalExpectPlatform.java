@@ -57,24 +57,4 @@ public class GardenArsenalExpectPlatform {
     public static void registerTrades(GardenArsenalTrades.TradeListBuilder tradeListBuilder) {
         throw new AssertionError();
     }
-
-    @ExpectPlatform
-    public static List<StructurePoolElement> getPoolElements(StructureTemplatePool pool) {
-        throw new AssertionError();
-    }
-
-    @ExpectPlatform
-    public static void setPoolElements(StructureTemplatePool pool, List<StructurePoolElement> elements) {
-        throw new AssertionError();
-    }
-
-    @ExpectPlatform
-    public static List<Pair<StructurePoolElement, Integer>> getPoolElementCounts(StructureTemplatePool pool) {
-        throw new AssertionError();
-    }
-
-    @ExpectPlatform
-    public static void setPoolElementCounts(StructureTemplatePool pool, List<Pair<StructurePoolElement, Integer>> elementCounts) {
-        throw new AssertionError();
-    }
 }

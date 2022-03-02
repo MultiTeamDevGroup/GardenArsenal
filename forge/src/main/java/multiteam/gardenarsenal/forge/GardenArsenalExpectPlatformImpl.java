@@ -42,20 +42,4 @@ public class GardenArsenalExpectPlatformImpl {
     public static void registerTrades(GardenArsenalTrades.TradeListBuilder tradeListBuilder) {
         GardenArsenalForge.tradeListBuilders.add(tradeListBuilder);
     }
-
-    public static List<StructurePoolElement> getPoolElements(StructureTemplatePool pool) {
-        return pool.templates;
-    }
-
-    public static void setPoolElements(StructureTemplatePool pool, List<StructurePoolElement> elements) {
-        pool.templates = elements;
-    }
-
-    public static List<Pair<StructurePoolElement, Integer>> getPoolElementCounts(StructureTemplatePool pool) {
-        return pool.rawTemplates;
-    }
-
-    public static void setPoolElementCounts(StructureTemplatePool pool, List<Pair<StructurePoolElement, Integer>> elementCounts) {
-        pool.rawTemplates = elementCounts;
-    }
 }

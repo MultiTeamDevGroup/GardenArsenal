@@ -1,8 +1,7 @@
 {
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "VillagerMixin",
-    "StructureTemplatePoolAccessor"
+    "VillagerMixin"
   ],
   "client": [
     "GuiMixin"
