@@ -18,7 +18,7 @@ configurations {
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
     // Remove the next line if you don't want to depend on the API
-    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
+//    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
     common(project(path: ":common", configuration: "namedElements")) {
         transitive = false
@@ -27,8 +27,8 @@ dependencies {
         transitive = false
     }
 
-    modCompileOnly "mezz.jei:jei-1.18.1:${rootProject.jei_version}:api"
-    modRuntimeOnly "mezz.jei:jei-1.18.1:${rootProject.jei_version}"
+//    modCompileOnly "mezz.jei:jei-1.18.1:${rootProject.jei_version}:api"
+//    modRuntimeOnly "mezz.jei:jei-1.18.1:${rootProject.jei_version}"
 }
 
 processResources {

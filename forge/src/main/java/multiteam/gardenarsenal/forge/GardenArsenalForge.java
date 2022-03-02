@@ -12,8 +12,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.gui.IIngameOverlay;
-import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;

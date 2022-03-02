@@ -2,13 +2,8 @@ package multiteam.gardenarsenal.forge;
 
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
-import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
-import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.client.renderer.item.ItemPropertyFunction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -16,14 +11,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraftforge.fml.loading.FMLPaths;
 
-import javax.annotation.Nullable;
 import java.io.File;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Set;
 
