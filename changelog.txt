@@ -24,7 +24,7 @@ v0.4.0
 
 v0.4.1
 
--1.18 port
+-1.18 & 1.18.2 port
 
 -fix skins not always working on fabric version
 
