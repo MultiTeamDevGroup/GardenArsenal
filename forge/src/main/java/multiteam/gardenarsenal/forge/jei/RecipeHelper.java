@@ -14,8 +14,8 @@ import java.util.List;
 
 public class RecipeHelper {
 
-    public static List<Object> createSkinRecipes() {
-        List<Object> list = new ArrayList<>();
+    public static List<UpgradeRecipe> createSkinRecipes() {
+        List<UpgradeRecipe> list = new ArrayList<>();
 
         int i = 0;
         for (Skins skin : Skins.values()) {

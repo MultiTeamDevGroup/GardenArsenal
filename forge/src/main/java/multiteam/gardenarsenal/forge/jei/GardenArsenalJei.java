@@ -2,6 +2,7 @@ package multiteam.gardenarsenal.forge.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import multiteam.gardenarsenal.GardenArsenal;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +18,6 @@ public class GardenArsenalJei implements IModPlugin {
     @Override
     public void registerRecipes(@NotNull IRecipeRegistration registration) {
         IModPlugin.super.registerRecipes(registration);
-        registration.addRecipes(RecipeHelper.createSkinRecipes(), new ResourceLocation("minecraft:smithing"));
+        registration.addRecipes(RecipeTypes.SMITHING, RecipeHelper.createSkinRecipes());
     }
 }
