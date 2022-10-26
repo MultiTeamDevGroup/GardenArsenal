@@ -14,10 +14,10 @@ public class GardenArsenalProfessions {
     private static final DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.VILLAGER_PROFESSION_REGISTRY);
 
     public static RegistrySupplier<VillagerProfession> GARDEN_SOLDIER_COMMANDER = PROFESSIONS.register("garden_soldier_commander",
-            () -> GardenArsenalExpectPlatform.createProfession("garden_soldier_commander", GardenArsenalPois.SOLDIER_COMMANDER_POI.get(),
+            () -> GardenArsenalExpectPlatform.createProfession("garden_soldier_commander", GardenArsenalPois.SOLDIER_COMMANDER_POI.getId(),
                     ImmutableSet.of(), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_WEAPONSMITH));
     public static RegistrySupplier<VillagerProfession> GARDEN_SOLDIER = PROFESSIONS.register("garden_soldier",
-            () -> GardenArsenalExpectPlatform.createProfession("garden_soldier", GardenArsenalPois.SOLDIER_POI.get(),
+            () -> GardenArsenalExpectPlatform.createProfession("garden_soldier", GardenArsenalPois.SOLDIER_POI.getId(),
                     ImmutableSet.of(), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_WEAPONSMITH));
 
     public static void init() {

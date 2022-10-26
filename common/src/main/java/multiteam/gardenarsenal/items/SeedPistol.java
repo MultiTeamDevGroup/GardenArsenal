@@ -1,12 +1,10 @@
 package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
-import multiteam.gardenarsenal.utils.SkinRarity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Player;
@@ -27,7 +25,7 @@ public class SeedPistol extends WeaponItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         super.appendHoverText(stack, world, tooltip, context);
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.seed_pistol_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
+        tooltip.add(Component.translatable("tooltip.gardenarsenal.seed_pistol_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
 
         CompoundTag compoundTag = stack.getOrCreateTag();
 
@@ -37,7 +35,7 @@ public class SeedPistol extends WeaponItem {
 
         stack.setTag(compoundTag);
 
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(this.getTextColor(compoundTag))));
+        tooltip.add(Component.translatable("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(this.getTextColor(compoundTag))));
     }
 
     @Override

@@ -27,8 +27,9 @@ dependencies {
         transitive = false
     }
 
-    modCompileOnly "mezz.jei:jei-1.18.2:${rootProject.jei_version}:api"
-    modRuntimeOnly "mezz.jei:jei-1.18.2:${rootProject.jei_version}"
+    modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-common-api:${rootProject.jei_version}"
+    modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-forge-api:${rootProject.jei_version}"
+    modRuntimeOnly "mezz.jei:jei-${rootProject.minecraft_version}-forge:${rootProject.jei_version}"
 }
 
 processResources {

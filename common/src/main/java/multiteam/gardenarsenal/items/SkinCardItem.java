@@ -4,7 +4,6 @@ import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -25,7 +24,7 @@ public class SkinCardItem extends Item {
 
     @Override
     public Component getName(ItemStack itemStack) {
-        return new TranslatableComponent(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(getRarityColor()));
+        return Component.translatable(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(getRarityColor()));
     }
 
     public TextColor getRarityColor() {

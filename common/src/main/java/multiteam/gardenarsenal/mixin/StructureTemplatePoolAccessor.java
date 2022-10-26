@@ -1,6 +1,7 @@
 package multiteam.gardenarsenal.mixin;
 
 import com.mojang.datafixers.util.Pair;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,9 +21,9 @@ public interface StructureTemplatePoolAccessor {
     void setRawTemplates(List<Pair<StructurePoolElement, Integer>> rawTemplates);
 
     @Accessor("templates")
-    List<StructurePoolElement> getTemplates();
+    ObjectArrayList<StructurePoolElement> getTemplates();
 
     @Mutable
     @Accessor("templates")
-    void setTemplates(List<StructurePoolElement> rawTemplates);
+    void setTemplates(ObjectArrayList<StructurePoolElement> rawTemplates);
 }

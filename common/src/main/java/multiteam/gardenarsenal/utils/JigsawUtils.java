@@ -1,9 +1,8 @@
 package multiteam.gardenarsenal.utils;
 
 import com.mojang.datafixers.util.Pair;
-import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import multiteam.gardenarsenal.mixin.StructureTemplatePoolAccessor;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.data.worldgen.ProcessorLists;
@@ -22,14 +21,14 @@ public class JigsawUtils {
         Registry<StructureTemplatePool> pools = manager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
         StructureTemplatePool pool = pools.get(poolLocation);
 
-        List<StructurePoolElement> elements = ((StructureTemplatePoolAccessor)pool).getTemplates();
+        ObjectArrayList<StructurePoolElement> elements = ((StructureTemplatePoolAccessor)pool).getTemplates();
 
         StructurePoolElement element = StructurePoolElement.legacy(nbtLocation.toString(), ProcessorLists.EMPTY).apply(StructureTemplatePool.Projection.RIGID);
         for (int i = 0; i < weight; i++) {
             elements.add(element);
         }
 
-        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList(((StructureTemplatePoolAccessor)pool).getRawTemplates());
+        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructureTemplatePoolAccessor)pool).getRawTemplates());
 
         elements.addAll(((StructureTemplatePoolAccessor)pool).getTemplates());
         elementCounts.addAll(((StructureTemplatePoolAccessor)pool).getRawTemplates());

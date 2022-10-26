@@ -1,14 +1,11 @@
 package multiteam.gardenarsenal.fabric;
 
 import com.google.common.collect.ImmutableSet;
-import com.mojang.datafixers.util.Pair;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
-import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
-import net.fabricmc.fabric.mixin.object.builder.PointOfInterestTypeAccessor;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -19,8 +16,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
-import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -35,19 +30,19 @@ public class GardenArsenalExpectPlatformImpl {
         return FabricLoader.getInstance().getConfigDir().toFile();
     }
 
-    public static VillagerProfession createProfession(String nameIn, PoiType pointOfInterestIn, ImmutableSet<Item> specificItemsIn, ImmutableSet<Block> relatedWorldBlocksIn, SoundEvent soundIn) {
-        return VillagerProfessionBuilder.create()
-                .id(new ResourceLocation(GardenArsenal.MOD_ID, nameIn))
-                .workstation(pointOfInterestIn)
-                .harvestableItems(specificItemsIn)
-                .secondaryJobSites(relatedWorldBlocksIn)
-                .workSound(soundIn)
-                .build();
+    public static VillagerProfession createProfession(String nameIn, ResourceLocation pointOfInterestIn, ImmutableSet<Item> specificItemsIn, ImmutableSet<Block> relatedWorldBlocksIn, SoundEvent soundIn) {
+        return new VillagerProfession(
+                new ResourceLocation(GardenArsenal.MOD_ID, nameIn).toString(),
+                poiTypeHolder -> poiTypeHolder.is(pointOfInterestIn),
+                poiTypeHolder -> poiTypeHolder.is(pointOfInterestIn),
+                specificItemsIn,
+                relatedWorldBlocksIn,
+                soundIn
+        );
     }
 
     public static PoiType createPoi(String string, Set<BlockState> set, int i, int j) {
-        return PointOfInterestTypeAccessor.callSetup(PointOfInterestTypeAccessor
-                .callCreate(string, set, i, j));
+        return new PoiType(set, i, j);
     }
 
     public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {

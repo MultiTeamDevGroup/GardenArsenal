@@ -5,7 +5,6 @@ import multiteam.gardenarsenal.utils.SkinRarity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -60,7 +59,7 @@ public class SkinCardPack extends Item {
             stack.setTag(compoundTag);
         }
 
-        tooltip.add(new TranslatableComponent("rarity.gardenarsenal." + this.skinRarity.name().toLowerCase(Locale.ENGLISH)).copy().withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor())));
+        tooltip.add(Component.translatable("rarity.gardenarsenal." + this.skinRarity.name().toLowerCase(Locale.ENGLISH)).copy().withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor())));
 
     }
 
@@ -79,6 +78,6 @@ public class SkinCardPack extends Item {
 
     @Override
     public Component getName(ItemStack itemStack) {
-        return new TranslatableComponent(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor()));
+        return Component.translatable(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor()));
     }
 }

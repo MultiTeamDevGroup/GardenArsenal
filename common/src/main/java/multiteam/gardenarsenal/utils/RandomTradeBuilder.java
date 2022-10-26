@@ -1,20 +1,20 @@
 package multiteam.gardenarsenal.utils;
 
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 
-import java.util.Random;
 import java.util.function.Function;
 
 public class RandomTradeBuilder {
 
-    private Function<Random, ItemStack> price;
-    private Function<Random, ItemStack> price2;
-    private Function<Random, ItemStack> forSale;
+    private Function<RandomSource, ItemStack> price;
+    private Function<RandomSource, ItemStack> price2;
+    private Function<RandomSource, ItemStack> forSale;
 
     private final int maxTrades;
     private final int xp;
@@ -33,7 +33,7 @@ public class RandomTradeBuilder {
         this.rare = false;
     }
 
-    public RandomTradeBuilder setPrice(Function<Random, ItemStack> price) {
+    public RandomTradeBuilder setPrice(Function<RandomSource, ItemStack> price) {
         this.price = price;
         return this;
     }
@@ -42,7 +42,7 @@ public class RandomTradeBuilder {
         return this.setPrice(toFunction(item, min, max));
     }
 
-    public RandomTradeBuilder setPrice2(Function<Random, ItemStack> price) {
+    public RandomTradeBuilder setPrice2(Function<RandomSource, ItemStack> price) {
         this.price2 = price;
         return this;
     }
@@ -51,7 +51,7 @@ public class RandomTradeBuilder {
         return this.setPrice2(toFunction(item, min, max));
     }
 
-    public RandomTradeBuilder setForSale(Function<Random, ItemStack> forSale) {
+    public RandomTradeBuilder setForSale(Function<RandomSource, ItemStack> forSale) {
         this.forSale = forSale;
         return this;
     }
@@ -91,19 +91,19 @@ public class RandomTradeBuilder {
         return this;
     }
 
-    private Function<Random, ItemStack> toFunction(Item item, int min, int max) {
+    private Function<RandomSource, ItemStack> toFunction(Item item, int min, int max) {
         return (random) -> new ItemStack(item, random.nextInt(max) + min);
     }
 
-    private Function<Random, ItemStack> toFunction(RegistrySupplier<Item> item, int min, int max) {
+    private Function<RandomSource, ItemStack> toFunction(RegistrySupplier<Item> item, int min, int max) {
         return (random) -> new ItemStack(item.get(), random.nextInt(max) + min);
     }
 
-    private Function<Random, ItemStack> toFunction(Item item, int count) {
+    private Function<RandomSource, ItemStack> toFunction(Item item, int count) {
         return (random) -> new ItemStack(item, count);
     }
 
-    private Function<Random, ItemStack> toFunction(RegistrySupplier<Item> item, int count) {
+    private Function<RandomSource, ItemStack> toFunction(RegistrySupplier<Item> item, int count) {
         return (random) -> new ItemStack(item.get(), count);
     }
 

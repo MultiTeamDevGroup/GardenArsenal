@@ -2,12 +2,10 @@ package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
-import multiteam.gardenarsenal.utils.SkinRarity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -33,7 +31,7 @@ public class GlimmeringRevolver extends WeaponItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         super.appendHoverText(stack, world, tooltip, context);
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.glimmering_revolver_desc").copy().withStyle(ChatFormatting.GOLD));
+        tooltip.add(Component.translatable("tooltip.gardenarsenal.glimmering_revolver_desc").copy().withStyle(ChatFormatting.GOLD));
 
         CompoundTag compoundTag = stack.getOrCreateTag();
 
@@ -46,7 +44,7 @@ public class GlimmeringRevolver extends WeaponItem {
 
         stack.setTag(compoundTag);
 
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(this.getTextColor(compoundTag))));
+        tooltip.add(Component.translatable("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(this.getTextColor(compoundTag))));
     }
 
     @Override

@@ -3,7 +3,6 @@ package multiteam.gardenarsenal.items;
 import multiteam.gardenarsenal.entities.BeetrootSmokeProjectile;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -24,7 +23,7 @@ public class BeetrootSmoke extends WeaponItem {
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
         super.appendHoverText(itemStack, level, tooltip, tooltipFlag);
-        tooltip.add(new TranslatableComponent("tooltip.gardenarsenal.beetroot_smoke_desc").copy().withStyle(ChatFormatting.DARK_RED));
+        tooltip.add(Component.translatable("tooltip.gardenarsenal.beetroot_smoke_desc").copy().withStyle(ChatFormatting.DARK_RED));
     }
 
     @Override

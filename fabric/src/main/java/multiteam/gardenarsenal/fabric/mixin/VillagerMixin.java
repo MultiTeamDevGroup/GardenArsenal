@@ -3,7 +3,6 @@ package multiteam.gardenarsenal.fabric.mixin;
 import multiteam.gardenarsenal.GardenArsenal;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.AbstractVillager;
@@ -29,7 +28,7 @@ public abstract class VillagerMixin extends AbstractVillager {
     private void fixGardenArsenalProfessionName(CallbackInfoReturnable<Component> cir) {
         ResourceLocation professionKey = Registry.VILLAGER_PROFESSION.getKey(this.getVillagerData().getProfession());
         if (professionKey.getNamespace().equals(GardenArsenal.MOD_ID)) {
-            cir.setReturnValue(new TranslatableComponent(this.getType().getDescriptionId() + '.' + professionKey.getNamespace() + '.' + professionKey.getPath()));
+            cir.setReturnValue(Component.translatable(this.getType().getDescriptionId() + '.' + professionKey.getNamespace() + '.' + professionKey.getPath()));
         }
     }
 }
