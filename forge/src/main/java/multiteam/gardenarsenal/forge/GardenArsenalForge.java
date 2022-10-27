@@ -4,6 +4,7 @@ import dev.architectury.platform.Platform;
 import dev.architectury.platform.forge.EventBuses;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalClient;
+import multiteam.gardenarsenal.accessor.GuiAccessor;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
@@ -12,6 +13,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -32,6 +34,7 @@ public class GardenArsenalForge {
     public GardenArsenalForge() {
         EventBuses.onRegistered(GardenArsenal.MOD_ID, iEventBus -> {
             iEventBus.addListener(this::doClientStuff);
+            iEventBus.addListener(this::registerGuiOverlay);
         });
 
         // Submit our event bus to let architectury register our content on the right time
@@ -53,6 +56,13 @@ public class GardenArsenalForge {
     private void doClientStuff(final FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(GardenArsenalBlocks.AMMO_CRATE.get(), RenderType.cutout());
        // ItemBlockRenderTypes.setRenderLayer(GardenArsenalBlocks.BARRICADE_SURVIVALIST.get(), RenderType.cutout());
+    }
+
+    private void registerGuiOverlay(RegisterGuiOverlaysEvent event) {
+        event.registerAboveAll("Garden Arsenal Sniper", (gui, mStack, partialTicks, screenWidth, screenHeight) -> {
+            gui.setupOverlayRenderState(true, false);
+            ((GuiAccessor)gui).renderGASniperOverlay();
+        });
     }
 
     public static void registerTrades(VillagerTradesEvent event) {

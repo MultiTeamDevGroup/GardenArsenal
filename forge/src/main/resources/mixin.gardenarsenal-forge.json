@@ -3,7 +3,6 @@
   "package": "multiteam.gardenarsenal.forge.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "ForgeIngameGuiMixin"
   ],
   "mixins": [
   ],
