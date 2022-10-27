@@ -59,7 +59,7 @@ public class GardenArsenalForge {
     }
 
     private void registerGuiOverlay(RegisterGuiOverlaysEvent event) {
-        event.registerAboveAll("Garden Arsenal Sniper", (gui, mStack, partialTicks, screenWidth, screenHeight) -> {
+        event.registerAboveAll("garden_arsenal_sniper", (gui, mStack, partialTicks, screenWidth, screenHeight) -> {
             gui.setupOverlayRenderState(true, false);
             ((GuiAccessor)gui).renderGASniperOverlay();
         });
