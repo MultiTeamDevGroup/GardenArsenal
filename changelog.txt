@@ -1,4 +1,4 @@
-v0.4.0
+v0.4.0 For 1.17.1
 
 -port to 1.17
 
@@ -22,13 +22,28 @@ v0.4.0
 -fixed carrot rifle having 0 cooldown
 -fixed shift clicking in the smithing table when trying to apply skin to a weapon
 
-v0.4.1
+
+v0.4.1 For 1.17.1 and 1.18.1
 
 -1.18 & 1.18.2 port
 
 -fix skins not always working on fabric version
 
 -added new goat skin
+
+
+v0.4.2 For 1.17.1, 1.18.2 and 1.19.(1-2)
+
+- 1.18.2 and 1.19.2 port
+- update dependencies and translations
+
+
+v0.4.3 For 1.19.2 and 1.19.3
+
+- 1.19.3 port
+- update dependencies
+- fix custom villager professions not working
+- fix custom villager houses not generating
 
 
 v0.5.0 - makers shift (coming soon. mentioned changes are implemented BUT temporarly disabled)
