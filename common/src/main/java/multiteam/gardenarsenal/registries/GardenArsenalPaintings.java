@@ -4,11 +4,12 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 
 public class GardenArsenalPaintings {
 
-    public static DeferredRegister<PaintingVariant> MOTIVES = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.PAINTING_VARIANT_REGISTRY);
+    public static DeferredRegister<PaintingVariant> MOTIVES = DeferredRegister.create(GardenArsenal.MOD_ID, Registries.PAINTING_VARIANT);
 
     public static RegistrySupplier<PaintingVariant> PAINTING_BLUEPRINT_RIFLE = MOTIVES.register("blueprint_carrot_rifle_by_lta",
             () -> new PaintingVariant(80, 48));

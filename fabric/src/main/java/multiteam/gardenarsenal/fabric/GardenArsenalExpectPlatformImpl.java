@@ -8,6 +8,8 @@ import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -45,14 +47,14 @@ public class GardenArsenalExpectPlatformImpl {
     }
 
     public static Supplier<PoiType> registerPoiType(String name, Supplier<PoiType> poiType) {
-        ResourceKey<PoiType> resourceKey = ResourceKey.create(Registry.POINT_OF_INTEREST_TYPE_REGISTRY, new ResourceLocation(GardenArsenal.MOD_ID, name));
-        var registry = Registry.register(Registry.POINT_OF_INTEREST_TYPE, resourceKey, poiType.get());
-        PoiTypesInvoker.invokeRegisterBlockStates(Registry.POINT_OF_INTEREST_TYPE.getHolderOrThrow(resourceKey));
+        ResourceKey<PoiType> resourceKey = ResourceKey.create(Registries.POINT_OF_INTEREST_TYPE, new ResourceLocation(GardenArsenal.MOD_ID, name));
+        var registry = Registry.register(BuiltInRegistries.POINT_OF_INTEREST_TYPE, resourceKey, poiType.get());
+        PoiTypesInvoker.invokeRegisterBlockStates(BuiltInRegistries.POINT_OF_INTEREST_TYPE.getHolderOrThrow(resourceKey), poiType.get().matchingStates());
         return () -> registry;
     }
 
     public static Supplier<VillagerProfession> registerProfession(String name, Supplier<VillagerProfession> profession) {
-        var registry = Registry.register(Registry.VILLAGER_PROFESSION, new ResourceLocation(GardenArsenal.MOD_ID, name), profession.get());
+        var registry = Registry.register(BuiltInRegistries.VILLAGER_PROFESSION, new ResourceLocation(GardenArsenal.MOD_ID, name), profession.get());
         return () -> registry;
     }
 }

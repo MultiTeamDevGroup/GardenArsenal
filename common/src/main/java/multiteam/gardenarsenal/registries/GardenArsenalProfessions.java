@@ -7,6 +7,7 @@ import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -16,7 +17,7 @@ import java.util.function.Supplier;
 
 public class GardenArsenalProfessions {
 
-    private static final DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.VILLAGER_PROFESSION_REGISTRY);
+    private static final DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(GardenArsenal.MOD_ID, Registries.VILLAGER_PROFESSION);
 
     public static Supplier<VillagerProfession> GARDEN_SOLDIER_COMMANDER = GardenArsenalExpectPlatform.registerProfession("garden_soldier_commander",
             () -> create("garden_soldier_commander", holder -> holder.value().equals(GardenArsenalPois.SOLDIER_COMMANDER_POI.get())));

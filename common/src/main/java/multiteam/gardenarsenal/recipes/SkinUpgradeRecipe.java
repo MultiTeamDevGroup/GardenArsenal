@@ -1,12 +1,13 @@
 package multiteam.gardenarsenal.recipes;
 
 import com.google.gson.JsonObject;
-import dev.architectury.registry.registries.Registries;
+import dev.architectury.registry.registries.RegistrarManager;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -70,7 +71,7 @@ public class SkinUpgradeRecipe extends UpgradeRecipe {
 
         @Override
         public SkinUpgradeRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
-            Item ingredient = Registries.get(GardenArsenal.MOD_ID).get(Registry.ITEM_REGISTRY)
+            Item ingredient = RegistrarManager.get(GardenArsenal.MOD_ID).get(Registries.ITEM)
                     .get(new ResourceLocation(jsonObject.get("weapon").getAsString()));
 
             return new SkinUpgradeRecipe(resourceLocation, ingredient);

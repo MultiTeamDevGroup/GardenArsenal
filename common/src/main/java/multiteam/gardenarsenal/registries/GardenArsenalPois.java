@@ -6,13 +6,14 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 
 import java.util.function.Supplier;
 
 public class GardenArsenalPois {
 
-    private static final DeferredRegister<PoiType> POIS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.POINT_OF_INTEREST_TYPE_REGISTRY);
+    private static final DeferredRegister<PoiType> POIS = DeferredRegister.create(GardenArsenal.MOD_ID, Registries.POINT_OF_INTEREST_TYPE);
 
     public static Supplier<PoiType> SOLDIER_COMMANDER_POI = GardenArsenalExpectPlatform.registerPoiType("garden_soldier_commander",
             () -> new PoiType(

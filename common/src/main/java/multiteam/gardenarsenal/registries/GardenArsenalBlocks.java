@@ -7,6 +7,7 @@ import multiteam.gardenarsenal.blocks.AmmoCrate;
 import multiteam.gardenarsenal.blocks.TrapCake;
 import multiteam.gardenarsenal.blocks.WarTacticTable;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -21,7 +22,7 @@ public class GardenArsenalBlocks {
                                                                   //see this line here? ingore it cuz its just cringe ->
 
 
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(GardenArsenal.MOD_ID, Registry.BLOCK_REGISTRY);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(GardenArsenal.MOD_ID, Registries.BLOCK);
 
     //Vanilla Garden Arsenal - as of v0.3.1
     public static final RegistrySupplier<Block> MACHINE_BLOCK = BLOCKS.register("machine_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(6, 6).sound(SoundType.NETHERITE_BLOCK)));

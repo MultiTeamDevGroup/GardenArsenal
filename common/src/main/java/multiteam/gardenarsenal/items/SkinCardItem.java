@@ -14,7 +14,7 @@ public class SkinCardItem extends Item {
     private final Skins skin;
 
     public SkinCardItem(Skins skin) {
-        super(new Item.Properties().tab(MISC).stacksTo(64));
+        super(new Item.Properties().arch$tab(MISC).stacksTo(64));
         this.skin = skin;
     }
 
