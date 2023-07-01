@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[43,)"
-issueTrackerURL = "https://github.com/Laz-The-Artist/GardenArsenal/issues"
+issueTrackerURL = "https://github.com/MultiTeamDevGroup/GardenArsenal/issues"
 license = "GNU GENERAL PUBLIC LICENSE version 2"
 
 [[mods]]
@@ -37,6 +37,6 @@ side = "BOTH"
 [[dependencies.gardenarsenal]]
 modId = "architectury"
 mandatory = true
-versionRange = "[6.0,)"
+versionRange = "[6.5.77,)"
 ordering = "AFTER"
 side = "BOTH"
