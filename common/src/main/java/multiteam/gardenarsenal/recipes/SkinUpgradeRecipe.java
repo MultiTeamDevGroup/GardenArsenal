@@ -6,7 +6,7 @@ import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
 import multiteam.gardenarsenal.utils.Skins;
-import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -16,10 +16,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.UpgradeRecipe;
+import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
-public class SkinUpgradeRecipe extends UpgradeRecipe {
+public class SkinUpgradeRecipe extends SmithingTransformRecipe {
 
     public static RecipeSerializer<?> DYNAMIC_SERIALIZER;
 
@@ -28,7 +29,7 @@ public class SkinUpgradeRecipe extends UpgradeRecipe {
     private final Item weapon;
     
     public SkinUpgradeRecipe(ResourceLocation resourceLocation, Item ingredient) {
-        super(resourceLocation, Ingredient.of(ingredient), Ingredient.of(ingredient), new ItemStack(ingredient));
+        super(resourceLocation, Ingredient.of(ingredient), Ingredient.of(ingredient), Ingredient.of(ingredient), new ItemStack(ingredient));
         this.weapon = ingredient;
     }
 
@@ -48,7 +49,7 @@ public class SkinUpgradeRecipe extends UpgradeRecipe {
     }
 
     @Override
-    public ItemStack assemble(Container container) {
+    public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
         ItemStack itemStack = new ItemStack(this.weapon);
         CompoundTag compoundTag = container.getItem(0).getTag();
         if (compoundTag != null) {
@@ -63,14 +64,19 @@ public class SkinUpgradeRecipe extends UpgradeRecipe {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return DYNAMIC_SERIALIZER;
+    }
+
+    @Override
+    public boolean isIncomplete() {
+        return this.weapon == null;
     }
 
     public static class Serializer implements RecipeSerializer<SkinUpgradeRecipe> {
 
         @Override
-        public SkinUpgradeRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
+        public @NotNull SkinUpgradeRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
             Item ingredient = RegistrarManager.get(GardenArsenal.MOD_ID).get(Registries.ITEM)
                     .get(new ResourceLocation(jsonObject.get("weapon").getAsString()));
 
@@ -78,7 +84,7 @@ public class SkinUpgradeRecipe extends UpgradeRecipe {
         }
 
         @Override
-        public SkinUpgradeRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
+        public @NotNull SkinUpgradeRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
             ItemStack ingredient = friendlyByteBuf.readItem();
 
             return new SkinUpgradeRecipe(resourceLocation, ingredient.getItem());

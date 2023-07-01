@@ -23,7 +23,7 @@ public class WeaponProjectile extends Snowball {
 
     public void entityHit(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), this.bulletDamage);
+        entity.hurt(this.damageSources().thrown(this, this.getOwner()), this.bulletDamage);
     }
 
     @Override

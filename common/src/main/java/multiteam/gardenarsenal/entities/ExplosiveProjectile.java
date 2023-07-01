@@ -25,7 +25,7 @@ public class ExplosiveProjectile extends WeaponProjectile {
     @Override
     public void entityHit(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), this.bulletDamage);
+        entity.hurt(this.damageSources().thrown(this, this.getOwner()), this.bulletDamage);
         this.level.explode(null, entity.getX() + 1D, entity.getY() + 1D, entity.getZ() + 1D, 3, Level.ExplosionInteraction.NONE);
     }
 }
