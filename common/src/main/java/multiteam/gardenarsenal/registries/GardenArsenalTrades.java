@@ -1,14 +1,13 @@
 package multiteam.gardenarsenal.registries;
 
-import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import multiteam.gardenarsenal.utils.SkinRarity;
-import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.world.entity.npc.VillagerProfession;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class GardenArsenalTrades {
 
@@ -63,9 +62,9 @@ public class GardenArsenalTrades {
 
     public static class TradeListBuilder extends ArrayList<List<RandomTradeBuilder>> {
 
-        private final RegistrySupplier<VillagerProfession> profession;
+        private final Supplier<VillagerProfession> profession;
 
-        public TradeListBuilder(RegistrySupplier<VillagerProfession> profession) {
+        public TradeListBuilder(Supplier<VillagerProfession> profession) {
             super();
             this.profession = profession;
             for (int i = 0; i < 6; i++) {
@@ -73,7 +72,7 @@ public class GardenArsenalTrades {
             }
         }
 
-        public RegistrySupplier<VillagerProfession> getProfession() {
+        public Supplier<VillagerProfession> getProfession() {
             return profession;
         }
 

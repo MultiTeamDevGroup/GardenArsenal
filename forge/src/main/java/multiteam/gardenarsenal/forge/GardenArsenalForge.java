@@ -6,6 +6,7 @@ import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalClient;
 import multiteam.gardenarsenal.accessor.GuiAccessor;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
+import multiteam.gardenarsenal.registries.GardenArsenalStructures;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -15,7 +16,10 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -37,8 +41,13 @@ public class GardenArsenalForge {
             iEventBus.addListener(this::registerGuiOverlay);
         });
 
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
         // Submit our event bus to let architectury register our content on the right time
-        EventBuses.registerModEventBus(GardenArsenal.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
+        EventBuses.registerModEventBus(GardenArsenal.MOD_ID, bus);
+
+        GardenArsenalExpectPlatformImpl.POI_TYPES.register(bus);
+        GardenArsenalExpectPlatformImpl.PROFESSIONS.register(bus);
 
         MinecraftForge.EVENT_BUS.addListener(new Consumer<VillagerTradesEvent>() {
             @Override
@@ -47,10 +56,17 @@ public class GardenArsenalForge {
             }
         });
 
+        MinecraftForge.EVENT_BUS.register(this);
+
         GardenArsenal.init();
         if (Platform.getEnv() == Dist.CLIENT) {
             GardenArsenalClient.init();
         }
+    }
+
+    @SubscribeEvent
+    public void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
+        GardenArsenalStructures.registerStructures(event.getServer());
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

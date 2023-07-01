@@ -1,40 +1,38 @@
 package multiteam.gardenarsenal.utils;
 
 import com.mojang.datafixers.util.Pair;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import multiteam.gardenarsenal.mixin.StructureTemplatePoolAccessor;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.data.worldgen.ProcessorLists;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class JigsawUtils {
+    private static final ResourceKey<StructureProcessorList> EMPTY_PROCESSOR_LIST_KEY = ResourceKey.create(Registry.PROCESSOR_LIST_REGISTRY, new ResourceLocation("minecraft", "empty"));
 
-    public static void registerJigsaw(MinecraftServer server, ResourceLocation poolLocation, ResourceLocation nbtLocation, int weight) {
-        RegistryAccess manager = server.registryAccess();
-        Registry<StructureTemplatePool> pools = manager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
-        StructureTemplatePool pool = pools.get(poolLocation);
+    public static void addBuildingToPool(Registry<StructureTemplatePool> templatePoolRegistry, Registry<StructureProcessorList> processorListRegistry, ResourceLocation poolRL, ResourceLocation nbtPieceRL, int weight) {
+        Holder<StructureProcessorList> emptyProcessorList = processorListRegistry.getHolderOrThrow(EMPTY_PROCESSOR_LIST_KEY);
 
-        ObjectArrayList<StructurePoolElement> elements = ((StructureTemplatePoolAccessor)pool).getTemplates();
+        StructureTemplatePool pool = templatePoolRegistry.get(poolRL);
+        if (pool == null) return;
 
-        StructurePoolElement element = StructurePoolElement.legacy(nbtLocation.toString(), ProcessorLists.EMPTY).apply(StructureTemplatePool.Projection.RIGID);
+        SinglePoolElement piece = SinglePoolElement.single(nbtPieceRL.toString(), emptyProcessorList).apply(StructureTemplatePool.Projection.RIGID);
+
         for (int i = 0; i < weight; i++) {
-            elements.add(element);
+            ((StructureTemplatePoolAccessor) pool).getTemplates().add(piece);
         }
 
-        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructureTemplatePoolAccessor)pool).getRawTemplates());
-
-        elements.addAll(((StructureTemplatePoolAccessor)pool).getTemplates());
-        elementCounts.addAll(((StructureTemplatePoolAccessor)pool).getRawTemplates());
-
-        ((StructureTemplatePoolAccessor)pool).setTemplates(elements);
-        ((StructureTemplatePoolAccessor)pool).setRawTemplates(elementCounts);
+        List<Pair<StructurePoolElement, Integer>> listOfPieceEntries = new ArrayList<>(((StructureTemplatePoolAccessor) pool).getRawTemplates());
+        listOfPieceEntries.add(new Pair<>(piece, weight));
+        ((StructureTemplatePoolAccessor) pool).setRawTemplates(listOfPieceEntries);
     }
-
 }

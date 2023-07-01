@@ -1,20 +1,14 @@
 package multiteam.gardenarsenal;
 
-import com.google.common.collect.ImmutableSet;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 
 import java.io.File;
-import java.util.Set;
+import java.util.function.Supplier;
 
 public class GardenArsenalExpectPlatform {
     /**
@@ -35,12 +29,12 @@ public class GardenArsenalExpectPlatform {
     }
 
     @ExpectPlatform
-    public static VillagerProfession createProfession(String nameIn, ResourceLocation pointOfInterestIn, ImmutableSet<Item> specificItemsIn, ImmutableSet<Block> relatedWorldBlocksIn, SoundEvent soundIn) {
+    public static Supplier<VillagerProfession> registerProfession(String name, Supplier<VillagerProfession> profession) {
         throw new AssertionError();
     }
 
     @ExpectPlatform
-    public static PoiType createPoi(String string, Set<BlockState> set, int i, int j) {
+    public static Supplier<PoiType> registerPoiType(String name, Supplier<PoiType> poiType) {
         throw new AssertionError();
     }
 
