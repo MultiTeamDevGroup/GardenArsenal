@@ -15,17 +15,23 @@ public class GardenArsenalPois {
 
     private static final DeferredRegister<PoiType> POIS = DeferredRegister.create(GardenArsenal.MOD_ID, Registries.POINT_OF_INTEREST_TYPE);
 
-    public static Supplier<PoiType> SOLDIER_COMMANDER_POI = GardenArsenalExpectPlatform.registerPoiType("garden_soldier_commander",
+    public static RegistrySupplier<PoiType> SOLDIER_COMMANDER_POI = POIS.register("garden_soldier_commander",
             () -> new PoiType(
                     ImmutableSet.copyOf(GardenArsenalBlocks.WAR_TACTIC_TABLE.get().getStateDefinition().getPossibleStates()),
                     1, 1));
 
-    public static Supplier<PoiType> SOLDIER_POI = GardenArsenalExpectPlatform.registerPoiType("garden_soldier",
+    public static RegistrySupplier<PoiType> SOLDIER_POI = POIS.register("garden_soldier",
             () -> new PoiType(
                     ImmutableSet.copyOf(GardenArsenalBlocks.AMMO_CRATE.get().getStateDefinition().getPossibleStates()),
                     1, 1));
 
     public static void init() {
+        POIS.forEach(poi -> poi.listen(GardenArsenalPois::postRegisterEvent));
+
         POIS.register();
+    }
+
+    public static void postRegisterEvent(PoiType type) {
+        GardenArsenalExpectPlatform.registerPoiType(type);
     }
 }
