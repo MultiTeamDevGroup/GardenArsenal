@@ -1,5 +1,6 @@
 package multiteam.gardenarsenal;
 
+import dev.architectury.event.events.common.LifecycleEvent;
 import multiteam.gardenarsenal.registries.*;
 
 public class GardenArsenal {
@@ -13,5 +14,6 @@ public class GardenArsenal {
         GardenArsenalProfessions.init();
         GardenArsenalRecipeSerializers.init();
         GardenArsenalTrades.init();
+        LifecycleEvent.SERVER_BEFORE_START.register(GardenArsenalStructures::registerStructures);
     }
 }
