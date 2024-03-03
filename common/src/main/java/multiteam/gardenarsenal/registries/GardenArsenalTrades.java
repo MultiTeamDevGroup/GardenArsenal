@@ -1,9 +1,11 @@
 package multiteam.gardenarsenal.registries;
 
-import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
+import dev.architectury.registry.level.entity.trade.TradeRegistry;
+import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import multiteam.gardenarsenal.utils.SkinRarity;
 import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ public class GardenArsenalTrades {
                     .setForSale(skinRarity.getItem(), 1,1);
         }
 
-        GardenArsenalExpectPlatform.registerTrades(commanderTrades);
+        registerTrades(commanderTrades);
 
         TradeListBuilder soldierTrades = new TradeListBuilder(GardenArsenalProfessions.GARDEN_SOLDIER);
 
@@ -56,15 +58,29 @@ public class GardenArsenalTrades {
                 .setEmeraldPrice(5)
                 .setForSale(GardenArsenalItems.MACHINE_BLOCK, 1,1);
 
-        GardenArsenalExpectPlatform.registerTrades(soldierTrades);
+        registerTrades(soldierTrades);
+    }
+
+    private static void registerTrades(TradeListBuilder builder) {
+        builder.getProfession().listen(profession -> {
+            for (int i = 0; i < builder.size(); i++) {
+                int level = i + 1;
+                List<VillagerTrades.ItemListing> list = new ArrayList<>();
+                for (RandomTradeBuilder randomTradeBuilder : builder.get(i)) {
+                    list.add(randomTradeBuilder.build());
+                }
+
+                TradeRegistry.registerVillagerTrade(profession, level, list.toArray(new VillagerTrades.ItemListing[0]));
+            }
+        });
     }
 
 
     public static class TradeListBuilder extends ArrayList<List<RandomTradeBuilder>> {
 
-        private final Supplier<VillagerProfession> profession;
+        private final RegistrySupplier<VillagerProfession> profession;
 
-        public TradeListBuilder(Supplier<VillagerProfession> profession) {
+        public TradeListBuilder(RegistrySupplier<VillagerProfession> profession) {
             super();
             this.profession = profession;
             for (int i = 0; i < 6; i++) {
@@ -72,7 +88,7 @@ public class GardenArsenalTrades {
             }
         }
 
-        public Supplier<VillagerProfession> getProfession() {
+        public RegistrySupplier<VillagerProfession> getProfession() {
             return profession;
         }
 

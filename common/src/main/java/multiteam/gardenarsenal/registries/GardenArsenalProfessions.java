@@ -19,9 +19,9 @@ public class GardenArsenalProfessions {
 
     private static final DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(GardenArsenal.MOD_ID, Registries.VILLAGER_PROFESSION);
 
-    public static Supplier<VillagerProfession> GARDEN_SOLDIER_COMMANDER = GardenArsenalExpectPlatform.registerProfession("garden_soldier_commander",
+    public static RegistrySupplier<VillagerProfession> GARDEN_SOLDIER_COMMANDER = PROFESSIONS.register("garden_soldier_commander",
             () -> create("garden_soldier_commander", holder -> holder.value().equals(GardenArsenalPois.SOLDIER_COMMANDER_POI.get())));
-    public static Supplier<VillagerProfession> GARDEN_SOLDIER = GardenArsenalExpectPlatform.registerProfession("garden_soldier",
+    public static RegistrySupplier<VillagerProfession> GARDEN_SOLDIER = PROFESSIONS.register("garden_soldier",
             () -> create("garden_soldier", holder -> holder.value().equals(GardenArsenalPois.SOLDIER_POI.get())));
 
     public static void init() {

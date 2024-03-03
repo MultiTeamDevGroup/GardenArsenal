@@ -2,6 +2,7 @@ package multiteam.gardenarsenal;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
+import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -29,12 +30,7 @@ public class GardenArsenalExpectPlatform {
     }
 
     @ExpectPlatform
-    public static Supplier<VillagerProfession> registerProfession(String name, Supplier<VillagerProfession> profession) {
-        throw new AssertionError();
-    }
-
-    @ExpectPlatform
-    public static Supplier<PoiType> registerPoiType(String name, Supplier<PoiType> poiType) {
+    public static void registerPoiType(PoiType poi) {
         throw new AssertionError();
     }
 

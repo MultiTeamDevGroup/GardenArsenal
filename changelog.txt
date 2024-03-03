@@ -45,6 +45,12 @@ v0.4.3 For 1.19.2 and 1.19.3
 - fix custom villager professions not working
 - fix custom villager houses not generating
 
+v0.4.4 For 1.19.2
+
+- update dependencies
+- (Forge) fix crash on server
+- make use of more architectury apis and fewer hacks.
+
 
 v0.5.0 - makers shift (coming soon. mentioned changes are implemented BUT temporarly disabled)
 
