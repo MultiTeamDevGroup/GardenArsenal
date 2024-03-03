@@ -38,9 +38,4 @@ public class GardenArsenalExpectPlatform {
     public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
         throw new AssertionError();
     }
-
-    @ExpectPlatform
-    public static void registerTrades(GardenArsenalTrades.TradeListBuilder tradeListBuilder) {
-        throw new AssertionError();
-    }
 }
