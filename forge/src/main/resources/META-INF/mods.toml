@@ -37,6 +37,6 @@ side = "BOTH"
 [[dependencies.gardenarsenal]]
 modId = "architectury"
 mandatory = true
-versionRange = "[8.1.87,)"
+versionRange = "[8.2.91,)"
 ordering = "AFTER"
 side = "BOTH"
