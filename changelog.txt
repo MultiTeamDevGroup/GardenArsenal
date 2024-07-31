@@ -51,6 +51,12 @@ v0.4.4 For 1.19.2 and 1.19.3
 - (Forge) fix crash on server
 - make use of more architectury apis and fewer hacks.
 
+v0.4.5 For 1.19.2
+
+- update dependencies
+- Fix non GA villager profession not being acquirable
+- Fix paintings not being placeable
+
 
 v0.5.0 - makers shift (coming soon. mentioned changes are implemented BUT temporarly disabled)
 
