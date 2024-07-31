@@ -13,6 +13,7 @@ public class GardenArsenal {
         GardenArsenalPois.init();
         GardenArsenalProfessions.init();
         GardenArsenalRecipeSerializers.init();
+        GardenArsenalRecipeTypes.init();
         GardenArsenalTrades.init();
         LifecycleEvent.SERVER_BEFORE_START.register(GardenArsenalStructures::registerStructures);
     }

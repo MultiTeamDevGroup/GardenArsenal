@@ -5,6 +5,7 @@ import dev.architectury.registry.registries.RegistrarManager;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
+import multiteam.gardenarsenal.registries.GardenArsenalRecipeTypes;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
@@ -16,15 +17,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import static multiteam.gardenarsenal.registries.GardenArsenalRecipeSerializers.SKIN_UPGRADE;
+
 public class SkinUpgradeRecipe extends SmithingTransformRecipe {
 
     public static RecipeSerializer<?> DYNAMIC_SERIALIZER;
-
-    public static final RecipeSerializer<?> SERIALIZER = new Serializer();
     
     private final Item weapon;
     
@@ -65,12 +67,17 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return DYNAMIC_SERIALIZER;
+        return SKIN_UPGRADE.get();
     }
 
     @Override
     public boolean isIncomplete() {
         return this.weapon == null;
+    }
+
+    @Override
+    public RecipeType<?> getType() {
+        return GardenArsenalRecipeTypes.SKIN_UPGRADE.get();
     }
 
     public static class Serializer implements RecipeSerializer<SkinUpgradeRecipe> {
