@@ -51,12 +51,13 @@ v0.4.4 For 1.19.2 and 1.19.3
 - (Forge) fix crash on server
 - make use of more architectury apis and fewer hacks.
 
-v0.4.5 For 1.19.2, 1.19.3 and 1.19.4
+v0.4.5 For 1.19.2, 1.19.3, 1.19.4 and 1.20.1
 
-- 1.19.4 port
+- 1.19.4 and 1.20.1 port
 - update dependencies
 - Fix non GA villager profession not being acquirable
 - Fix paintings not being placeable
+- (1.20+) Improve recipe viewer support for skin upgrade
 
 
 v0.5.0 - makers shift (coming soon. mentioned changes are implemented BUT temporarly disabled)
