@@ -2,14 +2,9 @@ package multiteam.gardenarsenal;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
-import dev.architectury.registry.registries.RegistrySupplier;
-import multiteam.gardenarsenal.registries.GardenArsenalTrades;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 
 import java.io.File;
-import java.util.function.Supplier;
 
 public class GardenArsenalExpectPlatform {
     /**
@@ -31,11 +26,6 @@ public class GardenArsenalExpectPlatform {
 
     @ExpectPlatform
     public static void registerPoiType(PoiType poi) {
-        throw new AssertionError();
-    }
-
-    @ExpectPlatform
-    public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
         throw new AssertionError();
     }
 }

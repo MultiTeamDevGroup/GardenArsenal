@@ -1,17 +1,15 @@
 package multiteam.gardenarsenal.recipes;
 
-import com.google.gson.JsonObject;
-import dev.architectury.registry.registries.RegistrarManager;
-import multiteam.gardenarsenal.GardenArsenal;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,8 +25,8 @@ import static multiteam.gardenarsenal.registries.GardenArsenalRecipeSerializers.
 public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     public static RecipeSerializer<?> DYNAMIC_SERIALIZER;
     
-    public SkinUpgradeRecipe(ResourceLocation resourceLocation, Item ingredient) {
-        super(resourceLocation, Ingredient.of(), Ingredient.of(ingredient), getPossibleSkinCards(ingredient), new ItemStack(ingredient));
+    public SkinUpgradeRecipe(Item ingredient) {
+        super(Ingredient.of(), Ingredient.of(ingredient), getPossibleSkinCards(ingredient), new ItemStack(ingredient));
     }
 
     private static Ingredient getPossibleSkinCards(Item weapon) {
@@ -42,7 +40,7 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     }
 
     public static RecipeSerializer<?> createSerializer() {
-        return DYNAMIC_SERIALIZER = GardenArsenalExpectPlatform.createRecipeSerializer(new Serializer());
+        return DYNAMIC_SERIALIZER = new Serializer();
     }
 
     @Override
@@ -63,20 +61,24 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     }
 
     public static class Serializer implements RecipeSerializer<SkinUpgradeRecipe> {
+        private static final Codec<SkinUpgradeRecipe> CODEC = RecordCodecBuilder.create(
+                instance -> instance.group(
+                                BuiltInRegistries.ITEM.byNameCodec().fieldOf("weapon")
+                                        .forGetter(smithingTransformRecipe -> smithingTransformRecipe.getResultItem(null).getItem())
+                        )
+                        .apply(instance, SkinUpgradeRecipe::new)
+        );
 
         @Override
-        public @NotNull SkinUpgradeRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
-            Item ingredient = RegistrarManager.get(GardenArsenal.MOD_ID).get(Registries.ITEM)
-                    .get(new ResourceLocation(jsonObject.get("weapon").getAsString()));
+        public @NotNull SkinUpgradeRecipe fromNetwork(FriendlyByteBuf friendlyByteBuf) {
+            ItemStack ingredient = friendlyByteBuf.readItem();
 
-            return new SkinUpgradeRecipe(resourceLocation, ingredient);
+            return new SkinUpgradeRecipe(ingredient.getItem());
         }
 
         @Override
-        public @NotNull SkinUpgradeRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
-            ItemStack ingredient = friendlyByteBuf.readItem();
-
-            return new SkinUpgradeRecipe(resourceLocation, ingredient.getItem());
+        public Codec<SkinUpgradeRecipe> codec() {
+            return CODEC;
         }
 
         @Override

@@ -6,7 +6,9 @@ import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 
@@ -15,8 +17,8 @@ import java.util.List;
 
 public class RecipeHelper {
 
-    public static List<SmithingRecipe> createSkinRecipes() {
-        List<SmithingRecipe> list = new ArrayList<>();
+    public static List<RecipeHolder<SmithingRecipe>> createSkinRecipes() {
+        List<RecipeHolder<SmithingRecipe>> list = new ArrayList<>();
 
         int i = 0;
         for (Skins skin : Skins.values()) {
@@ -28,12 +30,15 @@ public class RecipeHelper {
                 Item weapon = item.getOrNull();
                 ItemStack result = new ItemStack(weapon);
                 result.getOrCreateTag().putString("skinType", skin.name());
-                list.add(new SmithingTransformRecipe(
+
+                list.add(new RecipeHolder<>(
                         new ResourceLocation(GardenArsenal.MOD_ID, "skin_" + i + "_" + j),
-                        getWeaponVariants(weapon),
-                        Ingredient.of(new ItemStack(skin.getItem().getOrNull())),
-                        Ingredient.of(new ItemStack(skin.getItem().getOrNull())),
-                        result
+                        new SmithingTransformRecipe(
+                                getWeaponVariants(weapon),
+                                Ingredient.of(new ItemStack(skin.getItem().getOrNull())),
+                                Ingredient.of(new ItemStack(skin.getItem().getOrNull())),
+                                result
+                        )
                 ));
             }
         }

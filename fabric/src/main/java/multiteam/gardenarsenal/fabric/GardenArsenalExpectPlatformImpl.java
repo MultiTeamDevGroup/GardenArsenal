@@ -5,7 +5,6 @@ import multiteam.gardenarsenal.mixin.PoiTypesInvoker;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 
 import java.io.File;
 
@@ -15,10 +14,6 @@ public class GardenArsenalExpectPlatformImpl {
      */
     public static File getConfigDirectory() {
         return FabricLoader.getInstance().getConfigDir().toFile();
-    }
-
-    public static RecipeSerializer<?> createRecipeSerializer(RecipeSerializer<?> recipeSerializer) {
-        return recipeSerializer;
     }
 
     public static void registerPoiType(PoiType poi) {
