@@ -1,5 +1,6 @@
 package multiteam.gardenarsenal.items;
 
+import multiteam.gardenarsenal.registries.GardenArsenalCreativeModeTabs;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -7,14 +8,12 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import static multiteam.gardenarsenal.registries.GardenArsenalItems.MISC;
-
 public class SkinCardItem extends Item {
 
     private final Skins skin;
 
     public SkinCardItem(Skins skin) {
-        super(new Item.Properties().arch$tab(MISC).stacksTo(64));
+        super(new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC).stacksTo(64));
         this.skin = skin;
     }
 

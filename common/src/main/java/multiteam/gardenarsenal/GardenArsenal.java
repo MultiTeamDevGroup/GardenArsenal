@@ -7,6 +7,7 @@ public class GardenArsenal {
     public static final String MOD_ID = "gardenarsenal";
     
     public static void init() {
+        GardenArsenalCreativeModeTabs.init();
         GardenArsenalBlocks.init();
         GardenArsenalItems.init();
         GardenArsenalPaintings.init();

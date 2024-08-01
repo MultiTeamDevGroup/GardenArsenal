@@ -1,11 +1,11 @@
 package multiteam.gardenarsenal.fabric.mixin;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import multiteam.gardenarsenal.accessor.GuiAccessor;
 import multiteam.gardenarsenal.utils.Utils;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiGraphics;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -27,7 +27,7 @@ public class GuiMixin {
     }
 
     @Inject(method = "render", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/Mth;lerp(FFF)F"))
-    public void addGAOverlayHook(PoseStack poseStack, float f, CallbackInfo ci) {
+    public void addGAOverlayHook(GuiGraphics guiGraphics, float f, CallbackInfo ci) {
         if (this.minecraft.options.getCameraType().isFirstPerson() && Utils.isUsingSugarCaneSniper(this.minecraft.player)) {
             ((GuiAccessor)this).renderGAOverlay(this.scopeScale, Utils.SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
         }

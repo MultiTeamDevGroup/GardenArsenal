@@ -10,7 +10,6 @@
     "SignRendererMixin"
   ],
   "mixins": [
-    "LegacySmithingMenuMixin",
     "PoiTypesInvoker",
     "StructureTemplatePoolAccessor"
   ],
