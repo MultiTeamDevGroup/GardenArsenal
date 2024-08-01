@@ -5,7 +5,7 @@ import dev.architectury.registry.registries.RegistrarManager;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
-import multiteam.gardenarsenal.registries.GardenArsenalRecipeTypes;
+import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
@@ -17,33 +17,28 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmithingTransformRecipe;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.function.Supplier;
 
 import static multiteam.gardenarsenal.registries.GardenArsenalRecipeSerializers.SKIN_UPGRADE;
 
 public class SkinUpgradeRecipe extends SmithingTransformRecipe {
-
     public static RecipeSerializer<?> DYNAMIC_SERIALIZER;
     
-    private final Item weapon;
-    
     public SkinUpgradeRecipe(ResourceLocation resourceLocation, Item ingredient) {
-        super(resourceLocation, Ingredient.of(ingredient), Ingredient.of(ingredient), Ingredient.of(ingredient), new ItemStack(ingredient));
-        this.weapon = ingredient;
+        super(resourceLocation, Ingredient.of(), Ingredient.of(ingredient), getPossibleSkinCards(ingredient), new ItemStack(ingredient));
     }
 
-    @Override
-    public boolean matches(Container container, Level level) {
-        return this.weapon == container.getItem(0).getItem() && container.getItem(1).getItem() instanceof SkinCardItem skinCardItem
-                && skinCardItem.getSkin().canApplySkin(this.weapon);
-    }
-
-    @Override
-    public boolean isAdditionIngredient(ItemStack itemStack) {
-        return itemStack.getItem() instanceof SkinCardItem skinCardItem && skinCardItem.getSkin().canApplySkin(this.weapon);
+    private static Ingredient getPossibleSkinCards(Item weapon) {
+        return Ingredient.of(
+                GardenArsenalItems.SKIN_CARDS.stream()
+                        .map(Supplier::get)
+                        .filter(item -> ((SkinCardItem) item).getSkin().canApplySkin(weapon))
+                        .toList()
+                        .toArray(new Item[0])
+        );
     }
 
     public static RecipeSerializer<?> createSerializer() {
@@ -52,12 +47,9 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
 
     @Override
     public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
-        ItemStack itemStack = new ItemStack(this.weapon);
-        CompoundTag compoundTag = container.getItem(0).getTag();
-        if (compoundTag != null) {
-            itemStack.setTag(compoundTag.copy());
-        }
-        SkinCardItem skinCardItem = (SkinCardItem) container.getItem(1).getItem();
+        ItemStack itemStack = super.assemble(container, registryAccess);
+
+        SkinCardItem skinCardItem = (SkinCardItem) container.getItem(2).getItem();
         Skins skin = skinCardItem.getSkin();
         CompoundTag tag = itemStack.getOrCreateTag();
         tag.putString("skinType", skin.name());
@@ -68,16 +60,6 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
         return SKIN_UPGRADE.get();
-    }
-
-    @Override
-    public boolean isIncomplete() {
-        return this.weapon == null;
-    }
-
-    @Override
-    public RecipeType<?> getType() {
-        return GardenArsenalRecipeTypes.SKIN_UPGRADE.get();
     }
 
     public static class Serializer implements RecipeSerializer<SkinUpgradeRecipe> {
@@ -99,7 +81,7 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
 
         @Override
         public void toNetwork(FriendlyByteBuf friendlyByteBuf, SkinUpgradeRecipe recipe) {
-            friendlyByteBuf.writeItem(new ItemStack(recipe.weapon));
+            friendlyByteBuf.writeItem(recipe.getResultItem(null));
         }
     }
 }
