@@ -4,6 +4,7 @@ import dev.architectury.platform.Platform;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.GardenArsenalClient;
 import multiteam.gardenarsenal.accessor.GuiAccessor;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -27,7 +28,7 @@ public class GardenArsenalNeoForge {
         @SubscribeEvent
         public static void registerGuiOverlay(RegisterGuiOverlaysEvent event)
         {
-            event.registerAboveAll("garden_arsenal_sniper", (gui, mStack, partialTicks, screenWidth, screenHeight) -> {
+            event.registerAboveAll(new ResourceLocation(GardenArsenal.MOD_ID, "garden_arsenal_sniper"), (gui, mStack, partialTicks, screenWidth, screenHeight) -> {
                 gui.setupOverlayRenderState(true, false);
                 ((GuiAccessor)gui).renderGASniperOverlay();
             });
