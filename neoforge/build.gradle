@@ -40,7 +40,11 @@ dependencies {
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
 
-    modApi "me.shedaniel:RoughlyEnoughItems-neoforge:${rootProject.rei_version}"
+//    modApi "me.shedaniel:RoughlyEnoughItems-neoforge:${rootProject.rei_version}"
+
+    modCompileOnlyApi "mezz.jei:jei-${rootProject.minecraft_version}-common-api:${rootProject.jei_version}"
+    modCompileOnlyApi "mezz.jei:jei-${rootProject.minecraft_version}-neoforge-api:${rootProject.jei_version}"
+    modRuntimeOnly "mezz.jei:jei-${rootProject.minecraft_version}-neoforge:${rootProject.jei_version}"
 }
 
 processResources {

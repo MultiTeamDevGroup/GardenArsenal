@@ -1,6 +1,6 @@
 package multiteam.gardenarsenal.blocks;
 
-import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -10,13 +10,13 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class BarricadeBlock extends Block {
+    private static final MapCodec<BarricadeBlock> CODEC = simpleCodec(BarricadeBlock::new);
 
     private static final VoxelShape SHAPE_SURVIVALIST_NORTH = Shapes.or( box(0.0d, 0.0d, 5.0d, 16.0d, 16.0d, 7.0d), box(0.0d, 0.0d, 7.0d, 16.0d, 5.0d, 12.0d));
     private static final VoxelShape SHAPE_SURVIVALIST_WEST = Shapes.or( box(0.0d, 0.0d, 5.0d, 16.0d, 16.0d, 7.0d), box(0.0d, 0.0d, 7.0d, 16.0d, 5.0d, 12.0d));
@@ -69,4 +69,8 @@ public class BarricadeBlock extends Block {
         return SHAPE_INDUSTRIAL;
     }
 
+    @Override
+    protected MapCodec<? extends Block> codec() {
+        return CODEC;
+    }
 }
