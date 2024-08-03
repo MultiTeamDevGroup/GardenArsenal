@@ -1,4 +1,4 @@
-package multiteam.gardenarsenal.forge;
+package multiteam.gardenarsenal.neoforge;
 
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 
