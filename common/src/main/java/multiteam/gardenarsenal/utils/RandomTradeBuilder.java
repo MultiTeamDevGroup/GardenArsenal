@@ -6,14 +6,16 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 public class RandomTradeBuilder {
 
-    private Function<RandomSource, ItemStack> price;
-    private Function<RandomSource, ItemStack> price2;
+    private Function<RandomSource, ItemCost> price;
+    private Function<RandomSource, Optional<ItemCost>> price2;
     private Function<RandomSource, ItemStack> forSale;
 
     private final int maxTrades;
@@ -28,27 +30,27 @@ public class RandomTradeBuilder {
         this.priceMult = priceMult;
 
         this.price = null;
-        this.price2 = random -> ItemStack.EMPTY;
+        this.price2 = random -> Optional.empty();
         this.forSale = null;
         this.rare = false;
     }
 
-    public RandomTradeBuilder setPrice(Function<RandomSource, ItemStack> price) {
+    public RandomTradeBuilder setPrice(Function<RandomSource, ItemCost> price) {
         this.price = price;
         return this;
     }
 
     public RandomTradeBuilder setPrice(Item item, int min, int max) {
-        return this.setPrice(toFunction(item, min, max));
+        return this.setPrice(toItemCostFunction(item, min, max));
     }
 
-    public RandomTradeBuilder setPrice2(Function<RandomSource, ItemStack> price) {
+    public RandomTradeBuilder setPrice2(Function<RandomSource, Optional<ItemCost>> price) {
         this.price2 = price;
         return this;
     }
 
     public RandomTradeBuilder setPrice2(Item item, int min, int max) {
-        return this.setPrice2(toFunction(item, min, max));
+        return this.setPrice2(toItemCostFunction(item, min, max).andThen(Optional::of));
     }
 
     public RandomTradeBuilder setForSale(Function<RandomSource, ItemStack> forSale) {
@@ -57,16 +59,16 @@ public class RandomTradeBuilder {
     }
 
     public RandomTradeBuilder setForSale(RegistrySupplier<Item> item, int min, int max) {
-        return this.setForSale(toFunction(item, min, max));
+        return this.setForSale(toItemStackFunction(item, min, max));
     }
 
     public RandomTradeBuilder setEmeraldPrice(int count) {
-        return this.setPrice(toFunction(Items.EMERALD, count));
+        return this.setPrice(toItemCostFunction(Items.EMERALD, count));
     }
 
     public RandomTradeBuilder setEmeraldPriceFor(int emeralds, Item item, int count) {
         this.setEmeraldPrice(emeralds);
-        return this.setForSale(toFunction(item, count));
+        return this.setForSale(toItemStackFunction(item, count));
     }
 
     public RandomTradeBuilder setEmeraldPriceFor(int emeralds, Item item) {
@@ -79,7 +81,7 @@ public class RandomTradeBuilder {
 
     public RandomTradeBuilder setEmeraldPriceFor(int min, int max, Item item, int count) {
         this.setEmeraldPrice(min, max);
-        return this.setForSale(toFunction(item, count));
+        return this.setForSale(toItemStackFunction(item, count));
     }
 
     public RandomTradeBuilder setEmeraldPriceFor(int min, int max, Item item) {
@@ -91,20 +93,36 @@ public class RandomTradeBuilder {
         return this;
     }
 
-    private Function<RandomSource, ItemStack> toFunction(Item item, int min, int max) {
+    private Function<RandomSource, ItemStack> toItemStackFunction(Item item, int min, int max) {
         return (random) -> new ItemStack(item, random.nextInt(max) + min);
     }
 
-    private Function<RandomSource, ItemStack> toFunction(RegistrySupplier<Item> item, int min, int max) {
+    private Function<RandomSource, ItemStack> toItemStackFunction(RegistrySupplier<Item> item, int min, int max) {
         return (random) -> new ItemStack(item.get(), random.nextInt(max) + min);
     }
 
-    private Function<RandomSource, ItemStack> toFunction(Item item, int count) {
+    private Function<RandomSource, ItemStack> toItemStackFunction(Item item, int count) {
         return (random) -> new ItemStack(item, count);
     }
 
-    private Function<RandomSource, ItemStack> toFunction(RegistrySupplier<Item> item, int count) {
+    private Function<RandomSource, ItemStack> toItemStackFunction(RegistrySupplier<Item> item, int count) {
         return (random) -> new ItemStack(item.get(), count);
+    }
+
+    private Function<RandomSource, ItemCost> toItemCostFunction(Item item, int min, int max) {
+        return (random) -> new ItemCost(item, random.nextInt(max) + min);
+    }
+
+    private Function<RandomSource, ItemCost> toItemCostFunction(RegistrySupplier<Item> item, int min, int max) {
+        return (random) -> new ItemCost(item.get(), random.nextInt(max) + min);
+    }
+
+    private Function<RandomSource, ItemCost> toItemCostFunction(Item item, int count) {
+        return (random) -> new ItemCost(item, count);
+    }
+
+    private Function<RandomSource, ItemCost> toItemCostFunction(RegistrySupplier<Item> item, int count) {
+        return (random) -> new ItemCost(item.get(), count);
     }
 
     public boolean canBuild()

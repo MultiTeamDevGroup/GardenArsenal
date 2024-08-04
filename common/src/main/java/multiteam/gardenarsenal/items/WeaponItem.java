@@ -1,5 +1,6 @@
 package multiteam.gardenarsenal.items;
 
+import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -10,6 +11,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -36,7 +38,7 @@ public abstract class WeaponItem extends BowItem {
             }
         }
 
-        return playerEntity.getAbilities().instabuild ? new ItemStack(predicate) :ItemStack.EMPTY;
+        return playerEntity.getAbilities().instabuild ? new ItemStack(predicate) : ItemStack.EMPTY;
     }
 
     @Override
@@ -64,7 +66,7 @@ public abstract class WeaponItem extends BowItem {
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
         if (user instanceof Player playerEntity) {
-            boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
+            boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemStack = getAmmoInInventory(playerEntity);
             playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
             if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
@@ -79,7 +81,7 @@ public abstract class WeaponItem extends BowItem {
                     if (!world.isClientSide) {
                         this.createProjectileEntities(world, playerEntity);
 
-                        stack.hurtAndBreak(1, playerEntity, (p) -> p.broadcastBreakEvent(playerEntity.getUsedItemHand()));
+                        stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                     }
 
                     world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
@@ -99,7 +101,7 @@ public abstract class WeaponItem extends BowItem {
     @Override
     public ItemStack getDefaultInstance() {
         ItemStack stack = super.getDefaultInstance();
-        if (this.hasSkin()) stack.getOrCreateTag().putString("skinType", "Default");
+        if (this.hasSkin()) stack.set(GardenArsenalDataComponents.SKIN.get(), Skins.Default);
         return stack;
     }
 
@@ -140,25 +142,13 @@ public abstract class WeaponItem extends BowItem {
 
     @Override
     public Component getName(ItemStack itemStack) {
-        CompoundTag tag = itemStack.getTag();
-        if (tag != null) {
-            return Component.translatable(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(this.getTextColor(tag)));
+        if (itemStack.has(GardenArsenalDataComponents.SKIN.get())) {
+            return Component.translatable(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(
+                    itemStack.get(GardenArsenalDataComponents.SKIN.get()).getRarity().getTextColor()
+            ));
         } else {
             return Component.translatable(this.getDescriptionId(itemStack));
         }
-    }
-
-    public TextColor getTextColor(CompoundTag tag) {
-        if (tag != null) {
-            try {
-                Skins skin = Skins.valueOf(tag.getString("skinType"));
-                return skin.getRarity().getTextColor();
-            } catch (IllegalArgumentException e) {
-                return TextColor.fromRgb(0);
-            }
-        }
-
-        return TextColor.fromRgb(0);
     }
 
     @Override

@@ -50,30 +50,10 @@ public class SkinCardPack extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, level, tooltip, tooltipFlag);
-
-        CompoundTag compoundTag = stack.getOrCreateTag();
-        if (!compoundTag.contains("garden_rarity")) {
-            compoundTag.putString("garden_rarity", this.skinRarity.name());
-            stack.setTag(compoundTag);
-        }
-
-        tooltip.add(Component.translatable("rarity.gardenarsenal." + this.skinRarity.name().toLowerCase(Locale.ENGLISH)).copy().withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor())));
-
-    }
-
-    @Override
-    public ItemStack getDefaultInstance() {
-        ItemStack stack = super.getDefaultInstance();
-        CompoundTag tag = stack.getOrCreateTag();
-
-        if (!tag.contains("garden_rarity")) {
-            tag.putString("garden_rarity", this.skinRarity.name());
-            stack.setTag(tag);
-        }
-
-        return stack;
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, tooltipContext, list, tooltipFlag);
+        list.add(Component.translatable("rarity.gardenarsenal." + this.skinRarity.name().toLowerCase(Locale.ENGLISH)).copy()
+                .withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor())));
     }
 
     @Override

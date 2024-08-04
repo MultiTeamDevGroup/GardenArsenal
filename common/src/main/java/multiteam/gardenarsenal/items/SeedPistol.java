@@ -23,19 +23,9 @@ public class SeedPistol extends WeaponItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
-        super.appendHoverText(stack, world, tooltip, context);
-        tooltip.add(Component.translatable("tooltip.gardenarsenal.seed_pistol_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
-
-        CompoundTag compoundTag = stack.getOrCreateTag();
-
-        if (!compoundTag.contains("skinType")) {
-            compoundTag.putString("skinType", "Default");
-        }
-
-        stack.setTag(compoundTag);
-
-        tooltip.add(Component.translatable("tooltip.gardenarsenal.skin." + compoundTag.getString("skinType")).copy().withStyle(Style.EMPTY.withColor(this.getTextColor(compoundTag))));
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, tooltipContext, list, tooltipFlag);
+        list.add(Component.translatable("tooltip.gardenarsenal.seed_pistol_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
     }
 
     @Override

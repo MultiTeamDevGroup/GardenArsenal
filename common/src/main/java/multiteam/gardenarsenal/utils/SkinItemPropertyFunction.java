@@ -1,5 +1,6 @@
 package multiteam.gardenarsenal.utils;
 
+import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
@@ -11,10 +12,10 @@ public class SkinItemPropertyFunction implements ClampedItemPropertyFunction {
 
     @Override
     public float unclampedCall(ItemStack stack, @Nullable ClientLevel clientLevel, @Nullable LivingEntity livingEntity, int i) {
-        if (stack.getTag() == null)
+        if (!stack.has(GardenArsenalDataComponents.SKIN.get()))
             return 0;
-        String skinName = stack.getTag().getString("skinType");
-        Skins Skin = skinName.isEmpty() ? Skins.Default : Skins.valueOf(skinName);
+
+        Skins Skin = stack.get(GardenArsenalDataComponents.SKIN.get());
         return Skin.ordinal() / 100.0F;
     }
 }

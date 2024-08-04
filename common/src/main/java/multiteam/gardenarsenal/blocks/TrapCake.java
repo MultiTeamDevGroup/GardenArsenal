@@ -2,7 +2,6 @@ package multiteam.gardenarsenal.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -17,11 +16,11 @@ public class TrapCake extends CakeBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    protected InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
         if (!level.isClientSide) {
             level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 4, Level.ExplosionInteraction.NONE);
         }
-        return super.use(blockState, level, blockPos, player, interactionHand, blockHitResult);
+        return super.useWithoutItem(blockState, level, blockPos, player, blockHitResult);
     }
 
     @Override

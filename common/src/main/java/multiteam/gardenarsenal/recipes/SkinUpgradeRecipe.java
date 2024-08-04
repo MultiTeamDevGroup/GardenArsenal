@@ -1,15 +1,20 @@
 package multiteam.gardenarsenal.recipes;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
+import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.Skins;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -44,13 +49,12 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     }
 
     @Override
-    public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
+    public @NotNull ItemStack assemble(Container container, HolderLookup.Provider registryAccess) {
         ItemStack itemStack = super.assemble(container, registryAccess);
 
         SkinCardItem skinCardItem = (SkinCardItem) container.getItem(2).getItem();
         Skins skin = skinCardItem.getSkin();
-        CompoundTag tag = itemStack.getOrCreateTag();
-        tag.putString("skinType", skin.name());
+        itemStack.set(GardenArsenalDataComponents.SKIN.get(), skin);
 
         return itemStack;
     }
@@ -61,7 +65,7 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     }
 
     public static class Serializer implements RecipeSerializer<SkinUpgradeRecipe> {
-        private static final Codec<SkinUpgradeRecipe> CODEC = RecordCodecBuilder.create(
+        private static final MapCodec<SkinUpgradeRecipe> CODEC = RecordCodecBuilder.mapCodec(
                 instance -> instance.group(
                                 BuiltInRegistries.ITEM.byNameCodec().fieldOf("weapon")
                                         .forGetter(smithingTransformRecipe -> smithingTransformRecipe.getResultItem(null).getItem())
@@ -69,21 +73,28 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
                         .apply(instance, SkinUpgradeRecipe::new)
         );
 
-        @Override
-        public @NotNull SkinUpgradeRecipe fromNetwork(FriendlyByteBuf friendlyByteBuf) {
-            ItemStack ingredient = friendlyByteBuf.readItem();
-
-            return new SkinUpgradeRecipe(ingredient.getItem());
-        }
+        private static final StreamCodec<RegistryFriendlyByteBuf, SkinUpgradeRecipe> STREAM_CODEC = StreamCodec.of(
+                Serializer::toNetwork, Serializer::fromNetwork
+        );
 
         @Override
-        public Codec<SkinUpgradeRecipe> codec() {
+        public MapCodec<SkinUpgradeRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf friendlyByteBuf, SkinUpgradeRecipe recipe) {
-            friendlyByteBuf.writeItem(recipe.getResultItem(null));
+        public StreamCodec<RegistryFriendlyByteBuf, SkinUpgradeRecipe> streamCodec() {
+            return STREAM_CODEC;
+        }
+
+        public static void toNetwork(RegistryFriendlyByteBuf friendlyByteBuf, SkinUpgradeRecipe recipe) {
+            ItemStack.STREAM_CODEC.encode(friendlyByteBuf, recipe.getResultItem(null));
+        }
+
+        public static @NotNull SkinUpgradeRecipe fromNetwork(RegistryFriendlyByteBuf friendlyByteBuf) {
+            ItemStack ingredient = ItemStack.STREAM_CODEC.decode(friendlyByteBuf);
+
+            return new SkinUpgradeRecipe(ingredient.getItem());
         }
     }
 }
