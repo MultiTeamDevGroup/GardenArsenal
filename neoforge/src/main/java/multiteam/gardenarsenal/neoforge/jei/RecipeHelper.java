@@ -2,6 +2,7 @@ package multiteam.gardenarsenal.neoforge.jei;
 
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
+import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -29,7 +30,7 @@ public class RecipeHelper {
                 j++;
                 Item weapon = item.getOrNull();
                 ItemStack result = new ItemStack(weapon);
-                result.getOrCreateTag().putString("skinType", skin.name());
+                result.set(GardenArsenalDataComponents.SKIN.get(), skin);
 
                 list.add(new RecipeHolder<>(
                         new ResourceLocation(GardenArsenal.MOD_ID, "skin_" + i + "_" + j),
@@ -52,7 +53,7 @@ public class RecipeHelper {
         for (Skins skin : Skins.values()) {
             if (!skin.canApplySkin(weapon)) continue;
             ItemStack stack = new ItemStack(weapon);
-            stack.getOrCreateTag().putString("skinType", skin.name());
+            stack.set(GardenArsenalDataComponents.SKIN.get(), skin);
 
             list.add(stack);
         }

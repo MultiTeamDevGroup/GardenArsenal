@@ -1,6 +1,6 @@
 package multiteam.gardenarsenal.fabric.mixin;
 
-import multiteam.gardenarsenal.accessor.GuiAccessor;
+import multiteam.gardenarsenal.accessor.GuiGraphicsAccessor;
 import multiteam.gardenarsenal.utils.Utils;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
@@ -21,15 +21,15 @@ public class GuiMixin {
 
     @Shadow private float scopeScale;
 
-    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z"))
+    @Redirect(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z"))
     public boolean dontRenderSpyglassOverlay(CameraType instance) {
         return instance.isFirstPerson() && !Utils.isUsingSugarCaneSniper(this.minecraft.player);
     }
 
-    @Inject(method = "render", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/Mth;lerp(FFF)F"))
+    @Inject(method = "renderCameraOverlays", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/Mth;lerp(FFF)F", ordinal = 0))
     public void addGAOverlayHook(GuiGraphics guiGraphics, float f, CallbackInfo ci) {
         if (this.minecraft.options.getCameraType().isFirstPerson() && Utils.isUsingSugarCaneSniper(this.minecraft.player)) {
-            ((GuiAccessor)this).renderGAOverlay(this.scopeScale, Utils.SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
+            ((GuiGraphicsAccessor) guiGraphics).renderGAOverlay(this.scopeScale, Utils.SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
         }
     }
 }
