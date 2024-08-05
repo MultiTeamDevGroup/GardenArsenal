@@ -7,6 +7,7 @@ import multiteam.gardenarsenal.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import org.spongepowered.asm.mixin.Final;
@@ -23,51 +24,28 @@ public abstract class GuiGraphicsMixin implements GuiGraphicsAccessor {
 
     @Shadow public abstract int guiHeight();
 
+    @Shadow public abstract void fill(RenderType renderType, int i, int j, int k, int l, int m, int n);
+
+    @Shadow public abstract void blit(ResourceLocation resourceLocation, int i, int j, int k, float f, float g, int l, int m, int n, int o);
+
     @Override
-    public void renderGAOverlay(float g, ResourceLocation texture) {
-        RenderSystem.disableDepthTest();
-        RenderSystem.depthMask(false);
-        RenderSystem.defaultBlendFunc();
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderTexture(0, texture);
-        Tesselator tesselator = Tesselator.getInstance();
-        BufferBuilder bufferbuilder = tesselator.getBuilder();
-        float f = (float)Math.min(this.guiWidth(), this.guiHeight());
-        float f1 = Math.min((float)this.guiWidth() / f, (float)this.guiHeight() / f) * g;
-        float f2 = f * f1;
-        float f3 = f * f1;
-        float f4 = ((float)this.guiWidth() - f2) / 2.0F;
-        float f5 = ((float)this.guiHeight() - f3) / 2.0F;
-        float f6 = f4 + f2;
-        float f7 = f5 + f3;
-        bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-        bufferbuilder.vertex((double)f4, (double)f7, -90.0D).uv(0.0F, 1.0F).endVertex();
-        bufferbuilder.vertex((double)f6, (double)f7, -90.0D).uv(1.0F, 1.0F).endVertex();
-        bufferbuilder.vertex((double)f6, (double)f5, -90.0D).uv(1.0F, 0.0F).endVertex();
-        bufferbuilder.vertex((double)f4, (double)f5, -90.0D).uv(0.0F, 0.0F).endVertex();
-        tesselator.end();
-        RenderSystem.setShader(GameRenderer::getPositionColorShader);
-        bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
-        bufferbuilder.vertex(0.0D, (double)this.guiHeight(), -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)this.guiWidth(), (double)this.guiHeight(), -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)this.guiWidth(), (double)f7, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex(0.0D, (double)f7, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex(0.0D, (double)f5, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)this.guiWidth(), (double)f5, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)this.guiWidth(), 0.0D, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex(0.0D, 0.0D, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex(0.0D, (double)f7, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)f4, (double)f7, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)f4, (double)f5, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex(0.0D, (double)f5, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)f6, (double)f7, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)this.guiWidth(), (double)f7, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)this.guiWidth(), (double)f5, -90.0D).color(0, 0, 0, 255).endVertex();
-        bufferbuilder.vertex((double)f6, (double)f5, -90.0D).color(0, 0, 0, 255).endVertex();
-        tesselator.end();
-        RenderSystem.depthMask(true);
-        RenderSystem.enableDepthTest();
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+    public void renderGAOverlay(float f, ResourceLocation texture) {
+        float g;
+        float h = g = (float)Math.min(this.guiWidth(), this.guiHeight());
+        float i = Math.min((float)this.guiWidth() / g, (float)this.guiHeight() / h) * f;
+        int j = Mth.floor(g * i);
+        int k = Mth.floor(h * i);
+        int l = (this.guiWidth() - j) / 2;
+        int m = (this.guiHeight() - k) / 2;
+        int n = l + j;
+        int o = m + k;
+        RenderSystem.enableBlend();
+        this.blit(texture, l, m, -90, 0.0f, 0.0f, j, k, j, k);
+        RenderSystem.disableBlend();
+        this.fill(RenderType.guiOverlay(), 0, o, this.guiWidth(), this.guiHeight(), -90, -16777216);
+        this.fill(RenderType.guiOverlay(), 0, 0, this.guiWidth(), m, -90, -16777216);
+        this.fill(RenderType.guiOverlay(), 0, m, l, o, -90, -16777216);
+        this.fill(RenderType.guiOverlay(), n, m, this.guiWidth(), o, -90, -16777216);
     }
 
     @Unique
