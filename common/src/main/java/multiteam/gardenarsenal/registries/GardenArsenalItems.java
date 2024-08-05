@@ -26,11 +26,11 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> BEETROOT_SMOKE = ITEMS.register("beetroot_smoke", () -> new BeetrootSmoke(new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.WEAPONS)));
     public static final RegistrySupplier<Item> PROJECTILE_CARROT = ITEMS.register("projectile_carrot", () -> new Item(new Item.Properties()));
 
-    public static final RegistrySupplier<Item> CARROT_RIFLE = ITEMS.register("carrot_rifle", () -> new CarrotRifle(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS)));
-    public static final RegistrySupplier<Item> POTATO_BAZOOKA = ITEMS.register("potato_bazooka", () -> new PotatoBazooka(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS)));
-    public static final RegistrySupplier<Item> COCOA_BEAN_SHOTGUN = ITEMS.register("cocoa_bean_shotgun", () -> new CocoaShotgun(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS)));
-    public static final RegistrySupplier<Item> SEED_PISTOL = ITEMS.register("seed_pistol", () -> new SeedPistol(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS)));
-    public static final RegistrySupplier<Item> SUGAR_CANE_SNIPER = ITEMS.register("sugar_cane_sniper", () -> new SugarcaneSniper(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS)));
+    public static final RegistrySupplier<Item> CARROT_RIFLE = ITEMS.register("carrot_rifle", () -> new CarrotRifle(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
+    public static final RegistrySupplier<Item> POTATO_BAZOOKA = ITEMS.register("potato_bazooka", () -> new PotatoBazooka(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
+    public static final RegistrySupplier<Item> COCOA_BEAN_SHOTGUN = ITEMS.register("cocoa_bean_shotgun", () -> new CocoaShotgun(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
+    public static final RegistrySupplier<Item> SEED_PISTOL = ITEMS.register("seed_pistol", () -> new SeedPistol(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
+    public static final RegistrySupplier<Item> SUGAR_CANE_SNIPER = ITEMS.register("sugar_cane_sniper", () -> new SugarcaneSniper(new Item.Properties().durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
 
     public static List<RegistrySupplier<Item>> SKIN_CARDS = new ArrayList<>();
 
@@ -42,7 +42,7 @@ public class GardenArsenalItems {
 
     //Makers Shift Update - v0.4
     public static final RegistrySupplier<Item> GLIMMERING_MELON_SEEDS = ITEMS.register("glimmering_melon_seeds", () -> new Item(new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC)));
-    public static final RegistrySupplier<Item> GLIMMERING_REVOLVER = ITEMS.register("glimmering_revolver", () -> new GlimmeringRevolver(new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).durability(500)));
+    public static final RegistrySupplier<Item> GLIMMERING_REVOLVER = ITEMS.register("glimmering_revolver", () -> new GlimmeringRevolver(new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).durability(500).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
 
     public static List<RegistrySupplier<Item>> SKIN_CARD_PACKS = new ArrayList<>();
 
