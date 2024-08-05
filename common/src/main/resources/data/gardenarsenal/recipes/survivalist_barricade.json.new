@@ -13,7 +13,7 @@
         }
     },
     "result": {
-        "item": "gardenarsenal:survivalist_barricade",
+        "id": "gardenarsenal:survivalist_barricade",
         "count": 1
     }
 }

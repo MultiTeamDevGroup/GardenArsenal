@@ -15,7 +15,7 @@
         }
     ],
     "result": {
-        "item": "gardenarsenal:scrap_wood_pile",
+        "id": "gardenarsenal:scrap_wood_pile",
         "count": 1
     }
 }

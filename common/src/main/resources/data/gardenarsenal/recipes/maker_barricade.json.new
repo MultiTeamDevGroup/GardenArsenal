@@ -14,7 +14,7 @@
         }
     },
     "result": {
-        "item": "gardenarsenal:maker_barricade",
+        "id": "gardenarsenal:maker_barricade",
         "count": 1
     }
 }

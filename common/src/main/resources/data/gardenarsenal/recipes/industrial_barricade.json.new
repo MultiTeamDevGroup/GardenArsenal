@@ -14,7 +14,7 @@
         }
     },
     "result": {
-        "item": "gardenarsenal:industrial_barricade",
+        "id": "gardenarsenal:industrial_barricade",
         "count": 1
     }
 }

@@ -26,7 +26,7 @@
         }
     },
     "result": {
-        "item": "gardenarsenal:war_tactic_table",
+        "id": "gardenarsenal:war_tactic_table",
         "count": 1
     }
 }

@@ -23,7 +23,7 @@
         }
     },
     "result": {
-        "item": "gardenarsenal:ammo_crate",
+        "id": "gardenarsenal:ammo_crate",
         "count": 1
     }
 }

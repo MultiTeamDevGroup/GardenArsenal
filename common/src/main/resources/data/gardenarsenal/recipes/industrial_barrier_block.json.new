@@ -17,7 +17,7 @@
         }
     },
     "result": {
-        "item": "gardenarsenal:industrial_barrier_block",
+        "id": "gardenarsenal:industrial_barrier_block",
         "count": 1
     }
 }

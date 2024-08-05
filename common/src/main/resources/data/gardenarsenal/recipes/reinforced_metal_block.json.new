@@ -17,7 +17,7 @@
         }
     },
     "result": {
-        "item": "gardenarsenal:reinforced_metal_block",
+        "id": "gardenarsenal:reinforced_metal_block",
         "count": 1
     }
 }
