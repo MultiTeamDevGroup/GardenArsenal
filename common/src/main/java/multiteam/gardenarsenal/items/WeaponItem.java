@@ -6,9 +6,11 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -75,8 +77,8 @@ public abstract class WeaponItem extends BowItem {
 
     public void useWeapon(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
         if (user instanceof Player playerEntity) {
-            boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemStack = getAmmoInInventory(playerEntity);
+            boolean bl = playerEntity.getAbilities().instabuild || (world instanceof ServerLevel serverLevel && EnchantmentHelper.processAmmoUse(serverLevel, stack, itemStack, 1) > 0);
             this.useWeaponAmmo(playerEntity, itemStack, stack, bl, remainingUseTicks, world);
         }
     }

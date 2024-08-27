@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class GardenArsenalJei implements IModPlugin {
     @Override
     public @NotNull ResourceLocation getPluginUid() {
-        return new ResourceLocation(GardenArsenal.MOD_ID, "default");
+        return GardenArsenal.id("default");
     }
 
     @Override

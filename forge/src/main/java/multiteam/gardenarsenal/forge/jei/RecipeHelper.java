@@ -32,7 +32,7 @@ public class RecipeHelper {
                 result.getOrCreateTag().putString("skinType", skin.name());
 
                 list.add(new RecipeHolder<>(
-                        new ResourceLocation(GardenArsenal.MOD_ID, "skin_" + i + "_" + j),
+                        GardenArsenal.id("skin_" + i + "_" + j),
                         new SmithingTransformRecipe(
                                 getWeaponVariants(weapon),
                                 Ingredient.of(new ItemStack(skin.getItem().getOrNull())),

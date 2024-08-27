@@ -16,8 +16,6 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(GuiGraphics.class)
 public abstract class GuiGraphicsMixin implements GuiGraphicsAccessor {
 
-    @Shadow @Final private Minecraft minecraft;
-
     @Shadow public abstract int guiWidth();
 
     @Shadow public abstract int guiHeight();
@@ -44,21 +42,5 @@ public abstract class GuiGraphicsMixin implements GuiGraphicsAccessor {
         this.fill(RenderType.guiOverlay(), 0, 0, this.guiWidth(), m, -90, -16777216);
         this.fill(RenderType.guiOverlay(), 0, m, l, o, -90, -16777216);
         this.fill(RenderType.guiOverlay(), n, m, this.guiWidth(), o, -90, -16777216);
-    }
-
-    @Unique
-    private float ga$scopeScale;
-
-    @Override
-    public void renderGASniperOverlay() {
-        float deltaFrame = this.minecraft.getDeltaFrameTime();
-        this.ga$scopeScale = Mth.lerp(0.5f * deltaFrame, this.ga$scopeScale, 1.125f);
-        if (this.minecraft.options.getCameraType().isFirstPerson()) {
-            if (Utils.isUsingSugarCaneSniper(this.minecraft.player)) {
-                this.renderGAOverlay(this.ga$scopeScale, Utils.SUGARCANE_SNIPER_SCOPE_OVERLAY_TEXTURE);
-            } else {
-                this.ga$scopeScale = 0.5f;
-            }
-        }
     }
 }

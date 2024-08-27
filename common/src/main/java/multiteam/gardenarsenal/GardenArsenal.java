@@ -2,6 +2,7 @@ package multiteam.gardenarsenal;
 
 import dev.architectury.event.events.common.LifecycleEvent;
 import multiteam.gardenarsenal.registries.*;
+import net.minecraft.resources.ResourceLocation;
 
 public class GardenArsenal {
     public static final String MOD_ID = "gardenarsenal";
@@ -18,5 +19,9 @@ public class GardenArsenal {
         GardenArsenalRecipeTypes.init();
         GardenArsenalTrades.init();
         LifecycleEvent.SERVER_BEFORE_START.register(GardenArsenalStructures::registerStructures);
+    }
+
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

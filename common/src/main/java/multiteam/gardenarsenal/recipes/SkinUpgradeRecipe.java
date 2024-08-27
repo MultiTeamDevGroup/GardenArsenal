@@ -1,25 +1,20 @@
 package multiteam.gardenarsenal.recipes;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import multiteam.gardenarsenal.items.SkinCardItem;
 import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SmithingRecipeInput;
 import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 import org.jetbrains.annotations.NotNull;
 
@@ -49,7 +44,7 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     }
 
     @Override
-    public @NotNull ItemStack assemble(Container container, HolderLookup.Provider registryAccess) {
+    public @NotNull ItemStack assemble(SmithingRecipeInput container, HolderLookup.Provider registryAccess) {
         ItemStack itemStack = super.assemble(container, registryAccess);
 
         SkinCardItem skinCardItem = (SkinCardItem) container.getItem(2).getItem();

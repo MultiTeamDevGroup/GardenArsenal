@@ -14,16 +14,6 @@ import java.util.Set;
 
 @Mixin(PoiTypes.class)
 public interface PoiTypesInvoker {
-    @Accessor("TYPE_BY_STATE")
-    static Map<BlockState, Holder<PoiType>> getTypeByState() {
-        throw new AssertionError();
-    }
-
-    @Invoker("getBlockStates")
-    static Set<BlockState> invokeGetBlockStates(Block block) {
-        throw new AssertionError();
-    }
-
     @Invoker("registerBlockStates")
     static void invokeRegisterBlockStates(Holder<PoiType> holder, Set<BlockState> set) {
         throw new AssertionError();
