@@ -12,7 +12,6 @@ public class GardenArsenal {
         GardenArsenalCreativeModeTabs.init();
         GardenArsenalBlocks.init();
         GardenArsenalItems.init();
-        GardenArsenalPaintings.init();
         GardenArsenalPois.init();
         GardenArsenalProfessions.init();
         GardenArsenalRecipeSerializers.init();
