@@ -35,8 +35,8 @@ public class RecipeHelper {
                 list.add(new RecipeHolder<>(
                         GardenArsenal.id("skin_" + i + "_" + j),
                         new SmithingTransformRecipe(
+                                Ingredient.EMPTY,
                                 getWeaponVariants(weapon),
-                                Ingredient.of(new ItemStack(skin.getItem().getOrNull())),
                                 Ingredient.of(new ItemStack(skin.getItem().getOrNull())),
                                 result
                         )
