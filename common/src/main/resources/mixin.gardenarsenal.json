@@ -5,6 +5,7 @@
   "client": [
     "AbstractClientPlayerMixin",
     "GuiGraphicsMixin",
+    "GuiMixin",
     "ItemInHandRendererMixin",
     "MouseHandlerMixin",
     "SignRendererMixin"

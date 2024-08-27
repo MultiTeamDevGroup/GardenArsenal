@@ -1,4 +1,4 @@
-package multiteam.gardenarsenal.fabric.mixin;
+package multiteam.gardenarsenal.mixin;
 
 import multiteam.gardenarsenal.accessor.GuiGraphicsAccessor;
 import multiteam.gardenarsenal.utils.Utils;
