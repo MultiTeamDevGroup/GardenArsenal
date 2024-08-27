@@ -38,50 +38,36 @@ public class GlimmeringRevolver extends WeaponItem {
     }
 
     @Override
-    public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
-        if (user instanceof Player playerEntity) {
-            ItemStack ammoStack = getAmmoInInventory(playerEntity);
-            int bulets = stack.getOrDefault(GardenArsenalDataComponents.SHELL_LOAD.get(), 0);
-            if (bulets == 0) {
-                if (!ammoStack.isEmpty()) {
-                    bulets = 6;
-                    stack.set(GardenArsenalDataComponents.SHELL_LOAD.get(), bulets);
+    public void useWeaponAmmo(Player playerEntity, ItemStack ammoStack, ItemStack stack, boolean bl, int remainingUseTicks, Level world) {
+        int bulets = stack.getOrDefault(GardenArsenalDataComponents.SHELL_LOAD.get(), 0);
+        if (bulets == 0) {
+            if (!ammoStack.isEmpty()) {
+                bulets = 6;
+                stack.set(GardenArsenalDataComponents.SHELL_LOAD.get(), bulets);
+            }
+        } else if (bulets >= 1) {
+            if (bulets == 1) {
+                playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
+            }
+
+            if ((!ammoStack.isEmpty() && this.getAllSupportedProjectiles().test(ammoStack)) || bl) {
+                if (ammoStack.isEmpty()) {
+                    ammoStack = new ItemStack(this.getAmmoItem());
                 }
-            } else if (bulets >= 1) {
-                boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
 
-                if (bulets == 1) {
-                    playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
+                int i = this.getMaxUseTime(stack) - remainingUseTicks;
+                float f = getPullProgress(i);
+                boolean bl2 = bl && ammoStack.getItem() == this.getAmmoItem();
+                if (!world.isClientSide) {
+                    this.createProjectileEntities(world, playerEntity);
+
+                    stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                 }
 
-                if ((!ammoStack.isEmpty() && this.getAllSupportedProjectiles().test(ammoStack)) || bl) {
-                    if (ammoStack.isEmpty()) {
-                        ammoStack = new ItemStack(this.getAmmoItem());
-                    }
+                --bulets;
+                stack.set(GardenArsenalDataComponents.SHELL_LOAD.get(), bulets);
 
-                    int i = this.getMaxUseTime(stack) - remainingUseTicks;
-                    float f = getPullProgress(i);
-                    boolean bl2 = bl && ammoStack.getItem() == this.getAmmoItem();
-                    if (!world.isClientSide) {
-                        this.createProjectileEntities(world, playerEntity);
-
-                        stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
-                    }
-
-                    --bulets;
-                    stack.set(GardenArsenalDataComponents.SHELL_LOAD.get(), bulets);
-
-                    world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-
-                    if (!bl2 && !playerEntity.getAbilities().instabuild) {
-                        ammoStack.shrink(1);
-                        if (ammoStack.isEmpty()) {
-                            playerEntity.getInventory().removeItem(ammoStack);
-                        }
-                    }
-
-                    playerEntity.awardStat(Stats.ITEM_USED.get(this));
-                }
+                this.usedAmmo(world, playerEntity, bl2, ammoStack, f);
             }
         }
     }

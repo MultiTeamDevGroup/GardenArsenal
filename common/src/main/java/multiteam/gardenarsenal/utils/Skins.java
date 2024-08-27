@@ -47,7 +47,6 @@ public enum Skins implements StringRepresentable, TooltipProvider {
     public static final IntFunction<Skins> BY_ID = ByIdMap.continuous(arg -> arg.id, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
     public static final StreamCodec<ByteBuf, Skins> STREAM_CODEC = ByteBufCodecs.idMapper(BY_ID, arg -> arg.id);
 
-    // Not used anymore, moved to SkinRarity.
     private int id;
     private String name;
 

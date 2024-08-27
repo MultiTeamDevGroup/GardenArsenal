@@ -65,10 +65,24 @@ public abstract class WeaponItem extends BowItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
+        this.useWeapon(stack, world, user, remainingUseTicks);
+    }
+
+    public boolean cooldownIsFinishedLogic(Player playerEntity) {
+        playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
+        return true;
+    }
+
+    public void useWeapon(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
         if (user instanceof Player playerEntity) {
             boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemStack = getAmmoInInventory(playerEntity);
-            playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
+            this.useWeaponAmmo(playerEntity, itemStack, stack, bl, remainingUseTicks, world);
+        }
+    }
+
+    public void useWeaponAmmo(Player playerEntity, ItemStack itemStack, ItemStack stack, boolean bl, int remainingUseTicks, Level world) {
+        if (this.cooldownIsFinishedLogic(playerEntity)) {
             if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
                 if (itemStack.isEmpty()) {
                     itemStack = new ItemStack(this.getAmmoItem());
@@ -76,7 +90,7 @@ public abstract class WeaponItem extends BowItem {
 
                 int i = this.getMaxUseTime(stack) - remainingUseTicks;
                 float f = getPullProgress(i);
-                if (!((double)f < 0.1D)) {
+                if (!((double) f < 0.1D)) {
                     boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
                     if (!world.isClientSide) {
                         this.createProjectileEntities(world, playerEntity);
@@ -84,18 +98,22 @@ public abstract class WeaponItem extends BowItem {
                         stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                     }
 
-                    world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    if (!bl2 && !playerEntity.getAbilities().instabuild) {
-                        itemStack.shrink(1);
-                        if (itemStack.isEmpty()) {
-                            playerEntity.getInventory().removeItem(itemStack);
-                        }
-                    }
-
-                    playerEntity.awardStat(Stats.ITEM_USED.get(this));
+                    this.usedAmmo(world, playerEntity, bl2, itemStack, f);
                 }
             }
         }
+    }
+
+    public void usedAmmo(Level world, Player playerEntity, boolean bl2, ItemStack itemStack, float f) {
+        world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+        if (!bl2 && !playerEntity.getAbilities().instabuild) {
+            itemStack.shrink(1);
+            if (itemStack.isEmpty()) {
+                playerEntity.getInventory().removeItem(itemStack);
+            }
+        }
+
+        playerEntity.awardStat(Stats.ITEM_USED.get(this));
     }
 
     @Override

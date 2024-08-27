@@ -37,38 +37,12 @@ public class CarrotRifle extends WeaponItem {
 
     @Override
     public void onUseTick(Level world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
-        if (user instanceof Player playerEntity) {
-            boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
-            ItemStack itemStack = this.getAmmoInInventory(playerEntity);
-            if(!playerEntity.getCooldowns().isOnCooldown(this)){
-                if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
-                    if (itemStack.isEmpty()) {
-                        itemStack = new ItemStack(this.getAmmoItem());
-                    }
+        this.useWeapon(stack, world, user, remainingUseTicks);
+    }
 
-                    int i = this.getMaxUseTime(stack) - remainingUseTicks;
-                    float f = getPullProgress(i);
-                    if (!((double)f < 0.1D)) {
-                        boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
-                        if (!world.isClientSide) {
-                            this.createProjectileEntities(world, playerEntity);
-                            stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
-                        }
-
-                        playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
-                        world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                        if (!bl2 && !playerEntity.getAbilities().instabuild) {
-                            itemStack.shrink(1);
-                            if (itemStack.isEmpty()) {
-                                playerEntity.getInventory().removeItem(itemStack);
-                            }
-                        }
-
-                        playerEntity.awardStat(Stats.ITEM_USED.get(this));
-                    }
-                }
-            }
-        }
+    @Override
+    public boolean cooldownIsFinishedLogic(Player playerEntity) {
+        return !playerEntity.getCooldowns().isOnCooldown(this);
     }
 
     @Override

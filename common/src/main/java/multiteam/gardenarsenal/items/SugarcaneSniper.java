@@ -32,46 +32,6 @@ public class SugarcaneSniper extends WeaponItem{
     }
 
     @Override
-    public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
-        if (user instanceof Player playerEntity) {
-            boolean bl = playerEntity.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
-            ItemStack itemStack = getAmmoInInventory(playerEntity);
-            playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
-            if ((!itemStack.isEmpty() && this.getAllSupportedProjectiles().test(itemStack)) || bl) {
-                if (itemStack.isEmpty()) {
-                    itemStack = new ItemStack(this.getAmmoItem());
-                }
-
-                int i = this.getMaxUseTime(stack) - remainingUseTicks;
-                float f = getPullProgress(i);
-                if (!((double)f < 0.1D)) {
-                    boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
-                    if (!world.isClientSide) {
-                        this.createProjectileEntities(world, playerEntity);
-
-                        stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
-                    }
-
-                    world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), this.getSoundEvent(), SoundSource.PLAYERS, 1.0F, 1.0F / (ThreadLocalRandom.current().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    if (!bl2 && !playerEntity.getAbilities().instabuild) {
-                        itemStack.shrink(1);
-                        if (itemStack.isEmpty()) {
-                            playerEntity.getInventory().removeItem(itemStack);
-                        }
-                    }
-
-                    if(world.isClientSide){
-                        //Minecraft.getInstance().player.isScoping() = false;
-                        //this.minecraft.player.isScoping()
-                    }
-
-                    playerEntity.awardStat(Stats.ITEM_USED.get(this));
-                }
-            }
-        }
-    }
-
-    @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
         super.appendHoverText(itemStack, tooltipContext, list, tooltipFlag);
         list.add(Component.translatable("tooltip.gardenarsenal.sugar_cane_sniper_desc").copy().withStyle(ChatFormatting.GREEN));
