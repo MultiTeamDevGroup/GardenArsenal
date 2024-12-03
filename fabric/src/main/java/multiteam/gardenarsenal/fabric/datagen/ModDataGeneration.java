@@ -8,6 +8,7 @@ public class ModDataGeneration implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         fabricDataGenerator.addProvider(ModLootTableGenerator::new);
+        fabricDataGenerator.addProvider(ModRecipeGenerator::new);
     }
 
     public static ResourceLocation fromId(ResourceLocation id, String prefix) {

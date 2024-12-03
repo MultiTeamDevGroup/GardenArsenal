@@ -1,19 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#G#",
-    "IBD",
-    "IL/"
-  ],
   "key": {
     "#": {
       "item": "minecraft:glass_pane"
     },
-    "G": {
-      "item": "minecraft:green_terracotta"
-    },
-    "I": {
-      "item": "gardenarsenal:machine_block"
+    "/": {
+      "item": "gardenarsenal:iron_rod"
     },
     "B": {
       "item": "minecraft:blast_furnace"
@@ -21,15 +13,22 @@
     "D": {
       "item": "minecraft:dispenser"
     },
+    "G": {
+      "item": "minecraft:green_terracotta"
+    },
+    "I": {
+      "item": "gardenarsenal:machine_block"
+    },
     "L": {
       "item": "minecraft:lever"
-    },
-    "/": {
-      "item": "gardenarsenal:iron_rod"
     }
   },
+  "pattern": [
+    "#G#",
+    "IBD",
+    "IL/"
+  ],
   "result": {
-    "item": "gardenarsenal:sugar_cane_sniper",
-    "count": 1
+    "item": "gardenarsenal:sugar_cane_sniper"
   }
 }
