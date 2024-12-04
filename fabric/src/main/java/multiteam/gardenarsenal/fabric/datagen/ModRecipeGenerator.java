@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 import static net.minecraft.world.item.Items.*;
@@ -19,6 +20,27 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
     @Override
     protected void generateRecipes(Consumer<FinishedRecipe> consumer) {
+        generatedVanillaRecipes(consumer);
+        generatedSkinUpgradeRecipes(consumer);
+    }
+
+    private void generatedSkinUpgradeRecipes(Consumer<FinishedRecipe> consumer) {
+        for (Item item : new Item[]{
+                SUGAR_CANE_SNIPER.get(),
+                CARROT_RIFLE.get(),
+                COCOA_BEAN_SHOTGUN.get(),
+                GLIMMERING_REVOLVER.get(),
+                POTATO_BAZOOKA.get(),
+                SEED_PISTOL.get()
+        }) {
+            SkinUpgradeRecipeBuilder.upgrading(item)
+                    .unlocks(RecipeProvider.getHasName(item),
+                            RecipeProvider.has(item))
+                    .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(item) + "_skin"));
+        }
+    }
+
+    private void generatedVanillaRecipes(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(AMMO_CRATE.get())
                 .pattern(" # ")
                 .pattern("PBN")
