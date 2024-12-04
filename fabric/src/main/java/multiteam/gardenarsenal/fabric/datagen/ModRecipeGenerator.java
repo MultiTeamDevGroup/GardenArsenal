@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Consumer;
@@ -84,6 +85,216 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(BEETROOT))
                 .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(BEETROOT_SMOKE.get())));
 
+        ShapedRecipeBuilder.shaped(CARROT_RIFLE.get())
+                .pattern("#II")
+                .pattern("GDC")
+                .pattern("/L ")
+                .define('#', REPEATER)
+                .define('I', IRON_NUGGET)
+                .define('G', GREEN_TERRACOTTA)
+                .define('D', MACHINE_BLOCK.get())
+                .define('C', DISPENSER)
+                .define('/', IRON_ROD.get())
+                .define('L', LEVER)
+                .unlockedBy(RecipeProvider.getHasName(REPEATER),
+                        RecipeProvider.has(REPEATER))
+                .unlockedBy(RecipeProvider.getHasName(IRON_NUGGET),
+                        RecipeProvider.has(IRON_NUGGET))
+                .unlockedBy(RecipeProvider.getHasName(GREEN_TERRACOTTA),
+                        RecipeProvider.has(GREEN_TERRACOTTA))
+                .unlockedBy(RecipeProvider.getHasName(DISPENSER),
+                        RecipeProvider.has(DISPENSER))
+                .unlockedBy(RecipeProvider.getHasName(LEVER),
+                        RecipeProvider.has(LEVER))
+                .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
+                        RecipeProvider.has(MACHINE_BLOCK.get()))
+                .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
+                        RecipeProvider.has(IRON_ROD.get()))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(CARROT_RIFLE.get())));
 
+        ShapedRecipeBuilder.shaped(COCOA_BEAN_SHOTGUN.get())
+                .pattern("#ID")
+                .pattern("RID")
+                .pattern("/L ")
+                .define('#', GREEN_TERRACOTTA)
+                .define('I', MACHINE_BLOCK.get())
+                .define('D', DISPENSER)
+                .define('R', REPEATER)
+                .define('/', IRON_ROD.get())
+                .define('L', LEVER)
+                .unlockedBy(RecipeProvider.getHasName(REPEATER),
+                        RecipeProvider.has(REPEATER))
+                .unlockedBy(RecipeProvider.getHasName(GREEN_TERRACOTTA),
+                        RecipeProvider.has(GREEN_TERRACOTTA))
+                .unlockedBy(RecipeProvider.getHasName(DISPENSER),
+                        RecipeProvider.has(DISPENSER))
+                .unlockedBy(RecipeProvider.getHasName(LEVER),
+                        RecipeProvider.has(LEVER))
+                .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
+                        RecipeProvider.has(MACHINE_BLOCK.get()))
+                .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
+                        RecipeProvider.has(IRON_ROD.get()))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(COCOA_BEAN_SHOTGUN.get())));
+
+        ShapedRecipeBuilder.shaped(COCOA_BEANS_SHELL.get())
+                .pattern("###")
+                .pattern("#S#")
+                .pattern("SPS")
+                .define('#', COCOA_BEANS)
+                .define('S', SUGAR)
+                .define('P', PAPER)
+                .unlockedBy(RecipeProvider.getHasName(COCOA_BEANS),
+                        RecipeProvider.has(COCOA_BEANS))
+                .unlockedBy(RecipeProvider.getHasName(SUGAR),
+                        RecipeProvider.has(SUGAR))
+                .unlockedBy(RecipeProvider.getHasName(PAPER),
+                        RecipeProvider.has(PAPER))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(COCOA_BEANS_SHELL.get())));
+
+        ShapelessRecipeBuilder.shapeless(GLIMMERING_MELON_SEEDS.get())
+                .requires(GLISTERING_MELON_SLICE)
+                .unlockedBy(RecipeProvider.getHasName(GLISTERING_MELON_SLICE),
+                        RecipeProvider.has(GLISTERING_MELON_SLICE))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GLIMMERING_MELON_SEEDS.get())));
+
+        ShapedRecipeBuilder.shaped(GLIMMERING_REVOLVER.get())
+                .pattern("#BD")
+                .pattern("GL ")
+                .define('#', MACHINE_BLOCK.get())
+                .define('B', BARREL)
+                .define('D', DISPENSER)
+                .define('G', GREEN_TERRACOTTA)
+                .define('L', LEVER)
+                .unlockedBy(RecipeProvider.getHasName(BARREL),
+                        RecipeProvider.has(BARREL))
+                .unlockedBy(RecipeProvider.getHasName(DISPENSER),
+                        RecipeProvider.has(DISPENSER))
+                .unlockedBy(RecipeProvider.getHasName(GREEN_TERRACOTTA),
+                        RecipeProvider.has(GREEN_TERRACOTTA))
+                .unlockedBy(RecipeProvider.getHasName(LEVER),
+                        RecipeProvider.has(LEVER))
+                .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
+                        RecipeProvider.has(MACHINE_BLOCK.get()))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GLIMMERING_REVOLVER.get())));
+
+        ShapedRecipeBuilder.shaped(IRON_ROD.get())
+                .pattern("#")
+                .pattern("#")
+                .pattern("#")
+                .define('#', IRON_NUGGET)
+                .unlockedBy(RecipeProvider.getHasName(IRON_NUGGET),
+                        RecipeProvider.has(IRON_NUGGET))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(IRON_ROD.get())));
+
+        ShapedRecipeBuilder.shaped(MACHINE_BLOCK.get())
+                .pattern("/I/")
+                .pattern("IAI")
+                .pattern("/I/")
+                .define('/', IRON_ROD.get())
+                .define('I', IRON_NUGGET)
+                .define('A', IRON_BLOCK)
+                .unlockedBy(RecipeProvider.getHasName(IRON_NUGGET),
+                        RecipeProvider.has(IRON_NUGGET))
+                .unlockedBy(RecipeProvider.getHasName(IRON_BLOCK),
+                        RecipeProvider.has(IRON_BLOCK))
+                .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
+                        RecipeProvider.has(IRON_ROD.get()))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(MACHINE_BLOCK.get())));
+
+        ShapedRecipeBuilder.shaped(POTATO_BAZOOKA.get())
+                .pattern("#/G")
+                .pattern("IID")
+                .pattern("//L")
+                .define('#', COMPARATOR)
+                .define('/', IRON_ROD.get())
+                .define('G', GLASS_PANE)
+                .define('I', MACHINE_BLOCK.get())
+                .define('D', DISPENSER)
+                .define('L', LEVER)
+                .unlockedBy(RecipeProvider.getHasName(COMPARATOR),
+                        RecipeProvider.has(COMPARATOR))
+                .unlockedBy(RecipeProvider.getHasName(GLASS_PANE),
+                        RecipeProvider.has(GLASS_PANE))
+                .unlockedBy(RecipeProvider.getHasName(DISPENSER),
+                        RecipeProvider.has(DISPENSER))
+                .unlockedBy(RecipeProvider.getHasName(LEVER),
+                        RecipeProvider.has(LEVER))
+                .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
+                        RecipeProvider.has(IRON_ROD.get()))
+                .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
+                        RecipeProvider.has(MACHINE_BLOCK.get()))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(POTATO_BAZOOKA.get())));
+
+        ShapedRecipeBuilder.shaped(POTATO_GRENADE.get())
+                .pattern("#PT")
+                .define('#', STONE_BUTTON)
+                .define('P', POTATO)
+                .define('T', TNT)
+                .unlockedBy(RecipeProvider.getHasName(STONE_BUTTON),
+                        RecipeProvider.has(STONE_BUTTON))
+                .unlockedBy(RecipeProvider.getHasName(POTATO),
+                        RecipeProvider.has(POTATO))
+                .unlockedBy(RecipeProvider.getHasName(TNT),
+                        RecipeProvider.has(TNT))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(POTATO_GRENADE.get())));
+
+        ShapedRecipeBuilder.shaped(SEED_PISTOL.get())
+                .pattern("#D")
+                .pattern("GL")
+                .define('#', MACHINE_BLOCK.get())
+                .define('D', DISPENSER)
+                .define('G', GREEN_TERRACOTTA)
+                .define('L', LEVER)
+                .unlockedBy(RecipeProvider.getHasName(DISPENSER),
+                        RecipeProvider.has(DISPENSER))
+                .unlockedBy(RecipeProvider.getHasName(GREEN_TERRACOTTA),
+                        RecipeProvider.has(GREEN_TERRACOTTA))
+                .unlockedBy(RecipeProvider.getHasName(LEVER),
+                        RecipeProvider.has(LEVER))
+                .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
+                        RecipeProvider.has(MACHINE_BLOCK.get()))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(SEED_PISTOL.get())));
+
+        ShapedRecipeBuilder.shaped(TRAP_CAKE.get())
+                .pattern(" # ")
+                .pattern("SCT")
+                .pattern(" # ")
+                .define('#', SUGAR)
+                .define('S', STONE_BUTTON)
+                .define('C', CAKE)
+                .define('T', TNT)
+                .unlockedBy(RecipeProvider.getHasName(STONE_BUTTON),
+                        RecipeProvider.has(STONE_BUTTON))
+                .unlockedBy(RecipeProvider.getHasName(SUGAR),
+                        RecipeProvider.has(SUGAR))
+                .unlockedBy(RecipeProvider.getHasName(TNT),
+                        RecipeProvider.has(TNT))
+                .unlockedBy(RecipeProvider.getHasName(CAKE),
+                        RecipeProvider.has(CAKE))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(TRAP_CAKE.get())));
+
+        ShapedRecipeBuilder.shaped(WAR_TACTIC_TABLE.get())
+                .pattern("#MR")
+                .pattern("OCO")
+                .pattern("/ /")
+                .define('#', BLUE_DYE)
+                .define('M', MAP)
+                .define('R', RED_DYE)
+                .define('O', OAK_PLANKS)
+                .define('/', STICK)
+                .define('C', CARTOGRAPHY_TABLE)
+                .unlockedBy(RecipeProvider.getHasName(BLUE_DYE),
+                        RecipeProvider.has(BLUE_DYE))
+                .unlockedBy(RecipeProvider.getHasName(MAP),
+                        RecipeProvider.has(MAP))
+                .unlockedBy(RecipeProvider.getHasName(RED_DYE),
+                        RecipeProvider.has(RED_DYE))
+                .unlockedBy(RecipeProvider.getHasName(OAK_PLANKS),
+                        RecipeProvider.has(OAK_PLANKS))
+                .unlockedBy(RecipeProvider.getHasName(STICK),
+                        RecipeProvider.has(STICK))
+                .unlockedBy(RecipeProvider.getHasName(CARTOGRAPHY_TABLE),
+                        RecipeProvider.has(CARTOGRAPHY_TABLE))
+                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(WAR_TACTIC_TABLE.get())));
     }
 }

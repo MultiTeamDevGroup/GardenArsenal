@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "   ",
-    "#D ",
-    "GL "
-  ],
   "key": {
     "#": {
       "item": "gardenarsenal:machine_block"
@@ -19,8 +14,11 @@
       "item": "minecraft:lever"
     }
   },
+  "pattern": [
+    "#D",
+    "GL"
+  ],
   "result": {
-    "item": "gardenarsenal:seed_pistol",
-    "count": 1
+    "item": "gardenarsenal:seed_pistol"
   }
 }

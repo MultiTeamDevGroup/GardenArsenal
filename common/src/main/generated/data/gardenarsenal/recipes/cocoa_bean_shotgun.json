@@ -1,32 +1,31 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#/G",
-    "IID",
-    "//L"
-  ],
   "key": {
     "#": {
-      "item": "minecraft:comparator"
+      "item": "minecraft:green_terracotta"
     },
     "/": {
       "item": "gardenarsenal:iron_rod"
     },
-    "G": {
-      "item": "minecraft:glass_pane"
+    "D": {
+      "item": "minecraft:dispenser"
     },
     "I": {
       "item": "gardenarsenal:machine_block"
     },
-    "D": {
-      "item": "minecraft:dispenser"
-    },
     "L": {
       "item": "minecraft:lever"
+    },
+    "R": {
+      "item": "minecraft:repeater"
     }
   },
+  "pattern": [
+    "#ID",
+    "RID",
+    "/L "
+  ],
   "result": {
-    "item": "gardenarsenal:potato_bazooka",
-    "count": 1
+    "item": "gardenarsenal:cocoa_bean_shotgun"
   }
 }
