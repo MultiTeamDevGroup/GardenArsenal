@@ -9,6 +9,9 @@ public class ModDataGeneration implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         fabricDataGenerator.addProvider(ModLootTableGenerator::new);
         fabricDataGenerator.addProvider(ModRecipeGenerator::new);
+        fabricDataGenerator.addProvider(ModBlockTagGenerator::new);
+        fabricDataGenerator.addProvider(ModPaintingVariantTagGenerator::new);
+        fabricDataGenerator.addProvider(ModPoiTypeTagGenerator::new);
     }
 
     public static ResourceLocation fromId(ResourceLocation id, String prefix) {
