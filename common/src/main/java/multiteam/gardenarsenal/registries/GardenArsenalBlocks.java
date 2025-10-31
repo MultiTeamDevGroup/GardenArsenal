@@ -4,6 +4,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.blocks.AmmoCrate;
+import multiteam.gardenarsenal.blocks.BarricadeBlock;
 import multiteam.gardenarsenal.blocks.TrapCake;
 import multiteam.gardenarsenal.blocks.WarTacticTable;
 import net.minecraft.core.Registry;
@@ -34,12 +35,12 @@ public class GardenArsenalBlocks {
 
     //Makers Shift Update - v0.5
 //    public static final RegistrySupplier<Block> SCRAP_WOOD_PILE = registerWithItem("scrap_wood_pile", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(1.0f, 2.0f).sound(SoundType.WOOD)), new Item.Properties().tab(GardenArsenalItems.MISC));
-//    public static final RegistrySupplier<Block> MAKERS_CONCRETE_POWDER_BLOCK = registerWithItem("makers_concrete_powder", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(0.5f,0.5f).sound(SoundType.SAND)), new Item.Properties().tab(GardenArsenalItems.MISC));
+//    public static final RegistrySupplier<Block> MAKERS_CONCRETE_POWDER = registerWithItem("makers_concrete_powder", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(0.5f,0.5f).sound(SoundType.SAND)), new Item.Properties().tab(GardenArsenalItems.MISC));
 //    public static final RegistrySupplier<Block> REINFORCED_METAL_BLOCK = registerWithItem("reinforced_metal_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(10.f, 200.0f).sound(SoundType.NETHERITE_BLOCK)), new Item.Properties().tab(GardenArsenalItems.MISC));
 //    public static final RegistrySupplier<Block> INDUSTRIAL_BARRIER_BLOCK = registerWithItem("industrial_barrier_block", () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(10.0f, 100.0f).sound(SoundType.NETHERITE_BLOCK)), new Item.Properties().tab(GardenArsenalItems.MISC));
-//    public static final RegistrySupplier<Block> BARRICADE_SURVIVALIST = registerWithItem("survivalist_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0f, 3.0f).sound(SoundType.BAMBOO)), new Item.Properties().tab(GardenArsenalItems.MISC));
-//    public static final RegistrySupplier<Block> BARRICADE_MAKER = registerWithItem("maker_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of(Material.STONE).strength(15.0f, 100.0f).sound(SoundType.NETHER_BRICKS)), new Item.Properties().tab(GardenArsenalItems.MISC));
-//    public static final RegistrySupplier<Block> BARRICADE_INDUSTRIAL = registerWithItem("industrial_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(40.0f, 900.0f).sound(SoundType.ANVIL)), new Item.Properties().tab(GardenArsenalItems.MISC));
+//    public static final RegistrySupplier<Block> SURVIVALIST_BARRICADE = registerWithItem("survivalist_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0f, 3.0f).sound(SoundType.BAMBOO)), new Item.Properties().tab(GardenArsenalItems.MISC));
+//    public static final RegistrySupplier<Block> MAKER_BARRICADE = registerWithItem("maker_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of(Material.STONE).strength(15.0f, 100.0f).sound(SoundType.NETHER_BRICKS)), new Item.Properties().tab(GardenArsenalItems.MISC));
+//    public static final RegistrySupplier<Block> INDUSTRIAL_BARRICADE = registerWithItem("industrial_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(40.0f, 900.0f).sound(SoundType.ANVIL)), new Item.Properties().tab(GardenArsenalItems.MISC));
 
 
 
