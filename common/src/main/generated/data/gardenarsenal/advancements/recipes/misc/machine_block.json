@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_iron_nugget",
       "has_iron_block",
-      "has_iron_rod",
-      "has_the_recipe"
+      "has_iron_rod"
     ]
   ],
   "rewards": {

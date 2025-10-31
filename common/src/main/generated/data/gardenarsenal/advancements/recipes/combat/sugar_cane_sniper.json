@@ -94,14 +94,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_glass_pane",
       "has_green_terracotta",
       "has_blast_furnace",
       "has_dispenser",
       "has_lever",
       "has_machine_block",
-      "has_iron_rod",
-      "has_the_recipe"
+      "has_iron_rod"
     ]
   ],
   "rewards": {

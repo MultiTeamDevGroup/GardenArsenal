@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_stone_button",
       "has_potato",
-      "has_tnt",
-      "has_the_recipe"
+      "has_tnt"
     ]
   ],
   "rewards": {

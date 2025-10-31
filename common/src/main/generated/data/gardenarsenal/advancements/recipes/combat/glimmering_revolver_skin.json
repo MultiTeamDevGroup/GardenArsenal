@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_glimmering_revolver",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_glimmering_revolver"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "minecraft:glimmering_revolver_skin"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

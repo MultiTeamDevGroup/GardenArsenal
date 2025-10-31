@@ -82,13 +82,13 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_blue_dye",
       "has_map",
       "has_red_dye",
       "has_oak_planks",
       "has_stick",
-      "has_cartography_table",
-      "has_the_recipe"
+      "has_cartography_table"
     ]
   ],
   "rewards": {

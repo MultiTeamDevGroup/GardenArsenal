@@ -70,12 +70,12 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_carrot",
       "has_beetroot",
       "has_barrel",
       "has_potato_grenade",
-      "has_cocoa_beans_shell",
-      "has_the_recipe"
+      "has_cocoa_beans_shell"
     ]
   ],
   "rewards": {

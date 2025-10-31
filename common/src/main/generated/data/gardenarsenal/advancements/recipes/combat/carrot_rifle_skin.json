@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_carrot_rifle",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_carrot_rifle"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "minecraft:carrot_rifle_skin"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

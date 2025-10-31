@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_stone_button",
       "has_sugar",
       "has_tnt",
-      "has_cake",
-      "has_the_recipe"
+      "has_cake"
     ]
   ],
   "rewards": {

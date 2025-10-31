@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_potato_bazooka",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_potato_bazooka"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "minecraft:potato_bazooka_skin"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

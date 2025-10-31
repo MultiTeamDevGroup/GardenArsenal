@@ -82,13 +82,13 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_repeater",
       "has_green_terracotta",
       "has_dispenser",
       "has_lever",
       "has_machine_block",
-      "has_iron_rod",
-      "has_the_recipe"
+      "has_iron_rod"
     ]
   ],
   "rewards": {

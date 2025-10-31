@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_sugar_cane_sniper",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sugar_cane_sniper"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "minecraft:sugar_cane_sniper_skin"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

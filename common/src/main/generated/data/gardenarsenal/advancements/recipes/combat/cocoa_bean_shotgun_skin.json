@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_cocoa_bean_shotgun",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cocoa_bean_shotgun"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "minecraft:cocoa_bean_shotgun_skin"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -6,7 +6,6 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
-import java.util.function.Consumer;
 import static net.minecraft.world.item.Items.*;
 import static multiteam.gardenarsenal.registries.GardenArsenalItems.*;
 
@@ -16,12 +15,12 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        generatedVanillaRecipes(consumer);
-        generatedSkinUpgradeRecipes(consumer);
+    public void buildRecipes(RecipeOutput exporter) {
+        generatedVanillaRecipes(exporter);
+        generatedSkinUpgradeRecipes(exporter);
     }
 
-    private void generatedSkinUpgradeRecipes(Consumer<FinishedRecipe> consumer) {
+    private void generatedSkinUpgradeRecipes(RecipeOutput exporter) {
         for (Item item : new Item[]{
                 SUGAR_CANE_SNIPER.get(),
                 CARROT_RIFLE.get(),
@@ -33,11 +32,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
             SkinUpgradeRecipeBuilder.upgrading(item)
                     .unlocks(RecipeProvider.getHasName(item),
                             RecipeProvider.has(item))
-                    .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(item) + "_skin"));
+                    .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(item) + "_skin"));
         }
     }
 
-    private void generatedVanillaRecipes(Consumer<FinishedRecipe> consumer) {
+    private void generatedVanillaRecipes(RecipeOutput exporter) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, AMMO_CRATE.get())
                 .pattern(" # ")
                 .pattern("PBN")
@@ -57,7 +56,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(POTATO_GRENADE.get()))
                 .unlockedBy(RecipeProvider.getHasName(COCOA_BEANS_SHELL.get()),
                         RecipeProvider.has(COCOA_BEANS_SHELL.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(AMMO_CRATE.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(AMMO_CRATE.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SUGAR_CANE_SNIPER.get())
                 .pattern("#G#")
@@ -84,7 +83,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(MACHINE_BLOCK.get()))
                 .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
                         RecipeProvider.has(IRON_ROD.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(SUGAR_CANE_SNIPER.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(SUGAR_CANE_SNIPER.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, BEETROOT_SMOKE.get())
                 .pattern("#I#")
@@ -102,7 +101,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(STONE_BUTTON))
                 .unlockedBy(RecipeProvider.getHasName(BEETROOT),
                         RecipeProvider.has(BEETROOT))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(BEETROOT_SMOKE.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(BEETROOT_SMOKE.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, CARROT_RIFLE.get())
                 .pattern("#II")
@@ -129,7 +128,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(MACHINE_BLOCK.get()))
                 .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
                         RecipeProvider.has(IRON_ROD.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(CARROT_RIFLE.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(CARROT_RIFLE.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, COCOA_BEAN_SHOTGUN.get())
                 .pattern("#ID")
@@ -153,7 +152,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(MACHINE_BLOCK.get()))
                 .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
                         RecipeProvider.has(IRON_ROD.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(COCOA_BEAN_SHOTGUN.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(COCOA_BEAN_SHOTGUN.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, COCOA_BEANS_SHELL.get())
                 .pattern("###")
@@ -168,13 +167,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(SUGAR))
                 .unlockedBy(RecipeProvider.getHasName(PAPER),
                         RecipeProvider.has(PAPER))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(COCOA_BEANS_SHELL.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(COCOA_BEANS_SHELL.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, GLIMMERING_MELON_SEEDS.get())
                 .requires(GLISTERING_MELON_SLICE)
                 .unlockedBy(RecipeProvider.getHasName(GLISTERING_MELON_SLICE),
                         RecipeProvider.has(GLISTERING_MELON_SLICE))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GLIMMERING_MELON_SEEDS.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GLIMMERING_MELON_SEEDS.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, GLIMMERING_REVOLVER.get())
                 .pattern("#BD")
@@ -194,7 +193,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(LEVER))
                 .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
                         RecipeProvider.has(MACHINE_BLOCK.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GLIMMERING_REVOLVER.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GLIMMERING_REVOLVER.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IRON_ROD.get())
                 .pattern("#")
@@ -203,7 +202,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .define('#', IRON_NUGGET)
                 .unlockedBy(RecipeProvider.getHasName(IRON_NUGGET),
                         RecipeProvider.has(IRON_NUGGET))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(IRON_ROD.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(IRON_ROD.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, MACHINE_BLOCK.get())
                 .pattern("/I/")
@@ -218,7 +217,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(IRON_BLOCK))
                 .unlockedBy(RecipeProvider.getHasName(IRON_ROD.get()),
                         RecipeProvider.has(IRON_ROD.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(MACHINE_BLOCK.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(MACHINE_BLOCK.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, POTATO_BAZOOKA.get())
                 .pattern("#/G")
@@ -242,7 +241,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(IRON_ROD.get()))
                 .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
                         RecipeProvider.has(MACHINE_BLOCK.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(POTATO_BAZOOKA.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(POTATO_BAZOOKA.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, POTATO_GRENADE.get())
                 .pattern("#PT")
@@ -255,7 +254,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(POTATO))
                 .unlockedBy(RecipeProvider.getHasName(TNT),
                         RecipeProvider.has(TNT))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(POTATO_GRENADE.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(POTATO_GRENADE.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SEED_PISTOL.get())
                 .pattern("#D")
@@ -272,7 +271,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(LEVER))
                 .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
                         RecipeProvider.has(MACHINE_BLOCK.get()))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(SEED_PISTOL.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(SEED_PISTOL.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TRAP_CAKE.get())
                 .pattern(" # ")
@@ -290,7 +289,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(TNT))
                 .unlockedBy(RecipeProvider.getHasName(CAKE),
                         RecipeProvider.has(CAKE))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(TRAP_CAKE.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(TRAP_CAKE.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, WAR_TACTIC_TABLE.get())
                 .pattern("#MR")
@@ -314,7 +313,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         RecipeProvider.has(STICK))
                 .unlockedBy(RecipeProvider.getHasName(CARTOGRAPHY_TABLE),
                         RecipeProvider.has(CARTOGRAPHY_TABLE))
-                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(WAR_TACTIC_TABLE.get())));
+                .save(exporter, new ResourceLocation(RecipeProvider.getSimpleRecipeName(WAR_TACTIC_TABLE.get())));
 
         // Makers Shift Update - v0.5
 //        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, GardenArsenalBlocks.SURVIVALIST_BARRICADE.get())

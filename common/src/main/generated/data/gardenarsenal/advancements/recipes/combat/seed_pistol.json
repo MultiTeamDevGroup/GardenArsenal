@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_dispenser",
       "has_green_terracotta",
       "has_lever",
-      "has_machine_block",
-      "has_the_recipe"
+      "has_machine_block"
     ]
   ],
   "rewards": {
