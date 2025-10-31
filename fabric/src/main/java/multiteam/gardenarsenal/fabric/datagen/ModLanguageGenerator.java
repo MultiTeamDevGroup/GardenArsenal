@@ -9,17 +9,20 @@ import multiteam.gardenarsenal.utils.SkinRarity;
 import multiteam.gardenarsenal.utils.Skins;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.concurrent.CompletableFuture;
+
 public class ModLanguageGenerator extends FabricLanguageProvider {
-    protected ModLanguageGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    protected ModLanguageGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         // Item Groups
         translationBuilder.add(GardenArsenalCreativeModeTabs.WEAPONS.getKey(), "Garden Arsenal - Weapons");
         translationBuilder.add(GardenArsenalCreativeModeTabs.MISC.getKey(), "Garden Arsenal - Misc");

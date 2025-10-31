@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:barrel"
-            ]
+            "items": "minecraft:barrel"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:dispenser"
-            ]
+            "items": "minecraft:dispenser"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:green_terracotta"
-            ]
+            "items": "minecraft:green_terracotta"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:lever"
-            ]
+            "items": "minecraft:lever"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gardenarsenal:machine_block"
-            ]
+            "items": "gardenarsenal:machine_block"
           }
         ]
       },

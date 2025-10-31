@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:barrel"
-            ]
+            "items": "minecraft:barrel"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:beetroot"
-            ]
+            "items": "minecraft:beetroot"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:carrot"
-            ]
+            "items": "minecraft:carrot"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gardenarsenal:cocoa_beans_shell"
-            ]
+            "items": "gardenarsenal:cocoa_beans_shell"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gardenarsenal:potato_grenade"
-            ]
+            "items": "gardenarsenal:potato_grenade"
           }
         ]
       },

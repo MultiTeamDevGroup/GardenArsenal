@@ -18,6 +18,7 @@
     "/I/"
   ],
   "result": {
-    "item": "gardenarsenal:machine_block"
+    "count": 1,
+    "id": "gardenarsenal:machine_block"
   }
 }

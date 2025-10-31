@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gardenarsenal:potato_bazooka"
-            ]
+            "items": "gardenarsenal:potato_bazooka"
           }
         ]
       },

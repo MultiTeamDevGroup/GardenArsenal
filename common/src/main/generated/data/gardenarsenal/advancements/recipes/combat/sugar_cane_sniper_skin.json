@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gardenarsenal:sugar_cane_sniper"
-            ]
+            "items": "gardenarsenal:sugar_cane_sniper"
           }
         ]
       },

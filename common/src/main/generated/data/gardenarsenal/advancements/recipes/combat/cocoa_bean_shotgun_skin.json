@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gardenarsenal:cocoa_bean_shotgun"
-            ]
+            "items": "gardenarsenal:cocoa_bean_shotgun"
           }
         ]
       },
