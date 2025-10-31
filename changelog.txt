@@ -60,7 +60,7 @@ v0.4.5 For 1.19.2, 1.19.3, 1.19.4, 1.20.1 and 1.20.2
 - Fix paintings not being placeable
 - (1.20+) Improve recipe viewer support for skin upgrade
 
-v0.4.6 For 1.19.2, 1.19.3, 1.19.4 and 1.20.1
+v0.4.6 For 1.19.2, 1.19.3, 1.19.4, 1.20.1 and 1.20.2
 
 - Fix loot tables not being generated
 - Fix recipes not appearing in recipe book
