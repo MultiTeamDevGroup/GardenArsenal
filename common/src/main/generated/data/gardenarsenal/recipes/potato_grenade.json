@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stone_button"
+    },
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "pattern": [
+    "#PT"
+  ],
+  "result": {
+    "item": "gardenarsenal:potato_grenade"
+  }
+}

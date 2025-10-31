@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "/": {
+      "item": "gardenarsenal:iron_rod"
+    },
+    "A": {
+      "item": "minecraft:iron_block"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "/I/",
+    "IAI",
+    "/I/"
+  ],
+  "result": {
+    "item": "gardenarsenal:machine_block"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:blue_dye"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "minecraft:cartography_table"
+    },
+    "M": {
+      "item": "minecraft:map"
+    },
+    "O": {
+      "item": "minecraft:oak_planks"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "pattern": [
+    "#MR",
+    "OCO",
+    "/ /"
+  ],
+  "result": {
+    "item": "gardenarsenal:war_tactic_table"
+  }
+}

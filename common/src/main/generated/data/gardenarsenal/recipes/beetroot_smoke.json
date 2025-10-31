@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:sugar"
+    },
+    "B": {
+      "item": "minecraft:beetroot"
+    },
+    "I": {
+      "item": "minecraft:ink_sac"
+    },
+    "S": {
+      "item": "minecraft:stone_button"
+    }
+  },
+  "pattern": [
+    "#I#",
+    "SBI",
+    "#I#"
+  ],
+  "result": {
+    "item": "gardenarsenal:beetroot_smoke"
+  }
+}
