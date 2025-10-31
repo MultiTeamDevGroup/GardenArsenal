@@ -1,25 +1,28 @@
 package multiteam.gardenarsenal.fabric.datagen;
 
 import multiteam.gardenarsenal.registries.GardenArsenalPaintings;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.core.Registry;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.PaintingVariantTags;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 
+import java.util.concurrent.CompletableFuture;
+
 public class ModPaintingVariantTagGenerator extends FabricTagProvider<PaintingVariant> {
-    public ModPaintingVariantTagGenerator(FabricDataGenerator dataGenerator) {
-        super(dataGenerator, Registry.PAINTING_VARIANT);
+    public ModPaintingVariantTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, Registries.PAINTING_VARIANT, registriesFuture);
     }
 
     @Override
-    protected void generateTags() {
+    protected void addTags(HolderLookup.Provider arg) {
         tag(PaintingVariantTags.PLACEABLE).add(
-                GardenArsenalPaintings.PAINTING_BLUEPRINT_RIFLE.get(),
-                GardenArsenalPaintings.PAINTING_BLUEPRINT_SHOTGUN.get(),
-                GardenArsenalPaintings.PAINTING_BLUEPRINT_BAZOOKA.get(),
-                GardenArsenalPaintings.PAINTING_BLUEPRINT_PISTOL.get(),
-                GardenArsenalPaintings.PAINTING_BLUEPRINT_SNIPER.get()
+                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_RIFLE.get()),
+                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_SHOTGUN.get()),
+                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_BAZOOKA.get()),
+                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_PISTOL.get()),
+                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_SNIPER.get())
         );
     }
 }

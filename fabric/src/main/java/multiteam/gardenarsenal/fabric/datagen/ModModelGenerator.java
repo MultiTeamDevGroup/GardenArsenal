@@ -5,7 +5,7 @@ import multiteam.gardenarsenal.items.SkinCardItem;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.utils.Skins;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
@@ -20,8 +20,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class ModModelGenerator extends FabricModelProvider {
-    public ModModelGenerator(FabricDataGenerator dataGenerator) {
-        super(dataGenerator);
+    public ModModelGenerator(FabricDataOutput output) {
+        super(output);
     }
 
     @Override

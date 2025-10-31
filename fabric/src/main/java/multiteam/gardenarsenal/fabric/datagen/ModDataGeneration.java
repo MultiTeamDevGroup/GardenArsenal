@@ -7,13 +7,14 @@ import net.minecraft.resources.ResourceLocation;
 public class ModDataGeneration implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        fabricDataGenerator.addProvider(ModLootTableGenerator::new);
-        fabricDataGenerator.addProvider(ModRecipeGenerator::new);
-        fabricDataGenerator.addProvider(ModBlockTagGenerator::new);
-        fabricDataGenerator.addProvider(ModPaintingVariantTagGenerator::new);
-        fabricDataGenerator.addProvider(ModPoiTypeTagGenerator::new);
-        fabricDataGenerator.addProvider(ModModelGenerator::new);
-        fabricDataGenerator.addProvider(ModLanguageGenerator::new);
+        var pack = fabricDataGenerator.createPack();
+        pack.addProvider(ModLootTableGenerator::new);
+        pack.addProvider(ModRecipeGenerator::new);
+        pack.addProvider(ModBlockTagGenerator::new);
+        pack.addProvider(ModPaintingVariantTagGenerator::new);
+        pack.addProvider(ModPoiTypeTagGenerator::new);
+        pack.addProvider(ModModelGenerator::new);
+        pack.addProvider(ModLanguageGenerator::new);
     }
 
     public static ResourceLocation fromId(ResourceLocation id, String prefix) {

@@ -7,8 +7,10 @@ import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -20,14 +22,16 @@ public class SkinUpgradeRecipeBuilder {
     private final Item weapon;
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
     private final RecipeSerializer<?> type;
+    private final RecipeCategory category;
 
-    public SkinUpgradeRecipeBuilder(Item weapon, RecipeSerializer<?> type) {
+    public SkinUpgradeRecipeBuilder(Item weapon, RecipeSerializer<?> type, RecipeCategory category) {
         this.weapon = weapon;
         this.type = type;
+        this.category = category;
     }
 
     public static SkinUpgradeRecipeBuilder upgrading(Item weapon) {
-        return new SkinUpgradeRecipeBuilder(weapon, SkinUpgradeRecipe.DYNAMIC_SERIALIZER);
+        return new SkinUpgradeRecipeBuilder(weapon, SkinUpgradeRecipe.DYNAMIC_SERIALIZER, RecipeCategory.COMBAT);
     }
 
     public SkinUpgradeRecipeBuilder unlocks(String string, CriterionTriggerInstance criterionTriggerInstance) {
@@ -46,7 +50,7 @@ public class SkinUpgradeRecipeBuilder {
         Item item = this.weapon;
         Advancement.Builder criterion = this.advancement;
         String var10011 = resourceLocation.getNamespace();
-        String var10012 = this.weapon.getItemCategory().getRecipeFolderName();
+        String var10012 = this.category.getFolderName();
         consumer.accept(new Result(resourceLocation, item, criterion, new ResourceLocation(var10011, "recipes/" + var10012 + "/" + resourceLocation.getPath()), serializer));
     }
 
@@ -73,7 +77,7 @@ public class SkinUpgradeRecipeBuilder {
 
         @Override
         public void serializeRecipeData(JsonObject jsonObject) {
-            jsonObject.addProperty("weapon", Registry.ITEM.getKey(this.weapon).toString());
+            jsonObject.addProperty("weapon", BuiltInRegistries.ITEM.getKey(this.weapon).toString());
         }
 
         @Override

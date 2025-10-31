@@ -6,23 +6,22 @@ import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.registries.GardenArsenalProfessions;
 import multiteam.gardenarsenal.utils.SkinRarity;
 import multiteam.gardenarsenal.utils.Skins;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.StringUtils;
 
 public class ModLanguageGenerator extends FabricLanguageProvider {
-    protected ModLanguageGenerator(FabricDataGenerator dataGenerator) {
-        super(dataGenerator);
+    protected ModLanguageGenerator(FabricDataOutput dataOutput) {
+        super(dataOutput);
     }
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
         // Item Groups
-        translationBuilder.add(GardenArsenalItems.WEAPONS, "Garden Arsenal - Weapons");
-        translationBuilder.add(GardenArsenalItems.MISC, "Garden Arsenal - Misc");
+        translationBuilder.add(GardenArsenalItems.WEAPONS.get(), "Garden Arsenal - Weapons");
+        translationBuilder.add(GardenArsenalItems.MISC.get(), "Garden Arsenal - Misc");
 
         // Items
         translationBuilder.add(GardenArsenalItems.IRON_ROD.get(), "Iron Rod");
@@ -39,39 +38,39 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(GardenArsenalItems.CARROT_RIFLE.get(), "Carrot Rifle");
         translationBuilder.add(
-                getWeaponTooltipKey(GardenArsenalItems.CARROT_RIFLE.get()),
+                getWeaponTooltipKey(GardenArsenalItems.CARROT_RIFLE),
                 "Rapidly fires carrots"
         );
         translationBuilder.add(GardenArsenalItems.POTATO_BAZOOKA.get(), "Potato Bazooka");
         translationBuilder.add(
-                getWeaponTooltipKey(GardenArsenalItems.POTATO_BAZOOKA.get()),
+                getWeaponTooltipKey(GardenArsenalItems.POTATO_BAZOOKA),
                 "Fires §lexplosive §rpotatoes"
         );
         translationBuilder.add(GardenArsenalItems.COCOA_BEAN_SHOTGUN.get(), "Cocoa Bean Shotgun");
         translationBuilder.add(
-                getWeaponTooltipKey(GardenArsenalItems.COCOA_BEAN_SHOTGUN.get()),
+                getWeaponTooltipKey(GardenArsenalItems.COCOA_BEAN_SHOTGUN),
                 "Fires several beans at once"
         );
         translationBuilder.add(GardenArsenalItems.SEED_PISTOL.get(), "Wheat-Seed Pistol");
         translationBuilder.add(
-                getWeaponTooltipKey(GardenArsenalItems.SEED_PISTOL.get()),
+                getWeaponTooltipKey(GardenArsenalItems.SEED_PISTOL),
                 "Shoots seeds"
         );
         translationBuilder.add(GardenArsenalItems.SUGAR_CANE_SNIPER.get(), "Sugar Cane Sniper");
         translationBuilder.add(
-                getWeaponTooltipKey(GardenArsenalItems.SUGAR_CANE_SNIPER.get()),
+                getWeaponTooltipKey(GardenArsenalItems.SUGAR_CANE_SNIPER),
                 "Slow and steady wins the race. High precision sugar canes."
         );
         translationBuilder.add(GardenArsenalItems.PROJECTILE_CARROT.get(), "§6Garden Arsenal Carrot");
         translationBuilder.add(GardenArsenalItems.POTATO_GRENADE.get(), "Potato Grenade");
         translationBuilder.add(GardenArsenalItems.BEETROOT_SMOKE.get(), "Beetroot Smoke");
         translationBuilder.add(
-                getWeaponTooltipKey(GardenArsenalItems.BEETROOT_SMOKE.get()),
+                getWeaponTooltipKey(GardenArsenalItems.BEETROOT_SMOKE),
                 "Makes a cloud of blindness on impact"
         );
         translationBuilder.add(GardenArsenalItems.GLIMMERING_REVOLVER.get(), "Glimmering Revolver");
         translationBuilder.add(
-                getWeaponTooltipKey(GardenArsenalItems.GLIMMERING_REVOLVER.get()),
+                getWeaponTooltipKey(GardenArsenalItems.GLIMMERING_REVOLVER),
                 "Revolves around shiny seeds. Can fire up to 6 shots, then needs reloading"
         );
 
@@ -152,8 +151,8 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
         };
     }
 
-    private String getWeaponTooltipKey(Item item) {
-        var key = Registry.ITEM.getKey(item);
+    private String getWeaponTooltipKey(RegistrySupplier<Item> item) {
+        var key = item.getId();
         return "tooltip." + key.getNamespace() + "." + key.getPath().replace('/', '.') + "_desc";
     }
 
