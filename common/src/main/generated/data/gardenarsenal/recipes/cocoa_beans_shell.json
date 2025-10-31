@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "SPS"
+  ],
+  "result": {
+    "item": "gardenarsenal:cocoa_beans_shell"
+  }
+}

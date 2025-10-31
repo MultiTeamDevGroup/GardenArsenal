@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:comparator"
+    },
+    "/": {
+      "item": "gardenarsenal:iron_rod"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "I": {
+      "item": "gardenarsenal:machine_block"
+    },
+    "L": {
+      "item": "minecraft:lever"
+    }
+  },
+  "pattern": [
+    "#/G",
+    "IID",
+    "//L"
+  ],
+  "result": {
+    "item": "gardenarsenal:potato_bazooka"
+  }
+}
