@@ -1,4 +1,4 @@
-// 1.20.4	2025-10-31T23:36:33.760236519	Garden Arsenal/Model Definitions
+// 1.20.4	2025-10-31T23:44:25.750727978	Garden Arsenal/Model Definitions
 b64ab33495e453c2642a0f641d02a5a7d9445f59 assets/gardenarsenal/models/item/glimmering_melon_seeds.json
 0596844e5df66d5a515f0d9751b181c29f0b4823 assets/gardenarsenal/models/item/skin_card_camo_nether.json
 5a940d6be1001db4593953a18dd6da8cdf2734e8 assets/gardenarsenal/models/item/skin_card_default.json
@@ -22,8 +22,8 @@ acfb3684a95285a9da8735be75263c15ecbd78fe assets/gardenarsenal/models/item/skin_c
 7b88164436e1d16b2d32b58e5b2088d7e2d78e96 assets/gardenarsenal/models/item/iron_rod.json
 80dc3ab5dfdff694e885f0ab792c1a37598f558d assets/gardenarsenal/blockstates/trap_cake.json
 98c746111b076850ff917251f73fe8d7599427b9 assets/gardenarsenal/models/item/skin_card_special_nerf.json
-5657c0926ecd7de9a869c6fdf16eb60c899fa77d assets/gardenarsenal/models/item/skin_card_special_aquatic.json
 8f4b2762675238495b6d9fba7fab24366c04a10f assets/gardenarsenal/models/item/skin_card_camo_end.json
+5657c0926ecd7de9a869c6fdf16eb60c899fa77d assets/gardenarsenal/models/item/skin_card_special_aquatic.json
 d094cbae8600f208388dd3a3cc08cad98b0e4522 assets/gardenarsenal/models/item/skin_card_special_neon.json
 b3fbc0da6a7b2059d9cc4e6087a2bc9fb422e45e assets/gardenarsenal/models/item/skin_card_teams_multiteam.json
 d54ca478614c31422a4b2d381d55da11065f9479 assets/gardenarsenal/models/item/skin_card_camo_desert.json
