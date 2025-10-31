@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:sugar"
+    },
+    "C": {
+      "item": "minecraft:cake"
+    },
+    "S": {
+      "item": "minecraft:stone_button"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "pattern": [
+    " # ",
+    "SCT",
+    " # "
+  ],
+  "result": {
+    "item": "gardenarsenal:trap_cake"
+  },
+  "show_notification": true
+}
