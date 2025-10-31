@@ -15,6 +15,7 @@ public class ModDataGeneration implements DataGeneratorEntrypoint {
         pack.addProvider(ModPoiTypeTagGenerator::new);
         pack.addProvider(ModModelGenerator::new);
         pack.addProvider(ModLanguageGenerator::new);
+        pack.addProvider(ModItemTagGenerator::new);
     }
 
     public static ResourceLocation fromId(ResourceLocation id, String prefix) {
