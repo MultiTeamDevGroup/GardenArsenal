@@ -4,6 +4,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.blocks.AmmoCrate;
+import multiteam.gardenarsenal.blocks.BarricadeBlock;
 import multiteam.gardenarsenal.blocks.TrapCake;
 import multiteam.gardenarsenal.blocks.WarTacticTable;
 import net.minecraft.core.registries.Registries;
@@ -31,12 +32,12 @@ public class GardenArsenalBlocks {
 
     //Makers Shift Update - v0.5
 //    public static final RegistrySupplier<Block> SCRAP_WOOD_PILE = BLOCKS.register("scrap_wood_pile", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.0f, 2.0f).sound(SoundType.WOOD)));
-//    public static final RegistrySupplier<Block> MAKERS_CONCRETE_POWDER_BLOCK = BLOCKS.register("makers_concrete_powder", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5f,0.5f).sound(SoundType.SAND)));
+//    public static final RegistrySupplier<Block> MAKERS_CONCRETE_POWDER = BLOCKS.register("makers_concrete_powder", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5f,0.5f).sound(SoundType.SAND)));
 //    public static final RegistrySupplier<Block> REINFORCED_METAL_BLOCK = BLOCKS.register("reinforced_metal_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).pushReaction(PushReaction.BLOCK).strength(10.f, 200.0f).sound(SoundType.NETHERITE_BLOCK)));
 //    public static final RegistrySupplier<Block> INDUSTRIAL_BARRIER_BLOCK = BLOCKS.register("industrial_barrier_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).pushReaction(PushReaction.BLOCK).strength(10.0f, 100.0f).sound(SoundType.NETHERITE_BLOCK)));
-//    public static final RegistrySupplier<Block> BARRICADE_SURVIVALIST = BLOCKS.register("survivalist_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(2.0f, 3.0f).sound(SoundType.BAMBOO)));
-//    public static final RegistrySupplier<Block> BARRICADE_MAKER = BLOCKS.register("maker_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(15.0f, 100.0f).sound(SoundType.NETHER_BRICKS)));
-//    public static final RegistrySupplier<Block> BARRICADE_INDUSTRIAL = BLOCKS.register("industrial_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).pushReaction(PushReaction.BLOCK).strength(40.0f, 900.0f).sound(SoundType.ANVIL)));
+//    public static final RegistrySupplier<Block> SURVIVALIST_BARRICADE = BLOCKS.register("survivalist_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(2.0f, 3.0f).sound(SoundType.BAMBOO)));
+//    public static final RegistrySupplier<Block> MAKER_BARRICADE = BLOCKS.register("maker_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(15.0f, 100.0f).sound(SoundType.NETHER_BRICKS)));
+//    public static final RegistrySupplier<Block> INDUSTRIAL_BARRICADE = BLOCKS.register("industrial_barricade", () -> new BarricadeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).pushReaction(PushReaction.BLOCK).strength(40.0f, 900.0f).sound(SoundType.ANVIL)));
 
     public static void init() {
         BLOCKS.register();

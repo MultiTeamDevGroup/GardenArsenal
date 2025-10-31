@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glimmering_revolver": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gardenarsenal:glimmering_revolver"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:glimmering_revolver_skin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_glimmering_revolver"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:glimmering_revolver_skin"
+    ]
+  },
+  "sends_telemetry_event": false
+}
