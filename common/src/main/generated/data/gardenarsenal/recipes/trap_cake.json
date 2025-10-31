@@ -22,5 +22,6 @@
   ],
   "result": {
     "item": "gardenarsenal:trap_cake"
-  }
+  },
+  "show_notification": true
 }

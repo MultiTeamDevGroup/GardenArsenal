@@ -3,10 +3,6 @@ package multiteam.gardenarsenal.fabric.datagen;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.storage.loot.LootTable;
-
-import java.util.function.BiConsumer;
 
 public class ModLootTableGenerator extends FabricBlockLootTableProvider {
     public ModLootTableGenerator(FabricDataOutput output) {
@@ -28,10 +24,5 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 //        dropSelf(GardenArsenalBlocks.INDUSTRIAL_BARRICADE.get());
 //        dropSelf(GardenArsenalBlocks.SURVIVALIST_BARRICADE.get());
 //        dropSelf(GardenArsenalBlocks.MAKER_BARRICADE.get());
-    }
-
-    @Override
-    public void accept(BiConsumer<ResourceLocation, LootTable.Builder> resourceLocationBuilderBiConsumer) {
-        this.generate(resourceLocationBuilderBiConsumer);
     }
 }

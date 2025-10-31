@@ -28,5 +28,6 @@
   ],
   "result": {
     "item": "gardenarsenal:cocoa_bean_shotgun"
-  }
+  },
+  "show_notification": true
 }

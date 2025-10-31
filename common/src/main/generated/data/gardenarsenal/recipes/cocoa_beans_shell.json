@@ -19,5 +19,6 @@
   ],
   "result": {
     "item": "gardenarsenal:cocoa_beans_shell"
-  }
+  },
+  "show_notification": true
 }

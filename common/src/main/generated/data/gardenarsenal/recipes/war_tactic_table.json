@@ -28,5 +28,6 @@
   ],
   "result": {
     "item": "gardenarsenal:war_tactic_table"
-  }
+  },
+  "show_notification": true
 }

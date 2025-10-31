@@ -31,5 +31,6 @@
   ],
   "result": {
     "item": "gardenarsenal:carrot_rifle"
-  }
+  },
+  "show_notification": true
 }

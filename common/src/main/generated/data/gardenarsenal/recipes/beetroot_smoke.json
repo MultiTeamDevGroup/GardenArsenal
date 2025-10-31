@@ -22,5 +22,6 @@
   ],
   "result": {
     "item": "gardenarsenal:beetroot_smoke"
-  }
+  },
+  "show_notification": true
 }

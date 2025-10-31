@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "gardenarsenal:iron_rod"
-  }
+  },
+  "show_notification": true
 }

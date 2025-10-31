@@ -25,5 +25,6 @@
   ],
   "result": {
     "item": "gardenarsenal:ammo_crate"
-  }
+  },
+  "show_notification": true
 }
