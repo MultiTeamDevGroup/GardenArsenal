@@ -40,6 +40,12 @@ public class ModModelGenerator extends FabricModelProvider {
                         .select(6, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(GardenArsenalBlocks.TRAP_CAKE.get(), "/slice6")))
                 )
         );
+
+        //Makers Shift Update - v0.5
+//        blockStateModelGenerator.createTrivialCube(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get());
+//        blockStateModelGenerator.createTrivialCube(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get());
+//        blockStateModelGenerator.createTrivialCube(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get());
+//        blockStateModelGenerator.createTrivialCube(GardenArsenalBlocks.SCRAP_WOOD_PILE.get());
     }
 
     @Override

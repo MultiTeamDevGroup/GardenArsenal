@@ -35,5 +35,35 @@ public class ModLootTableGenerator extends SimpleFabricLootTableProvider {
                 fromId(GardenArsenalBlocks.TRAP_CAKE.getId(), "blocks/"),
                 BlockLoot.noDrop()
         );
+
+        //Makers Shift Update - v0.5
+//        resourceLocationBuilderBiConsumer.accept(
+//                fromId(GardenArsenalBlocks.SCRAP_WOOD_PILE.getId(), "blocks/"),
+//                BlockLoot.createSingleItemTable(GardenArsenalBlocks.SCRAP_WOOD_PILE.get())
+//        );
+//        resourceLocationBuilderBiConsumer.accept(
+//                fromId(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.getId(), "blocks/"),
+//                BlockLoot.createSingleItemTable(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get())
+//        );
+//        resourceLocationBuilderBiConsumer.accept(
+//                fromId(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.getId(), "blocks/"),
+//                BlockLoot.createSingleItemTable(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get())
+//        );
+//        resourceLocationBuilderBiConsumer.accept(
+//                fromId(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.getId(), "blocks/"),
+//                BlockLoot.createSingleItemTable(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get())
+//        );
+//        resourceLocationBuilderBiConsumer.accept(
+//                fromId(GardenArsenalBlocks.INDUSTRIAL_BARRICADE.getId(), "blocks/"),
+//                BlockLoot.createSingleItemTable(GardenArsenalBlocks.INDUSTRIAL_BARRICADE.get())
+//        );
+//        resourceLocationBuilderBiConsumer.accept(
+//                fromId(GardenArsenalBlocks.SURVIVALIST_BARRICADE.getId(), "blocks/"),
+//                BlockLoot.createSingleItemTable(GardenArsenalBlocks.SURVIVALIST_BARRICADE.get())
+//        );
+//        resourceLocationBuilderBiConsumer.accept(
+//                fromId(GardenArsenalBlocks.MAKER_BARRICADE.getId(), "blocks/"),
+//                BlockLoot.createSingleItemTable(GardenArsenalBlocks.MAKER_BARRICADE.get())
+//        );
     }
 }

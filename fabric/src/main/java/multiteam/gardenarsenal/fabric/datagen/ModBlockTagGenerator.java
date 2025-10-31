@@ -26,5 +26,19 @@ public class ModBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 GardenArsenalBlocks.MACHINE_BLOCK.get()
         );
+
+        // Makers Shift Update - v0.5
+//        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+//                GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get()
+//        );
+//        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+//                GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get(),
+//                GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get(),
+//                GardenArsenalBlocks.MAKER_BARRICADE.get(),
+//                GardenArsenalBlocks.INDUSTRIAL_BARRICADE.get()
+//        );
+//        tag(BlockTags.MINEABLE_WITH_AXE).add(
+//                GardenArsenalBlocks.SCRAP_WOOD_PILE.get()
+//        );
     }
 }

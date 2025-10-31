@@ -1,5 +1,6 @@
 package multiteam.gardenarsenal.fabric.datagen;
 
+import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -318,5 +319,104 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .unlockedBy(RecipeProvider.getHasName(CARTOGRAPHY_TABLE),
                         RecipeProvider.has(CARTOGRAPHY_TABLE))
                 .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(WAR_TACTIC_TABLE.get())));
+
+        // Makers Shift Update - v0.5
+//        ShapedRecipeBuilder.shaped(GardenArsenalBlocks.SURVIVALIST_BARRICADE.get())
+//                .pattern("#I")
+//                .pattern("# ")
+//                .define('#', GardenArsenalBlocks.SCRAP_WOOD_PILE.get())
+//                .define('I', IRON_NUGGET)
+//                .unlockedBy(RecipeProvider.getHasName(GardenArsenalBlocks.SCRAP_WOOD_PILE.get()),
+//                        RecipeProvider.has(GardenArsenalBlocks.SCRAP_WOOD_PILE.get()))
+//                .unlockedBy(RecipeProvider.getHasName(IRON_NUGGET),
+//                        RecipeProvider.has(IRON_NUGGET))
+//                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.SURVIVALIST_BARRICADE.get())));
+//
+//        ShapelessRecipeBuilder.shapeless(GardenArsenalBlocks.SCRAP_WOOD_PILE.get())
+//                .requires(OAK_STAIRS)
+//                .requires(WOODEN_AXE)
+//                .requires(WOODEN_HOE)
+//                .requires(STRIPPED_OAK_WOOD)
+//                .unlockedBy(RecipeProvider.getHasName(OAK_STAIRS),
+//                        RecipeProvider.has(OAK_STAIRS))
+//                .unlockedBy(RecipeProvider.getHasName(WOODEN_AXE),
+//                        RecipeProvider.has(WOODEN_AXE))
+//                .unlockedBy(RecipeProvider.getHasName(WOODEN_HOE),
+//                        RecipeProvider.has(WOODEN_HOE))
+//                .unlockedBy(RecipeProvider.getHasName(STRIPPED_OAK_WOOD),
+//                        RecipeProvider.has(STRIPPED_OAK_WOOD))
+//                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.SCRAP_WOOD_PILE.get())));
+//
+//        ShapedRecipeBuilder.shaped(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get())
+//                .pattern("#I#")
+//                .pattern("IAI")
+//                .pattern("#I#")
+//                .define('#', MACHINE_BLOCK.get())
+//                .define('I', IRON_BARS)
+//                .define('A', ANVIL)
+//                .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
+//                        RecipeProvider.has(MACHINE_BLOCK.get()))
+//                .unlockedBy(RecipeProvider.getHasName(IRON_BARS),
+//                        RecipeProvider.has(IRON_BARS))
+//                .unlockedBy(RecipeProvider.getHasName(ANVIL),
+//                        RecipeProvider.has(ANVIL))
+//                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get())));
+//
+//        ShapelessRecipeBuilder.shapeless(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get())
+//                .requires(WHITE_CONCRETE_POWDER)
+//                .requires(COBBLESTONE)
+//                .requires(GRAVEL)
+//                .requires(SAND)
+//                .requires(SUGAR)
+//                .unlockedBy(RecipeProvider.getHasName(WHITE_CONCRETE_POWDER),
+//                        RecipeProvider.has(WHITE_CONCRETE_POWDER))
+//                .unlockedBy(RecipeProvider.getHasName(COBBLESTONE),
+//                        RecipeProvider.has(COBBLESTONE))
+//                .unlockedBy(RecipeProvider.getHasName(GRAVEL),
+//                        RecipeProvider.has(GRAVEL))
+//                .unlockedBy(RecipeProvider.getHasName(SAND),
+//                        RecipeProvider.has(SAND))
+//                .unlockedBy(RecipeProvider.getHasName(SUGAR),
+//                        RecipeProvider.has(SUGAR))
+//                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get())));
+//
+//        ShapedRecipeBuilder.shaped(GardenArsenalBlocks.MAKER_BARRICADE.get())
+//                .pattern("#W#")
+//                .pattern("#W#")
+//                .pattern("#W#")
+//                .define('#', IRON_NUGGET)
+//                .define('W', GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get())
+//                .unlockedBy(RecipeProvider.getHasName(IRON_NUGGET),
+//                        RecipeProvider.has(IRON_NUGGET))
+//                .unlockedBy(RecipeProvider.getHasName(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get()),
+//                        RecipeProvider.has(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get()))
+//                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.MAKER_BARRICADE.get())));
+//
+//        ShapedRecipeBuilder.shaped(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get())
+//                .pattern("#B#")
+//                .pattern("BIB")
+//                .pattern("#B#")
+//                .define('#', YELLOW_CONCRETE)
+//                .define('B', BLACK_CONCRETE)
+//                .define('I', MACHINE_BLOCK.get())
+//                .unlockedBy(RecipeProvider.getHasName(YELLOW_CONCRETE),
+//                        RecipeProvider.has(YELLOW_CONCRETE))
+//                .unlockedBy(RecipeProvider.getHasName(BLACK_CONCRETE),
+//                        RecipeProvider.has(BLACK_CONCRETE))
+//                .unlockedBy(RecipeProvider.getHasName(MACHINE_BLOCK.get()),
+//                        RecipeProvider.has(MACHINE_BLOCK.get()))
+//                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get())));
+//
+//        ShapedRecipeBuilder.shaped(GardenArsenalBlocks.INDUSTRIAL_BARRICADE.get())
+//                .pattern("###")
+//                .pattern("III")
+//                .pattern("###")
+//                .define('#', GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get())
+//                .define('I', GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get())
+//                .unlockedBy(RecipeProvider.getHasName(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get()),
+//                        RecipeProvider.has(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get()))
+//                .unlockedBy(RecipeProvider.getHasName(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get()),
+//                        RecipeProvider.has(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get()))
+//                .save(consumer, new ResourceLocation(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.INDUSTRIAL_BARRICADE.get())));
     }
 }

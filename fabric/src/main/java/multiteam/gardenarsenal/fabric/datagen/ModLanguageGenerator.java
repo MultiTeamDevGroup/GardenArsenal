@@ -81,11 +81,11 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(GardenArsenalBlocks.WAR_TACTIC_TABLE.get(), "War Tactic Table");
         translationBuilder.add(GardenArsenalBlocks.AMMO_CRATE.get(), "Ammo Crate");
         // Makers Shift Update - v0.5
-//        translationBuilder.add(GardenArsenalBlocks.BARRICADE_SURVIVALIST.get(), "Survivalist Barricade");
-//        translationBuilder.add(GardenArsenalBlocks.BARRICADE_MAKER.get(), "Makers Barricade");
-//        translationBuilder.add(GardenArsenalBlocks.BARRICADE_INDUSTRIAL.get(), "Industrial Barricade");
+//        translationBuilder.add(GardenArsenalBlocks.SURVIVALIST_BARRICADE.get(), "Survivalist Barricade");
+//        translationBuilder.add(GardenArsenalBlocks.MAKER_BARRICADE.get(), "Makers Barricade");
+//        translationBuilder.add(GardenArsenalBlocks.INDUSTRIAL_BARRICADE.get(), "Industrial Barricade");
 //        translationBuilder.add(GardenArsenalBlocks.SCRAP_WOOD_PILE.get(), "Scrap Wood Pile");
-//        translationBuilder.add(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER_BLOCK.get(), "Makers' Concrete Powder");
+//        translationBuilder.add(GardenArsenalBlocks.MAKERS_CONCRETE_POWDER.get(), "Makers' Concrete Powder");
 //        translationBuilder.add(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get(), "Reinforced Metal Block");
 //        translationBuilder.add(GardenArsenalBlocks.INDUSTRIAL_BARRIER_BLOCK.get(), "Industrial Barrier Block");
 
