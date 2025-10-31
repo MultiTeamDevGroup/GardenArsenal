@@ -22,6 +22,9 @@
     ],
     "client": [
       "multiteam.gardenarsenal.fabric.GardenArsenalClientFabric"
+    ],
+    "fabric-datagen": [
+      "multiteam.gardenarsenal.fabric.datagen.ModDataGeneration"
     ]
   },
   "depends": {

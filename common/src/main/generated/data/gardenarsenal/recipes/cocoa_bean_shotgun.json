@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:green_terracotta"
+    },
+    "/": {
+      "item": "gardenarsenal:iron_rod"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "I": {
+      "item": "gardenarsenal:machine_block"
+    },
+    "L": {
+      "item": "minecraft:lever"
+    },
+    "R": {
+      "item": "minecraft:repeater"
+    }
+  },
+  "pattern": [
+    "#ID",
+    "RID",
+    "/L "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gardenarsenal:cocoa_bean_shotgun"
+  }
+}

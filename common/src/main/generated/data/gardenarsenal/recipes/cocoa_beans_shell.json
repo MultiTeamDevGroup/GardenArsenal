@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "SPS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gardenarsenal:cocoa_beans_shell"
+  }
+}

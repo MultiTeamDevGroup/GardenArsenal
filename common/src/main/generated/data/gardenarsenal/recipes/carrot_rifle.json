@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:repeater"
+    },
+    "/": {
+      "item": "gardenarsenal:iron_rod"
+    },
+    "C": {
+      "item": "minecraft:dispenser"
+    },
+    "D": {
+      "item": "gardenarsenal:machine_block"
+    },
+    "G": {
+      "item": "minecraft:green_terracotta"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "L": {
+      "item": "minecraft:lever"
+    }
+  },
+  "pattern": [
+    "#II",
+    "GDC",
+    "/L "
+  ],
+  "result": {
+    "count": 1,
+    "id": "gardenarsenal:carrot_rifle"
+  }
+}
