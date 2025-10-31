@@ -56,6 +56,5 @@
     "recipes": [
       "minecraft:potato_grenade"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

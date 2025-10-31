@@ -2,6 +2,10 @@ architectury {
     common rootProject.enabled_platforms.split(',')
 }
 
+fabricApi {
+    configureDataGeneration()
+}
+
 dependencies {
     // We depend on Fabric Loader here to use the Fabric @Environment annotations,
     // which get remapped to the correct annotations on each platform.
@@ -12,4 +16,4 @@ dependencies {
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 }
 
-sourceSets { main { resources { srcDirs += 'src/main/generated' } } }
+//sourceSets { main { resources { srcDirs += 'src/main/generated' } } }

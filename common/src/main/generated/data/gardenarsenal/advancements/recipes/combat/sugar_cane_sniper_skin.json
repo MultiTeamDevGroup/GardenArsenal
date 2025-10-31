@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:sugar_cane_sniper_skin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

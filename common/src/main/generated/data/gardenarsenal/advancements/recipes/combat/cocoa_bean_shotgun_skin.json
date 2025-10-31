@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:cocoa_bean_shotgun_skin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

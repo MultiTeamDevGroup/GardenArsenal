@@ -95,6 +95,5 @@
     "recipes": [
       "minecraft:cocoa_bean_shotgun"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:glimmering_revolver_skin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -95,6 +95,5 @@
     "recipes": [
       "minecraft:potato_bazooka"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

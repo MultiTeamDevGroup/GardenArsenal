@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:seed_pistol_skin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

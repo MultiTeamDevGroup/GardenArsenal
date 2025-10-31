@@ -95,6 +95,5 @@
     "recipes": [
       "minecraft:war_tactic_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

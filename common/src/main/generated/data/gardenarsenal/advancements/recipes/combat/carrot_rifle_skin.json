@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:carrot_rifle_skin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -108,6 +108,5 @@
     "recipes": [
       "minecraft:sugar_cane_sniper"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
