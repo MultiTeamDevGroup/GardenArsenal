@@ -69,5 +69,6 @@
     "recipes": [
       "minecraft:seed_pistol"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

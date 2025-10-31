@@ -56,5 +56,6 @@
     "recipes": [
       "minecraft:cocoa_beans_shell"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

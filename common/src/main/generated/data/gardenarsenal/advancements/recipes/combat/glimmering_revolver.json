@@ -82,5 +82,6 @@
     "recipes": [
       "minecraft:glimmering_revolver"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

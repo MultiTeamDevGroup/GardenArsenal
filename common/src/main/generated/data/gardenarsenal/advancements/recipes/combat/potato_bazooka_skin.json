@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:potato_bazooka_skin"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

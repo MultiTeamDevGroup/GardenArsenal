@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:glimmering_melon_seeds"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

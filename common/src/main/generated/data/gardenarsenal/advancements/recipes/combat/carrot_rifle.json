@@ -108,5 +108,6 @@
     "recipes": [
       "minecraft:carrot_rifle"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

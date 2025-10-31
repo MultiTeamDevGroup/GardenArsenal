@@ -69,5 +69,6 @@
     "recipes": [
       "minecraft:trap_cake"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

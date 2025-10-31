@@ -2,6 +2,7 @@ package multiteam.gardenarsenal.fabric.datagen;
 
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
+import multiteam.gardenarsenal.registries.GardenArsenalCreativeModeTabs;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.registries.GardenArsenalProfessions;
 import multiteam.gardenarsenal.utils.SkinRarity;
@@ -20,8 +21,8 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
         // Item Groups
-        translationBuilder.add(GardenArsenalItems.WEAPONS.get(), "Garden Arsenal - Weapons");
-        translationBuilder.add(GardenArsenalItems.MISC.get(), "Garden Arsenal - Misc");
+        translationBuilder.add(GardenArsenalCreativeModeTabs.WEAPONS.getKey(), "Garden Arsenal - Weapons");
+        translationBuilder.add(GardenArsenalCreativeModeTabs.MISC.getKey(), "Garden Arsenal - Misc");
 
         // Items
         translationBuilder.add(GardenArsenalItems.IRON_ROD.get(), "Iron Rod");

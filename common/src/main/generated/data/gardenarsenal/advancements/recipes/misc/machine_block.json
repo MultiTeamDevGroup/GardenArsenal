@@ -56,5 +56,6 @@
     "recipes": [
       "minecraft:machine_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
