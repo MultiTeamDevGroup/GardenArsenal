@@ -93,7 +93,7 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getSkinKey(Skins.camo_desert), "Desert - Camouflage");
         translationBuilder.add(getSkinKey(Skins.camo_end), "End - Camouflage");
         translationBuilder.add(getSkinKey(Skins.camo_forest), "Forest - Camouflage");
-        translationBuilder.add(getSkinKey(Skins.camo_frost), "Frosted - Camouflage");
+        translationBuilder.add(getSkinKey(Skins.camo_frost), "Frost - Camouflage");
         translationBuilder.add(getSkinKey(Skins.camo_nether), "Nether - Camouflage");
         translationBuilder.add(getSkinKey(Skins.metallic_gold), "Gold - Metallic - Aurum");
         translationBuilder.add(getSkinKey(Skins.metallic_iron), "Iron - Metallic");
