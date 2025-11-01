@@ -43,9 +43,8 @@ public class BeetrootSmoke extends WeaponItem {
 
     @Override
     public void createProjectileEntities(Level world, Player playerEntity) {
-        BeetrootSmokeProjectile projectile = new BeetrootSmokeProjectile(world, playerEntity);
+        BeetrootSmokeProjectile projectile = new BeetrootSmokeProjectile(world, playerEntity, new ItemStack(this::getRenderedItem));
         projectile.bulletDamage = 0;
-        projectile.setItem(new ItemStack(this::getRenderedItem));
         projectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
 
         world.addFreshEntity(projectile);

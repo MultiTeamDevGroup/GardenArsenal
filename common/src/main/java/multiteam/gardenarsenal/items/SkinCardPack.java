@@ -58,6 +58,6 @@ public class SkinCardPack extends Item {
 
     @Override
     public Component getName(ItemStack itemStack) {
-        return this.getName(itemStack).copy().withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor()));
+        return super.getName(itemStack).copy().withStyle(Style.EMPTY.withColor(this.skinRarity.getTextColor()));
     }
 }

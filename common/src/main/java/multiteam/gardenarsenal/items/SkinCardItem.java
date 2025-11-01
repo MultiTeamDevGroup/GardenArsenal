@@ -12,8 +12,8 @@ public class SkinCardItem extends Item {
 
     private final Skins skin;
 
-    public SkinCardItem(Skins skin) {
-        super(new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC).stacksTo(64));
+    public SkinCardItem(Skins skin, Item.Properties properties) {
+        super(properties.arch$tab(GardenArsenalCreativeModeTabs.MISC).stacksTo(64));
         this.skin = skin;
     }
 
@@ -23,7 +23,7 @@ public class SkinCardItem extends Item {
 
     @Override
     public Component getName(ItemStack itemStack) {
-        return this.getName(itemStack).copy().withStyle(Style.EMPTY.withColor(getRarityColor()));
+        return super.getName(itemStack).copy().withStyle(Style.EMPTY.withColor(getRarityColor()));
     }
 
     public TextColor getRarityColor() {

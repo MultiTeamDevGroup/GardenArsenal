@@ -5,32 +5,40 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import multiteam.gardenarsenal.items.SkinCardItem;
 import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
+import multiteam.gardenarsenal.registries.GardenArsenalRecipeSerializers;
 import multiteam.gardenarsenal.utils.Skins;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.SmithingRecipeInput;
-import net.minecraft.world.item.crafting.SmithingTransformRecipe;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.item.crafting.*;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import static multiteam.gardenarsenal.registries.GardenArsenalRecipeSerializers.SKIN_UPGRADE;
-
-public class SkinUpgradeRecipe extends SmithingTransformRecipe {
+public class SkinUpgradeRecipe implements SmithingRecipe {
     public static RecipeSerializer<SkinUpgradeRecipe> DYNAMIC_SERIALIZER;
-    
-    public SkinUpgradeRecipe(Item ingredient) {
-        super(Optional.empty(), Optional.of(Ingredient.of(ingredient)), Optional.of(getPossibleSkinCards(ingredient)), new ItemStack(ingredient));
+
+    final Optional<Ingredient> weapon;
+    final Optional<Ingredient> skin;
+    final ItemStack result;
+    @Nullable
+    private PlacementInfo placementInfo;
+
+    public SkinUpgradeRecipe(Ingredient weapon) {
+        this.weapon = Optional.ofNullable(weapon);
+        this.skin = Optional.of(getPossibleSkinCards(weapon));
+        this.result = new ItemStack(weapon.items().get(0).value());
     }
 
-    private static Ingredient getPossibleSkinCards(Item weapon) {
+    public static RecipeSerializer<SkinUpgradeRecipe> createSerializer() {
+        return DYNAMIC_SERIALIZER = new SkinUpgradeRecipe.Serializer();
+    }
+
+    private static Ingredient getPossibleSkinCards(Ingredient weapon) {
         return Ingredient.of(
                 GardenArsenalItems.SKIN_CARDS.stream()
                         .map(Supplier::get)
@@ -40,15 +48,12 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
         );
     }
 
-    public static RecipeSerializer<SkinUpgradeRecipe> createSerializer() {
-        return DYNAMIC_SERIALIZER = new Serializer();
-    }
-
     @Override
-    public @NotNull ItemStack assemble(SmithingRecipeInput container, HolderLookup.Provider registryAccess) {
-        ItemStack itemStack = super.assemble(container, registryAccess);
+    public ItemStack assemble(SmithingRecipeInput recipeInput, HolderLookup.Provider provider) {
+        ItemStack itemStack = recipeInput.base().transmuteCopy(this.result.getItem(), this.result.getCount());
+        itemStack.applyComponents(this.result.getComponentsPatch());
 
-        SkinCardItem skinCardItem = (SkinCardItem) container.getItem(2).getItem();
+        SkinCardItem skinCardItem = (SkinCardItem) recipeInput.getItem(2).getItem();
         Skins skin = skinCardItem.getSkin();
         itemStack.set(GardenArsenalDataComponents.SKIN.get(), skin);
 
@@ -56,22 +61,41 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     }
 
     @Override
-    public @NotNull RecipeSerializer<SkinUpgradeRecipe> getSerializer() {
-        return SKIN_UPGRADE.get();
+    public RecipeSerializer<SkinUpgradeRecipe> getSerializer() {
+        return GardenArsenalRecipeSerializers.SKIN_UPGRADE.get();
+    }
+
+    @Override
+    public PlacementInfo placementInfo() {
+        if (this.placementInfo == null) {
+            this.placementInfo = PlacementInfo.createFromOptionals(List.of(this.weapon, this.skin));
+        }
+
+        return this.placementInfo;
+    }
+
+    @Override
+    public Optional<Ingredient> templateIngredient() {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Ingredient> baseIngredient() {
+        return this.weapon;
+    }
+
+    @Override
+    public Optional<Ingredient> additionIngredient() {
+        return this.skin;
     }
 
     public static class Serializer implements RecipeSerializer<SkinUpgradeRecipe> {
-        private static final MapCodec<SkinUpgradeRecipe> CODEC = RecordCodecBuilder.mapCodec(
-                instance -> instance.group(
-                                BuiltInRegistries.ITEM.byNameCodec().fieldOf("weapon")
-                                        .forGetter(smithingTransformRecipe -> smithingTransformRecipe.getResultItem(null).getItem())
-                        )
-                        .apply(instance, SkinUpgradeRecipe::new)
-        );
-
-        private static final StreamCodec<RegistryFriendlyByteBuf, SkinUpgradeRecipe> STREAM_CODEC = StreamCodec.of(
-                Serializer::toNetwork, Serializer::fromNetwork
-        );
+        private static final MapCodec<SkinUpgradeRecipe> CODEC = RecordCodecBuilder.mapCodec((instance) ->
+                instance.group(
+                        Ingredient.CODEC.fieldOf("weapon")
+                                .forGetter((smithingTransformRecipe) -> smithingTransformRecipe.weapon.get()))
+                        .apply(instance, SkinUpgradeRecipe::new));
+        public static final StreamCodec<RegistryFriendlyByteBuf, SkinUpgradeRecipe> STREAM_CODEC;
 
         @Override
         public MapCodec<SkinUpgradeRecipe> codec() {
@@ -83,14 +107,9 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
             return STREAM_CODEC;
         }
 
-        public static void toNetwork(RegistryFriendlyByteBuf friendlyByteBuf, SkinUpgradeRecipe recipe) {
-            ItemStack.STREAM_CODEC.encode(friendlyByteBuf, recipe.getResultItem(null));
-        }
-
-        public static @NotNull SkinUpgradeRecipe fromNetwork(RegistryFriendlyByteBuf friendlyByteBuf) {
-            ItemStack ingredient = ItemStack.STREAM_CODEC.decode(friendlyByteBuf);
-
-            return new SkinUpgradeRecipe(ingredient.getItem());
+        static {
+            STREAM_CODEC = StreamCodec.composite(Ingredient.CONTENTS_STREAM_CODEC,
+                    (smithingTransformRecipe) -> smithingTransformRecipe.weapon.get(), SkinUpgradeRecipe::new);
         }
     }
 }

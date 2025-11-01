@@ -160,11 +160,11 @@ public abstract class WeaponItem extends BowItem {
     @Override
     public Component getName(ItemStack itemStack) {
         if (itemStack.has(GardenArsenalDataComponents.SKIN.get())) {
-            return this.getName(itemStack).copy().withStyle(Style.EMPTY.withColor(
+            return super.getName(itemStack).copy().withStyle(Style.EMPTY.withColor(
                     itemStack.get(GardenArsenalDataComponents.SKIN.get()).getRarity().getTextColor()
             ));
         } else {
-            return this.getName(itemStack);
+            return super.getName(itemStack);
         }
     }
 }

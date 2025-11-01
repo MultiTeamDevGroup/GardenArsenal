@@ -11,9 +11,11 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipProvider;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
 import java.util.function.IntFunction;
@@ -90,6 +92,14 @@ public enum Skins implements StringRepresentable, TooltipProvider {
         for (RegistrySupplier<Item> arm : this.weapons) {
             if (arm.get() == weapon) return true;
         }
+        return false;
+    }
+
+    public boolean canApplySkin(Ingredient ingredient) {
+        for (RegistrySupplier<Item> arm : this.weapons) {
+            if (ingredient.test(new ItemStack(arm.get()))) return true;
+        }
+
         return false;
     }
 
