@@ -8,9 +8,11 @@
     "GuiMixin",
     "ItemInHandRendererMixin",
     "MouseHandlerMixin",
+    "SelectItemModelPropertiesMixin",
     "SignRendererMixin"
   ],
   "mixins": [
+    "IngredientAccessor",
     "ItemStackMixin",
     "PoiTypesInvoker",
     "StructureTemplatePoolAccessor"

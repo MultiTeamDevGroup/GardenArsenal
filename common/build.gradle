@@ -3,7 +3,9 @@ architectury {
 }
 
 fabricApi {
-    configureDataGeneration()
+    configureDataGeneration() {
+        client = true
+    }
 }
 
 dependencies {

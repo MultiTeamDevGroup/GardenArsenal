@@ -3,6 +3,7 @@ package multiteam.gardenarsenal.recipes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import multiteam.gardenarsenal.items.SkinCardItem;
+import multiteam.gardenarsenal.mixin.IngredientAccessor;
 import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import multiteam.gardenarsenal.registries.GardenArsenalRecipeSerializers;
@@ -31,11 +32,11 @@ public class SkinUpgradeRecipe implements SmithingRecipe {
     public SkinUpgradeRecipe(Ingredient weapon) {
         this.weapon = Optional.ofNullable(weapon);
         this.skin = Optional.of(getPossibleSkinCards(weapon));
-        this.result = new ItemStack(weapon.items().get(0).value());
+        this.result = new ItemStack(((IngredientAccessor) (Object) weapon).getValues().get(0).value());
     }
 
     public static RecipeSerializer<SkinUpgradeRecipe> createSerializer() {
-        return DYNAMIC_SERIALIZER = new SkinUpgradeRecipe.Serializer();
+        return DYNAMIC_SERIALIZER = new Serializer();
     }
 
     private static Ingredient getPossibleSkinCards(Ingredient weapon) {

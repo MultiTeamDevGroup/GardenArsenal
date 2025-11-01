@@ -54,7 +54,7 @@ def dataOutput = '../common/src/main/generated'
 
 fabricApi {
     configureDataGeneration() {
-//        client = true
+        client = true
         outputDirectory = file(dataOutput)
     }
 }

@@ -1,6 +1,6 @@
-// 1.21.3	2025-11-01T18:32:13.141801152	Garden Arsenal/Tags for minecraft:block
+// 1.21.4	-999999999-01-01T00:00:00	Garden Arsenal/Tags for minecraft:block
 b80ee496a2eb3b9c0220d84be4a45d5ee47fad2c data/c/tags/block/villager_job_sites.json
-19b59e7de49d575ea4d16473880febfb123c4236 data/minecraft/tags/block/needs_iron_tool.json
-19b59e7de49d575ea4d16473880febfb123c4236 data/minecraft/tags/block/mineable/pickaxe.json
-b80ee496a2eb3b9c0220d84be4a45d5ee47fad2c data/minecraft/tags/block/needs_stone_tool.json
 b80ee496a2eb3b9c0220d84be4a45d5ee47fad2c data/minecraft/tags/block/mineable/axe.json
+19b59e7de49d575ea4d16473880febfb123c4236 data/minecraft/tags/block/mineable/pickaxe.json
+19b59e7de49d575ea4d16473880febfb123c4236 data/minecraft/tags/block/needs_iron_tool.json
+b80ee496a2eb3b9c0220d84be4a45d5ee47fad2c data/minecraft/tags/block/needs_stone_tool.json

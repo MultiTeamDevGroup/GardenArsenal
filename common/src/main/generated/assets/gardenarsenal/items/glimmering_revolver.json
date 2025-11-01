@@ -1,0 +1,159 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/glimmering_revolver"
+        },
+        "when": "Default"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/desert/camo_desert_glimmering_revolver"
+        },
+        "when": "camo_desert"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/end/camo_end_glimmering_revolver"
+        },
+        "when": "camo_end"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/forest/camo_forest_glimmering_revolver"
+        },
+        "when": "camo_forest"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/frost/camo_frost_glimmering_revolver"
+        },
+        "when": "camo_frost"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/nether/camo_nether_glimmering_revolver"
+        },
+        "when": "camo_nether"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/gold/metallic_gold_glimmering_revolver"
+        },
+        "when": "metallic_gold"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/iron/metallic_iron_glimmering_revolver"
+        },
+        "when": "metallic_iron"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/copper/metallic_copper_glimmering_revolver"
+        },
+        "when": "metallic_copper"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/netherite/metallic_netherite_glimmering_revolver"
+        },
+        "when": "metallic_netherite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/seasonal/christmas/seasonal_christmas_glimmering_revolver"
+        },
+        "when": "seasonal_christmas"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/seasonal/halloween/seasonal_halloween_glimmering_revolver"
+        },
+        "when": "seasonal_halloween"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/aquatic/special_aquatic_glimmering_revolver"
+        },
+        "when": "special_aquatic"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/neon/special_neon_glimmering_revolver"
+        },
+        "when": "special_neon"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_glimmering_revolver"
+        },
+        "when": "teams_mcabnormals"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_glimmering_revolver"
+        },
+        "when": "teams_multiteam"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_glimmering_revolver"
+        },
+        "when": "special_ectoplasm"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/nerf/special_nerf_glimmering_revolver"
+        },
+        "when": "special_nerf"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/rubik/special_rubik_glimmering_revolver"
+        },
+        "when": "special_rubik"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/exclusive/pistols/exclusive_pistols_glimmering_revolver"
+        },
+        "when": "exclusive_pistols"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/goat/special_goat_glimmering_revolver"
+        },
+        "when": "special_goat"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "gardenarsenal:item/glimmering_revolver"
+    },
+    "property": "gardenarsenal:skin"
+  }
+}

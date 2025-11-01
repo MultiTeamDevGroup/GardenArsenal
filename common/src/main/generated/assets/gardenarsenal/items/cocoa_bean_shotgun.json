@@ -1,0 +1,152 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/cocoa_bean_shotgun"
+        },
+        "when": "Default"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/desert/camo_desert_cocoa_bean_shotgun"
+        },
+        "when": "camo_desert"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/end/camo_end_cocoa_bean_shotgun"
+        },
+        "when": "camo_end"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/forest/camo_forest_cocoa_bean_shotgun"
+        },
+        "when": "camo_forest"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/frost/camo_frost_cocoa_bean_shotgun"
+        },
+        "when": "camo_frost"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/camo/nether/camo_nether_cocoa_bean_shotgun"
+        },
+        "when": "camo_nether"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/gold/metallic_gold_cocoa_bean_shotgun"
+        },
+        "when": "metallic_gold"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/iron/metallic_iron_cocoa_bean_shotgun"
+        },
+        "when": "metallic_iron"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/copper/metallic_copper_cocoa_bean_shotgun"
+        },
+        "when": "metallic_copper"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/metallic/netherite/metallic_netherite_cocoa_bean_shotgun"
+        },
+        "when": "metallic_netherite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/seasonal/christmas/seasonal_christmas_cocoa_bean_shotgun"
+        },
+        "when": "seasonal_christmas"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/seasonal/halloween/seasonal_halloween_cocoa_bean_shotgun"
+        },
+        "when": "seasonal_halloween"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/aquatic/special_aquatic_cocoa_bean_shotgun"
+        },
+        "when": "special_aquatic"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/neon/special_neon_cocoa_bean_shotgun"
+        },
+        "when": "special_neon"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/teams/mcabnormals/teams_mcabnormals_cocoa_bean_shotgun"
+        },
+        "when": "teams_mcabnormals"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/teams/multiteam/teams_multiteam_cocoa_bean_shotgun"
+        },
+        "when": "teams_multiteam"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/ectoplasm/special_ectoplasm_cocoa_bean_shotgun"
+        },
+        "when": "special_ectoplasm"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/nerf/special_nerf_cocoa_bean_shotgun"
+        },
+        "when": "special_nerf"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/rubik/special_rubik_cocoa_bean_shotgun"
+        },
+        "when": "special_rubik"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "gardenarsenal:item/skins/special/goat/special_goat_cocoa_bean_shotgun"
+        },
+        "when": "special_goat"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "gardenarsenal:item/cocoa_bean_shotgun"
+    },
+    "property": "gardenarsenal:skin"
+  }
+}

@@ -48,6 +48,15 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> GLIMMERING_MELON_SEEDS = register("glimmering_melon_seeds", (properties) -> new Item(properties.arch$tab(GardenArsenalCreativeModeTabs.MISC)));
     public static final RegistrySupplier<Item> GLIMMERING_REVOLVER = register("glimmering_revolver", (properties) -> new GlimmeringRevolver(properties.arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).durability(500).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
 
+    public static final RegistrySupplier<Item>[] WEAPONS = new RegistrySupplier[] {
+            CARROT_RIFLE,
+            POTATO_BAZOOKA,
+            COCOA_BEAN_SHOTGUN,
+            SEED_PISTOL,
+            SUGAR_CANE_SNIPER,
+            GLIMMERING_REVOLVER
+    };
+
     public static List<RegistrySupplier<Item>> SKIN_CARD_PACKS = new ArrayList<>();
 
     //Makers Shift Update - v0.5
