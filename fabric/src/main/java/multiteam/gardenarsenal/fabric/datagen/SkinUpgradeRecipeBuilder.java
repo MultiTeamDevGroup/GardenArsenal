@@ -4,10 +4,14 @@ import multiteam.gardenarsenal.recipes.SkinUpgradeRecipe;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -33,26 +37,25 @@ public class SkinUpgradeRecipeBuilder {
     }
 
     public void save(RecipeOutput exporter, String string) {
-        this.save(exporter, ResourceLocation.parse(string));
+        this.save(exporter, ResourceKey.create(Registries.RECIPE, ResourceLocation.parse(string)));
     }
 
-    public void save(RecipeOutput exporter, ResourceLocation resourceLocation) {
-        this.ensureValid(resourceLocation);
-        var advancement = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation)).rewards(net.minecraft.advancements.AdvancementRewards.Builder.recipe(resourceLocation)).requirements(AdvancementRequirements.Strategy.OR);
+    public void save(RecipeOutput exporter, ResourceKey<Recipe<?>> resourceKey) {
+        this.ensureValid(resourceKey);
+        var advancement = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(net.minecraft.advancements.AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(advancement);
         this.criteria.forEach(advancement::addCriterion);
-        String var10011 = resourceLocation.getNamespace();
         String var10012 = this.category.getFolderName();
         exporter.accept(
-                resourceLocation,
-                new SkinUpgradeRecipe(this.weapon),
-                advancement.build(ResourceLocation.fromNamespaceAndPath(var10011, "recipes/" + var10012 + "/" + resourceLocation.getPath()))
+                resourceKey,
+                new SkinUpgradeRecipe(Ingredient.of(this.weapon)),
+                advancement.build(resourceKey.location().withPrefix("recipes/" + var10012 + "/"))
         );
     }
 
-    private void ensureValid(ResourceLocation resourceLocation) {
+    private void ensureValid(ResourceKey<Recipe<?>> resourceKey) {
         if (this.criteria.isEmpty()) {
-            throw new IllegalStateException("No way of obtaining recipe " + resourceLocation);
+            throw new IllegalStateException("No way of obtaining recipe " + resourceKey.location());
         }
     }
 }
