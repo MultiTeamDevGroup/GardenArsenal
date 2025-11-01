@@ -55,7 +55,7 @@ modId="neoforge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
 type = "required" #mandatory
 # The version range of the dependency
-versionRange="[21.2,)" #mandatory
+versionRange="[21.3,)" #mandatory
 # An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
 # BEFORE - This mod is loaded BEFORE the dependency
 # AFTER - This mod is loaded AFTER the dependency
@@ -67,7 +67,7 @@ side="BOTH"
 modId="minecraft"
 type = "required"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="[1.21.2,)"
+versionRange="[1.21.3,)"
 ordering="NONE"
 side="BOTH"
 
