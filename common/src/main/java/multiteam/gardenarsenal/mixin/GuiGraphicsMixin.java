@@ -1,17 +1,14 @@
 package multiteam.gardenarsenal.mixin;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import multiteam.gardenarsenal.accessor.GuiGraphicsAccessor;
-import multiteam.gardenarsenal.utils.Utils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
+
+import java.util.function.Function;
 
 @Mixin(GuiGraphics.class)
 public abstract class GuiGraphicsMixin implements GuiGraphicsAccessor {
@@ -22,7 +19,7 @@ public abstract class GuiGraphicsMixin implements GuiGraphicsAccessor {
 
     @Shadow public abstract void fill(RenderType renderType, int i, int j, int k, int l, int m, int n);
 
-    @Shadow public abstract void blit(ResourceLocation resourceLocation, int i, int j, int k, float f, float g, int l, int m, int n, int o);
+    @Shadow public abstract void blit(Function<ResourceLocation, RenderType> function, ResourceLocation resourceLocation, int i, int j, float f, float g, int k, int l, int m, int n);
 
     @Override
     public void renderGAOverlay(float f, ResourceLocation texture) {
@@ -35,9 +32,7 @@ public abstract class GuiGraphicsMixin implements GuiGraphicsAccessor {
         int m = (this.guiHeight() - k) / 2;
         int n = l + j;
         int o = m + k;
-        RenderSystem.enableBlend();
-        this.blit(texture, l, m, -90, 0.0f, 0.0f, j, k, j, k);
-        RenderSystem.disableBlend();
+        this.blit(RenderType::guiTextured, texture, l, m, 0.0f, 0.0f, j, k, j, k);
         this.fill(RenderType.guiOverlay(), 0, o, this.guiWidth(), this.guiHeight(), -90, -16777216);
         this.fill(RenderType.guiOverlay(), 0, 0, this.guiWidth(), m, -90, -16777216);
         this.fill(RenderType.guiOverlay(), 0, m, l, o, -90, -16777216);

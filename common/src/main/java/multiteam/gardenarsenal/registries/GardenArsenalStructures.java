@@ -14,8 +14,8 @@ public class GardenArsenalStructures {
     public static final ResourceLocation PLAINS_HOUSES = ResourceLocation.withDefaultNamespace("village/plains/houses");
 
     public static void registerStructures(MinecraftServer server) {
-        Registry<StructureTemplatePool> templatePoolRegistry = server.registryAccess().registry(Registries.TEMPLATE_POOL).orElseThrow();
-        Registry<StructureProcessorList> processorListRegistry = server.registryAccess().registry(Registries.PROCESSOR_LIST).orElseThrow();
+        Registry<StructureTemplatePool> templatePoolRegistry = server.registryAccess().lookupOrThrow(Registries.TEMPLATE_POOL);
+        Registry<StructureProcessorList> processorListRegistry = server.registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST);
 
         JigsawUtils.addBuildingToPool(templatePoolRegistry, processorListRegistry, PLAINS_HOUSES,
                 GardenArsenal.id("village/plains/houses/ga_commander_tent"), 6);

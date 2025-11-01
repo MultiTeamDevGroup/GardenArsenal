@@ -12,7 +12,7 @@ public class GardenArsenalRecipeSerializers {
 
     private static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(GardenArsenal.MOD_ID, Registries.RECIPE_SERIALIZER);
 
-    public static RegistrySupplier<RecipeSerializer<?>> SKIN_UPGRADE = SERIALIZERS.register("skin_upgrade",
+    public static RegistrySupplier<RecipeSerializer<SkinUpgradeRecipe>> SKIN_UPGRADE = SERIALIZERS.register("skin_upgrade",
             SkinUpgradeRecipe::createSerializer);
 
     public static void init() {

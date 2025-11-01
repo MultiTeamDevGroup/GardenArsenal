@@ -3,9 +3,7 @@ package multiteam.gardenarsenal.items;
 import multiteam.gardenarsenal.entities.WeaponProjectile;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Player;
@@ -14,7 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -43,9 +40,8 @@ public class CocoaShotgun extends WeaponItem {
     public void createProjectileEntities(Level world, Player playerEntity) {
         for (int x = -1; x < 2; x++) {
             for (int y = -1; y < 2; y++) {
-                WeaponProjectile projectile = new WeaponProjectile(world, playerEntity);
+                WeaponProjectile projectile = new WeaponProjectile(world, playerEntity, new ItemStack(this.getRenderedItem()));
                 projectile.bulletDamage = 6;
-                projectile.setItem(new ItemStack(this.getRenderedItem()));
                 projectile.shootFromRotation(playerEntity, playerEntity.getXRot() + (x*4), playerEntity.getYRot() + (y*4), 0.0F, 2.0F, 1.0F);
 
                 world.addFreshEntity(projectile);

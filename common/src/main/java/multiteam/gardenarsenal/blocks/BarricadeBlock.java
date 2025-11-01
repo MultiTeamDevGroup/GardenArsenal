@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -27,7 +27,7 @@ public class BarricadeBlock extends Block {
     private static final VoxelShape SHAPE_INDUSTRIAL = Shapes.or( box(0.0d, 0.0d, 3.0d, 16.0d, 2.0d, 13.0d), box(0.0d, 2.0d, 4.0d, 16.0d, 14.0d, 12.0d), box(0.0d, 14.0d, 3.0d, 16.0d, 16.0d, 13.0d));
     private static final VoxelShape SHAPE_INDUSTRIAL_SIDEWAYS = Shapes.or( box(3.0d, 0.0d, 0.0d, 13.0d, 2.0d, 16.0d), box(4.0d, 2.0d, 0.0d, 12.0d, 14.0d, 16.0d), box(3.0d, 14.0d, 0.0d, 13.0d, 16.0d, 16.0d));
 
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
 
     public BarricadeBlock(Properties properties) {
         super(properties);

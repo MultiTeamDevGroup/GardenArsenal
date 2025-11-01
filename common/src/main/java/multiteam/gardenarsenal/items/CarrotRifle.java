@@ -6,22 +6,15 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Predicate;
 
 public class CarrotRifle extends WeaponItem {
@@ -42,12 +35,13 @@ public class CarrotRifle extends WeaponItem {
 
     @Override
     public boolean cooldownIsFinishedLogic(Player playerEntity) {
-        return !playerEntity.getCooldowns().isOnCooldown(this);
+        return !playerEntity.getCooldowns().isOnCooldown(new ItemStack(this));
     }
 
     @Override
-    public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
+    public boolean releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
 
+        return false;
     }
 
     @Override
@@ -67,9 +61,8 @@ public class CarrotRifle extends WeaponItem {
 
     @Override
     public void createProjectileEntities(Level world, Player playerEntity) {
-        WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity);
+        WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity, new ItemStack(this.getRenderedItem()));
         weaponProjectile.bulletDamage = 4;
-        weaponProjectile.setItem(new ItemStack(this.getRenderedItem()));
         weaponProjectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(weaponProjectile);
     }

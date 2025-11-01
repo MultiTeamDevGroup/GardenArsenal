@@ -1,15 +1,14 @@
 package multiteam.gardenarsenal.fabric.datagen;
 
 import dev.architectury.registry.registries.RegistrySupplier;
-import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
-import multiteam.gardenarsenal.registries.GardenArsenalCreativeModeTabs;
-import multiteam.gardenarsenal.registries.GardenArsenalItems;
-import multiteam.gardenarsenal.registries.GardenArsenalProfessions;
+import multiteam.gardenarsenal.registries.*;
 import multiteam.gardenarsenal.utils.SkinRarity;
 import multiteam.gardenarsenal.utils.Skins;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.StringUtils;
@@ -126,6 +125,16 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add("modmenu.descriptionTranslation.gardenarsenal",
                 "Garden Arsenal is mod made by MultiTeam; Its all about guns and weapons that shoot vegetables and edible stuff.\n\nEverything from v0.1.0 and v0.2.0 is here, on a new minecraft version!\nFresh and new all hand-written code, combined with all the new and remade assets!\n\nTo be apart of our community, join the discord server!");
         translationBuilder.add("modmenu.summaryTranslation.gardenarsenal", "Adds weapons shooting vegetables and edibles.");
+
+        translationBuilder.add(getKey(GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_SNIPER) + ".title", "Sugar cane sniper blueprint");
+        translationBuilder.add(getKey(GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_PISTOL) + ".title", "Seed pistol blueprint");
+        translationBuilder.add(getKey(GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_BAZOOKA) + ".title", "Potato bazooka blueprint");
+        translationBuilder.add(getKey(GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_SHOTGUN) + ".title", "Cocoa bean shotgun blueprint");
+        translationBuilder.add(getKey(GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_RIFLE) + ".title", "Carrot rifle blueprint");
+
+        for (ResourceKey<PaintingVariant> key : GardenArsenalPaintingVariants.PAINTINGS) {
+            translationBuilder.add(getKey(key) + ".author", "LTA");
+        }
     }
 
     private String getSkinName(Skins skin) {
@@ -166,5 +175,9 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
 
     private String getProfessionKey(RegistrySupplier<VillagerProfession> profession) {
         return "entity.minecraft.villager." + profession.getId().toLanguageKey();
+    }
+
+    private String getKey(ResourceKey<PaintingVariant> key) {
+        return "painting." + key.location().toLanguageKey();
     }
 }

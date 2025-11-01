@@ -4,27 +4,18 @@ import multiteam.gardenarsenal.entities.WeaponProjectile;
 import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class GlimmeringRevolver extends WeaponItem {
     public GlimmeringRevolver(Item.Properties settings) {
@@ -47,7 +38,7 @@ public class GlimmeringRevolver extends WeaponItem {
             }
         } else if (bulets >= 1) {
             if (bulets == 1) {
-                playerEntity.getCooldowns().addCooldown(this, this.getCooldown());
+                playerEntity.getCooldowns().addCooldown(this.arch$registryName(), this.getCooldown());
             }
 
             if ((!ammoStack.isEmpty() && this.getAllSupportedProjectiles().test(ammoStack)) || bl) {
@@ -84,9 +75,8 @@ public class GlimmeringRevolver extends WeaponItem {
 
     @Override
     public void createProjectileEntities(Level world, Player playerEntity) {
-        WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity);
+        WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity, new ItemStack(this.getRenderedItem()));
         weaponProjectile.bulletDamage = 2;
-        weaponProjectile.setItem(new ItemStack(this.getRenderedItem()));
         weaponProjectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(weaponProjectile);
     }

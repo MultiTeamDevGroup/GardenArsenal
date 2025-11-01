@@ -34,10 +34,10 @@ public class GardenArsenalItems {
 
     public static List<RegistrySupplier<Item>> SKIN_CARDS = new ArrayList<>();
 
-    public static final RegistrySupplier<Item> MACHINE_BLOCK = ITEMS.register("machine_block", () -> new BlockItem(GardenArsenalBlocks.MACHINE_BLOCK.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC)));
-    public static final RegistrySupplier<Item> TRAP_CAKE = ITEMS.register("trap_cake", () -> new BlockItem(GardenArsenalBlocks.TRAP_CAKE.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC)));
-    public static final RegistrySupplier<Item> WAR_TACTIC_TABLE = ITEMS.register("war_tactic_table", () -> new BlockItem(GardenArsenalBlocks.WAR_TACTIC_TABLE.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC)));
-    public static final RegistrySupplier<Item> AMMO_CRATE = ITEMS.register("ammo_crate", () -> new BlockItem(GardenArsenalBlocks.AMMO_CRATE.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC)));
+    public static final RegistrySupplier<Item> MACHINE_BLOCK = ITEMS.register("machine_block", () -> new BlockItem(GardenArsenalBlocks.MACHINE_BLOCK.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC).useBlockDescriptionPrefix()));
+    public static final RegistrySupplier<Item> TRAP_CAKE = ITEMS.register("trap_cake", () -> new BlockItem(GardenArsenalBlocks.TRAP_CAKE.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC).useBlockDescriptionPrefix()));
+    public static final RegistrySupplier<Item> WAR_TACTIC_TABLE = ITEMS.register("war_tactic_table", () -> new BlockItem(GardenArsenalBlocks.WAR_TACTIC_TABLE.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC).useBlockDescriptionPrefix()));
+    public static final RegistrySupplier<Item> AMMO_CRATE = ITEMS.register("ammo_crate", () -> new BlockItem(GardenArsenalBlocks.AMMO_CRATE.get(), new Item.Properties().arch$tab(GardenArsenalCreativeModeTabs.MISC).useBlockDescriptionPrefix()));
 
 
     //Makers Shift Update - v0.4

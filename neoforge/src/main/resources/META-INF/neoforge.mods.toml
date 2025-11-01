@@ -55,7 +55,7 @@ modId="neoforge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
 type = "required" #mandatory
 # The version range of the dependency
-versionRange="[21.1,)" #mandatory
+versionRange="[21.2,)" #mandatory
 # An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
 # BEFORE - This mod is loaded BEFORE the dependency
 # AFTER - This mod is loaded AFTER the dependency
@@ -67,14 +67,14 @@ side="BOTH"
 modId="minecraft"
 type = "required"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="[1.21.1,)"
+versionRange="[1.21.2,)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.gardenarsenal]]
 modId = "architectury"
 type = "required"
-versionRange = "[13.0.6,)"
+versionRange = "[14.0.4,)"
 ordering = "AFTER"
 side = "BOTH"
 

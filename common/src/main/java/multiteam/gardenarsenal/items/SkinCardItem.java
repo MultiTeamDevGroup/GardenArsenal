@@ -23,7 +23,7 @@ public class SkinCardItem extends Item {
 
     @Override
     public Component getName(ItemStack itemStack) {
-        return Component.translatable(this.getDescriptionId(itemStack)).withStyle(Style.EMPTY.withColor(getRarityColor()));
+        return this.getName(itemStack).copy().withStyle(Style.EMPTY.withColor(getRarityColor()));
     }
 
     public TextColor getRarityColor() {

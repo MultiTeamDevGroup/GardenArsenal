@@ -18,9 +18,14 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void buildRecipes(RecipeOutput exporter) {
-        generatedVanillaRecipes(exporter);
-        generatedSkinUpgradeRecipes(exporter);
+    protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        return new RecipeProvider(provider, recipeOutput) {
+            @Override
+            public void buildRecipes() {
+                generatedVanillaRecipes(recipeOutput);
+                generatedSkinUpgradeRecipes(recipeOutput);
+            }
+        };
     }
 
     private void generatedSkinUpgradeRecipes(RecipeOutput exporter) {
@@ -416,5 +421,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 //                .unlockedBy(RecipeProvider.getHasName(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get()),
 //                        RecipeProvider.has(GardenArsenalBlocks.REINFORCED_METAL_BLOCK.get()))
 //                .save(consumer, ResourceLocation.parse(RecipeProvider.getSimpleRecipeName(GardenArsenalBlocks.INDUSTRIAL_BARRICADE.get())));
+    }
+
+    @Override
+    public String getName() {
+        return "Garden Arsenal - Recipe Generator";
     }
 }

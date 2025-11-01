@@ -18,15 +18,16 @@ import net.minecraft.world.item.crafting.SmithingRecipeInput;
 import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 import static multiteam.gardenarsenal.registries.GardenArsenalRecipeSerializers.SKIN_UPGRADE;
 
 public class SkinUpgradeRecipe extends SmithingTransformRecipe {
-    public static RecipeSerializer<?> DYNAMIC_SERIALIZER;
+    public static RecipeSerializer<SkinUpgradeRecipe> DYNAMIC_SERIALIZER;
     
     public SkinUpgradeRecipe(Item ingredient) {
-        super(Ingredient.of(), Ingredient.of(ingredient), getPossibleSkinCards(ingredient), new ItemStack(ingredient));
+        super(Optional.empty(), Optional.of(Ingredient.of(ingredient)), Optional.of(getPossibleSkinCards(ingredient)), new ItemStack(ingredient));
     }
 
     private static Ingredient getPossibleSkinCards(Item weapon) {
@@ -39,7 +40,7 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
         );
     }
 
-    public static RecipeSerializer<?> createSerializer() {
+    public static RecipeSerializer<SkinUpgradeRecipe> createSerializer() {
         return DYNAMIC_SERIALIZER = new Serializer();
     }
 
@@ -55,7 +56,7 @@ public class SkinUpgradeRecipe extends SmithingTransformRecipe {
     }
 
     @Override
-    public @NotNull RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<SkinUpgradeRecipe> getSerializer() {
         return SKIN_UPGRADE.get();
     }
 

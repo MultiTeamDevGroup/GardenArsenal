@@ -1,5 +1,7 @@
 package multiteam.gardenarsenal.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import multiteam.gardenarsenal.accessor.GuiGraphicsAccessor;
 import multiteam.gardenarsenal.utils.Utils;
 import net.minecraft.client.CameraType;
@@ -22,9 +24,9 @@ public class GuiMixin {
 
     @Shadow private float scopeScale;
 
-    @Redirect(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z"))
-    public boolean dontRenderSpyglassOverlay(CameraType instance) {
-        return instance.isFirstPerson() && !Utils.isUsingSugarCaneSniper(this.minecraft.player);
+    @WrapOperation(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/CameraType;isFirstPerson()Z"))
+    public boolean dontRenderSpyglassOverlay(CameraType instance, Operation<Boolean> original) {
+        return original.call(instance) && !Utils.isUsingSugarCaneSniper(this.minecraft.player);
     }
 
     @Inject(method = "renderCameraOverlays", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/util/Mth;lerp(FFF)F", ordinal = 0))

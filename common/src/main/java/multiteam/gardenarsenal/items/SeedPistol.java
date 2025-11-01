@@ -2,9 +2,7 @@ package multiteam.gardenarsenal.items;
 
 import multiteam.gardenarsenal.entities.WeaponProjectile;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -40,9 +37,8 @@ public class SeedPistol extends WeaponItem {
 
     @Override
     public void createProjectileEntities(Level world, Player playerEntity) {
-        WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity);
+        WeaponProjectile weaponProjectile = new WeaponProjectile(world, playerEntity, new ItemStack(this.getRenderedItem()));
         weaponProjectile.bulletDamage = 2;
-        weaponProjectile.setItem(new ItemStack(this.getRenderedItem()));
         weaponProjectile.shootFromRotation(playerEntity, playerEntity.getXRot(), playerEntity.getYRot(), 0.0F, 2.0F, 1.0F);
         world.addFreshEntity(weaponProjectile);
     }
