@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "gardenarsenal:machine_block"
-    },
-    "B": {
-      "item": "minecraft:barrel"
-    },
-    "D": {
-      "item": "minecraft:dispenser"
-    },
-    "G": {
-      "item": "minecraft:green_terracotta"
-    },
-    "L": {
-      "item": "minecraft:lever"
-    }
+    "#": "gardenarsenal:machine_block",
+    "B": "minecraft:barrel",
+    "D": "minecraft:dispenser",
+    "G": "minecraft:green_terracotta",
+    "L": "minecraft:lever"
   },
   "pattern": [
     "#BD",

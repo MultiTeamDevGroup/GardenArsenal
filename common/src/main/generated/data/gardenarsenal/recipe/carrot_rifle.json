@@ -2,27 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:repeater"
-    },
-    "/": {
-      "item": "gardenarsenal:iron_rod"
-    },
-    "C": {
-      "item": "minecraft:dispenser"
-    },
-    "D": {
-      "item": "gardenarsenal:machine_block"
-    },
-    "G": {
-      "item": "minecraft:green_terracotta"
-    },
-    "I": {
-      "item": "minecraft:iron_nugget"
-    },
-    "L": {
-      "item": "minecraft:lever"
-    }
+    "#": "minecraft:repeater",
+    "/": "gardenarsenal:iron_rod",
+    "C": "minecraft:dispenser",
+    "D": "gardenarsenal:machine_block",
+    "G": "minecraft:green_terracotta",
+    "I": "minecraft:iron_nugget",
+    "L": "minecraft:lever"
   },
   "pattern": [
     "#II",

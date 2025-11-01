@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cocoa_bean_shotgun"
+        "recipe": "gardenarsenal:cocoa_bean_shotgun"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -81,7 +81,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cocoa_bean_shotgun"
+      "gardenarsenal:cocoa_bean_shotgun"
     ]
   }
 }

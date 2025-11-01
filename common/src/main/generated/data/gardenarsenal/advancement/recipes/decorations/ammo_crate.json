@@ -53,7 +53,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ammo_crate"
+        "recipe": "gardenarsenal:ammo_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -70,7 +70,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ammo_crate"
+      "gardenarsenal:ammo_crate"
     ]
   }
 }

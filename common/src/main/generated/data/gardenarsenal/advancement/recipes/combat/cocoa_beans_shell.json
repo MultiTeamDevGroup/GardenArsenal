@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cocoa_beans_shell"
+        "recipe": "gardenarsenal:cocoa_beans_shell"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -48,7 +48,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cocoa_beans_shell"
+      "gardenarsenal:cocoa_beans_shell"
     ]
   }
 }

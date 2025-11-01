@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:carrot"
-    },
-    "B": {
-      "item": "minecraft:beetroot"
-    },
-    "M": {
-      "item": "minecraft:barrel"
-    },
-    "N": {
-      "item": "gardenarsenal:cocoa_beans_shell"
-    },
-    "P": {
-      "item": "gardenarsenal:potato_grenade"
-    }
+    "#": "minecraft:carrot",
+    "B": "minecraft:beetroot",
+    "M": "minecraft:barrel",
+    "N": "gardenarsenal:cocoa_beans_shell",
+    "P": "gardenarsenal:potato_grenade"
   },
   "pattern": [
     " # ",

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:potato_grenade"
+        "recipe": "gardenarsenal:potato_grenade"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -48,7 +48,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:potato_grenade"
+      "gardenarsenal:potato_grenade"
     ]
   }
 }

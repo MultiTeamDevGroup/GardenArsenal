@@ -53,7 +53,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:glimmering_revolver"
+        "recipe": "gardenarsenal:glimmering_revolver"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -70,7 +70,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:glimmering_revolver"
+      "gardenarsenal:glimmering_revolver"
     ]
   }
 }

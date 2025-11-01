@@ -73,7 +73,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:sugar_cane_sniper"
+        "recipe": "gardenarsenal:sugar_cane_sniper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -92,7 +92,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:sugar_cane_sniper"
+      "gardenarsenal:sugar_cane_sniper"
     ]
   }
 }

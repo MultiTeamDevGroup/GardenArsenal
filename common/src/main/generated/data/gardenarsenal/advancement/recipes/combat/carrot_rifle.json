@@ -73,7 +73,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:carrot_rifle"
+        "recipe": "gardenarsenal:carrot_rifle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -92,7 +92,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:carrot_rifle"
+      "gardenarsenal:carrot_rifle"
     ]
   }
 }

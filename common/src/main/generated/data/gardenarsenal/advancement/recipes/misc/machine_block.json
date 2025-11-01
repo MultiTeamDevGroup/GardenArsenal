@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:machine_block"
+        "recipe": "gardenarsenal:machine_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -48,7 +48,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:machine_block"
+      "gardenarsenal:machine_block"
     ]
   }
 }

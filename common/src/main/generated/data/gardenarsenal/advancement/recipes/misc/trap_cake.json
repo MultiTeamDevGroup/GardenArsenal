@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:trap_cake"
+        "recipe": "gardenarsenal:trap_cake"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -59,7 +59,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:trap_cake"
+      "gardenarsenal:trap_cake"
     ]
   }
 }

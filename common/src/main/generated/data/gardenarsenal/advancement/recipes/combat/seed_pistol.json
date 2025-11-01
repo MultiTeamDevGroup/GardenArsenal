@@ -43,7 +43,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:seed_pistol"
+        "recipe": "gardenarsenal:seed_pistol"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -59,7 +59,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:seed_pistol"
+      "gardenarsenal:seed_pistol"
     ]
   }
 }

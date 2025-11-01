@@ -2,24 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:blue_dye"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "C": {
-      "item": "minecraft:cartography_table"
-    },
-    "M": {
-      "item": "minecraft:map"
-    },
-    "O": {
-      "item": "minecraft:oak_planks"
-    },
-    "R": {
-      "item": "minecraft:red_dye"
-    }
+    "#": "minecraft:blue_dye",
+    "/": "minecraft:stick",
+    "C": "minecraft:cartography_table",
+    "M": "minecraft:map",
+    "O": "minecraft:oak_planks",
+    "R": "minecraft:red_dye"
   },
   "pattern": [
     "#MR",

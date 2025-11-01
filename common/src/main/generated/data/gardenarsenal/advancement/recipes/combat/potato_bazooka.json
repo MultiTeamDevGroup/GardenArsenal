@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:potato_bazooka"
+        "recipe": "gardenarsenal:potato_bazooka"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -81,7 +81,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:potato_bazooka"
+      "gardenarsenal:potato_bazooka"
     ]
   }
 }

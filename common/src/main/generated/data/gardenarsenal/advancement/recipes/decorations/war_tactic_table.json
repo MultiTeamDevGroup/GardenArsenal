@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:war_tactic_table"
+        "recipe": "gardenarsenal:war_tactic_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -81,7 +81,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:war_tactic_table"
+      "gardenarsenal:war_tactic_table"
     ]
   }
 }

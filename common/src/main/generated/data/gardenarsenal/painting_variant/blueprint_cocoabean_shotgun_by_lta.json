@@ -1,5 +1,13 @@
 {
   "asset_id": "gardenarsenal:blueprint_cocoabean_shotgun_by_lta",
+  "author": {
+    "color": "gray",
+    "translate": "painting.gardenarsenal.blueprint_cocoabean_shotgun_by_lta.author"
+  },
   "height": 3,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.gardenarsenal.blueprint_cocoabean_shotgun_by_lta.title"
+  },
   "width": 5
 }

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:cocoa_beans"
-    },
-    "P": {
-      "item": "minecraft:paper"
-    },
-    "S": {
-      "item": "minecraft:sugar"
-    }
+    "#": "minecraft:cocoa_beans",
+    "P": "minecraft:paper",
+    "S": "minecraft:sugar"
   },
   "pattern": [
     "###",

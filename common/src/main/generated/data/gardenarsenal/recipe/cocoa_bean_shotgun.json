@@ -2,24 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:green_terracotta"
-    },
-    "/": {
-      "item": "gardenarsenal:iron_rod"
-    },
-    "D": {
-      "item": "minecraft:dispenser"
-    },
-    "I": {
-      "item": "gardenarsenal:machine_block"
-    },
-    "L": {
-      "item": "minecraft:lever"
-    },
-    "R": {
-      "item": "minecraft:repeater"
-    }
+    "#": "minecraft:green_terracotta",
+    "/": "gardenarsenal:iron_rod",
+    "D": "minecraft:dispenser",
+    "I": "gardenarsenal:machine_block",
+    "L": "minecraft:lever",
+    "R": "minecraft:repeater"
   },
   "pattern": [
     "#ID",

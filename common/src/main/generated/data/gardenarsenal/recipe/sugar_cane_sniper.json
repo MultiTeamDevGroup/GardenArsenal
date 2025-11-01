@@ -2,27 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
-      "item": "minecraft:glass_pane"
-    },
-    "/": {
-      "item": "gardenarsenal:iron_rod"
-    },
-    "B": {
-      "item": "minecraft:blast_furnace"
-    },
-    "D": {
-      "item": "minecraft:dispenser"
-    },
-    "G": {
-      "item": "minecraft:green_terracotta"
-    },
-    "I": {
-      "item": "gardenarsenal:machine_block"
-    },
-    "L": {
-      "item": "minecraft:lever"
-    }
+    "#": "minecraft:glass_pane",
+    "/": "gardenarsenal:iron_rod",
+    "B": "minecraft:blast_furnace",
+    "D": "minecraft:dispenser",
+    "G": "minecraft:green_terracotta",
+    "I": "gardenarsenal:machine_block",
+    "L": "minecraft:lever"
   },
   "pattern": [
     "#G#",
