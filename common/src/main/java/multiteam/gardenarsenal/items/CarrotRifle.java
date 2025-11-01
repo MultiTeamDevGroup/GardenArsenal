@@ -12,9 +12,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class CarrotRifle extends WeaponItem {
@@ -23,9 +25,9 @@ public class CarrotRifle extends WeaponItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
-        super.appendHoverText(itemStack, tooltipContext, list, tooltipFlag);
-        list.add(Component.translatable("tooltip.gardenarsenal.carrot_rifle_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay tooltipDisplay, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, tooltipContext, tooltipDisplay, consumer, tooltipFlag);
+        consumer.accept(Component.translatable("tooltip.gardenarsenal.carrot_rifle_desc").copy().withStyle(ChatFormatting.DARK_GREEN));
     }
 
     @Override

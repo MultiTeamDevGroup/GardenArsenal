@@ -40,6 +40,10 @@ public class SkinUpgradeRecipeBuilder {
         this.save(exporter, ResourceKey.create(Registries.RECIPE, ResourceLocation.parse(string)));
     }
 
+    public void save(RecipeOutput exporter, ResourceLocation resourceLocation) {
+        this.save(exporter, ResourceKey.create(Registries.RECIPE, resourceLocation));
+    }
+
     public void save(RecipeOutput exporter, ResourceKey<Recipe<?>> resourceKey) {
         this.ensureValid(resourceKey);
         var advancement = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(net.minecraft.advancements.AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);

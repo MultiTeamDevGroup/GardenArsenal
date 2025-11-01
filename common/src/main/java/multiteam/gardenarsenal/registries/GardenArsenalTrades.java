@@ -69,7 +69,7 @@ public class GardenArsenalTrades {
                     list.add(randomTradeBuilder.build());
                 }
 
-                TradeRegistry.registerVillagerTrade(profession, level, list.toArray(new VillagerTrades.ItemListing[0]));
+                TradeRegistry.registerVillagerTrade(builder.profession.getKey(), level, list.toArray(new VillagerTrades.ItemListing[0]));
             }
         });
     }

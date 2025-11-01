@@ -4,14 +4,12 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.GardenArsenal;
 import multiteam.gardenarsenal.registries.GardenArsenalDataComponents;
 import multiteam.gardenarsenal.utils.Skins;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.SmithingRecipe;
-import net.minecraft.world.item.crafting.SmithingTransformRecipe;
+import net.minecraft.world.item.crafting.*;
 import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
 
@@ -32,14 +30,16 @@ public class RecipeHelper {
             for (RegistrySupplier<Item> item : skin.getWeapons()) {
                 j++;
                 Item weapon = item.getOrNull();
-                ItemStack result = new ItemStack(weapon);
-                result.set(GardenArsenalDataComponents.SKIN.get(), skin);
+                var result = new TransmuteResult(item.getDelegate(), 1,
+                        DataComponentPatch.builder()
+                                .set(GardenArsenalDataComponents.SKIN.get(), skin)
+                                .build());
 
                 list.add(new RecipeHolder<>(
                         ResourceKey.create(Registries.RECIPE, GardenArsenal.id("skin_" + i + "_" + j)),
                         new SmithingTransformRecipe(
                                 Optional.empty(),
-                                Optional.of(getWeaponVariants(weapon)),
+                                getWeaponVariants(weapon),
                                 Optional.of(Ingredient.of(skin.getItem().get())),
                                 result
                         )

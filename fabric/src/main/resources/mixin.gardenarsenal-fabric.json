@@ -1,7 +1,6 @@
 {
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "VillagerMixin"
   ],
   "client": [
   ],

@@ -13,10 +13,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class PotatoBazooka extends WeaponItem {
     public PotatoBazooka(Item.Properties settings) {
@@ -24,9 +26,9 @@ public class PotatoBazooka extends WeaponItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
-        super.appendHoverText(itemStack, tooltipContext, list, tooltipFlag);
-        list.add(Component.translatable("tooltip.gardenarsenal.potato_bazooka_desc").copy().withStyle(ChatFormatting.BLUE));
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay tooltipDisplay, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, tooltipContext, tooltipDisplay, consumer, tooltipFlag);
+        consumer.accept(Component.translatable("tooltip.gardenarsenal.potato_bazooka_desc").copy().withStyle(ChatFormatting.BLUE));
     }
 
     @Override

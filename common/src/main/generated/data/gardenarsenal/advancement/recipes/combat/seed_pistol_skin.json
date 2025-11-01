@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:seed_pistol_skin"
+        "recipe": "gardenarsenal:seed_pistol_skin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:seed_pistol_skin"
+      "gardenarsenal:seed_pistol_skin"
     ]
   }
 }

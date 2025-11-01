@@ -23,14 +23,14 @@ import java.util.function.Supplier;
 public class SkinUpgradeRecipe implements SmithingRecipe {
     public static RecipeSerializer<SkinUpgradeRecipe> DYNAMIC_SERIALIZER;
 
-    final Optional<Ingredient> weapon;
+    final Ingredient weapon;
     final Optional<Ingredient> skin;
     final ItemStack result;
     @Nullable
     private PlacementInfo placementInfo;
 
     public SkinUpgradeRecipe(Ingredient weapon) {
-        this.weapon = Optional.ofNullable(weapon);
+        this.weapon = weapon;
         this.skin = Optional.of(getPossibleSkinCards(weapon));
         this.result = new ItemStack(((IngredientAccessor) (Object) weapon).getValues().get(0).value());
     }
@@ -69,7 +69,7 @@ public class SkinUpgradeRecipe implements SmithingRecipe {
     @Override
     public PlacementInfo placementInfo() {
         if (this.placementInfo == null) {
-            this.placementInfo = PlacementInfo.createFromOptionals(List.of(this.weapon, this.skin));
+            this.placementInfo = PlacementInfo.createFromOptionals(List.of(Optional.of(this.weapon), this.skin));
         }
 
         return this.placementInfo;
@@ -81,7 +81,7 @@ public class SkinUpgradeRecipe implements SmithingRecipe {
     }
 
     @Override
-    public Optional<Ingredient> baseIngredient() {
+    public Ingredient baseIngredient() {
         return this.weapon;
     }
 
@@ -94,7 +94,7 @@ public class SkinUpgradeRecipe implements SmithingRecipe {
         private static final MapCodec<SkinUpgradeRecipe> CODEC = RecordCodecBuilder.mapCodec((instance) ->
                 instance.group(
                         Ingredient.CODEC.fieldOf("weapon")
-                                .forGetter((smithingTransformRecipe) -> smithingTransformRecipe.weapon.get()))
+                                .forGetter((smithingTransformRecipe) -> smithingTransformRecipe.weapon))
                         .apply(instance, SkinUpgradeRecipe::new));
         public static final StreamCodec<RegistryFriendlyByteBuf, SkinUpgradeRecipe> STREAM_CODEC;
 
@@ -110,7 +110,7 @@ public class SkinUpgradeRecipe implements SmithingRecipe {
 
         static {
             STREAM_CODEC = StreamCodec.composite(Ingredient.CONTENTS_STREAM_CODEC,
-                    (smithingTransformRecipe) -> smithingTransformRecipe.weapon.get(), SkinUpgradeRecipe::new);
+                    (smithingTransformRecipe) -> smithingTransformRecipe.weapon, SkinUpgradeRecipe::new);
         }
     }
 }

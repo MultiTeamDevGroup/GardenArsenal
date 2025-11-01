@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.netty.buffer.ByteBuf;
 import multiteam.gardenarsenal.registries.GardenArsenalItems;
+import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -109,7 +110,7 @@ public enum Skins implements StringRepresentable, TooltipProvider {
     }
 
     @Override
-    public void addToTooltip(Item.TooltipContext tooltipContext, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+    public void addToTooltip(Item.TooltipContext tooltipContext, Consumer<Component> consumer, TooltipFlag tooltipFlag, DataComponentGetter dataComponentGetter) {
         consumer.accept(Component.translatable("tooltip.gardenarsenal.skin." + this.name)
                 .withStyle(Style.EMPTY.withColor(this.getRarity().getTextColor())));
     }

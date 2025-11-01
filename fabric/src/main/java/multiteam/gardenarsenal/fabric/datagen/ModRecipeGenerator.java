@@ -40,7 +40,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
             SkinUpgradeRecipeBuilder.upgrading(item)
                     .unlocks(RecipeProvider.getHasName(item),
                             recipeProvider.has(item))
-                    .save(exporter, RecipeProvider.getSimpleRecipeName(item) + "_skin");
+                    .save(exporter, RecipeBuilder.getDefaultRecipeId(item).withSuffix("_skin"));
         }
     }
 

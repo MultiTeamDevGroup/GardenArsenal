@@ -8,6 +8,7 @@ import multiteam.gardenarsenal.GardenArsenalExpectPlatform;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -29,6 +30,7 @@ public class GardenArsenalProfessions {
     }
 
     private static VillagerProfession create(String name, Predicate<Holder<PoiType>> sites) {
-        return new VillagerProfession(name, sites, sites, ImmutableSet.of(), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_WEAPONSMITH);
+        var id = GardenArsenal.id(name);
+        return new VillagerProfession(Component.translatable("entity.minecraft.villager." + id.toLanguageKey()), sites, sites, ImmutableSet.of(), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_WEAPONSMITH);
     }
 }
