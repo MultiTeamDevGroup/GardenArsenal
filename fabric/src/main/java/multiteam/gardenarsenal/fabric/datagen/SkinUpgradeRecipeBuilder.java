@@ -33,7 +33,7 @@ public class SkinUpgradeRecipeBuilder {
     }
 
     public void save(RecipeOutput exporter, String string) {
-        this.save(exporter, new ResourceLocation(string));
+        this.save(exporter, ResourceLocation.parse(string));
     }
 
     public void save(RecipeOutput exporter, ResourceLocation resourceLocation) {
@@ -46,7 +46,7 @@ public class SkinUpgradeRecipeBuilder {
         exporter.accept(
                 resourceLocation,
                 new SkinUpgradeRecipe(this.weapon),
-                advancement.build(new ResourceLocation(var10011, "recipes/" + var10012 + "/" + resourceLocation.getPath()))
+                advancement.build(ResourceLocation.fromNamespaceAndPath(var10011, "recipes/" + var10012 + "/" + resourceLocation.getPath()))
         );
     }
 

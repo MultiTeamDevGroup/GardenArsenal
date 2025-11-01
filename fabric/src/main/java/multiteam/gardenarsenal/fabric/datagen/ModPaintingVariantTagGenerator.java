@@ -1,6 +1,6 @@
 package multiteam.gardenarsenal.fabric.datagen;
 
-import multiteam.gardenarsenal.registries.GardenArsenalPaintings;
+import multiteam.gardenarsenal.registries.GardenArsenalPaintingVariants;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -18,11 +18,11 @@ public class ModPaintingVariantTagGenerator extends FabricTagProvider<PaintingVa
     @Override
     protected void addTags(HolderLookup.Provider arg) {
         tag(PaintingVariantTags.PLACEABLE).add(
-                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_RIFLE.get()),
-                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_SHOTGUN.get()),
-                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_BAZOOKA.get()),
-                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_PISTOL.get()),
-                reverseLookup(GardenArsenalPaintings.PAINTING_BLUEPRINT_SNIPER.get())
+                GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_RIFLE,
+                GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_SHOTGUN,
+                GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_BAZOOKA,
+                GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_PISTOL,
+                GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_SNIPER
         );
     }
 }

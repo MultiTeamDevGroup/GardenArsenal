@@ -58,13 +58,13 @@ public class ModModelGenerator extends FabricModelProvider {
             if (((SkinCardItem) cardEntry.get()).getSkin() == Skins.Default) {
                 ModelTemplates.FLAT_ITEM.create(
                         ModelLocationUtils.getModelLocation(cardEntry.get()),
-                        TextureMapping.layer0(new ResourceLocation(GardenArsenal.MOD_ID, "item/skin_card_skinless")),
+                        TextureMapping.layer0(ResourceLocation.fromNamespaceAndPath(GardenArsenal.MOD_ID, "item/skin_card_skinless")),
                         itemModelGenerator.output
                 );
             } else if (((SkinCardItem) cardEntry.get()).getSkin() == Skins.exclusive_pistols) {
                 ModelTemplates.FLAT_ITEM.create(
                         ModelLocationUtils.getModelLocation(cardEntry.get()),
-                        TextureMapping.layer0(new ResourceLocation(GardenArsenal.MOD_ID, "item/skin_card_exclusive_revolver_pistols")),
+                        TextureMapping.layer0(ResourceLocation.fromNamespaceAndPath(GardenArsenal.MOD_ID, "item/skin_card_exclusive_revolver_pistols")),
                         itemModelGenerator.output
                 );
             } else {

@@ -53,7 +53,8 @@ processResources {
 def dataOutput = '../common/src/main/generated'
 
 fabricApi {
-    configureDataGeneration {
+    configureDataGeneration() {
+//        client = true
         outputDirectory = file(dataOutput)
     }
 }
