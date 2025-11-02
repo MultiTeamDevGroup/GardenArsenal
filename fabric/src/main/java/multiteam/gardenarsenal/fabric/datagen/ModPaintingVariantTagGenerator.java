@@ -17,7 +17,7 @@ public class ModPaintingVariantTagGenerator extends FabricTagProvider<PaintingVa
 
     @Override
     protected void addTags(HolderLookup.Provider arg) {
-        tag(PaintingVariantTags.PLACEABLE).add(
+        builder(PaintingVariantTags.PLACEABLE).add(
                 GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_RIFLE,
                 GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_SHOTGUN,
                 GardenArsenalPaintingVariants.PAINTING_BLUEPRINT_BAZOOKA,

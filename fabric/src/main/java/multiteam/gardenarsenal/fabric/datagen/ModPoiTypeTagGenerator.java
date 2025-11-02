@@ -17,9 +17,9 @@ public class ModPoiTypeTagGenerator extends FabricTagProvider<PoiType> {
 
     @Override
     protected void addTags(HolderLookup.Provider arg) {
-        tag(PoiTypeTags.ACQUIRABLE_JOB_SITE).add(
-                reverseLookup(GardenArsenalPois.SOLDIER_COMMANDER_POI.get()),
-                reverseLookup(GardenArsenalPois.SOLDIER_POI.get())
+        builder(PoiTypeTags.ACQUIRABLE_JOB_SITE).add(
+                GardenArsenalPois.SOLDIER_COMMANDER_POI.getKey(),
+                GardenArsenalPois.SOLDIER_POI.getKey()
         );
     }
 }

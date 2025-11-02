@@ -9,7 +9,7 @@
     "ItemInHandRendererMixin",
     "MouseHandlerMixin",
     "SelectItemModelPropertiesMixin",
-    "SignRendererMixin"
+    "AbstractSignRendererMixin"
   ],
   "mixins": [
     "IngredientAccessor",

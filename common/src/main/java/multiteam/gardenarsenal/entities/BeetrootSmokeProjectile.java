@@ -22,7 +22,7 @@ public class BeetrootSmokeProjectile extends WeaponProjectile {
 
             AreaEffectCloud smokeCloud = new AreaEffectCloud(this.level(), this.getX(), this.getY(), this.getZ());
             smokeCloud.setRadius(5.0F);
-            smokeCloud.setParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE);
+            smokeCloud.setCustomParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE);
             smokeCloud.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 1200));
             this.level().addFreshEntity(smokeCloud);
             this.level().broadcastEntityEvent(this, (byte)3);

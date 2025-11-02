@@ -3,7 +3,7 @@ package multiteam.gardenarsenal;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import multiteam.gardenarsenal.registries.GardenArsenalBlocks;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 
 public class GardenArsenalClient {
 
@@ -12,7 +12,7 @@ public class GardenArsenalClient {
     }
 
     public static void register() {
-        RenderTypeRegistry.register(RenderType.cutout(),
+        RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT,
                 GardenArsenalBlocks.AMMO_CRATE.get()/*,
                 GardenArsenalBlocks.BARRICADE_SURVIVALIST.get()*/
         );

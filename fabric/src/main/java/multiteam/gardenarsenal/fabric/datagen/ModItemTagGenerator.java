@@ -15,13 +15,13 @@ public class ModItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider arg) {
-        tag(ConventionalItemTags.VILLAGER_JOB_SITES).add(
-                reverseLookup(GardenArsenalItems.AMMO_CRATE.get()),
-                reverseLookup(GardenArsenalItems.WAR_TACTIC_TABLE.get())
+        valueLookupBuilder(ConventionalItemTags.VILLAGER_JOB_SITES).add(
+                GardenArsenalItems.AMMO_CRATE.get(),
+                GardenArsenalItems.WAR_TACTIC_TABLE.get()
         );
 
-        tag(ConventionalItemTags.RODS).add(
-                reverseLookup(GardenArsenalItems.IRON_ROD.get())
+        valueLookupBuilder(ConventionalItemTags.RODS).add(
+                GardenArsenalItems.IRON_ROD.get()
         );
     }
 }
