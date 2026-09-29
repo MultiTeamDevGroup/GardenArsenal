@@ -51,7 +51,7 @@ public class GlimmeringRevolver extends WeaponItem {
                 int i = this.getMaxUseTime(stack) - remainingUseTicks;
                 float f = getPullProgress(i);
                 boolean bl2 = bl && ammoStack.getItem() == this.getAmmoItem();
-                if (!world.isClientSide) {
+                if (!world.isClientSide()) {
                     this.createProjectileEntities(world, playerEntity);
 
                     stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);

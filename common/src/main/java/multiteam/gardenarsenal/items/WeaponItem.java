@@ -91,7 +91,7 @@ public abstract class WeaponItem extends BowItem {
                 float f = getPullProgress(i);
                 if (!((double) f < 0.1D)) {
                     boolean bl2 = bl && itemStack.getItem() == this.getAmmoItem();
-                    if (!world.isClientSide) {
+                    if (!world.isClientSide()) {
                         this.createProjectileEntities(world, playerEntity);
 
                         stack.hurtAndBreak(1, playerEntity, playerEntity.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);

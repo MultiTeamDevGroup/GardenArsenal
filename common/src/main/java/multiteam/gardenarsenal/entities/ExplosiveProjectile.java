@@ -14,7 +14,7 @@ public class ExplosiveProjectile extends WeaponProjectile {
 
     @Override
     public void collision(HitResult hitResult) {
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.level().explode(null, this.getX() + 1D, this.getY() + 1D, this.getZ() + 1D, 3, Level.ExplosionInteraction.NONE);
             this.level().broadcastEntityEvent(this, (byte) 3);
             this.remove(RemovalReason.DISCARDED);

@@ -17,7 +17,7 @@ public class TrapCake extends CakeBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 4, Level.ExplosionInteraction.NONE);
         }
         return super.useWithoutItem(blockState, level, blockPos, player, blockHitResult);
