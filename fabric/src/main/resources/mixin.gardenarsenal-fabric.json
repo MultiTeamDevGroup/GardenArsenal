@@ -1,8 +1,12 @@
 {
   "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
   "mixins": [
   ],
   "client": [
   ],
-  "package": "multiteam.gardenarsenal.fabric.mixin"
+  "package": "multiteam.gardenarsenal.fabric.mixin",
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
