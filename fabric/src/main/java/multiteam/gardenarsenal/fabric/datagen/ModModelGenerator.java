@@ -18,7 +18,7 @@ import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
@@ -68,14 +68,14 @@ public class ModModelGenerator extends FabricModelProvider {
             if (((SkinCardItem) cardEntry.get()).getSkin() == Skins.Default) {
                 ModelTemplates.FLAT_ITEM.create(
                         ModelLocationUtils.getModelLocation(cardEntry.get()),
-                        TextureMapping.layer0(ResourceLocation.fromNamespaceAndPath(GardenArsenal.MOD_ID, "item/skin_card_skinless")),
+                        TextureMapping.layer0(Identifier.fromNamespaceAndPath(GardenArsenal.MOD_ID, "item/skin_card_skinless")),
                         itemModelGenerator.modelOutput
                 );
                 itemModelGenerator.declareCustomModelItem(cardEntry.get());
             } else if (((SkinCardItem) cardEntry.get()).getSkin() == Skins.exclusive_pistols) {
                 ModelTemplates.FLAT_ITEM.create(
                         ModelLocationUtils.getModelLocation(cardEntry.get()),
-                        TextureMapping.layer0(ResourceLocation.fromNamespaceAndPath(GardenArsenal.MOD_ID, "item/skin_card_exclusive_revolver_pistols")),
+                        TextureMapping.layer0(Identifier.fromNamespaceAndPath(GardenArsenal.MOD_ID, "item/skin_card_exclusive_revolver_pistols")),
                         itemModelGenerator.modelOutput
                 );
                 itemModelGenerator.declareCustomModelItem(cardEntry.get());
@@ -123,8 +123,8 @@ public class ModModelGenerator extends FabricModelProvider {
         );
     }
 
-    private static ResourceLocation getVariantLocation(Item item, Skins skin) {
-        ResourceLocation resourceLocation = BuiltInRegistries.ITEM.getKey(item);
-        return resourceLocation.withPrefix("item/skins/" + skin.getSerializedName().replace("_", "/") + "/" + skin.getSerializedName() + "_");
+    private static Identifier getVariantLocation(Item item, Skins skin) {
+        Identifier Identifier = BuiltInRegistries.ITEM.getKey(item);
+        return Identifier.withPrefix("item/skins/" + skin.getSerializedName().replace("_", "/") + "/" + skin.getSerializedName() + "_");
     }
 }

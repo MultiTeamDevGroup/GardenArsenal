@@ -1,8 +1,8 @@
 package multiteam.gardenarsenal.accessor;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public interface GuiGraphicsAccessor {
 
-    void renderGAOverlay(float g, ResourceLocation texture);
+    void renderGAOverlay(float g, Identifier texture);
 }

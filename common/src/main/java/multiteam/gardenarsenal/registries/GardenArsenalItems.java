@@ -28,7 +28,7 @@ public class GardenArsenalItems {
     public static final RegistrySupplier<Item> COCOA_BEANS_SHELL = register("cocoa_beans_shell", (properties) -> new Item(properties.arch$tab(GardenArsenalCreativeModeTabs.MISC)));
     public static final RegistrySupplier<Item> POTATO_GRENADE = register("potato_grenade", (properties) -> new Item(properties.arch$tab(GardenArsenalCreativeModeTabs.MISC)));
     public static final RegistrySupplier<Item> BEETROOT_SMOKE = register("beetroot_smoke", (properties) -> new BeetrootSmoke(properties.arch$tab(GardenArsenalCreativeModeTabs.WEAPONS)));
-    public static final RegistrySupplier<Item> PROJECTILE_CARROT = register("projectile_carrot", (properties) -> new Item(properties));
+    public static final RegistrySupplier<Item> PROJECTILE_CARROT = register("projectile_carrot", Item::new);
 
     public static final RegistrySupplier<Item> CARROT_RIFLE = register("carrot_rifle", (properties) -> new CarrotRifle(properties.durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));
     public static final RegistrySupplier<Item> POTATO_BAZOOKA = register("potato_bazooka", (properties) -> new PotatoBazooka(properties.durability(500).arch$tab(GardenArsenalCreativeModeTabs.WEAPONS).component(GardenArsenalDataComponents.SKIN.get(), Skins.Default)));

@@ -2,7 +2,7 @@ package multiteam.gardenarsenal;
 
 import dev.architectury.event.events.common.LifecycleEvent;
 import multiteam.gardenarsenal.registries.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class GardenArsenal {
     public static final String MOD_ID = "gardenarsenal";
@@ -20,7 +20,7 @@ public class GardenArsenal {
         LifecycleEvent.SERVER_BEFORE_START.register(GardenArsenalStructures::registerStructures);
     }
 
-    public static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    public static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 }

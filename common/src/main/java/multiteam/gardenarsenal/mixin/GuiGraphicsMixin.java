@@ -4,7 +4,7 @@ import com.mojang.blaze3d.pipeline.RenderPipeline;
 import multiteam.gardenarsenal.accessor.GuiGraphicsAccessor;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.RenderPipelines;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -18,10 +18,10 @@ public abstract class GuiGraphicsMixin implements GuiGraphicsAccessor {
 
     @Shadow public abstract void fill(RenderPipeline renderType, int i, int j, int k, int l, int n);
 
-    @Shadow public abstract void blit(RenderPipeline function, ResourceLocation resourceLocation, int i, int j, float f, float g, int k, int l, int m, int n);
+    @Shadow public abstract void blit(RenderPipeline function, Identifier Identifier, int i, int j, float f, float g, int k, int l, int m, int n);
 
     @Override
-    public void renderGAOverlay(float f, ResourceLocation texture) {
+    public void renderGAOverlay(float f, Identifier texture) {
         float g = (float)Math.min(this.guiWidth(), this.guiHeight());
         float i = Math.min((float)this.guiWidth() / g, (float)this.guiHeight() / g) * f;
         int j = Mth.floor(g * i);

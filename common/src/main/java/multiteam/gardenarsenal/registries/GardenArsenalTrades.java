@@ -4,8 +4,8 @@ import dev.architectury.registry.level.entity.trade.TradeRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
 import multiteam.gardenarsenal.utils.RandomTradeBuilder;
 import multiteam.gardenarsenal.utils.SkinRarity;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 
 import java.util.ArrayList;
 import java.util.List;

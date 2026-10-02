@@ -2,7 +2,7 @@ package multiteam.gardenarsenal.utils;
 
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -131,6 +131,6 @@ public class RandomTradeBuilder {
     }
 
     public VillagerTrades.ItemListing build() {
-        return (entity, random) -> !this.canBuild() ? null : new MerchantOffer(this.price.apply(random), this.price2.apply(random), this.forSale.apply(random), this.maxTrades, this.xp, this.priceMult);
+        return (level, entity, random) -> !this.canBuild() ? null : new MerchantOffer(this.price.apply(random), this.price2.apply(random), this.forSale.apply(random), this.maxTrades, this.xp, this.priceMult);
     }
 }

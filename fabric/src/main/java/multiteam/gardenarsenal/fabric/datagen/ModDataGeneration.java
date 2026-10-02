@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class ModDataGeneration implements DataGeneratorEntrypoint {
     @Override
@@ -22,8 +22,8 @@ public class ModDataGeneration implements DataGeneratorEntrypoint {
         pack.addProvider(ModItemTagGenerator::new);
     }
 
-    public static ResourceLocation fromId(ResourceLocation id, String prefix) {
-        return ResourceLocation.fromNamespaceAndPath(id.getNamespace(), prefix + id.getPath());
+    public static Identifier fromId(Identifier id, String prefix) {
+        return Identifier.fromNamespaceAndPath(id.getNamespace(), prefix + id.getPath());
     }
 
     @Override

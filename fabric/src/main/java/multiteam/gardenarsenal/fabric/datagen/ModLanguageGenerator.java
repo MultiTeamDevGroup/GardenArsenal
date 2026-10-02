@@ -8,8 +8,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.decoration.PaintingVariant;
-import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.StringUtils;
 
@@ -178,6 +178,6 @@ public class ModLanguageGenerator extends FabricLanguageProvider {
     }
 
     private String getKey(ResourceKey<PaintingVariant> key) {
-        return "painting." + key.location().toLanguageKey();
+        return "painting." + key.identifier().toLanguageKey();
     }
 }
