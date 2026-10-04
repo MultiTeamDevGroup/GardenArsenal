@@ -3,11 +3,11 @@
 	"textures": {
 		"0": "gardenarsenal:item/projectile_carrot",
 		"1": "gardenarsenal:item/cocoa_beans_shell",
-		"4": "gardenarsenal:block/ammo_crate_bottom",
-		"5": "gardenarsenal:block/ammo_crate_side",
+		"4": "gardenarsenal:item/block/ammo_crate_bottom",
+		"5": "gardenarsenal:item/block/ammo_crate_side",
 		"2_1": "item/potato",
 		"3_0": "item/beetroot",
-		"particle": "gardenarsenal:block/ammo_crate_side"
+		"particle": "gardenarsenal:item/block/ammo_crate_side"
 	},
 	"elements": [
 		{

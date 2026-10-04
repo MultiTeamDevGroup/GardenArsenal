@@ -4,6 +4,11 @@
       "type": "directory",
       "source": "gun",
       "prefix": "gun/"
+    },
+    {
+      "type": "directory",
+      "source": "block/item",
+      "prefix": "block/item/"
     }
   ]
 }
